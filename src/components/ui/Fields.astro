@@ -1,0 +1,13 @@
+---
+import type { ComponentProps } from 'astro/types';
+import Field from './Field.astro';
+
+interface Props extends ComponentProps<typeof Field> {
+  field?: ComponentProps<typeof Field> | undefined;
+  fields?: ComponentProps<typeof Field>[] | undefined;
+}
+
+const { field, fields, ...rest } = Astro.props;
+---
+
+{[field, ...(fields || [])].filter(Boolean).map((field) => <Field {...rest} {...field} />)}

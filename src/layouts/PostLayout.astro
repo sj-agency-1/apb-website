@@ -1,0 +1,15 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import type { ComponentProps, HTMLAttributes } from 'astro/types';
+import Head from '@components/ui/Head.astro';
+
+type Props = Omit<HTMLAttributes<'body'>, 'title'> & {
+  head: ComponentProps<typeof Head>;
+};
+
+const { head, ...rest } = Astro.props;
+---
+
+<BaseLayout {head} {...rest}>
+  <slot />
+</BaseLayout>

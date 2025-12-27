@@ -1,0 +1,61 @@
+---
+import type { ComponentProps } from 'astro/types';
+import { languages } from '@i18n/ui';
+import Element from './Element.astro';
+import Link from './Link.astro';
+
+interface Props {
+  /** current language code (e.g. 'en'|'ru') to mark active item */
+  current?: string | undefined;
+  /** visual size of links */
+  size?: 'sm' | 'md' | 'lg' | undefined;
+}
+
+const { current, size = 'md', ...rest } = Astro.props as Props & ComponentProps<typeof Element>;
+---
+
+<Element class:list="language-picker" as="nav" aria-label="Language picker" {...rest}>
+  <Element as="ul" class="languages" role="list">
+    {
+      Object.entries(languages).map(([lang, label]) => (
+        <Element as="li">
+          <Link href={`/${lang}/`} {size} text={label} aria-current={lang === current ? 'true' : undefined} />
+        </Element>
+      ))
+    }
+  </Element>
+</Element>
+
+<style is:global>
+  @layer ui {
+    .language-picker {
+      @apply flex items-center;
+
+      .languages {
+        @apply flex gap-2 list-none p-0 m-0;
+      }
+
+      .link {
+        @apply inline-flex items-center gap-2 px-2 py-1 rounded transition-colors;
+      }
+
+      /* active/current language visual */
+      .link.current,
+      .link[aria-current='true'] {
+        @apply font-semibold;
+      }
+
+      &.size-sm .link {
+        @apply text-sm;
+      }
+
+      &.size-md .link {
+        @apply text-base;
+      }
+
+      &.size-lg .link {
+        @apply text-lg;
+      }
+    }
+  }
+</style>

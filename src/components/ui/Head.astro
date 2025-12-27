@@ -1,0 +1,42 @@
+---
+import { AstroSeo } from '@astrolib/seo';
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'head'> & {
+  title?: string | undefined;
+  description?: string | undefined;
+  imageSrc?: string | undefined;
+  favicon?: string | undefined;
+  company?: string | undefined;
+  scripts?: string[] | undefined;
+  code?: string | undefined;
+};
+
+const { title, description, imageSrc, code, ...rest } = Astro.props;
+
+const src = imageSrc && Astro.url.origin + imageSrc;
+---
+
+<head {...rest}>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport" />
+  <meta name="generator" content={Astro.generator} />
+  <link rel="canonical" href={Astro.url.href.endsWith('/') ? Astro.url.href : Astro.url.href + '/'} />
+  <AstroSeo
+    title={title ?? ''}
+    description={description ?? ''}
+    openGraph={{
+      title: title ?? '',
+      description: description ?? '',
+      images: [
+        {
+          url: src ?? '',
+          alt: title ?? '',
+        },
+      ],
+    }}
+  />
+
+  <Fragment set:html={code} />
+  <slot />
+</head>

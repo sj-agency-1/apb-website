@@ -1,0 +1,21 @@
+{
+  "extends": "astro/tsconfigs/strictest",
+  "include": ["**/*", ".astro/**/*"],
+  "exclude": ["dist/"],
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "strictNullChecks": true,
+    "verbatimModuleSyntax": true,
+    "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "@i18n/*": ["./src/i18n/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@components/*": ["./src/components/*"],
+      "@consts": ["./src/consts.ts"],
+      "@assets/*": ["./src/assets/*"],
+      "@styles/*": ["./src/styles/*"]
+    }
+  }
+}

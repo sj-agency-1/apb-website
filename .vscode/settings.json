@@ -15,6 +15,14 @@
   "files.associations": {
     "*.agent.md": "chatagent",
     "*.instructions.md": "instructions",
-    "*.prompt.md": "prompt"
-  }
+    "*.prompt.md": "prompt",
+    "*.mdx": "markdown"
+  },
+  "css.customData": ["./vscode.tailwind.json"],
+  "eslint.validate": ["javascript", "javascriptreact", "astro", "typescript", "typescriptreact"],
+  "prettier.documentSelectors": ["**/*.astro"],
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "eslint.useFlatConfig": true
 }

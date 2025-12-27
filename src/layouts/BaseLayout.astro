@@ -1,0 +1,17 @@
+---
+import Layout from '@components/structures/Layout.astro';
+import type { ComponentProps, HTMLAttributes } from 'astro/types';
+import Head from '@components/ui/Head.astro';
+import LanguagePicker from '@components/ui/LanguagePicker.astro';
+
+type Props = Omit<HTMLAttributes<'body'>, 'title'> & {
+  head: ComponentProps<typeof Head>;
+};
+
+const { head, ...rest } = Astro.props;
+---
+
+<Layout {head} {...rest}>
+  <slot />
+  <LanguagePicker />
+</Layout>

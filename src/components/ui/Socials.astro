@@ -1,0 +1,17 @@
+---
+import type { ComponentProps } from 'astro/types';
+import Social from './Social.astro';
+
+interface Props extends ComponentProps<typeof Social> {
+  social?: ComponentProps<typeof Social> | ComponentProps<typeof Social>['href'] | undefined;
+  socials?: (ComponentProps<typeof Social> | ComponentProps<typeof Social>['href'])[] | undefined;
+}
+
+const { social, socials, ...rest } = Astro.props;
+---
+
+{
+  [social, ...(socials || [])]
+    .filter(Boolean)
+    .map((social) => <Social {...rest} {...(typeof social === 'string' ? { href: social } : social)} />)
+}

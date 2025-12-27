@@ -1,0 +1,39 @@
+---
+import Buttons from '@components/ui/Buttons.astro';
+import Heading from '@components/ui/Heading.astro';
+import Image from '@components/ui/Image.astro';
+import Paragraph from '@components/ui/Paragraph.astro';
+import Tagline from '@components/ui/Tagline.astro';
+import type { BlockSchema } from '@components/schemas/block';
+import Container from '@components/structures/Container.astro';
+import Group from '@components/structures/Group.astro';
+import Panel from '@components/structures/Panel.astro';
+import Prose from '@components/structures/Prose.astro';
+import Section from '@components/structures/Section.astro';
+import Split from '@components/structures/Split.astro';
+
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+interface Props extends BlockSchema {}
+
+const { depth, tagline, heading, paragraph, buttons, image, content, ...rest } = Astro.props;
+---
+
+<Section class="cta-2" {...rest}>
+  <Container>
+    <Panel class="p-0">
+      <Split align="center">
+        <Prose class="px-4 sm:px-8 lg:px-16">
+          <Tagline text={tagline} />
+          <Heading size="4xl" text={heading} {depth} />
+          <Paragraph size="lg" text={paragraph} />
+          <Fragment set:html={content} />
+          <slot />
+          <Group>
+            <Buttons size="lg" {buttons} />
+          </Group>
+        </Prose>
+        <Image {...image} />
+      </Split>
+    </Panel>
+  </Container>
+</Section>

@@ -1,0 +1,46 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import Element from './Element.astro';
+import Heading from './Heading.astro';
+import Link from './Link.astro';
+
+interface Props extends HTMLAttributes<'div'> {
+  size?: 'sm' | 'md' | 'lg' | undefined;
+  heading?: string | undefined;
+  links?: LinkProps[] | undefined;
+}
+
+// Same as in [Link](./Link.astro) component
+interface LinkProps extends HTMLAttributes<'a'> {
+  variant?: 'primary' | 'underline' | 'muted' | undefined;
+  size?: 'sm' | 'md' | 'lg' | undefined;
+  text?: string | undefined;
+  icon?: string | undefined;
+  href?: string | undefined;
+}
+
+const { size = 'md', heading, links, ...rest } = Astro.props;
+---
+
+<Element class:list="menu" as="menu" {...rest}>
+  {links && links.length > 0 && <Heading text={heading} as="h6" {size} />}
+  {
+    links?.map((link) => (
+      <Element as="li">
+        <Link {size} {...link} />
+      </Element>
+    ))
+  }
+</Element>
+
+<style is:global>
+  @layer ui {
+    .menu {
+      @apply flex flex-col gap-2;
+
+      .heading {
+        @apply mb-1;
+      }
+    }
+  }
+</style>

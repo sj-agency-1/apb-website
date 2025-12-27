@@ -1,0 +1,37 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import Element from './Element.astro';
+
+interface Props extends HTMLAttributes<'label'> {
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | undefined;
+  muted?: boolean | undefined;
+  text?: string | undefined;
+}
+
+const { size = 'md', text, ...rest } = Astro.props;
+---
+
+<Element class:list="label" as="label" {size} {...rest}>
+  <Fragment set:html={text} />
+  <slot />
+</Element>
+
+<style is:global>
+  @layer ui {
+    .label {
+      @apply font-medium leading-none;
+
+      &.size-sm {
+        @apply text-xs;
+      }
+
+      &.size-md {
+        @apply text-sm;
+      }
+
+      &.size-lg {
+        @apply text-base;
+      }
+    }
+  }
+</style>

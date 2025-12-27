@@ -1,0 +1,50 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import Image from './Image.astro';
+import Element from './Element.astro';
+
+interface Props extends HTMLAttributes<'a'>, HTMLAttributes<'div'> {
+  image?: ImageProps | undefined;
+  size?: 'sm' | 'md' | 'lg' | undefined;
+  text?: string | undefined;
+}
+
+// Same as in [Image](./Image.astro) component
+interface ImageProps extends HTMLAttributes<'img'> {
+  src?: string | undefined;
+  alt?: string | undefined;
+  height?: number | undefined;
+  width?: number | undefined;
+}
+
+const { href = '/', size = 'md', image, text, ...rest } = Astro.props as Props;
+---
+
+<Element class:list="logo" as={href ? 'a' : 'div'} {href} {size} {...rest}>
+  <Image {...image} />
+  <Fragment set:html={text} />
+</Element>
+
+<style is:global>
+  @layer ui {
+    .logo {
+      @apply flex w-auto items-center gap-2 whitespace-nowrap object-contain text-base font-bold leading-none text-foreground;
+
+      .image {
+        @apply h-full w-auto object-contain;
+      }
+
+      &.size-sm {
+        @apply h-6;
+      }
+
+      &.size-md {
+        @apply h-7;
+      }
+
+      &.size-lg {
+        @apply h-8;
+      }
+    }
+  }
+</style>

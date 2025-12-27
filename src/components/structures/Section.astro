@@ -1,0 +1,24 @@
+---
+// Sets vertical padding and some base styles
+
+import type { HTMLAttributes, HTMLTag } from 'astro/types';
+import Element from '../ui/Element.astro';
+
+interface Props extends HTMLAttributes<'section'> {
+  as?: HTMLTag;
+}
+
+const { as = 'section', ...rest } = Astro.props;
+---
+
+<Element class:list="section" {as} {...rest}>
+  <slot />
+</Element>
+
+<style is:global>
+  @layer ui {
+    .section {
+      @apply relative w-full py-20 first:pt-20 lg:py-32;
+    }
+  }
+</style>

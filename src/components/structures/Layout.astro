@@ -1,0 +1,34 @@
+---
+// Sets a head, body and some base styles
+
+import type { ComponentProps, HTMLAttributes } from 'astro/types';
+import Head from '../ui/Head.astro';
+import { getLangFromUrl } from '@i18n/utils';
+
+type Props = Omit<HTMLAttributes<'body'>, 'title'> & {
+  head?: ComponentProps<typeof Head>;
+};
+
+const { head, ...rest } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <Head {...head} />
+  <body {...rest}>
+    <slot />
+    <style is:global>
+      @layer ui {
+        html {
+          @apply w-full font-sans text-base leading-relaxed text-foreground;
+        }
+
+        body {
+          @apply w-full bg-background font-sans text-foreground;
+        }
+      }
+    </style>
+  </body>
+</html>

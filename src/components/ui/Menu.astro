@@ -32,15 +32,3 @@ const { size = 'md', heading, links, ...rest } = Astro.props;
     ))
   }
 </Element>
-
-<style is:global>
-  @layer ui {
-    .menu {
-      @apply flex flex-col gap-2;
-
-      .heading {
-        @apply mb-1;
-      }
-    }
-  }
-</style>

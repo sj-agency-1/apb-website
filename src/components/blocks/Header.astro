@@ -11,13 +11,13 @@ type Props = HeaderProps;
 const { logo, nav, mobileNav1, mobileNav2, action, lang } = Astro.props;
 ---
 
-<header class="header sticky top-0">
-  <div class="container mx-auto px-4 h-20 flex items-center justify-between relative z-50 bg-background">
-    <div class="flex-shrink-0">
+<header class="header sticky top-0 w-full">
+  <div class="w-full px-4 lg:px-8 h-20 flex items-center justify-between relative z-50 bg-background">
+    <div class="shrink-0">
       {logo && <Logo {...logo} />}
     </div>
 
-    <div class="hidden lg:flex flex-grow justify-center">
+    <div class="hidden lg:flex grow justify-center">
       {nav && <HeaderNav links={nav} />}
     </div>
 
@@ -30,13 +30,8 @@ const { logo, nav, mobileNav1, mobileNav2, action, lang } = Astro.props;
     <div class="lg:hidden flex items-center gap-4">
       {
         action && (
-          <Button
-            href={action.href}
-            variant="primary"
-            class="p-2 flex items-center justify-center"
-            aria-label={action.text}
-          >
-            <div class="w-100 h-100 flex items-center justify-center">
+          <Button href={action.href} variant="primary" class="p-2" aria-label={action.text}>
+            <div class="flex items-center justify-center min-w-0">
               <Icon name="user" class="w-6 h-6" />
             </div>
           </Button>
@@ -44,13 +39,13 @@ const { logo, nav, mobileNav1, mobileNav2, action, lang } = Astro.props;
       }
       <Button variant="secondary" class="mobile-menu-toggle p-2" aria-label="Menu">
         <Icon name="menu-2" class="w-6 h-6 icon-menu" />
-        <Icon name="x" class="w-6 h-6 icon-close !hidden" />
+        <Icon name="x" class="w-6 h-6 icon-close hidden!" />
       </Button>
     </div>
   </div>
 
   <!-- Mobile Menu Overlay -->
-  <div class="mobile-menu fixed inset-0 bg-background z-40 pt-24 px-4 pb-8 overflow-y-auto flex flex-col gap-[60px]">
+  <div class="mobile-menu fixed inset-0 bg-background z-40 pt-24 px-4 pb-8 overflow-y-auto flex flex-col gap-15">
     {
       action && (
         <div class="flex justify-center w-full">
@@ -103,49 +98,6 @@ const { logo, nav, mobileNav1, mobileNav2, action, lang } = Astro.props;
     </div>
   </div>
 </header>
-
-<style is:global>
-  .header {
-    background-color: rgb(var(--color-background));
-    color: rgb(var(--color-foreground));
-    z-index: 50;
-    border-bottom: 1px solid rgb(var(--color-border) / 0.1);
-  }
-
-  /* Navigation Styles */
-  .header-nav .link {
-    color: rgb(var(--color-muted-foreground));
-    text-decoration: none;
-    transition: color 0.2s;
-    position: relative;
-  }
-
-  .header-nav .link:hover,
-  .header-nav .link.current {
-    color: white; /* White */
-  }
-
-  .header-nav .link:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-
-  /* Mobile Menu */
-  .mobile-menu {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition:
-      opacity 0.3s ease-in-out,
-      visibility 0.3s ease-in-out;
-  }
-
-  .mobile-menu.open {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
-</style>
 
 <script>
   const header = document.querySelector('.header');

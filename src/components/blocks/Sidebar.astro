@@ -37,26 +37,3 @@ const { tocItems, blogItems, blogTitle, activeId, ctaText = 'Подробнее'
 
   <slot />
 </aside>
-
-<style>
-  .sidebar {
-    @apply flex flex-col gap-6;
-    scrollbar-width: none;
-  }
-
-  .sidebar-card {
-    @apply border-border/50;
-  }
-
-  .sidebar-title {
-    @apply text-sm font-semibold text-heading uppercase tracking-wider mb-4;
-  }
-
-  @media (min-width: 1024px) {
-    .sidebar {
-      position: sticky;
-      top: 6rem;
-      align-self: flex-start;
-    }
-  }
-</style>

@@ -35,37 +35,3 @@ const { chapters, ...rest } = Astro.props;
     )
   }
 </div>
-
-<style>
-  .content {
-    @apply flex flex-col gap-12;
-  }
-
-  .content-chapter {
-    @apply flex flex-col gap-4 scroll-mt-24;
-  }
-
-  .chapter-header {
-    @apply flex flex-col gap-2;
-  }
-
-  .chapter-label {
-    @apply text-sm text-muted-foreground uppercase tracking-wider;
-  }
-
-  .chapter-body {
-    @apply text-foreground leading-relaxed;
-  }
-
-  .chapter-body :global(p) {
-    @apply mb-4;
-  }
-
-  .chapter-body :global(strong) {
-    @apply font-semibold text-heading;
-  }
-
-  .chapter-body :global(a) {
-    @apply text-accent-blue hover:underline;
-  }
-</style>

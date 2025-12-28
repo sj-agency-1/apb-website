@@ -22,23 +22,3 @@ const getIcon = (count: number) => {
 <Element class:list="rating" {...rest}>
   {score && [1, 2, 3, 4, 5].map((count) => <Icon name={getIcon(count)} {size} />)}
 </Element>
-
-<style is:global>
-  @layer ui {
-    .rating {
-      @apply flex gap-1 text-primary;
-    }
-
-    &.size-sm {
-      @apply text-xs;
-    }
-
-    &.size-md {
-      @apply text-sm;
-    }
-
-    &.size-lg {
-      @apply text-base;
-    }
-  }
-</style>

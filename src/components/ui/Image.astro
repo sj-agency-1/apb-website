@@ -21,11 +21,3 @@ const { src, alt = getAltBySrc() ?? '', height = 1920, width = 1920, ...rest } =
 ---
 
 {src && <AstroImage class:list="image" {alt} {src} {width} {height} {...rest} />}
-
-<style is:global>
-  @layer ui {
-    .image {
-      @apply block rounded-md;
-    }
-  }
-</style>

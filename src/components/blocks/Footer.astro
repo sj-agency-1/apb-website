@@ -39,37 +39,3 @@ const { logo, socials, copyright, navGroups } = Astro.props;
     </div>
   </div>
 </footer>
-
-<style>
-  .footer {
-    @apply bg-background border-t border-border py-12 lg:py-16;
-  }
-
-  .footer-content {
-    @apply grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8;
-  }
-
-  .footer-brand {
-    @apply flex flex-col gap-4;
-  }
-
-  .footer-socials {
-    @apply flex gap-2 mt-2;
-  }
-
-  .footer-socials :global(.social) {
-    @apply border border-white rounded-lg transition-colors;
-  }
-
-  .footer-socials :global(.social:hover) {
-    @apply bg-primary border-primary;
-  }
-
-  .footer-copyright {
-    @apply text-xs text-muted-foreground mt-2;
-  }
-
-  .footer-legal-notice {
-    @apply text-xs text-muted-foreground leading-relaxed;
-  }
-</style>

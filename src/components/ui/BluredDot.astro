@@ -41,21 +41,3 @@ const style = [
 ---
 
 <span class:list={['blured-dot', { 'hide-on-mobile': !showOnMobile }]} style={style} aria-hidden="true"></span>
-
-<style>
-  .blured-dot {
-    position: absolute;
-    width: var(--dot-width);
-    height: var(--dot-height);
-    background-color: var(--dot-color);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: var(--dot-z-index);
-    box-shadow: 0 0 var(--dot-shadow-blur) var(--dot-shadow-spread) var(--dot-color);
-    opacity: var(--dot-opacity);
-  }
-
-  .hide-on-mobile {
-    @apply hidden lg:block;
-  }
-</style>

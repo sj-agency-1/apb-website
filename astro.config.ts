@@ -6,9 +6,10 @@ import react from '@astrojs/react';
 import icon from 'astro-icon';
 
 import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import compress from 'astro-compress';
+
+import tailwindcss from '@tailwindcss/vite';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -19,9 +20,6 @@ export default defineConfig({
   integrations: [
     icon(),
     react(),
-    tailwind({
-      applyBaseStyles: false,
-    }),
     sitemap(),
     mdx(),
     compress({
@@ -48,5 +46,7 @@ export default defineConfig({
         '~': path.resolve(__dirname, './src'),
       },
     },
+
+    plugins: [tailwindcss()],
   },
 });

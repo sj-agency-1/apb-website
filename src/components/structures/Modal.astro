@@ -3,14 +3,15 @@ import type { HTMLAttributes } from 'astro/types';
 
 interface Props extends HTMLAttributes<'div'> {
   id: string;
-  size?: 'default' | 'lg';
+  size?: 'default' | 'lg' | 'xl';
 }
 
 const { id, size = 'default', class: className, ...rest } = Astro.props;
 
 const sizes = {
   default: 'max-w-md',
-  lg: 'max-w-2xl',
+  lg: 'max-w-3xl', // 768px
+  xl: 'max-w-4xl',
 };
 ---
 
@@ -38,44 +39,6 @@ const sizes = {
     </div>
   </div>
 </div>
-
-<style is:global>
-  .modal {
-    @apply fixed inset-0 z-50 flex items-center justify-center p-4;
-    @apply opacity-0 pointer-events-none;
-    transition: opacity 0.2s ease-out;
-  }
-
-  .modal.is-open {
-    @apply opacity-100 pointer-events-auto;
-  }
-
-  .modal-backdrop {
-    @apply absolute inset-0 bg-black/70 backdrop-blur-md;
-  }
-
-  .modal-container {
-    @apply relative z-10 w-full;
-    @apply bg-card rounded-2xl p-6 md:p-8;
-    @apply transform scale-95;
-    transition: transform 0.2s ease-out;
-  }
-
-  .modal.is-open .modal-container {
-    @apply scale-100;
-  }
-
-  .modal-close {
-    @apply absolute top-5 right-5;
-    @apply flex items-center justify-center w-10 h-10 rounded-lg;
-    @apply text-muted-foreground/50 hover:text-foreground hover:bg-black/10;
-    @apply transition-colors cursor-pointer;
-  }
-
-  .modal-content {
-    @apply w-full;
-  }
-</style>
 
 <script>
   declare global {

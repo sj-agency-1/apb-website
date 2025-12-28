@@ -18,23 +18,3 @@ const { size = 'md', ...rest } = Astro.props;
   ]}
   {...rest}
 />
-
-<style is:global>
-  @layer ui {
-    .avatar {
-      @apply !rounded-full object-cover;
-
-      &.size-sm {
-        @apply h-9 w-9;
-      }
-
-      &.size-md {
-        @apply h-10 w-10;
-      }
-
-      &.size-lg {
-        @apply h-11 w-11;
-      }
-    }
-  }
-</style>

@@ -19,18 +19,6 @@ const lang = getLangFromUrl(Astro.url);
   <Head {...head} />
   <body {...rest}>
     <slot />
-    <style is:global>
-      @layer ui {
-        html {
-          @apply w-full font-sans text-base leading-relaxed text-foreground;
-          scroll-behavior: smooth;
-        }
-
-        body {
-          @apply w-full bg-background font-sans text-foreground;
-        }
-      }
-    </style>
     <script>
       // Smooth scroll with offset for sticky header
       function initSmoothScroll() {

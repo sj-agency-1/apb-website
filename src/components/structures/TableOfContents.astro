@@ -33,40 +33,6 @@ const { items, activeId } = Astro.props;
   </ul>
 </nav>
 
-<style>
-  .table-of-contents {
-    @apply w-full;
-  }
-
-  .toc-list {
-    @apply flex flex-col gap-0 list-none p-0 m-0;
-  }
-
-  .toc-item {
-    @apply border-l-4 border-transparent transition-colors duration-200 rounded-sm;
-  }
-
-  .toc-item:has(.toc-link.active) {
-    @apply border-l-4 border-primary;
-  }
-
-  .toc-link {
-    @apply flex flex-col gap-0.5 py-3 px-4 transition-colors hover:bg-secondary/50;
-  }
-
-  .toc-link.active {
-    @apply bg-secondary/30;
-  }
-
-  .toc-chapter {
-    @apply text-xs text-muted-foreground uppercase tracking-wider;
-  }
-
-  .toc-text {
-    @apply text-heading font-semibold text-sm leading-snug;
-  }
-</style>
-
 <script>
   function initTocHighlight() {
     const tocNav = document.querySelector('[data-toc]');

@@ -22,7 +22,7 @@ Preparation phase
   - [x] Content
   - [x] Section
 
-- [ ] Create pages
+- [x] Create pages
   - [x] Home
   - [x] How It Works
   - [x] About
@@ -57,3 +57,6 @@ Preparation phase
   - [x] Add 404
 
 - [x] Add docs for later use
+
+- [ ] Fix prod website
+  - [ ] Update tailwindcss approach to use (move layers in style attribyte of components to no-layer in separate file) - quick fix for now to make website working

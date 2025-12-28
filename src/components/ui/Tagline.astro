@@ -15,31 +15,3 @@ const { text, ...rest } = Astro.props;
   <Fragment set:html={text} />
   <slot />
 </Element>
-
-<style is:global>
-  @layer ui {
-    .tagline {
-      @apply font-medium text-primary;
-
-      &.size-xs {
-        @apply text-xs leading-tight;
-      }
-
-      &.size-sm {
-        @apply text-sm leading-tight;
-      }
-
-      &.size-md {
-        @apply text-base leading-tight;
-      }
-
-      &.size-lg {
-        @apply text-lg leading-tight;
-      }
-
-      &.size-xl {
-        @apply text-xl leading-tight;
-      }
-    }
-  }
-</style>

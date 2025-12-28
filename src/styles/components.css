@@ -1,0 +1,1834 @@
+/* Component styles - migrated from Astro component style tags */
+/* This file contains all the component-level styles that were previously in <style> tags */
+
+/* ============================================
+   ICON COMPONENT
+   ============================================ */
+.icon {
+  @apply inline-flex h-[1em] w-[1em];
+
+  * {
+    stroke-width: 1.6;
+  }
+
+  &.size-sm {
+    @apply text-lg;
+  }
+
+  &.size-md {
+    @apply text-xl;
+  }
+
+  &.size-lg {
+    @apply text-2xl;
+  }
+}
+
+/* ============================================
+   BUTTON COMPONENT
+   ============================================ */
+.button {
+  @apply inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium leading-none transition-colors;
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  @apply disabled:pointer-events-none disabled:opacity-50;
+
+  &.size-sm {
+    @apply h-9 min-h-9 min-w-9 px-3 text-sm;
+  }
+
+  &.size-md {
+    @apply h-11 min-h-11 min-w-11 px-5 text-base;
+  }
+
+  &.size-lg {
+    @apply h-12 min-h-12 min-w-12 px-6 text-lg;
+  }
+
+  &.variant-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary-hover;
+  }
+
+  &.variant-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary-hover;
+  }
+
+  &.variant-outline {
+    @apply border border-primary bg-transparent text-white hover:bg-primary hover:text-primary-foreground;
+  }
+
+  &.variant-ghost {
+    @apply bg-transparent text-foreground hover:bg-secondary;
+  }
+
+  &.variant-flat {
+    @apply bg-primary/15 text-primary hover:bg-primary/25;
+  }
+
+  .icon {
+    @apply first:last:absolute;
+  }
+
+  span {
+    @apply text-inherit;
+  }
+
+  &.reverse {
+    .icon {
+      @apply order-last;
+    }
+  }
+}
+
+/* ============================================
+   BADGE COMPONENT
+   ============================================ */
+.badge {
+  @apply inline-flex h-6 items-center justify-center whitespace-nowrap rounded-full px-2.5 text-xs font-medium leading-none ring-offset-background;
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  @apply disabled:pointer-events-none disabled:opacity-50;
+
+  &.size-sm {
+    @apply h-6 min-w-6 px-2;
+  }
+
+  &.size-md {
+    @apply h-7 min-w-7 px-3;
+  }
+
+  &.size-lg {
+    @apply h-8 min-w-8 px-3.5;
+  }
+
+  &.variant-primary {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  &.variant-secondary {
+    @apply bg-secondary text-secondary-foreground;
+  }
+
+  &.variant-outline {
+    @apply border border-input text-accent-foreground;
+  }
+}
+
+/* ============================================
+   CARD COMPONENT
+   ============================================ */
+.card {
+  @apply rounded-2xl;
+
+  &.card-has-dots {
+    @apply relative overflow-hidden;
+  }
+
+  &.card-blur {
+    @apply bg-card/80 backdrop-blur-sm;
+  }
+
+  &.variant-default {
+    @apply bg-card text-card-foreground;
+  }
+
+  &.variant-gradient {
+    @apply border border-border bg-linear-to-br from-secondary to-background;
+  }
+
+  &.variant-outline {
+    @apply border border-border bg-transparent;
+  }
+
+  &.variant-cta {
+    @apply bg-linear-to-r from-accent/80 to-accent/40 text-white;
+  }
+
+  &.size-sm {
+    @apply p-4;
+  }
+
+  &.size-md {
+    @apply p-6;
+  }
+
+  &.size-lg {
+    @apply p-8;
+  }
+
+  &.direction-row {
+    @apply flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6;
+  }
+
+  &.direction-column {
+    @apply flex flex-col gap-4;
+  }
+}
+
+/* ============================================
+   HEADING COMPONENT
+   ============================================ */
+.heading,
+.prose > :is(h1, h2, h3, h4, h5, h6) {
+  @apply scroll-mt-20 font-bold tracking-tight text-heading font-heading;
+
+  code {
+    @apply rounded-sm bg-muted px-1 py-0.5 font-mono;
+  }
+
+  &.size-xs {
+    @apply text-xs;
+  }
+
+  &.size-sm {
+    @apply text-sm;
+  }
+
+  &:where(.prose > h6),
+  &.size-md {
+    @apply text-base;
+  }
+
+  &:where(.prose > h5),
+  &.size-lg {
+    @apply text-lg;
+  }
+
+  &:where(.prose > h4),
+  &.size-xl {
+    @apply text-xl;
+  }
+
+  &:where(.prose > h3),
+  &.size-2xl {
+    @apply text-2xl;
+  }
+
+  &:where(.prose > h2),
+  &.size-3xl {
+    @apply text-3xl;
+  }
+
+  &.size-4xl {
+    @apply text-4xl;
+  }
+
+  &:where(.prose > h1),
+  &.size-5xl {
+    @apply text-4xl lg:text-5xl;
+  }
+
+  &.size-6xl {
+    @apply text-5xl lg:text-6xl;
+  }
+}
+
+/* ============================================
+   PARAGRAPH COMPONENT
+   ============================================ */
+.paragraph,
+.prose-content p {
+  @apply text-foreground;
+
+  &.muted {
+    @apply text-muted-foreground;
+  }
+
+  &.size-xs {
+    @apply text-xs leading-relaxed;
+  }
+
+  &.size-sm {
+    @apply text-sm leading-relaxed;
+  }
+
+  &.size-md {
+    @apply text-base leading-relaxed;
+  }
+
+  &.size-lg {
+    @apply text-lg leading-relaxed;
+  }
+
+  &.size-xl {
+    @apply text-xl leading-relaxed;
+  }
+}
+
+/* ============================================
+   TAGLINE COMPONENT
+   ============================================ */
+.tagline {
+  @apply font-medium text-primary;
+
+  &.size-xs {
+    @apply text-xs leading-tight;
+  }
+
+  &.size-sm {
+    @apply text-sm leading-tight;
+  }
+
+  &.size-md {
+    @apply text-base leading-tight;
+  }
+
+  &.size-lg {
+    @apply text-lg leading-tight;
+  }
+
+  &.size-xl {
+    @apply text-xl leading-tight;
+  }
+}
+
+/* ============================================
+   LABEL COMPONENT
+   ============================================ */
+.label {
+  @apply font-medium leading-none;
+
+  &.size-sm {
+    @apply text-xs;
+  }
+
+  &.size-md {
+    @apply text-sm;
+  }
+
+  &.size-lg {
+    @apply text-base;
+  }
+}
+
+/* ============================================
+   INPUT COMPONENT
+   ============================================ */
+.input-input {
+  @apply flex w-full rounded-lg border border-border bg-background text-sm text-foreground;
+  @apply file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground;
+  @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  @apply disabled:pointer-events-none disabled:opacity-50;
+  @apply [[readonly]]:pointer-events-none;
+}
+
+.input {
+  @apply relative flex flex-col gap-1.5;
+
+  .icon {
+    @apply pointer-events-none absolute;
+  }
+
+  &.size-sm {
+    @apply gap-1;
+
+    .input-input {
+      @apply h-9 px-2.5 py-1.5 text-xs;
+    }
+
+    .icon {
+      @apply bottom-2 right-2;
+    }
+
+    .icon + .input-input {
+      @apply pr-9;
+    }
+  }
+
+  &.size-md {
+    @apply gap-1.5;
+
+    .input-input {
+      @apply h-10 px-3 py-2 text-sm;
+    }
+
+    .icon {
+      @apply bottom-2.5 right-2.5;
+    }
+
+    .icon + .input-input {
+      @apply pr-10;
+    }
+  }
+
+  &.size-lg {
+    @apply gap-2;
+
+    .input-input {
+      @apply h-12 px-3.5 py-2.5 text-base;
+    }
+
+    .icon {
+      @apply bottom-3.5 right-3.5;
+    }
+
+    .icon + .input-input {
+      @apply pr-11;
+    }
+  }
+}
+
+/* ============================================
+   TEXTAREA COMPONENT
+   ============================================ */
+.textarea {
+  @apply relative flex flex-col gap-1.5;
+
+  .textarea-textarea {
+    @apply flex w-full resize-y rounded-lg border border-border bg-background text-sm;
+    @apply file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+    @apply [[readonly]]:pointer-events-none;
+  }
+
+  &.size-sm {
+    @apply gap-1;
+
+    .textarea-textarea {
+      @apply min-h-9 px-2.5 py-1.5 text-xs;
+    }
+  }
+
+  &.size-md {
+    @apply gap-1.5;
+
+    .textarea-textarea {
+      @apply min-h-10 px-3 py-2 text-sm;
+    }
+  }
+
+  &.size-lg {
+    @apply gap-2;
+
+    .textarea-textarea {
+      @apply min-h-12 px-3.5 py-2.5 text-base;
+    }
+  }
+}
+
+/* ============================================
+   LINK COMPONENT
+   ============================================ */
+.link,
+.prose-content > *:not(.prose-footer) > a {
+  @apply cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+
+  &.variant-primary,
+  &:is(.prose-content > *:not(.prose-footer) > a) {
+    @apply text-primary underline underline-offset-4;
+  }
+
+  &.variant-underline {
+    @apply underline underline-offset-4;
+  }
+
+  &.variant-muted {
+    @apply text-muted-foreground hover:text-foreground;
+
+    &.current {
+      @apply text-white;
+    }
+  }
+
+  &.size-sm {
+    @apply text-sm;
+  }
+
+  &.size-md {
+    @apply text-base;
+  }
+
+  &.size-lg {
+    @apply text-lg;
+  }
+
+  .icon {
+    @apply mb-0.5;
+  }
+}
+
+/* ============================================
+   LIST COMPONENT
+   ============================================ */
+.list,
+.prose :is(ul, ol) {
+  @apply pl-4;
+
+  &:is(ul) {
+    @apply list-disc;
+  }
+
+  ul {
+    @apply ml-5 mt-2 list-disc;
+  }
+
+  &:is(ol) {
+    @apply list-decimal;
+  }
+
+  ol {
+    @apply ml-5 mt-2 list-decimal;
+  }
+
+  li {
+    @apply mt-2 first:mt-0;
+  }
+
+  &.size-sm,
+  &:where(.size-sm &) {
+    @apply text-sm;
+
+    .icon {
+      @apply mt-0;
+    }
+  }
+
+  &.size-lg,
+  &:where(.size-lg &) {
+    @apply text-lg;
+
+    .icon {
+      @apply mt-1;
+    }
+  }
+
+  &.muted {
+    @apply text-muted-foreground;
+  }
+
+  .icon {
+    @apply -ml-5 mt-0.5 shrink-0 text-inherit;
+  }
+
+  &.has-icon {
+    @apply ml-0 list-none;
+
+    li {
+      @apply flex gap-2;
+    }
+  }
+}
+
+/* ============================================
+   LOGO COMPONENT
+   ============================================ */
+.logo {
+  @apply flex w-auto items-center gap-2 whitespace-nowrap object-contain text-base font-bold leading-none text-foreground;
+
+  .image {
+    @apply h-10 w-10 object-contain;
+  }
+
+  &.size-sm {
+    @apply h-6;
+  }
+
+  &.size-md {
+    @apply h-10;
+  }
+
+  &.size-lg {
+    @apply h-10;
+  }
+}
+
+/* ============================================
+   MENU COMPONENT
+   ============================================ */
+.menu {
+  @apply flex flex-col gap-2;
+
+  .heading {
+    @apply mb-1;
+  }
+}
+
+/* ============================================
+   ACCORDION COMPONENT
+   ============================================ */
+.accordion {
+  @apply flex flex-col gap-3;
+}
+
+.accordion-item {
+  @apply overflow-hidden rounded-xl bg-secondary;
+
+  &[open] {
+    .accordion-icon {
+      @apply rotate-180;
+    }
+
+    .accordion-content {
+      @apply grid-rows-[1fr] opacity-100;
+    }
+  }
+}
+
+.accordion-trigger {
+  @apply flex w-full cursor-pointer list-none items-center justify-between gap-4 p-5 text-left font-medium text-heading transition-colors hover:bg-secondary-hover;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
+.accordion-title {
+  @apply text-base font-medium;
+}
+
+.accordion-icon {
+  @apply shrink-0 text-muted-foreground transition-transform duration-300 ease-in-out;
+}
+
+.accordion-content {
+  @apply grid grid-rows-[0fr] opacity-0 transition-all duration-300 ease-in-out;
+}
+
+.accordion-content-inner {
+  @apply overflow-hidden px-5 pb-0;
+}
+
+.accordion-item[open] .accordion-content-inner {
+  @apply pb-5;
+}
+
+.accordion-content p {
+  @apply leading-relaxed text-foreground;
+}
+
+/* ============================================
+   AVATAR COMPONENT
+   ============================================ */
+.avatar {
+  @apply rounded-full object-cover;
+
+  &.size-sm {
+    @apply h-9 w-9;
+  }
+
+  &.size-md {
+    @apply h-10 w-10;
+  }
+
+  &.size-lg {
+    @apply h-11 w-11;
+  }
+}
+
+/* ============================================
+   CHANNEL COMPONENT
+   ============================================ */
+.channel {
+  @apply flex gap-3;
+
+  .channel-content {
+    @apply flex flex-col text-muted-foreground;
+
+    .heading {
+      @apply leading-snug;
+    }
+  }
+
+  &.size-sm {
+    @apply gap-2;
+
+    .channel-content {
+      @apply text-xs leading-tight;
+    }
+  }
+
+  &.size-md {
+    @apply gap-2.5;
+
+    .channel-content {
+      @apply text-sm leading-tight;
+    }
+  }
+
+  &.size-lg {
+    @apply gap-3;
+
+    .channel-content {
+      @apply text-base leading-tight;
+    }
+  }
+}
+
+/* ============================================
+   CHECKBOX COMPONENT
+   ============================================ */
+.checkbox {
+  @apply relative flex items-center gap-2;
+
+  .checkbox-input {
+    @apply size-[1em] cursor-pointer rounded-sm border border-primary bg-transparent accent-primary;
+    @apply appearance-none border border-primary bg-background checked:bg-primary;
+  }
+
+  .icon.checkbox-icon {
+    @apply absolute bg-transparent p-0.5 text-background;
+
+    * {
+      stroke-width: 3.5px !important;
+    }
+  }
+
+  &.size-sm {
+    .checkbox-input,
+    .icon.checkbox-icon {
+      @apply size-3.5;
+    }
+  }
+
+  &.size-md {
+    .checkbox-input,
+    .checkbox-icon {
+      @apply size-4;
+    }
+  }
+
+  &.size-lg {
+    .checkbox-input,
+    .checkbox-icon {
+      @apply size-4.5;
+    }
+  }
+}
+
+/* ============================================
+   FORM COMPONENT
+   ============================================ */
+.form {
+  @apply flex w-full max-w-3xl flex-col gap-4;
+}
+
+/* ============================================
+   IMAGE COMPONENT
+   ============================================ */
+.image {
+  @apply block rounded-md;
+}
+
+/* ============================================
+   PROOF COMPONENT
+   ============================================ */
+.proof {
+  @apply flex items-center;
+
+  > .avatar {
+    @apply -mr-5 last-of-type:mr-2;
+  }
+
+  .proof-segment {
+    @apply flex flex-col gap-1;
+  }
+}
+
+/* ============================================
+   RATING COMPONENT
+   ============================================ */
+.rating {
+  @apply flex gap-1 text-primary;
+
+  &.size-sm {
+    @apply text-xs;
+  }
+
+  &.size-md {
+    @apply text-sm;
+  }
+
+  &.size-lg {
+    @apply text-base;
+  }
+}
+
+/* ============================================
+   SELECT COMPONENT
+   ============================================ */
+.select {
+  @apply relative flex flex-col gap-1.5;
+
+  .icon {
+    @apply pointer-events-none absolute;
+  }
+
+  .select-select {
+    @apply flex w-full appearance-none rounded-lg border border-border bg-background pr-10 text-sm;
+    @apply file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+    @apply [[readonly]]:pointer-events-none;
+  }
+
+  &.size-sm {
+    .select-select {
+      @apply h-9 px-2.5 py-1.5 pr-9 text-xs;
+    }
+
+    .icon {
+      @apply bottom-2 right-2;
+    }
+  }
+
+  &.size-md {
+    .select-select {
+      @apply h-10 px-3 py-2 pr-10 text-sm;
+    }
+
+    .icon {
+      @apply bottom-2.5 right-2.5;
+    }
+  }
+
+  &.size-lg {
+    .select-select {
+      @apply h-12 px-3.5 py-2.5 pr-11 text-base;
+    }
+
+    .icon {
+      @apply bottom-3.5 right-3.5;
+    }
+  }
+}
+
+/* ============================================
+   SWITCH COMPONENT
+   ============================================ */
+.switch {
+  @apply flex items-center gap-2;
+
+  .switch-input {
+    @apply hidden opacity-0;
+  }
+
+  .switch-mark {
+    @apply relative block cursor-pointer rounded-full bg-input transition;
+
+    &::before {
+      @apply block h-full w-1/2 rounded-full border-2 border-input bg-background transition content-[''];
+    }
+  }
+
+  .switch-input:checked ~ .switch-mark {
+    @apply bg-primary;
+
+    &::before {
+      @apply translate-x-full border-primary;
+    }
+  }
+
+  &.size-sm {
+    .switch-mark {
+      @apply h-5 w-10;
+    }
+  }
+
+  &.size-md {
+    .switch-mark {
+      @apply h-6 w-12;
+    }
+  }
+
+  &.size-lg {
+    .switch-mark {
+      @apply h-7 w-14;
+    }
+  }
+}
+
+/* ============================================
+   TABLE COMPONENT
+   ============================================ */
+.table {
+  @apply overflow-x-auto rounded-lg shadow-[0_0_0_1px_rgb(var(--color-border))];
+
+  table {
+    @apply m-0 w-full table-auto border-collapse whitespace-nowrap;
+
+    thead {
+      @apply border-b border-border bg-secondary;
+
+      th {
+        @apply font-medium text-heading;
+      }
+    }
+
+    tbody {
+      @apply bg-background;
+    }
+
+    tfoot {
+      @apply border-t border-border bg-secondary text-heading;
+    }
+
+    tr + tr {
+      @apply border-t border-border;
+    }
+
+    th,
+    td {
+      @apply p-3 text-left align-middle text-sm;
+    }
+  }
+}
+
+/* ============================================
+   THEMER COMPONENT
+   ============================================ */
+.themer {
+  @apply relative px-0;
+
+  .themer-select {
+    @apply absolute inset-0 cursor-pointer appearance-none opacity-0;
+  }
+}
+
+html.dark .themer-light-icon {
+  display: none;
+}
+
+html:not(.dark) .themer-dark-icon {
+  display: none;
+}
+
+/* ============================================
+   TOOLTIP COMPONENT
+   ============================================ */
+.tooltip {
+  @apply relative;
+
+  &:hover {
+    .tooltip-text {
+      @apply opacity-100;
+    }
+  }
+
+  .tooltip-text {
+    @apply absolute z-10 w-full rounded-xl border border-border bg-card px-3 py-1.5 opacity-0;
+
+    &.transition {
+      @apply transition-all duration-150 ease-in-out;
+    }
+
+    &.placeTop {
+      @apply bottom-[120%];
+    }
+
+    &.placeRight {
+      @apply left-[120%] top-0;
+    }
+
+    &.placeLeft {
+      @apply right-[120%] top-0;
+    }
+
+    &.placeBottom {
+      @apply top-[120%];
+    }
+  }
+}
+
+/* ============================================
+   BLURED DOT COMPONENT
+   ============================================ */
+.blured-dot {
+  @apply pointer-events-none absolute rounded-full;
+  width: var(--dot-width);
+  height: var(--dot-height);
+  background-color: var(--dot-color);
+  z-index: var(--dot-z-index);
+  box-shadow: 0 0 var(--dot-shadow-blur) var(--dot-shadow-spread) var(--dot-color);
+  opacity: var(--dot-opacity);
+}
+
+.blured-dot.hide-on-mobile {
+  @apply hidden lg:block;
+}
+
+/* ============================================
+   MAIN LAYOUT
+   ============================================ */
+main {
+  @apply min-h-[50vh];
+}
+
+/* ============================================
+   HEADER COMPONENT
+   ============================================ */
+.header {
+  background-color: rgb(var(--color-background));
+  color: rgb(var(--color-foreground));
+  z-index: 50;
+  border-bottom: 1px solid rgb(var(--color-border) / 0.1);
+}
+
+.header-nav .link {
+  color: rgb(var(--color-muted-foreground));
+  text-decoration: none;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.header-nav .link:hover,
+.header-nav .link.current {
+  color: white;
+}
+
+.header-nav .link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.mobile-menu {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.3s ease-in-out,
+    visibility 0.3s ease-in-out;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* ============================================
+   FOOTER COMPONENT
+   ============================================ */
+.footer {
+  @apply border-t border-border bg-background py-12 lg:py-16;
+}
+
+.footer-content {
+  @apply grid grid-cols-1 gap-12 lg:grid-cols-3 lg:gap-8;
+}
+
+.footer-brand {
+  @apply flex flex-col gap-4;
+}
+
+.footer-socials {
+  @apply mt-2 flex gap-2;
+}
+
+.footer-socials .social {
+  @apply rounded-lg border border-white transition-colors;
+}
+
+.footer-socials .social:hover {
+  @apply border-primary bg-primary text-black;
+}
+
+.footer-copyright {
+  @apply mt-2 text-xs text-muted-foreground;
+}
+
+.footer-legal-notice {
+  @apply text-xs leading-relaxed text-muted-foreground;
+}
+
+/* ============================================
+   HERO COMPONENT
+   ============================================ */
+.hero {
+  @apply relative overflow-hidden;
+}
+
+.hero-home {
+  @apply h-70 lg:h-95;
+}
+
+.hero-page {
+  @apply flex items-center py-8;
+}
+
+.hero-background {
+  @apply absolute inset-0 z-0;
+}
+
+.hero-background .image {
+  @apply h-full w-full object-cover opacity-60;
+}
+
+.hero-home-content {
+  @apply relative flex h-full items-center;
+}
+
+.hero-slot-content {
+  @apply relative z-20 flex w-full flex-col justify-center lg:w-1/2;
+}
+
+.hero-globus {
+  @apply pointer-events-none absolute z-10 hidden lg:block;
+  top: 20px;
+  right: -100px;
+}
+
+.hero-globus .image {
+  @apply h-137.5 w-137.5 object-contain;
+}
+
+.hero-page-content {
+  @apply grid w-full grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12;
+}
+
+.hero-text {
+  @apply flex flex-col gap-4 lg:gap-6;
+}
+
+.hero-text .heading {
+  @apply leading-tight;
+}
+
+.hero-cta {
+  @apply mt-4;
+}
+
+.hero-image {
+  @apply flex justify-center lg:justify-end;
+}
+
+.hero-image .image {
+  @apply h-auto max-h-100 max-w-full object-contain lg:max-h-125;
+}
+
+/* ============================================
+   PREFOOTER COMPONENT
+   ============================================ */
+.prefooter {
+  @apply relative overflow-hidden;
+  height: 280px;
+}
+
+@media (min-width: 1024px) {
+  .prefooter {
+    height: 380px;
+  }
+}
+
+.prefooter-background {
+  @apply absolute inset-0 z-0;
+}
+
+.prefooter-background .image {
+  @apply h-full w-full object-cover opacity-50;
+}
+
+.prefooter-content {
+  @apply relative z-10 flex h-full flex-col items-start justify-center gap-6;
+}
+
+.prefooter-text {
+  @apply flex max-w-2xl flex-col gap-3;
+}
+
+.prefooter-action {
+  @apply flex flex-row items-start gap-3;
+}
+
+.prefooter-subtext {
+  @apply text-sm text-muted-foreground;
+}
+
+.prefooter-button {
+  @apply bg-white text-black hover:bg-white/90;
+}
+
+/* ============================================
+   SECTION COMPONENT
+   ============================================ */
+.section {
+  @apply relative;
+}
+
+.section.section-has-dots {
+  overflow: clip;
+}
+
+.section.size-sm {
+  @apply py-4 lg:py-6;
+}
+
+.section.size-md {
+  @apply py-6 lg:py-10;
+}
+
+.section.size-lg {
+  @apply py-8 lg:py-14;
+}
+
+.section.variant-default {
+  @apply bg-background;
+}
+
+.section.variant-dark {
+  @apply bg-secondary/30;
+}
+
+.section.variant-gradient {
+  @apply bg-linear-to-b from-background to-secondary/20;
+}
+
+.section-header {
+  @apply mb-8 flex flex-col gap-3 text-center lg:mb-12;
+}
+
+/* ============================================
+   CONTENT COMPONENT
+   ============================================ */
+.content {
+  @apply flex flex-col gap-12;
+}
+
+.content-chapter {
+  @apply flex scroll-mt-24 flex-col gap-4;
+}
+
+.chapter-header {
+  @apply flex flex-col gap-2;
+}
+
+.chapter-label {
+  @apply text-sm uppercase tracking-wider text-muted-foreground;
+}
+
+.chapter-body {
+  @apply leading-relaxed text-foreground;
+}
+
+.chapter-body p {
+  @apply mb-4;
+}
+
+.chapter-body strong {
+  @apply font-semibold text-heading;
+}
+
+.chapter-body a {
+  @apply text-accent-blue hover:underline;
+}
+
+/* ============================================
+   SIDEBAR COMPONENT
+   ============================================ */
+.sidebar {
+  @apply flex flex-col gap-6;
+  scrollbar-width: none;
+}
+
+.sidebar-card {
+  @apply border-border/50;
+}
+
+.sidebar-title {
+  @apply mb-4 text-sm font-semibold uppercase tracking-wider text-heading;
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    position: sticky;
+    top: 6rem;
+    align-self: flex-start;
+  }
+}
+
+/* ============================================
+   BLOGLIST COMPONENT
+   ============================================ */
+.blog-list {
+  @apply flex flex-col gap-4;
+}
+
+.blog-item {
+  @apply flex flex-col gap-3 overflow-hidden rounded-xl transition-all;
+}
+
+.variant-compact .blog-item {
+  @apply flex-row items-center gap-4 p-2 hover:bg-secondary/50;
+}
+
+.variant-vertical .blog-item {
+  @apply flex-col gap-3;
+}
+
+.blog-image {
+  @apply block aspect-video w-full overflow-hidden rounded-lg;
+}
+
+.variant-compact .blog-image {
+  @apply h-16 w-24 shrink-0;
+}
+
+.variant-vertical .blog-image {
+  @apply aspect-video w-full;
+}
+
+.blog-image .image {
+  @apply h-full w-full object-cover transition-transform hover:scale-105;
+}
+
+.blog-content {
+  @apply flex flex-col gap-2;
+}
+
+.variant-compact .blog-content {
+  @apply p-0;
+}
+
+.variant-vertical .blog-content {
+  @apply gap-3;
+}
+
+.blog-title {
+  @apply text-sm font-semibold leading-snug text-heading;
+}
+
+.blog-description {
+  @apply line-clamp-2 text-xs text-muted-foreground;
+}
+
+.blog-cta {
+  @apply mt-1 w-fit;
+}
+
+/* ============================================
+   BREADCRUMBS COMPONENT
+   ============================================ */
+.breadcrumbs {
+  @apply py-4;
+}
+
+.breadcrumbs-list {
+  @apply flex flex-wrap items-center gap-1 text-sm;
+}
+
+.breadcrumbs-item {
+  @apply flex items-center gap-1;
+}
+
+.breadcrumbs-link {
+  @apply text-muted-foreground transition-colors hover:text-foreground;
+}
+
+.breadcrumbs-current {
+  @apply font-medium text-foreground;
+}
+
+.breadcrumbs-separator {
+  @apply mx-1 text-muted-foreground/50;
+}
+
+/* ============================================
+   FOOTERNAV COMPONENT
+   ============================================ */
+.footer-nav {
+  @apply contents;
+}
+
+.nav-group {
+  @apply m-0 flex list-none flex-col gap-3 p-0;
+}
+
+/* ============================================
+   HEADERNAV COMPONENT
+   ============================================ */
+.header-nav .list {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+/* ============================================
+   LAUNCHSTEPS COMPONENT
+   ============================================ */
+.launch-steps {
+  @apply relative flex flex-col gap-0;
+  padding-block: 2rem;
+}
+
+.timeline-line {
+  @apply absolute bottom-0 left-1/2 top-0 hidden w-px -translate-x-1/2 bg-muted lg:block;
+}
+
+.launch-step {
+  @apply relative flex items-center;
+  min-height: 140px;
+}
+
+.timeline-dot {
+  @apply absolute left-1/2 top-1/2 z-10 hidden h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent lg:block;
+}
+
+.cta-dot {
+  @apply bg-white;
+}
+
+.step-content {
+  @apply flex w-full items-start gap-4 rounded-2xl border border-border/30 bg-linear-to-br from-secondary/60 to-transparent p-5 lg:w-[calc(50%-2rem)];
+}
+
+.step-content-cta {
+  @apply flex w-full flex-col items-start justify-between gap-4 rounded-2xl bg-primary p-6 lg:w-[calc(50%-2rem)] lg:flex-row lg:items-center;
+}
+
+.launch-step.left .step-content,
+.launch-step.left .step-content-cta {
+  @apply lg:mr-auto;
+}
+
+.launch-step.right .step-content,
+.launch-step.right .step-content-cta {
+  @apply lg:ml-auto;
+}
+
+.step-icon {
+  @apply flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-secondary;
+}
+
+.step-icon .image {
+  @apply h-8 w-8 object-contain;
+}
+
+.step-text {
+  @apply flex flex-col gap-1;
+}
+
+.step-text-cta {
+  @apply flex flex-col gap-1;
+}
+
+.step-number {
+  @apply text-xs uppercase tracking-wider text-muted-foreground;
+}
+
+.step-number-cta {
+  @apply text-xs uppercase tracking-wider text-white/70;
+}
+
+.step-title {
+  @apply font-heading text-base font-bold text-heading;
+}
+
+.step-title-cta {
+  @apply font-heading text-lg font-bold text-white;
+}
+
+.step-description {
+  @apply text-sm leading-relaxed text-foreground;
+}
+
+.step-description-cta {
+  @apply text-sm leading-relaxed text-white/80;
+}
+
+.launch-steps .cta-button {
+  @apply shrink-0 bg-white text-black hover:bg-white/90;
+}
+
+/* ============================================
+   LAYOUT COMPONENT (BASE HTML/BODY STYLES)
+   ============================================ */
+html {
+  @apply w-full font-sans text-base leading-relaxed text-foreground;
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply w-full bg-background font-sans text-foreground;
+}
+
+/* ============================================
+   MODAL COMPONENT
+   ============================================ */
+.modal {
+  @apply pointer-events-none fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0;
+  transition: opacity 0.2s ease-out;
+}
+
+.modal.is-open {
+  @apply pointer-events-auto opacity-100;
+}
+
+.modal-backdrop {
+  @apply absolute inset-0 bg-black/70 backdrop-blur-md;
+}
+
+.modal-container {
+  @apply relative z-10 w-full scale-95 transform rounded-2xl bg-card p-6 md:p-8;
+  transition: transform 0.2s ease-out;
+}
+
+.modal.is-open .modal-container {
+  @apply scale-100;
+}
+
+.modal-close {
+  @apply absolute right-5 top-5 flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg text-muted-foreground/50 transition-colors hover:bg-black/10 hover:text-foreground;
+}
+
+.modal-content {
+  @apply w-full;
+}
+
+/* ============================================
+   POSTSGRIDSTYLES COMPONENT
+   ============================================ */
+.tags-filter {
+  @apply flex flex-wrap gap-2;
+}
+
+.tag-button {
+  @apply rounded-xl bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary-hover;
+}
+
+.tag-button.active {
+  @apply bg-primary text-primary-foreground hover:bg-primary-hover;
+}
+
+.posts-grid {
+  @apply grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3;
+}
+
+.post-card {
+  @apply flex h-full flex-col;
+}
+
+.post-image {
+  @apply mb-4 block aspect-video overflow-hidden rounded-xl;
+}
+
+.post-image .image {
+  @apply h-full w-full object-cover transition-transform duration-300 hover:scale-105;
+}
+
+.post-content {
+  @apply flex flex-1 flex-col gap-3;
+}
+
+.post-title {
+  @apply line-clamp-2;
+}
+
+.post-excerpt {
+  @apply line-clamp-3 flex-1;
+}
+
+.post-cta {
+  @apply mt-auto w-fit;
+}
+
+.pagination {
+  @apply mt-12 flex items-center justify-center gap-2;
+}
+
+.pagination-btn {
+  @apply flex h-10 w-10 items-center justify-center rounded-xl bg-secondary text-secondary-foreground transition-colors hover:bg-secondary-hover;
+}
+
+.pagination-btn.disabled {
+  @apply pointer-events-none opacity-50;
+}
+
+.pagination-num {
+  @apply flex h-10 w-10 items-center justify-center rounded-xl bg-secondary text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary-hover;
+}
+
+.pagination-num.active {
+  @apply bg-primary text-primary-foreground;
+}
+
+.pagination-ellipsis {
+  @apply flex h-10 w-10 items-center justify-center text-muted-foreground;
+}
+
+/* ============================================
+   REVIEWS COMPONENT
+   ============================================ */
+.reviews-carousel {
+  @apply relative -mx-4 overflow-x-auto px-4 pb-4;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.reviews-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.reviews-track {
+  @apply flex gap-6;
+  width: max-content;
+}
+
+.review-card {
+  @apply flex w-102.5 shrink-0 flex-col items-start gap-4 rounded-2xl border border-border/30 bg-secondary p-6 text-left;
+}
+
+.review-avatar {
+  @apply h-25 w-25 shrink-0 overflow-hidden rounded-xl;
+}
+
+.review-avatar .image {
+  @apply h-full w-full object-cover;
+}
+
+.avatar-placeholder {
+  @apply h-full w-full;
+}
+
+.avatar-placeholder.female {
+  @apply bg-linear-to-br from-orange-400 to-orange-600;
+}
+
+.avatar-placeholder.male {
+  @apply bg-linear-to-br from-blue-400 to-blue-600;
+}
+
+.review-meta {
+  @apply flex flex-col gap-0.5;
+}
+
+.review-name {
+  @apply text-base font-bold text-heading;
+}
+
+.review-location {
+  @apply text-xs text-muted-foreground;
+}
+
+.review-text {
+  @apply text-sm leading-relaxed text-foreground;
+}
+
+/* ============================================
+   STEPSACCORDION COMPONENT
+   ============================================ */
+.steps-accordion {
+  @apply flex flex-col gap-4;
+}
+
+.step-item {
+  @apply overflow-hidden rounded-2xl border border-border/30 bg-card;
+}
+
+.step-item[open] .step-toggle svg {
+  @apply rotate-180;
+}
+
+.step-header {
+  @apply flex cursor-pointer items-center gap-4 p-5 transition-colors hover:bg-secondary/50;
+  list-style: none;
+}
+
+.step-header::-webkit-details-marker {
+  display: none;
+}
+
+.steps-accordion .step-icon {
+  @apply flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-primary;
+}
+
+.steps-accordion .step-icon .image {
+  @apply h-full w-full object-contain;
+}
+
+.step-info {
+  @apply min-w-0 flex-1;
+}
+
+.step-label {
+  @apply text-xs uppercase tracking-wider text-muted-foreground;
+}
+
+.steps-accordion .step-title {
+  @apply truncate text-base font-semibold text-heading;
+}
+
+.step-prices {
+  @apply flex shrink-0 items-center gap-3;
+}
+
+.step-old-price {
+  @apply text-sm text-muted-foreground line-through;
+}
+
+.step-new-price {
+  @apply rounded-lg bg-primary px-3 py-1 text-sm font-semibold text-primary-foreground;
+}
+
+.step-toggle {
+  @apply shrink-0 text-muted-foreground transition-transform duration-300;
+}
+
+.steps-accordion .step-content {
+  @apply flex flex-col gap-6 px-5 pb-5 pt-0;
+}
+
+.step-section {
+  @apply flex flex-col gap-2;
+}
+
+.step-section-title {
+  @apply text-sm font-semibold text-heading;
+}
+
+.step-section-text {
+  @apply text-sm leading-relaxed text-foreground;
+}
+
+.step-prices-detail {
+  @apply flex flex-wrap gap-6;
+}
+
+.price-item {
+  @apply flex items-center gap-3;
+}
+
+.price-label {
+  @apply text-sm text-muted-foreground;
+}
+
+.price-value {
+  @apply text-lg font-bold;
+}
+
+.price-value.old {
+  @apply text-muted-foreground line-through;
+}
+
+.price-value.new {
+  @apply rounded-lg bg-primary px-3 py-1 text-primary-foreground;
+}
+
+.step-faq {
+  @apply mt-2 flex flex-col gap-3 border-t border-border/30 pt-4;
+}
+
+/* ============================================
+   TABLEOFCONTENTS COMPONENT
+   ============================================ */
+.table-of-contents {
+  @apply w-full;
+}
+
+.toc-list {
+  @apply m-0 flex list-none flex-col gap-0 p-0;
+}
+
+.toc-item {
+  @apply rounded-sm border-l-4 border-transparent transition-colors duration-200;
+}
+
+.toc-item:has(.toc-link.active) {
+  @apply border-l-4 border-primary;
+}
+
+.toc-link {
+  @apply flex flex-col gap-0.5 px-4 py-3 transition-colors hover:bg-secondary/50;
+}
+
+.toc-link.active {
+  @apply bg-secondary/30;
+}
+
+.toc-chapter {
+  @apply text-xs uppercase tracking-wider text-muted-foreground;
+}
+
+.toc-text {
+  @apply text-sm font-semibold leading-snug text-heading;
+}
+
+/* ============================================
+   ADVANTAGESLIST COMPONENT
+   ============================================ */
+.advantages-list {
+  @apply flex flex-col gap-4;
+}
+
+.advantage-item {
+  @apply grid grid-cols-1 items-stretch gap-4 lg:grid-cols-[2fr_3fr_3fr];
+}
+
+.advantage-icon-card {
+  @apply flex flex-row items-center justify-center gap-3 text-center;
+}
+
+.advantage-icon {
+  @apply flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-secondary/50 lg:h-20 lg:w-20;
+}
+
+.advantage-icon .image {
+  @apply h-full w-full object-contain lg:h-full lg:w-full;
+}
+
+.advantage-title {
+  @apply font-heading text-lg font-bold text-white;
+}
+
+.advantage-content-card {
+  @apply flex items-center;
+}
+
+.advantage-description {
+  @apply text-sm leading-relaxed text-foreground;
+}
+
+.advantage-secondary-card {
+  @apply flex items-center;
+}
+
+.advantage-secondary {
+  @apply text-sm leading-relaxed text-foreground;
+}
+
+/* ============================================
+   PAGE-SPECIFIC STYLES
+   ============================================ */
+.faq-main {
+  @apply flex flex-col;
+}
+
+.help-card {
+  @apply border-border/50;
+}
+
+.post-main {
+  @apply flex flex-col;
+}
+
+.post-content {
+  @apply bg-card;
+}
+
+.post-content .prose {
+  @apply text-foreground;
+}
+
+.post-content .prose h1,
+.post-content .prose h2,
+.post-content .prose h3,
+.post-content .prose h4 {
+  @apply font-heading text-heading;
+}
+
+.post-content .prose a {
+  @apply text-primary hover:text-primary-hover;
+}
+
+.post-content .prose p {
+  @apply leading-relaxed text-foreground;
+}
+
+.post-content .prose ul,
+.post-content .prose ol {
+  @apply text-foreground;
+}
+
+.post-content .prose blockquote {
+  @apply border-l-primary text-muted-foreground;
+}

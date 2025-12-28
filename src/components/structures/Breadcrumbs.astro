@@ -42,29 +42,3 @@ const allItems: BreadcrumbItem[] = [{ text: t('breadcrumbs.home'), href: `/${lan
     }
   </ol>
 </nav>
-
-<style>
-  .breadcrumbs {
-    @apply py-4;
-  }
-
-  .breadcrumbs-list {
-    @apply flex flex-wrap items-center gap-1 text-sm;
-  }
-
-  .breadcrumbs-item {
-    @apply flex items-center gap-1;
-  }
-
-  .breadcrumbs-link {
-    @apply text-muted-foreground hover:text-foreground transition-colors;
-  }
-
-  .breadcrumbs-current {
-    @apply text-foreground font-medium;
-  }
-
-  .breadcrumbs-separator {
-    @apply text-muted-foreground/50 mx-1;
-  }
-</style>

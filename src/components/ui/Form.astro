@@ -17,11 +17,3 @@ const { fields, button, ...rest } = Astro.props;
   <slot />
   <Button type="submit" {...button} />
 </Element>
-
-<style is:global>
-  @layer ui {
-    .form {
-      @apply flex w-full max-w-screen-md flex-col gap-4;
-    }
-  }
-</style>

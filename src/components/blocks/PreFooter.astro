@@ -35,7 +35,13 @@ const { title, subtitle, cta, ctaSubtext1, ctaSubtext2, backgroundImage, ...rest
         {subtitle && <Paragraph text={subtitle} size="lg" muted />}
       </div>
       <div class="prefooter-action">
-        <Button text={cta.text} href={cta.href} variant="secondary" size="lg" class="prefooter-button" />
+        <Button
+          text={cta.text}
+          href={cta.href}
+          variant="secondary"
+          size="lg"
+          class="prefooter-button bg-white! text-black! hover:bg-white/90!"
+        />
         {
           (ctaSubtext1 || ctaSubtext2) && (
             <span class="prefooter-subtext">
@@ -49,44 +55,3 @@ const { title, subtitle, cta, ctaSubtext1, ctaSubtext2, backgroundImage, ...rest
     </div>
   </div>
 </section>
-
-<style>
-  .prefooter {
-    @apply relative overflow-hidden;
-    height: 280px;
-  }
-
-  @media (min-width: 1024px) {
-    .prefooter {
-      height: 380px;
-    }
-  }
-
-  .prefooter-background {
-    @apply absolute inset-0 z-0;
-  }
-
-  .prefooter-background :global(.image) {
-    @apply w-full h-full object-cover opacity-50;
-  }
-
-  .prefooter-content {
-    @apply relative z-10 flex flex-col items-start justify-center gap-6 h-full;
-  }
-
-  .prefooter-text {
-    @apply flex flex-col gap-3 max-w-2xl;
-  }
-
-  .prefooter-action {
-    @apply flex flex-row items-start gap-3;
-  }
-
-  .prefooter-subtext {
-    @apply text-sm text-muted-foreground;
-  }
-
-  .prefooter-button {
-    @apply bg-white text-black hover:bg-white/90;
-  }
-</style>

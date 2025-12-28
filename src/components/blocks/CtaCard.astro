@@ -4,6 +4,7 @@ import Card from '../ui/Card.astro';
 import Heading from '../ui/Heading.astro';
 import Paragraph from '../ui/Paragraph.astro';
 import Button from '../ui/Button.astro';
+import type { BluredDotsProps } from '../schemas/blured-dot';
 
 interface Props extends HTMLAttributes<'div'> {
   variant?: 'default' | 'gradient' | 'primary';
@@ -12,6 +13,7 @@ interface Props extends HTMLAttributes<'div'> {
   buttonText: string;
   buttonHref: string;
   size?: 'sm' | 'md' | 'lg';
+  bluredDots?: BluredDotsProps;
 }
 
 const {
@@ -21,9 +23,41 @@ const {
   buttonText,
   buttonHref,
   size = 'lg',
+  bluredDots,
   class: className,
   ...rest
 } = Astro.props;
+
+// Blured dots configuration for primary variant (similar to AdvantagesList)
+const primaryBluredDots: BluredDotsProps = [
+  {
+    color: 'FFAB24',
+    top: 0,
+    left: 0,
+    width: 1,
+    height: 1,
+    shadowBlur: 100,
+    shadowSpread: 15,
+  },
+  {
+    color: '2470FF',
+    top: 75,
+    left: 75,
+    width: 1,
+    height: 1,
+    shadowBlur: 100,
+    shadowSpread: 10,
+  },
+  {
+    color: '2470FF',
+    bottom: 0,
+    right: 0,
+    width: 1,
+    height: 1,
+    shadowBlur: 200,
+    shadowSpread: 30,
+  },
+];
 
 // Map CTA variant to Card variant and additional classes
 const variantConfig = {
@@ -32,33 +66,44 @@ const variantConfig = {
     cardClass: 'bg-secondary',
     buttonVariant: 'primary' as const,
     buttonClass: '',
+    bluredDots: undefined as BluredDotsProps | undefined,
   },
   gradient: {
     cardVariant: 'gradient' as const,
     cardClass: '',
     buttonVariant: 'primary' as const,
     buttonClass: '',
+    bluredDots: undefined as BluredDotsProps | undefined,
   },
   primary: {
     cardVariant: 'default' as const,
-    cardClass: 'bg-primary',
+    cardClass: '!bg-primary',
     buttonVariant: 'secondary' as const,
-    buttonClass: 'bg-white text-black hover:bg-white/90',
+    buttonClass: '!bg-white !text-black hover:!bg-white/90',
+    bluredDots: primaryBluredDots,
   },
 };
 
 const config = variantConfig[variant];
+const effectiveBluredDots = bluredDots ?? config.bluredDots;
 ---
 
-<Card variant={config.cardVariant} direction="row" size={size} class:list={[config.cardClass, className]} {...rest}>
+<Card
+  variant={config.cardVariant}
+  direction="row"
+  size={size}
+  bluredDots={effectiveBluredDots}
+  class:list={[config.cardClass, className]}
+  {...rest}
+>
   <div class="flex flex-col gap-1 sm:gap-2">
-    <Heading as="h3" size="xl" text={title} class:list={[{ 'text-white': variant === 'primary' }]} />
+    <Heading as="h3" size="xl" text={title} class:list={[{ 'text-white!': variant === 'primary' }]} />
     {
       subtitle && (
         <Paragraph
           text={subtitle}
           muted={variant !== 'primary'}
-          class:list={[{ 'text-white/80': variant === 'primary' }]}
+          class:list={[{ 'text-white/80!': variant === 'primary' }]}
         />
       )
     }

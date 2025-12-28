@@ -15,36 +15,3 @@ const { text, ...rest } = Astro.props;
   <Fragment set:html={text} />
   <slot />
 </Element>
-
-<style is:global>
-  @layer ui {
-    .paragraph,
-    .prose-content p {
-      @apply text-foreground;
-
-      &.muted {
-        @apply text-muted-foreground;
-      }
-
-      &.size-xs {
-        @apply text-xs leading-relaxed;
-      }
-
-      &.size-sm {
-        @apply text-sm leading-relaxed;
-      }
-
-      &.size-md {
-        @apply text-base leading-relaxed;
-      }
-
-      &.size-lg {
-        @apply text-lg leading-relaxed;
-      }
-
-      &.size-xl {
-        @apply text-xl leading-relaxed;
-      }
-    }
-  }
-</style>

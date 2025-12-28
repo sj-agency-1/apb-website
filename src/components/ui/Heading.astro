@@ -20,7 +20,7 @@ const { depth = 2, as = `h${depth}`, text, ...rest } = Astro.props;
 <style is:global>
   .heading,
   .prose > :is(h1, h2, h3, h4, h5, h6) {
-    @apply scroll-mt-20 font-bold tracking-tight text-foreground;
+    @apply scroll-mt-20 font-bold tracking-tight text-heading font-heading;
 
     code {
       @apply rounded-sm bg-muted px-1 py-0.5 font-mono;

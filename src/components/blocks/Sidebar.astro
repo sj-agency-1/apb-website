@@ -1,0 +1,98 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import TableOfContents from '../structures/TableOfContents.astro';
+import BlogList from '../structures/BlogList.astro';
+import Card from '../ui/Card.astro';
+import type { TocItem } from '../structures/TableOfContents.astro';
+import type { BlogItem } from '../structures/BlogList.astro';
+
+interface Props extends HTMLAttributes<'aside'> {
+  tocItems?: TocItem[];
+  blogItems?: BlogItem[];
+  blogTitle?: string;
+  activeId?: string;
+  sectionId?: string;
+  ctaText?: string;
+}
+
+const { tocItems, blogItems, blogTitle, activeId, sectionId = 'about', ctaText = 'Подробнее', ...rest } = Astro.props;
+---
+
+<aside class="sidebar" data-section-id={sectionId} {...rest}>
+  {
+    tocItems && tocItems.length > 0 && (
+      <Card blur variant="outline" size="md" class="sidebar-card">
+        {activeId ? <TableOfContents items={tocItems} activeId={activeId} /> : <TableOfContents items={tocItems} />}
+      </Card>
+    )
+  }
+
+  {
+    blogItems && blogItems.length > 0 && (
+      <Card blur variant="outline" size="md" class="sidebar-card">
+        {blogTitle && <h4 class="sidebar-title">{blogTitle}</h4>}
+        <BlogList items={blogItems} variant="vertical" ctaText={ctaText} />
+      </Card>
+    )
+  }
+
+  <slot />
+</aside>
+
+<style>
+  .sidebar {
+    @apply flex flex-col gap-6;
+    scrollbar-width: none;
+  }
+
+  .sidebar-card {
+    @apply border-border/50;
+  }
+
+  .sidebar-title {
+    @apply text-sm font-semibold text-heading uppercase tracking-wider mb-4;
+  }
+
+  @media (min-width: 1024px) {
+    .sidebar {
+      position: sticky;
+      top: 6rem;
+      max-height: calc(100vh - 8rem);
+      overflow-y: auto;
+    }
+  }
+</style>
+
+<script>
+  function initSidebarSticky() {
+    const sidebars = document.querySelectorAll('.sidebar[data-section-id]');
+
+    sidebars.forEach((sidebar) => {
+      const sectionId = sidebar.getAttribute('data-section-id');
+      if (!sectionId) return;
+
+      const section = document.getElementById(sectionId);
+      if (!section) return;
+
+      const updateStickyBehavior = () => {
+        const sectionRect = section.getBoundingClientRect();
+        const sidebarEl = sidebar as HTMLElement;
+
+        // When section bottom is above viewport, unstick the sidebar
+        if (sectionRect.bottom <= 100) {
+          sidebarEl.style.position = 'relative';
+          sidebarEl.style.top = 'auto';
+        } else {
+          sidebarEl.style.position = '';
+          sidebarEl.style.top = '';
+        }
+      };
+
+      window.addEventListener('scroll', updateStickyBehavior, { passive: true });
+      updateStickyBehavior();
+    });
+  }
+
+  document.addEventListener('astro:page-load', initSidebarSticky);
+  initSidebarSticky();
+</script>

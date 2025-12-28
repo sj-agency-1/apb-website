@@ -1,0 +1,65 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import Element from './Element.astro';
+
+interface Props extends HTMLAttributes<'div'> {
+  variant?: 'default' | 'gradient' | 'outline' | 'cta' | undefined;
+  size?: 'sm' | 'md' | 'lg' | undefined;
+  direction?: 'row' | 'column' | undefined;
+  blur?: boolean | undefined;
+}
+
+const { variant = 'default', size = 'md', direction = 'column', blur = false, ...rest } = Astro.props;
+---
+
+<Element class:list={['card', { 'card-blur': blur }]} {variant} {size} {direction} {...rest}>
+  <slot />
+</Element>
+
+<style is:global>
+  @layer ui {
+    .card {
+      @apply rounded-2xl;
+
+      &.card-blur {
+        @apply backdrop-blur-sm bg-card/80;
+      }
+
+      &.variant-default {
+        @apply bg-card text-card-foreground;
+      }
+
+      &.variant-gradient {
+        @apply bg-gradient-to-br from-secondary to-background border border-border;
+      }
+
+      &.variant-outline {
+        @apply border border-border bg-transparent;
+      }
+
+      &.variant-cta {
+        @apply bg-gradient-to-r from-accent/80 to-accent/40 text-white;
+      }
+
+      &.size-sm {
+        @apply p-4;
+      }
+
+      &.size-md {
+        @apply p-6;
+      }
+
+      &.size-lg {
+        @apply p-8;
+      }
+
+      &.direction-row {
+        @apply flex flex-row items-center justify-between gap-6;
+      }
+
+      &.direction-column {
+        @apply flex flex-col gap-4;
+      }
+    }
+  }
+</style>

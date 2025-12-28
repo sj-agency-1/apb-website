@@ -2,16 +2,117 @@
 import Layout from '@components/structures/Layout.astro';
 import type { ComponentProps, HTMLAttributes } from 'astro/types';
 import Head from '@components/ui/Head.astro';
-import LanguagePicker from '@components/ui/LanguagePicker.astro';
+import Header from '@components/blocks/Header.astro';
+import Footer from '@components/blocks/Footer.astro';
+import PreFooter from '@components/blocks/PreFooter.astro';
+import { getLangFromUrl, useTranslations } from '@i18n/utils';
 
 type Props = Omit<HTMLAttributes<'body'>, 'title'> & {
   head: ComponentProps<typeof Head>;
+  showHeader?: boolean;
+  showFooter?: boolean;
+  showPreFooter?: boolean;
 };
 
-const { head, ...rest } = Astro.props;
+const { head, showHeader = true, showFooter = true, showPreFooter = true, ...rest } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const headerData = {
+  logo: {
+    text: `<div><span class="font-heading font-bold text-heading">${t('logo.heading')}</span><br/><span class="text-xs text-muted-foreground">${t('logo.text')}</span></div>`,
+    image: { src: '/src/assets/images/logo.svg', alt: 'Logo' },
+  },
+  nav: [
+    { text: t('header.nav.home'), href: `/${lang}/` },
+    { text: t('header.nav.howItWorks'), href: `/${lang}/how-it-works` },
+    { text: t('header.nav.about'), href: `/${lang}/about` },
+    { text: t('header.nav.advantages'), href: `/${lang}/advantages` },
+    { text: t('header.nav.blog'), href: `/${lang}/blog` },
+    { text: t('header.nav.reviews'), href: `/${lang}/reviews` },
+    { text: t('header.nav.faq'), href: `/${lang}/faq` },
+    { text: t('header.nav.contacts'), href: `/${lang}/contacts` },
+  ],
+  mobileNav1: [
+    { text: t('header.nav.home'), href: `/${lang}/` },
+    { text: t('header.nav.howItWorks'), href: `/${lang}/how-it-works` },
+    { text: t('header.nav.about'), href: `/${lang}/about` },
+    { text: t('header.nav.advantages'), href: `/${lang}/advantages` },
+  ],
+  mobileNav2: [
+    { text: t('header.nav.blog'), href: `/${lang}/blog` },
+    { text: t('header.nav.reviews'), href: `/${lang}/reviews` },
+    { text: t('header.nav.faq'), href: `/${lang}/faq` },
+    { text: t('header.nav.contacts'), href: `/${lang}/contacts` },
+  ],
+  action: { text: t('header.actions.login'), href: '/login' },
+  lang: true,
+};
+
+const footerData = {
+  logo: {
+    text: `<span class="font-heading font-bold text-heading">${t('logo.heading')}</span><br/><span class="text-xs text-muted-foreground">${t('logo.text')}</span>`,
+    image: { src: '/src/assets/images/logo.svg', alt: 'Logo' },
+  },
+  socials: [
+    'https://tiktok.com/@apb',
+    'https://youtube.com/@apb',
+    'https://vk.com/apb',
+    'https://ok.ru/apb',
+    'https://facebook.com/apb',
+    'https://x.com/apb',
+    'https://instagram.com/apb',
+  ],
+  copyright: t('footer.copyright'),
+  navGroups: [
+    {
+      links: [
+        { text: t('footer.nav.home'), href: `/${lang}/` },
+        { text: t('footer.nav.about'), href: `/${lang}/about` },
+        { text: t('footer.nav.advantages'), href: `/${lang}/advantages` },
+        { text: t('footer.nav.blog'), href: `/${lang}/blog` },
+        { text: t('footer.nav.reviews'), href: `/${lang}/reviews` },
+        { text: t('footer.nav.faq'), href: `/${lang}/faq` },
+        { text: t('footer.nav.contacts'), href: `/${lang}/contacts` },
+      ],
+    },
+    {
+      links: [
+        { text: t('footer.legal.offer'), href: `/${lang}/offer` },
+        { text: t('footer.legal.terms'), href: `/${lang}/terms` },
+        { text: t('footer.legal.privacy'), href: `/${lang}/privacy` },
+        { text: t('footer.legal.content'), href: `/${lang}/content-policy` },
+        { text: t('footer.legal.disclaimer'), href: `/${lang}/disclaimer` },
+        { text: t('footer.legal.affiliate'), href: `/${lang}/affiliate` },
+      ],
+    },
+  ],
+};
+
+const preFooterData = {
+  title: t('prefooter.title'),
+  subtitle: t('prefooter.subtitle'),
+  cta: {
+    text: t('prefooter.cta'),
+    href: '/audit',
+  },
+  ctaSubtext: t('prefooter.ctaSubtext'),
+  backgroundImage: '/src/assets/images/bg-2.webp',
+};
 ---
 
 <Layout {head} {...rest}>
-  <slot />
-  <LanguagePicker />
+  {showHeader && <Header {...headerData} />}
+  <main>
+    <slot />
+  </main>
+  {showPreFooter && <PreFooter {...preFooterData} />}
+  {showFooter && <Footer {...footerData} />}
 </Layout>
+
+<style is:global>
+  main {
+    @apply min-h-[50vh];
+  }
+</style>

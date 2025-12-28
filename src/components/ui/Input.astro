@@ -32,9 +32,9 @@ const {
 <style is:global>
   @layer ui {
     .input-input {
-      @apply flex w-full rounded-md border border-input bg-background text-sm text-foreground ring-offset-background;
+      @apply flex w-full rounded-lg border border-border bg-background text-sm text-foreground;
       @apply file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground;
-      @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+      @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
       @apply disabled:pointer-events-none disabled:opacity-50;
       @apply [&[readonly]]:pointer-events-none;
     }

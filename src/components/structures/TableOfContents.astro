@@ -1,0 +1,116 @@
+---
+export interface TocItem {
+  id: string;
+  text: string;
+  chapter?: string;
+}
+
+interface Props {
+  items: TocItem[];
+  activeId?: string;
+}
+
+const { items, activeId } = Astro.props;
+---
+
+<nav class="table-of-contents" data-toc>
+  <ul class="toc-list">
+    {
+      items.map((item) => (
+        <li class="toc-item">
+          <a
+            href={`#${item.id}`}
+            class:list={['toc-link', { active: activeId === item.id }]}
+            data-toc-link
+            data-target={item.id}
+          >
+            {item.chapter && <span class="toc-chapter">{item.chapter}</span>}
+            <span class="toc-text">{item.text}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  .table-of-contents {
+    @apply w-full;
+  }
+
+  .toc-list {
+    @apply flex flex-col gap-0 list-none p-0 m-0;
+  }
+
+  .toc-item {
+    @apply border-l-2 border-muted transition-colors duration-200;
+  }
+
+  .toc-item:has(.toc-link.active) {
+    @apply border-l-2 border-primary;
+  }
+
+  .toc-link {
+    @apply flex flex-col gap-0.5 py-3 px-4 transition-colors hover:bg-secondary/50;
+  }
+
+  .toc-link.active {
+    @apply bg-secondary/30;
+  }
+
+  .toc-chapter {
+    @apply text-xs text-muted-foreground uppercase tracking-wider;
+  }
+
+  .toc-text {
+    @apply text-foreground font-medium text-sm leading-snug;
+  }
+
+  .toc-link.active .toc-text {
+    @apply text-heading font-semibold;
+  }
+</style>
+
+<script>
+  function initTocHighlight() {
+    const tocNav = document.querySelector('[data-toc]');
+    if (!tocNav) return;
+
+    const tocLinks = tocNav.querySelectorAll('[data-toc-link]');
+    if (!tocLinks.length) return;
+
+    const targetIds = Array.from(tocLinks)
+      .map((link) => link.getAttribute('data-target'))
+      .filter(Boolean) as string[];
+    const targets = targetIds.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+
+    if (!targets.length) return;
+
+    const updateActiveLink = () => {
+      const scrollPosition = window.scrollY + 150; // Offset for header
+
+      let currentActive = targets[0]?.id;
+
+      for (const target of targets) {
+        if (target.offsetTop <= scrollPosition) {
+          currentActive = target.id;
+        }
+      }
+
+      tocLinks.forEach((link) => {
+        const targetId = link.getAttribute('data-target');
+        if (targetId === currentActive) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
+    updateActiveLink();
+  }
+
+  document.addEventListener('astro:page-load', initTocHighlight);
+  initTocHighlight();
+</script>

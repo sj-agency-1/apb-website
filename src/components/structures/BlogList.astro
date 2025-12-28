@@ -1,0 +1,99 @@
+---
+import Image from '../ui/Image.astro';
+import Button from '../ui/Button.astro';
+
+export interface BlogItem {
+  title: string;
+  href: string;
+  image?: string;
+  description?: string;
+  ctaText?: string;
+}
+
+interface Props {
+  items: BlogItem[];
+  variant?: 'default' | 'compact' | 'vertical' | undefined;
+  ctaText?: string;
+}
+
+const { items, variant = 'default', ctaText = 'Подробнее' } = Astro.props;
+---
+
+<div class:list={['blog-list', `variant-${variant}`]}>
+  {
+    items.map((item) => (
+      <div class="blog-item">
+        {item.image && (
+          <a href={item.href} class="blog-image">
+            <Image src={item.image} alt={item.title} width={400} height={250} />
+          </a>
+        )}
+        <div class="blog-content">
+          <h4 class="blog-title">{item.title}</h4>
+          {item.description && <p class="blog-description">{item.description}</p>}
+          {variant === 'vertical' && (
+            <Button text={item.ctaText || ctaText} href={item.href} variant="primary" size="sm" class="blog-cta" />
+          )}
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .blog-list {
+    @apply flex flex-col gap-4;
+  }
+
+  .blog-item {
+    @apply flex flex-col gap-3 rounded-xl overflow-hidden transition-all;
+  }
+
+  .variant-compact .blog-item {
+    @apply flex-row items-center gap-4 p-2 hover:bg-secondary/50;
+  }
+
+  .variant-vertical .blog-item {
+    @apply flex-col gap-3;
+  }
+
+  .blog-image {
+    @apply aspect-video w-full overflow-hidden rounded-lg block;
+  }
+
+  .variant-compact .blog-image {
+    @apply w-24 h-16 flex-shrink-0;
+  }
+
+  .variant-vertical .blog-image {
+    @apply w-full aspect-video;
+  }
+
+  .blog-image :global(.image) {
+    @apply w-full h-full object-cover transition-transform hover:scale-105;
+  }
+
+  .blog-content {
+    @apply flex flex-col gap-2;
+  }
+
+  .variant-compact .blog-content {
+    @apply p-0;
+  }
+
+  .variant-vertical .blog-content {
+    @apply gap-3;
+  }
+
+  .blog-title {
+    @apply text-sm font-semibold text-heading leading-snug;
+  }
+
+  .blog-description {
+    @apply text-xs text-muted-foreground line-clamp-2;
+  }
+
+  .blog-cta {
+    @apply mt-1 w-fit;
+  }
+</style>

@@ -1,0 +1,33 @@
+---
+import Link from '../ui/Link.astro';
+import type { LinkProps } from '../schemas/link';
+
+interface Props {
+  links: LinkProps[];
+}
+
+const { links } = Astro.props;
+---
+
+<nav class="header-nav">
+  <ul class="list">
+    {
+      links.map((link) => (
+        <li class="item">
+          <Link {...link} />
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  .list {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+  }
+</style>

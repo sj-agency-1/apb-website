@@ -1,0 +1,74 @@
+---
+import type { AdvantagesListProps } from '../schemas/advantages';
+import Image from '../ui/Image.astro';
+import Card from '../ui/Card.astro';
+
+type Props = AdvantagesListProps;
+
+const { items } = Astro.props;
+---
+
+<div class="advantages-list">
+  {
+    items.map((item) => (
+      <div class="advantage-item">
+        <Card variant="default" size="md" class="advantage-icon-card">
+          <div class="advantage-icon">
+            <Image src={item.icon} alt={item.title} width={80} height={80} />
+          </div>
+          <h3 class="advantage-title">{item.title}</h3>
+        </Card>
+        <Card variant="default" size="md" class="advantage-content-card">
+          <p class="advantage-description">{item.description}</p>
+        </Card>
+        {item.secondaryDescription && (
+          <Card variant="default" size="md" class="advantage-secondary-card">
+            <p class="advantage-secondary">{item.secondaryDescription}</p>
+          </Card>
+        )}
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .advantages-list {
+    @apply flex flex-col gap-4;
+  }
+
+  .advantage-item {
+    @apply grid grid-cols-1 lg:grid-cols-[2fr_3fr_3fr] gap-4 items-stretch;
+  }
+
+  .advantage-icon-card {
+    @apply flex flex-row items-center justify-center text-center gap-3;
+  }
+
+  .advantage-icon {
+    @apply flex items-center justify-center w-20 h-20 lg:w-20 lg:h-20 rounded-full bg-secondary/50 flex-shrink-0;
+  }
+
+  .advantage-icon :global(.image) {
+    @apply w-full h-full lg:w-full lg:h-full object-contain;
+  }
+
+  .advantage-title {
+    @apply text-lg font-bold text-white font-heading;
+  }
+
+  .advantage-content-card {
+    @apply flex items-center;
+  }
+
+  .advantage-description {
+    @apply text-foreground text-sm leading-relaxed;
+  }
+
+  .advantage-secondary-card {
+    @apply flex items-center;
+  }
+
+  .advantage-secondary {
+    @apply text-foreground text-sm leading-relaxed;
+  }
+</style>

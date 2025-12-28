@@ -1,0 +1,83 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import Heading from '../ui/Heading.astro';
+import Paragraph from '../ui/Paragraph.astro';
+import Button from '../ui/Button.astro';
+import Image from '../ui/Image.astro';
+
+interface Props extends HTMLAttributes<'section'> {
+  title: string;
+  subtitle?: string;
+  cta: {
+    text: string;
+    href: string;
+  };
+  ctaSubtext?: string;
+  backgroundImage?: string;
+}
+
+const { title, subtitle, cta, ctaSubtext, backgroundImage, ...rest } = Astro.props;
+---
+
+<section class="prefooter" {...rest}>
+  {
+    backgroundImage && (
+      <div class="prefooter-background">
+        <Image src={backgroundImage} alt="" width={1920} height={600} />
+      </div>
+    )
+  }
+  <div class="container mx-auto px-4 h-full">
+    <div class="prefooter-content">
+      <div class="prefooter-text">
+        <Heading as="h2" size="4xl" text={title} />
+        {subtitle && <Paragraph text={subtitle} size="lg" muted />}
+      </div>
+      <div class="prefooter-action">
+        <Button text={cta.text} href={cta.href} variant="secondary" size="lg" class="prefooter-button" />
+        {ctaSubtext && <span class="prefooter-subtext">{ctaSubtext}</span>}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .prefooter {
+    @apply relative overflow-hidden;
+    height: 280px;
+  }
+
+  @media (min-width: 1024px) {
+    .prefooter {
+      height: 380px;
+    }
+  }
+
+  .prefooter-background {
+    @apply absolute inset-0 z-0;
+  }
+
+  .prefooter-background :global(.image) {
+    @apply w-full h-full object-cover opacity-50;
+  }
+
+  .prefooter-content {
+    @apply relative z-10 flex flex-col items-start justify-center gap-6 h-full;
+  }
+
+  .prefooter-text {
+    @apply flex flex-col gap-3 max-w-2xl;
+  }
+
+  .prefooter-action {
+    @apply flex flex-col items-start gap-3;
+  }
+
+  .prefooter-subtext {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .prefooter-button {
+    @apply bg-white text-black hover:bg-white/90;
+  }
+</style>

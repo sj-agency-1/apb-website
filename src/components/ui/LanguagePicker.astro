@@ -1,61 +1,88 @@
 ---
-import type { ComponentProps } from 'astro/types';
 import { languages } from '@i18n/ui';
-import Element from './Element.astro';
-import Link from './Link.astro';
+import Button from './Button.astro';
+import Icon from './Icon.astro';
 
 interface Props {
   /** current language code (e.g. 'en'|'ru') to mark active item */
   current?: string | undefined;
-  /** visual size of links */
-  size?: 'sm' | 'md' | 'lg' | undefined;
 }
 
-const { current, size = 'md', ...rest } = Astro.props as Props & ComponentProps<typeof Element>;
+const { current } = Astro.props;
+const currentLang = current || 'ru';
+
+const FlagRU = `<svg viewBox="0 0 9 6" class="w-6 h-4 rounded-sm shadow-sm"><rect fill="#fff" width="9" height="3"/><rect fill="#d52b1e" y="3" width="9" height="3"/><rect fill="#0039a6" y="2" width="9" height="2"/></svg>`;
+const FlagUS = `<svg viewBox="0 0 1235 650" class="w-6 h-4 rounded-sm shadow-sm"><rect width="1235" height="650" fill="#b22234"/><path d="M0,0H1235V50H0M0,100H1235V150H0M0,200H1235V250H0M0,300H1235V350H0M0,400H1235V450H0M0,500H1235V550H0M0,600H1235V650H0" fill="#fff"/><rect width="494" height="350" fill="#3c3b6e"/><g fill="#fff"><g id="s18"><g id="s9"><g id="s5"><g id="s4"><path id="s" d="M24.7,5.7l6.1,18.8H11l16,11.6l-6.1,18.8L30.8,43.4L40.7,55L30.8,66.6l-9.9-11.6l-6.1,18.8l16-11.6H30.8l6.1-18.8L24.7,5.7z"/><use href="#s" y="420"/><use href="#s" y="840"/><use href="#s" y="1260"/></g><use href="#s" y="1680"/></g><use href="#s4" x="247"/><use href="#s4" x="494"/><use href="#s4" x="741"/><use href="#s4" x="988"/></g><use href="#s9" x="42"/></g><use href="#s18" y="50"/><use href="#s9" y="100"/><use href="#s18" y="150"/><use href="#s9" y="200"/><use href="#s18" y="250"/><use href="#s9" y="300"/></g></svg>`;
+
+const flags = {
+  ru: FlagRU,
+  en: FlagUS,
+};
 ---
 
-<Element class:list="language-picker" as="nav" aria-label="Language picker" {...rest}>
-  <Element as="ul" class="languages" role="list">
+<div class="language-picker relative">
+  <Button variant="secondary" class="lang-toggle" aria-expanded="false" aria-haspopup="true">
+    <div class="flex items-center gap-2">
+      <Fragment set:html={flags[currentLang as keyof typeof flags]} />
+      <Icon name="chevron-down" class="w-4 h-4 transition-transform duration-200" />
+    </div>
+  </Button>
+
+  <ul
+    class="lang-menu absolute top-full right-0 mt-2 w-32 bg-background border border-border rounded-lg shadow-lg opacity-0 invisible transition-all duration-200 transform origin-top-right z-50 p-1 list-none m-0"
+  >
     {
       Object.entries(languages).map(([lang, label]) => (
-        <Element as="li">
-          <Link href={`/${lang}/`} {size} text={label} aria-current={lang === current ? 'true' : undefined} />
-        </Element>
+        <li>
+          <a
+            href={`/${lang}/`}
+            class:list={[
+              'flex items-center gap-2 px-3 py-2 rounded-md hover:bg-muted transition-colors text-sm no-underline text-foreground',
+              { 'bg-muted font-medium': lang === currentLang },
+            ]}
+          >
+            <Fragment set:html={flags[lang as keyof typeof flags]} />
+            <span>{label}</span>
+          </a>
+        </li>
       ))
     }
-  </Element>
-</Element>
+  </ul>
+</div>
 
-<style is:global>
-  @layer ui {
-    .language-picker {
-      @apply flex items-center;
+<script>
+  const pickers = document.querySelectorAll('.language-picker');
 
-      .languages {
-        @apply flex gap-2 list-none p-0 m-0;
+  pickers.forEach((picker) => {
+    const toggle = picker.querySelector('.lang-toggle');
+    const menu = picker.querySelector('.lang-menu');
+    const icon = picker.querySelector('.icon');
+
+    if (!toggle || !menu) return;
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', (!isExpanded).toString());
+
+      if (!isExpanded) {
+        menu.classList.remove('opacity-0', 'invisible');
+        menu.classList.add('opacity-100', 'visible');
+        icon?.classList.add('rotate-180');
+      } else {
+        menu.classList.add('opacity-0', 'invisible');
+        menu.classList.remove('opacity-100', 'visible');
+        icon?.classList.remove('rotate-180');
       }
+    });
 
-      .link {
-        @apply inline-flex items-center gap-2 px-2 py-1 rounded transition-colors;
+    document.addEventListener('click', (e) => {
+      if (!picker.contains(e.target as Node)) {
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.classList.add('opacity-0', 'invisible');
+        menu.classList.remove('opacity-100', 'visible');
+        icon?.classList.remove('rotate-180');
       }
-
-      /* active/current language visual */
-      .link.current,
-      .link[aria-current='true'] {
-        @apply font-semibold;
-      }
-
-      &.size-sm .link {
-        @apply text-sm;
-      }
-
-      &.size-md .link {
-        @apply text-base;
-      }
-
-      &.size-lg .link {
-        @apply text-lg;
-      }
-    }
-  }
-</style>
+    });
+  });
+</script>

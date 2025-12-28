@@ -1,21 +1,26 @@
-import { z } from 'astro:content';
-import { buttonSchema } from './button.ts';
-import { linkSchema } from './link.ts';
-import { logoSchema } from './logo.ts';
-import { menuSchema } from './menu.ts';
+import { z } from 'zod';
+import { linkSchema } from './link';
+import { buttonSchema } from './button';
 
-export const headerSchema = z
-  .object({
-    logo: logoSchema.optional(),
-    heading: z.string().optional(),
-    links: linkSchema.array().optional(),
-    socials: z.string().array().optional(),
-    buttons: buttonSchema.array().optional(),
-    menus: menuSchema.array().optional(),
-    themer: z.boolean().optional(),
-    cart: z.boolean().optional(),
-    search: z.boolean().optional(),
-  })
-  .strict();
+export const headerSchema = z.object({
+  logo: z
+    .object({
+      text: z.string().optional(),
+      image: z
+        .object({
+          src: z.string(),
+          alt: z.string().optional(),
+          height: z.number().optional(),
+          width: z.number().optional(),
+        })
+        .optional(),
+    })
+    .optional(),
+  nav: z.array(linkSchema).optional(),
+  mobileNav1: z.array(linkSchema).optional(),
+  mobileNav2: z.array(linkSchema).optional(),
+  action: buttonSchema.optional(),
+  lang: z.boolean().optional(),
+});
 
-export type HeaderSchema = z.infer<typeof headerSchema>;
+export type HeaderProps = z.infer<typeof headerSchema>;

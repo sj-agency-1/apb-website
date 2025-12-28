@@ -1,14 +1,10 @@
-import type { ComponentProps } from 'astro/types';
-import { z } from 'astro:content';
-import Link from '../ui/Link.astro';
+import { z } from 'zod';
 
-export const linkSchema = z
-  .object({
-    text: z.string().optional(),
-    href: z.string().optional(),
-    icon: z.string().optional(),
-    target: z.literal('_blank').optional(),
-    size: z.enum(['sm', 'md', 'lg']).optional(),
-    variant: z.enum(['primary', 'underline', 'muted']).optional(),
-  })
-  .strict() satisfies z.ZodType<ComponentProps<typeof Link>>;
+export const linkSchema = z.object({
+  text: z.string(),
+  href: z.string(),
+  target: z.enum(['_blank', '_self', '_parent', '_top']).optional(),
+  variant: z.enum(['primary', 'underline', 'muted']).optional(),
+});
+
+export type LinkProps = z.infer<typeof linkSchema>;

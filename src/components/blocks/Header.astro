@@ -1,0 +1,172 @@
+---
+import Logo from '../ui/Logo.astro';
+import HeaderNav from '../structures/HeaderNav.astro';
+import Button from '../ui/Button.astro';
+import LanguagePicker from '../ui/LanguagePicker.astro';
+import Icon from '../ui/Icon.astro';
+import type { HeaderProps } from '../schemas/header';
+
+type Props = HeaderProps;
+
+const { logo, nav, mobileNav1, mobileNav2, action, lang } = Astro.props;
+---
+
+<header class="header sticky top-0">
+  <div class="container mx-auto px-4 h-20 flex items-center justify-between relative z-50 bg-background">
+    <div class="flex-shrink-0">
+      {logo && <Logo {...logo} />}
+    </div>
+
+    <div class="hidden lg:flex flex-grow justify-center">
+      {nav && <HeaderNav links={nav} />}
+    </div>
+
+    <div class="hidden lg:flex items-center gap-4">
+      {action && <Button {...action} variant="primary" class="font-bold" />}
+      {lang && <LanguagePicker />}
+    </div>
+
+    <!-- Mobile Actions -->
+    <div class="lg:hidden flex items-center gap-4">
+      {
+        action && (
+          <Button
+            href={action.href}
+            variant="primary"
+            class="p-2 flex items-center justify-center"
+            aria-label={action.text}
+          >
+            <div class="w-100 h-100 flex items-center justify-center">
+              <Icon name="user" class="w-6 h-6" />
+            </div>
+          </Button>
+        )
+      }
+      <Button variant="secondary" class="mobile-menu-toggle p-2" aria-label="Menu">
+        <Icon name="menu-2" class="w-6 h-6 icon-menu" />
+        <Icon name="x" class="w-6 h-6 icon-close !hidden" />
+      </Button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu fixed inset-0 bg-background z-40 pt-24 px-4 pb-8 overflow-y-auto flex flex-col gap-[60px]">
+    {
+      action && (
+        <div class="flex justify-center w-full">
+          <Button
+            href={action.href}
+            variant="primary"
+            class="w-full max-w-xs justify-center text-lg py-6"
+            text={action.text}
+          />
+        </div>
+      )
+    }
+
+    {
+      mobileNav1 && (
+        <ul class="space-y-4 list-none p-0 m-0 text-center">
+          {mobileNav1.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-md font-bold text-white hover:text-primary transition-colors no-underline"
+              >
+                {link.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    {
+      mobileNav2 && (
+        <ul class="space-y-4 list-none p-0 m-0 text-center">
+          {mobileNav2.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-md font-bold text-white hover:text-primary transition-colors no-underline"
+              >
+                {link.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    <div class="flex flex-col items-center">
+      {lang && <LanguagePicker />}
+    </div>
+  </div>
+</header>
+
+<style is:global>
+  .header {
+    background-color: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+    z-index: 50;
+    border-bottom: 1px solid rgb(var(--color-border) / 0.1);
+  }
+
+  /* Navigation Styles */
+  .header-nav .link {
+    color: rgb(var(--color-muted-foreground));
+    text-decoration: none;
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  .header-nav .link:hover,
+  .header-nav .link.current {
+    color: white; /* White */
+  }
+
+  .header-nav .link:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  /* Mobile Menu */
+  .mobile-menu {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 0.3s ease-in-out,
+      visibility 0.3s ease-in-out;
+  }
+
+  .mobile-menu.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+</style>
+
+<script>
+  const header = document.querySelector('.header');
+  const toggle = header?.querySelector('.mobile-menu-toggle');
+  const menu = header?.querySelector('.mobile-menu');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const isOpen = menu.classList.contains('open');
+
+      if (isOpen) {
+        menu.classList.remove('open');
+        document.body.style.overflow = '';
+        toggle.querySelector('.icon-menu')?.classList.remove('!hidden');
+        toggle.querySelector('.icon-close')?.classList.add('!hidden');
+      } else {
+        menu.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        toggle.querySelector('.icon-menu')?.classList.add('!hidden');
+        toggle.querySelector('.icon-close')?.classList.remove('!hidden');
+      }
+    });
+  }
+</script>

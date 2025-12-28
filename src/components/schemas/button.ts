@@ -1,17 +1,11 @@
-import { z } from 'astro:content';
-import { imageSchema } from './image.ts';
+import { z } from 'zod';
 
-export const buttonSchema = z
-  .object({
-    icon: z.string().optional(),
-    image: imageSchema.optional(),
-    text: z.string().optional(),
-    href: z.string().optional(),
-    target: z.literal('_blank').optional(),
-    size: z.enum(['sm', 'md', 'lg']).optional(),
-    reverse: z.boolean().optional(),
-    variant: z.enum(['primary', 'secondary', 'outline', 'ghost']).optional(),
-  })
-  .strict();
+export const buttonSchema = z.object({
+  text: z.string(),
+  href: z.string().optional(),
+  variant: z.enum(['primary', 'secondary', 'outline', 'ghost', 'flat']).optional(),
+  size: z.enum(['sm', 'md', 'lg']).optional(),
+  icon: z.string().optional(),
+});
 
-export type ButtonSchema = z.infer<typeof buttonSchema>;
+export type ButtonProps = z.infer<typeof buttonSchema>;

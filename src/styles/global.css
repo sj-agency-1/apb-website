@@ -1,6 +1,5 @@
 @import 'tailwindcss/base' layer(ui);
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-@import './fonts.css';
 @import './theme' layer(ui);
 @import './custom.css';

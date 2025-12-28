@@ -15,7 +15,8 @@
       "@components/*": ["./src/components/*"],
       "@consts": ["./src/consts.ts"],
       "@assets/*": ["./src/assets/*"],
-      "@styles/*": ["./src/styles/*"]
+      "@styles/*": ["./src/styles/*"],
+      "@data/*": ["./src/data/*"]
     }
   }
 }

@@ -1,0 +1,75 @@
+---
+import Logo from '../ui/Logo.astro';
+import Link from '../ui/Link.astro';
+import Socials from '../ui/Socials.astro';
+import FooterNav from '../structures/FooterNav.astro';
+import type { FooterProps } from '../schemas/footer';
+
+type Props = FooterProps;
+
+const { logo, socials, copyright, navGroups } = Astro.props;
+---
+
+<footer class="footer">
+  <div class="container mx-auto px-4">
+    <div class="footer-content">
+      <div class="footer-brand">
+        {logo && <Logo {...logo} size="lg" />}
+        {
+          socials && socials.length > 0 && (
+            <div class="footer-socials">
+              <Socials socials={socials} />
+            </div>
+          )
+        }
+        {copyright && <p class="footer-copyright">{copyright}</p>}
+        <p class="footer-legal-notice">
+          Все материалы на сайте защищены авторским правом. Копирование и использование контента без письменного
+          разрешения автора строго запрещено. Подробнее в <Link
+            href="/content-policy"
+            text="Политике использования контента"
+            variant="primary"
+            size="sm"
+          />
+        </p>
+        <Link href="/sitemap" text="Карта сайта" variant="muted" size="sm" />
+      </div>
+
+      {navGroups && navGroups.length > 0 && <FooterNav groups={navGroups} />}
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    @apply bg-background border-t border-border py-12 lg:py-16;
+  }
+
+  .footer-content {
+    @apply grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8;
+  }
+
+  .footer-brand {
+    @apply flex flex-col gap-4;
+  }
+
+  .footer-socials {
+    @apply flex gap-2 mt-2;
+  }
+
+  .footer-socials :global(.social) {
+    @apply border border-white rounded-lg transition-colors;
+  }
+
+  .footer-socials :global(.social:hover) {
+    @apply bg-primary border-primary;
+  }
+
+  .footer-copyright {
+    @apply text-xs text-muted-foreground mt-2;
+  }
+
+  .footer-legal-notice {
+    @apply text-xs text-muted-foreground leading-relaxed;
+  }
+</style>

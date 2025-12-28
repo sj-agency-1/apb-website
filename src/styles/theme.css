@@ -1,24 +1,53 @@
 @layer base {
   :root {
+    /* Base colors */
     --color-background: 30 30 30;
     --color-foreground: 151 151 151;
     --color-heading: 255 255 255;
-    --color-primary: 255 171 36;
-    --color-secondary: 49 49 49;
-    --color-muted: 76 76 76;
-    --color-accent: 36 112 255;
 
+    /* Primary (Gold/Yellow) */
+    --color-primary: 255 171 36;
+    --color-primary-foreground: 0 0 0;
+    --color-primary-hover: 230 154 32;
+
+    /* Secondary (Dark gray) */
+    --color-secondary: 49 49 49;
+    --color-secondary-foreground: 255 255 255;
+    --color-secondary-hover: 60 60 60;
+
+    /* Muted */
+    --color-muted: 76 76 76;
+    --color-muted-foreground: 151 151 151;
+
+    /* Accent (Blue) */
+    --color-accent: 36 112 255;
+    --color-accent-foreground: 255 255 255;
+
+    /* Card */
+    --color-card: 49 49 49;
+    --color-card-foreground: 255 255 255;
+
+    /* Border, Input, Ring */
+    --color-border: 76 76 76;
+    --color-input: 76 76 76;
+    --color-ring: 255 171 36;
+
+    /* Typography */
     --font-heading: 'Unbounded', sans-serif;
     --font-body: 'Montserrat', sans-serif;
 
     --text-base-size: 1rem;
     --text-lg-size: 1.125rem;
-    --text-sm-size: 0.95rem;
-    --heading-1-size: 2.5rem;
-    --heading-2-size: 2rem;
+    --text-sm-size: 0.875rem;
+    --text-xs-size: 0.75rem;
+    --heading-1-size: 3rem;
+    --heading-2-size: 2.25rem;
     --heading-3-size: 1.5rem;
     --heading-4-size: 1.25rem;
     --heading-5-size: 1.125rem;
     --heading-6-size: 1rem;
+
+    /* Border radius */
+    --radius: 0.75rem;
   }
 }

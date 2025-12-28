@@ -23,6 +23,7 @@ const lang = getLangFromUrl(Astro.url);
       @layer ui {
         html {
           @apply w-full font-sans text-base leading-relaxed text-foreground;
+          scroll-behavior: smooth;
         }
 
         body {
@@ -30,5 +31,41 @@ const lang = getLangFromUrl(Astro.url);
         }
       }
     </style>
+    <script>
+      // Smooth scroll with offset for sticky header
+      function initSmoothScroll() {
+        const HEADER_OFFSET = 100; // Adjust this value based on your header height
+
+        document.addEventListener('click', (e) => {
+          const target = e.target as HTMLElement;
+          const link = target.closest('a[href^="#"]');
+
+          if (!link) return;
+
+          const href = link.getAttribute('href');
+          if (!href || href === '#') return;
+
+          const targetId = href.substring(1);
+          const targetElement = document.getElementById(targetId);
+
+          if (!targetElement) return;
+
+          e.preventDefault();
+
+          const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth',
+          });
+
+          // Update URL hash without jumping
+          history.pushState(null, '', href);
+        });
+      }
+
+      document.addEventListener('astro:page-load', initSmoothScroll);
+      initSmoothScroll();
+    </script>
   </body>
 </html>

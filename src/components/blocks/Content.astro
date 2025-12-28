@@ -1,0 +1,67 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import Heading from '../ui/Heading.astro';
+
+interface Chapter {
+  id: string;
+  chapter: string;
+  title: string;
+  content: string;
+}
+
+interface Props extends HTMLAttributes<'div'> {
+  chapters?: Chapter[];
+}
+
+const { chapters, ...rest } = Astro.props;
+---
+
+<div class="content" {...rest}>
+  {
+    chapters ? (
+      chapters.map((chapter) => (
+        <article class="content-chapter" id={chapter.id}>
+          <div class="chapter-header">
+            <span class="chapter-label">{chapter.chapter}</span>
+            <Heading as="h3" size="2xl" text={chapter.title} />
+          </div>
+          <div class="chapter-body">
+            <Fragment set:html={chapter.content} />
+          </div>
+        </article>
+      ))
+    ) : (
+      <slot />
+    )
+  }
+</div>
+
+<style>
+  .content {
+    @apply flex flex-col gap-12;
+  }
+
+  .content-chapter {
+    @apply flex flex-col gap-4 scroll-mt-24;
+  }
+
+  .chapter-header {
+    @apply flex flex-col gap-2;
+  }
+
+  .chapter-label {
+    @apply text-sm text-muted-foreground uppercase tracking-wider;
+  }
+
+  .chapter-body {
+    @apply text-foreground leading-relaxed;
+  }
+
+  .chapter-body :global(p) {
+    @apply mb-4;
+  }
+
+  .chapter-body :global(strong) {
+    @apply font-semibold text-heading;
+  }
+</style>

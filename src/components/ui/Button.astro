@@ -41,20 +41,20 @@ const {
 <style is:global>
   @layer ui {
     .button {
-      @apply inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium leading-none ring-offset-background transition-colors;
-      @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+      @apply inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium leading-none transition-colors;
+      @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
       @apply disabled:pointer-events-none disabled:opacity-50;
 
       &.size-sm {
-        @apply h-9 min-h-9 min-w-9 px-2;
+        @apply h-9 min-h-9 min-w-9 px-3 text-sm;
       }
 
       &.size-md {
-        @apply h-10 min-h-10 min-w-10 px-4;
+        @apply h-11 min-h-11 min-w-11 px-5 text-base;
       }
 
       &.size-lg {
-        @apply h-11 min-h-11 min-w-11 px-5;
+        @apply h-12 min-h-12 min-w-12 px-6 text-lg;
       }
 
       &.variant-primary {
@@ -66,11 +66,11 @@ const {
       }
 
       &.variant-outline {
-        @apply border border-input text-accent-foreground hover:bg-accent;
+        @apply border border-border bg-transparent text-foreground hover:bg-secondary;
       }
 
       &.variant-ghost {
-        @apply text-accent-foreground hover:bg-accent;
+        @apply bg-transparent text-foreground hover:bg-secondary;
       }
 
       &.variant-flat {

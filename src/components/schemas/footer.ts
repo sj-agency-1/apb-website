@@ -1,17 +1,28 @@
-import { z } from 'astro:content';
-import { channelSchema } from './channel.ts';
-import { logoSchema } from './logo.ts';
-import { menuSchema } from './menu.ts';
+import { z } from 'zod';
+import { linkSchema } from './link';
 
-export const footerSchema = z
-  .object({
-    logo: logoSchema.optional(),
-    heading: z.string().optional(),
-    paragraph: z.string().optional(),
-    socials: z.string().url().array().optional(),
-    channels: channelSchema.array().optional(),
-    menus: menuSchema.array().optional(),
-  })
-  .strict();
+export const footerSchema = z.object({
+  logo: z
+    .object({
+      text: z.string().optional(),
+      image: z
+        .object({
+          src: z.string(),
+          alt: z.string().optional(),
+        })
+        .optional(),
+    })
+    .optional(),
+  socials: z.array(z.string()).optional(),
+  copyright: z.string().optional(),
+  navGroups: z
+    .array(
+      z.object({
+        links: z.array(linkSchema),
+      })
+    )
+    .optional(),
+  legalLinks: z.array(linkSchema).optional(),
+});
 
-export type FooterSchema = z.infer<typeof footerSchema>;
+export type FooterProps = z.infer<typeof footerSchema>;

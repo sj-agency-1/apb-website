@@ -16,17 +16,20 @@ This repository contains the source code for the Personal Brand Architect websit
 ## Getting Started
 
 1. **Clone this repository**:
+
    ```sh
    git clone https://github.com/sj-agency-1/apb-website
    cd apb-website
    ```
 
 2. **Install dependencies**:
+
    ```sh
    npm install
    ```
 
 3. **Run the development server**:
+
    ```sh
    npm run dev
    ```

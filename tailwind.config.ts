@@ -26,6 +26,7 @@ export default {
         accent: {
           DEFAULT: 'rgb(var(--color-accent) / <alpha-value>)',
           foreground: 'rgb(var(--color-accent-foreground) / <alpha-value>)',
+          blue: 'rgb(var(--color-accent-blue) / <alpha-value>)',
         },
         border: 'rgb(var(--color-border) / <alpha-value>)',
         input: 'rgb(var(--color-input) / <alpha-value>)',

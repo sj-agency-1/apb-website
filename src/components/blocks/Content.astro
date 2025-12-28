@@ -64,4 +64,8 @@ const { chapters, ...rest } = Astro.props;
   .chapter-body :global(strong) {
     @apply font-semibold text-heading;
   }
+
+  .chapter-body :global(a) {
+    @apply text-accent-blue hover:underline;
+  }
 </style>

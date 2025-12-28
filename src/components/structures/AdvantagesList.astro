@@ -1,18 +1,50 @@
 ---
 import type { AdvantagesListProps } from '../schemas/advantages';
+import type { BluredDotsProps } from '../schemas/blured-dot';
 import Image from '../ui/Image.astro';
 import Card from '../ui/Card.astro';
 
 type Props = AdvantagesListProps;
 
 const { items } = Astro.props;
+
+// Blured dots configuration for advantage-icon-card
+const iconCardDots: BluredDotsProps = [
+  {
+    color: 'FFAB24',
+    top: 0,
+    left: 0,
+    width: 1,
+    height: 1,
+    shadowBlur: 100,
+    shadowSpread: 15,
+  },
+  {
+    color: '2470FF',
+    top: 75,
+    left: 75,
+    width: 1,
+    height: 1,
+    shadowBlur: 100,
+    shadowSpread: 10,
+  },
+  {
+    color: '2470FF',
+    bottom: 0,
+    right: 0,
+    width: 1,
+    height: 1,
+    shadowBlur: 200,
+    shadowSpread: 30,
+  },
+];
 ---
 
 <div class="advantages-list">
   {
     items.map((item) => (
       <div class="advantage-item">
-        <Card variant="default" size="md" class="advantage-icon-card">
+        <Card variant="default" size="md" class="advantage-icon-card" bluredDots={iconCardDots}>
           <div class="advantage-icon">
             <Image src={item.icon} alt={item.title} width={80} height={80} />
           </div>

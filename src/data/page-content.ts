@@ -91,6 +91,7 @@ export interface ContactsPageContent {
   telegramSubtitle: string;
   emailSubtitle: string;
   phoneSubtitle: string;
+  whatsappSubtitle: string;
   socialHeading: string;
   socialDescription: string;
   formHeading: string;
@@ -101,6 +102,10 @@ export interface ContactsPageContent {
   formMessage: string;
   formMessagePlaceholder: string;
   formSubmit: string;
+  // Help card
+  helpCardTitle: string;
+  helpCardDescription: string;
+  helpCardButton: string;
 }
 
 export const contactsPageContent: LocalizedContent<ContactsPageContent> = {
@@ -111,6 +116,7 @@ export const contactsPageContent: LocalizedContent<ContactsPageContent> = {
     telegramSubtitle: 'Самый быстрый способ связи',
     emailSubtitle: 'Напишите нам письмо',
     phoneSubtitle: 'Позвоните нам',
+    whatsappSubtitle: 'Напишите в WhatsApp',
     socialHeading: 'Мы в социальных сетях',
     socialDescription: 'Подписывайтесь на нас в социальных сетях, чтобы быть в курсе последних новостей и обновлений.',
     formHeading: 'Отправить сообщение',
@@ -121,6 +127,9 @@ export const contactsPageContent: LocalizedContent<ContactsPageContent> = {
     formMessage: 'Сообщение',
     formMessagePlaceholder: 'Введите ваше сообщение',
     formSubmit: 'Отправить',
+    helpCardTitle: 'Возникли вопросы?',
+    helpCardDescription: 'Обратитесь в нашу тех.поддержку и наш менеджер свяжется с вами в ближайшее время',
+    helpCardButton: 'Обратиться в поддержку',
   },
   en: {
     breadcrumb: 'Contacts',
@@ -129,6 +138,7 @@ export const contactsPageContent: LocalizedContent<ContactsPageContent> = {
     telegramSubtitle: 'Fastest way to reach us',
     emailSubtitle: 'Send us an email',
     phoneSubtitle: 'Call us',
+    whatsappSubtitle: 'Message us on WhatsApp',
     socialHeading: 'Follow us on social media',
     socialDescription: 'Follow us on social media to stay up to date with the latest news and updates.',
     formHeading: 'Send us a message',
@@ -139,6 +149,9 @@ export const contactsPageContent: LocalizedContent<ContactsPageContent> = {
     formMessage: 'Message',
     formMessagePlaceholder: 'Enter your message',
     formSubmit: 'Send',
+    helpCardTitle: 'Have questions?',
+    helpCardDescription: 'Contact our support team and our manager will get back to you shortly',
+    helpCardButton: 'Contact support',
   },
 };
 
@@ -161,6 +174,10 @@ export interface ReviewsPageContent {
   modalDescription: string;
   loginButton: string;
   registerButton: string;
+  // Share experience card
+  shareExperienceTitle: string;
+  shareExperienceDescription: string;
+  shareExperienceButton: string;
 }
 
 export const reviewsPageContent: LocalizedContent<ReviewsPageContent> = {
@@ -175,11 +192,15 @@ export const reviewsPageContent: LocalizedContent<ReviewsPageContent> = {
     ageYears: 'лет',
     translated: 'Переведено',
     modalTitle: 'Оставить отзыв',
-    modalHeading: 'Требуется авторизация',
+    modalHeading: 'Войдите в свой аккаунт',
     modalDescription:
-      'Чтобы оставить отзыв, вам нужно войти в свой аккаунт. Только проверенные пользователи, которые использовали наш сервис, могут оставлять отзывы.',
+      'Оставить отзыв могут только зарегистрированные пользователи. Зарегистрируйтесь на платформе AI-сервиса прямо сейчас и создайте свой онлайн бизнес!',
     loginButton: 'Войти',
-    registerButton: 'Регистрация',
+    registerButton: 'Зарегистрироваться',
+    shareExperienceTitle: 'Хотите поделиться опытом?',
+    shareExperienceDescription:
+      'Оставьте свой отзыв на сайте, чтобы другие пользователи узнали о вашем опыте работы с платформой',
+    shareExperienceButton: 'Оставить отзыв',
   },
   en: {
     breadcrumb: 'Reviews',
@@ -192,11 +213,15 @@ export const reviewsPageContent: LocalizedContent<ReviewsPageContent> = {
     ageYears: 'years',
     translated: 'Translated',
     modalTitle: 'Leave a review',
-    modalHeading: 'Authorization required',
+    modalHeading: 'Log in to your account',
     modalDescription:
-      'To leave a review, you need to log in to your account. Only verified users who have used our service can leave reviews.',
+      'Only registered users can leave a review. Register on the AI-service platform right now and create your online business!',
     loginButton: 'Log in',
     registerButton: 'Register',
+    shareExperienceTitle: 'Want to share your experience?',
+    shareExperienceDescription:
+      'Leave your review on the site so that other users learn about your experience with the platform',
+    shareExperienceButton: 'Leave a review',
   },
 };
 
@@ -207,16 +232,26 @@ export const reviewsPageContent: LocalizedContent<ReviewsPageContent> = {
 export interface FaqPageContent {
   breadcrumb: string;
   heading: string;
+  // Help card
+  helpCardTitle: string;
+  helpCardDescription: string;
+  helpCardButton: string;
 }
 
 export const faqPageContent: LocalizedContent<FaqPageContent> = {
   ru: {
     breadcrumb: 'FAQ',
     heading: 'Часто задаваемые вопросы',
+    helpCardTitle: 'Возникли вопросы?',
+    helpCardDescription: 'Обратитесь в нашу тех.поддержку и наш менеджер свяжется с вами в ближайшее время',
+    helpCardButton: 'Обратиться в поддержку',
   },
   en: {
     breadcrumb: 'FAQ',
     heading: 'Frequently Asked Questions',
+    helpCardTitle: 'Have questions?',
+    helpCardDescription: 'Contact our support team and our manager will get back to you shortly',
+    helpCardButton: 'Contact support',
   },
 };
 

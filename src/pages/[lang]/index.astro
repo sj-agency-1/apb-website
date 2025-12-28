@@ -35,7 +35,46 @@ const reviewsData = getReviews(lang);
 
 <HomeLayout head={content.meta} hero={content.hero}>
   <!-- About Section with Sidebar -->
-  <Section id="about" variant="default">
+  <Section
+    id="about"
+    variant="default"
+    bluredDots={[
+      {
+        color: '2470FF',
+        top: 0,
+        right: 75,
+        width: 0,
+        height: 0,
+        shadowBlur: 1000,
+        shadowSpread: 300,
+        opacity: 0.1,
+        showOnMobile: false,
+      },
+      {
+        color: 'FFAB24',
+        top: 1000,
+        left: 75,
+        width: 0,
+        height: 0,
+        shadowBlur: 1000,
+        shadowSpread: 300,
+        opacity: 0.1,
+        showOnMobile: false,
+      },
+      {
+        color: '2470FF',
+        bottom: 400,
+        left: 75,
+        width: 0,
+        height: 0,
+        shadowBlur: 1000,
+        shadowSpread: 100,
+        opacity: 0.1,
+        zIndex: 1,
+        showOnMobile: false,
+      },
+    ]}
+  >
     <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 lg:gap-12">
       <Sidebar
         tocItems={content.tocItems}
@@ -62,7 +101,19 @@ const reviewsData = getReviews(lang);
     id="advantages"
     title={content.sectionTitles.advantages}
     subtitle={content.sectionTitles.advantagesSubtitle}
-    variant="dark"
+    bluredDots={[
+      {
+        color: 'FFAB24',
+        top: 450,
+        right: 75,
+        width: 0,
+        height: 0,
+        shadowBlur: 1000,
+        shadowSpread: 150,
+        opacity: 0.1,
+        showOnMobile: false,
+      },
+    ]}
   >
     <AdvantagesList items={content.advantages} />
     <div class="mt-8 flex justify-center">
@@ -83,6 +134,30 @@ const reviewsData = getReviews(lang);
     title={content.sectionTitles.steps}
     subtitle={content.sectionTitles.stepsSubtitle}
     variant="default"
+    bluredDots={[
+      {
+        color: '2470FF',
+        top: 1200,
+        left: 75,
+        width: 0,
+        height: 0,
+        shadowBlur: 1000,
+        shadowSpread: 300,
+        opacity: 0.05,
+        showOnMobile: false,
+      },
+      {
+        color: 'FFAB24',
+        bottom: 1000,
+        right: 75,
+        width: 0,
+        height: 0,
+        shadowBlur: 1000,
+        shadowSpread: 300,
+        opacity: 0.05,
+        showOnMobile: false,
+      },
+    ]}
   >
     <LaunchSteps
       items={content.launchSteps}
@@ -122,12 +197,7 @@ const reviewsData = getReviews(lang);
   </Section>
 
   <!-- Reviews Section -->
-  <Section
-    id="reviews"
-    title={content.sectionTitles.reviews}
-    subtitle={content.sectionTitles.reviewsSubtitle}
-    variant="dark"
-  >
+  <Section id="reviews" title={content.sectionTitles.reviews} subtitle={content.sectionTitles.reviewsSubtitle}>
     <Reviews reviews={reviewsData} />
     <div class="mt-8 flex justify-center">
       <CtaCard

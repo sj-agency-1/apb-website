@@ -53,8 +53,8 @@ Preparation phase
 - [x] After all of this, run the `npm run fix` command and after that `npm run check` to fix all of the left errors
 - [x] Refactor again
 
-- [ ] Manually review pages and adjust them
-- [ ] Animations
+- [x] Manually review pages and adjust them
+  - [x] Add 404
 
 - [ ] Add docs for later use
 

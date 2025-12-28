@@ -3,14 +3,20 @@ import type { HTMLAttributes } from 'astro/types';
 
 interface Props extends HTMLAttributes<'div'> {
   id: string;
+  size?: 'default' | 'lg';
 }
 
-const { id, class: className, ...rest } = Astro.props;
+const { id, size = 'default', class: className, ...rest } = Astro.props;
+
+const sizes = {
+  default: 'max-w-md',
+  lg: 'max-w-2xl',
+};
 ---
 
 <div id={id} class:list={['modal', className]} role="dialog" aria-modal="true" aria-hidden="true" {...rest}>
   <div class="modal-backdrop" data-modal-close></div>
-  <div class="modal-container">
+  <div class:list={['modal-container', sizes[size]]}>
     <button type="button" class="modal-close" data-modal-close aria-label="Close modal">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +25,7 @@ const { id, class: className, ...rest } = Astro.props;
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        stroke-width="2"
+        stroke-width="2.5"
         stroke-linecap="round"
         stroke-linejoin="round"
       >
@@ -45,12 +51,12 @@ const { id, class: className, ...rest } = Astro.props;
   }
 
   .modal-backdrop {
-    @apply absolute inset-0 bg-black/70 backdrop-blur-sm;
+    @apply absolute inset-0 bg-black/70 backdrop-blur-md;
   }
 
   .modal-container {
-    @apply relative z-10 w-full max-w-md;
-    @apply bg-card rounded-2xl p-8;
+    @apply relative z-10 w-full;
+    @apply bg-card rounded-2xl p-6 md:p-8;
     @apply transform scale-95;
     transition: transform 0.2s ease-out;
   }
@@ -60,14 +66,14 @@ const { id, class: className, ...rest } = Astro.props;
   }
 
   .modal-close {
-    @apply absolute top-4 right-4;
-    @apply flex items-center justify-center w-8 h-8 rounded-lg;
-    @apply text-muted-foreground hover:text-foreground hover:bg-secondary;
+    @apply absolute top-5 right-5;
+    @apply flex items-center justify-center w-10 h-10 rounded-lg;
+    @apply text-muted-foreground/50 hover:text-foreground hover:bg-black/10;
     @apply transition-colors cursor-pointer;
   }
 
   .modal-content {
-    @apply flex flex-col items-center text-center gap-4;
+    @apply w-full;
   }
 </style>
 

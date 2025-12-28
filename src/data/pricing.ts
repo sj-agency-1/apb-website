@@ -51,7 +51,7 @@ export interface LocalizedStep {
 const stepsPricing: StepPricing[] = [
   {
     step: 1,
-    icon: '/src/assets/images/steps-to-create-business/1-audit.webp',
+    icon: 'heroicons:user',
     oldPrice: 16,
     newPrice: 0,
     translations: {
@@ -98,7 +98,7 @@ const stepsPricing: StepPricing[] = [
   },
   {
     step: 2,
-    icon: '/src/assets/images/steps-to-create-business/2-positioning.webp',
+    icon: 'heroicons:chat-bubble-left-right',
     oldPrice: 19,
     newPrice: 9,
     translations: {
@@ -132,7 +132,7 @@ const stepsPricing: StepPricing[] = [
   },
   {
     step: 3,
-    icon: '/src/assets/images/steps-to-create-business/3-monetization.webp',
+    icon: 'heroicons:currency-dollar',
     oldPrice: 35,
     newPrice: 27,
     translations: {
@@ -168,7 +168,7 @@ const stepsPricing: StepPricing[] = [
   },
   {
     step: 4,
-    icon: '/src/assets/images/steps-to-create-business/4-create-product.webp',
+    icon: 'heroicons:archive-box',
     oldPrice: 'от $59',
     newPrice: 47,
     translations: {
@@ -202,7 +202,7 @@ const stepsPricing: StepPricing[] = [
   },
   {
     step: 5,
-    icon: '/src/assets/images/steps-to-create-business/5-research.webp',
+    icon: 'heroicons:chart-bar',
     oldPrice: 189,
     newPrice: 175,
     translations: {
@@ -238,7 +238,7 @@ const stepsPricing: StepPricing[] = [
   },
   {
     step: 6,
-    icon: '/src/assets/images/steps-to-create-business/6-pack.webp',
+    icon: 'heroicons:sparkles',
     oldPrice: 99,
     newPrice: 84,
     translations: {
@@ -274,7 +274,7 @@ const stepsPricing: StepPricing[] = [
   },
   {
     step: 7,
-    icon: '/src/assets/images/steps-to-create-business/7-content-strategy.webp',
+    icon: 'heroicons:document-text',
     oldPrice: 69,
     newPrice: 57,
     translations: {
@@ -309,7 +309,7 @@ const stepsPricing: StepPricing[] = [
   },
   {
     step: 8,
-    icon: '/src/assets/images/steps-to-create-business/8-strategy.webp',
+    icon: 'heroicons:rocket-launch',
     oldPrice: 139,
     newPrice: 125,
     translations: {
@@ -343,7 +343,7 @@ const stepsPricing: StepPricing[] = [
   },
   {
     step: 9,
-    icon: '/src/assets/images/steps-to-create-business/9-business-plan.webp',
+    icon: 'heroicons:briefcase',
     oldPrice: 162,
     newPrice: 147,
     translations: {
@@ -377,7 +377,7 @@ const stepsPricing: StepPricing[] = [
   },
   {
     step: 10,
-    icon: '/src/assets/images/steps-to-create-business/10-content-production.webp',
+    icon: 'heroicons:wrench-screwdriver',
     oldPrice: 'от $2',
     newPrice: 'от $2',
     translations: {

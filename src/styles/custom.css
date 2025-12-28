@@ -14,7 +14,7 @@
   }
 
   .card {
-    @apply rounded-xl bg-secondary p-6;
+    @apply rounded-xl p-6;
   }
 
   .section {

@@ -32,7 +32,7 @@ const { items, variant = 'default', ctaText = 'Подробнее' } = Astro.pro
           <h4 class="blog-title">{item.title}</h4>
           {item.description && <p class="blog-description">{item.description}</p>}
           {variant === 'vertical' && (
-            <Button text={item.ctaText || ctaText} href={item.href} variant="primary" size="sm" class="blog-cta" />
+            <Button text={item.ctaText || ctaText} href={item.href} variant="outline" size="sm" class="blog-cta" />
           )}
         </div>
       </div>

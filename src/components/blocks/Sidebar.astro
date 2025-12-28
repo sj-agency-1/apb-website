@@ -11,14 +11,13 @@ interface Props extends HTMLAttributes<'aside'> {
   blogItems?: BlogItem[];
   blogTitle?: string;
   activeId?: string;
-  sectionId?: string;
   ctaText?: string;
 }
 
-const { tocItems, blogItems, blogTitle, activeId, sectionId = 'about', ctaText = 'Подробнее', ...rest } = Astro.props;
+const { tocItems, blogItems, blogTitle, activeId, ctaText = 'Подробнее', ...rest } = Astro.props;
 ---
 
-<aside class="sidebar" data-section-id={sectionId} {...rest}>
+<aside class="sidebar" {...rest}>
   {
     tocItems && tocItems.length > 0 && (
       <Card blur variant="outline" size="md" class="sidebar-card">
@@ -57,65 +56,9 @@ const { tocItems, blogItems, blogTitle, activeId, sectionId = 'about', ctaText =
     .sidebar {
       position: sticky;
       top: 6rem;
-      max-height: calc(100vh - 8rem);
-      overflow-y: auto;
       align-self: flex-start;
     }
   }
 </style>
 
-<script>
-  function initSidebarSticky() {
-    const sidebars = document.querySelectorAll('.sidebar[data-section-id]');
 
-    sidebars.forEach((sidebar) => {
-      const sectionId = sidebar.getAttribute('data-section-id');
-      if (!sectionId) return;
-
-      const section = document.getElementById(sectionId);
-      if (!section) return;
-
-      const updateStickyBehavior = () => {
-        const sectionRect = section.getBoundingClientRect();
-        const sidebarEl = sidebar as HTMLElement;
-        const sidebarHeight = sidebarEl.offsetHeight;
-        const viewportHeight = window.innerHeight;
-        const topOffset = 96; // 6rem = 96px
-
-        // Calculate the maximum scroll position where sidebar should stop being sticky
-        const sectionBottom = sectionRect.bottom;
-        const stopPoint = sidebarHeight + topOffset;
-
-        // When the section bottom is close to or above the sidebar bottom position
-        if (sectionBottom <= stopPoint) {
-          // Position the sidebar at the bottom of the section
-          sidebarEl.style.position = 'relative';
-          sidebarEl.style.top = 'auto';
-        } else if (sidebarHeight > viewportHeight - topOffset) {
-          // If sidebar is taller than viewport, let it scroll naturally
-          const scrollProgress = -sectionRect.top / (section.offsetHeight - viewportHeight);
-          const maxScroll = sidebarHeight - (viewportHeight - topOffset);
-
-          if (sectionRect.top <= 0 && sectionRect.bottom >= viewportHeight) {
-            sidebarEl.style.position = 'sticky';
-            sidebarEl.style.top = `${topOffset - Math.min(scrollProgress * maxScroll, maxScroll)}px`;
-          } else {
-            sidebarEl.style.position = '';
-            sidebarEl.style.top = '';
-          }
-        } else {
-          // Normal sticky behavior
-          sidebarEl.style.position = '';
-          sidebarEl.style.top = '';
-        }
-      };
-
-      window.addEventListener('scroll', updateStickyBehavior, { passive: true });
-      window.addEventListener('resize', updateStickyBehavior, { passive: true });
-      updateStickyBehavior();
-    });
-  }
-
-  document.addEventListener('astro:page-load', initSidebarSticky);
-  initSidebarSticky();
-</script>

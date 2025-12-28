@@ -3,6 +3,7 @@ import { fileURLToPath } from 'url';
 
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
+import icon from 'astro-icon';
 
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
@@ -16,6 +17,7 @@ export default defineConfig({
   output: 'static',
 
   integrations: [
+    icon(),
     react(),
     tailwind({
       applyBaseStyles: false,

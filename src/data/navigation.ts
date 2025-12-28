@@ -49,7 +49,8 @@ export interface PreFooterData {
     text: string;
     href: string;
   };
-  ctaSubtext: string;
+  ctaSubtext1: string;
+  ctaSubtext2: string;
   backgroundImage: string;
 }
 
@@ -167,7 +168,8 @@ export function getPreFooterData(t: TranslationFunction): PreFooterData {
       text: t('prefooter.cta'),
       href: '/login',
     },
-    ctaSubtext: t('prefooter.ctaSubtext'),
+    ctaSubtext1: t('prefooter.ctaSubtext1'),
+    ctaSubtext2: t('prefooter.ctaSubtext2'),
     backgroundImage: images.preFooterBackground,
   };
 }

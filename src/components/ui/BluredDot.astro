@@ -1,0 +1,61 @@
+---
+import type { BluredDotProps } from '../schemas/blured-dot';
+
+type Props = BluredDotProps;
+
+const {
+  color,
+  top,
+  left,
+  right,
+  bottom,
+  width = 1,
+  height = 1,
+  shadowBlur = 70,
+  shadowSpread = 30,
+  opacity = 1,
+  showOnMobile = true,
+  zIndex = 0,
+} = Astro.props;
+
+// Normalize color (remove # if present)
+const normalizedColor = color.startsWith('#') ? color : `#${color}`;
+
+// Build position styles
+const positionStyles: string[] = [];
+if (top !== undefined) positionStyles.push(`top: ${top}px`);
+if (left !== undefined) positionStyles.push(`left: ${left}px`);
+if (right !== undefined) positionStyles.push(`right: ${right}px`);
+if (bottom !== undefined) positionStyles.push(`bottom: ${bottom}px`);
+
+const style = [
+  `--dot-color: ${normalizedColor}`,
+  `--dot-width: ${width}px`,
+  `--dot-height: ${height}px`,
+  `--dot-shadow-blur: ${shadowBlur}px`,
+  `--dot-shadow-spread: ${shadowSpread}px`,
+  `--dot-z-index: ${zIndex}`,
+  `--dot-opacity: ${opacity}`,
+  ...positionStyles,
+].join('; ');
+---
+
+<span class:list={['blured-dot', { 'hide-on-mobile': !showOnMobile }]} style={style} aria-hidden="true"></span>
+
+<style>
+  .blured-dot {
+    position: absolute;
+    width: var(--dot-width);
+    height: var(--dot-height);
+    background-color: var(--dot-color);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: var(--dot-z-index);
+    box-shadow: 0 0 var(--dot-shadow-blur) var(--dot-shadow-spread) var(--dot-color);
+    opacity: var(--dot-opacity);
+  }
+
+  .hide-on-mobile {
+    @apply hidden lg:block;
+  }
+</style>

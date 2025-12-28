@@ -2,6 +2,8 @@
 import type { HTMLAttributes } from 'astro/types';
 import Heading from '../ui/Heading.astro';
 import Paragraph from '../ui/Paragraph.astro';
+import BluredDot from '../ui/BluredDot.astro';
+import type { BluredDotsProps } from '../schemas/blured-dot';
 
 interface Props extends HTMLAttributes<'section'> {
   id?: string;
@@ -10,14 +12,16 @@ interface Props extends HTMLAttributes<'section'> {
   variant?: 'default' | 'dark' | 'gradient' | undefined;
   size?: 'sm' | 'md' | 'lg' | undefined;
   container?: boolean;
+  bluredDots?: BluredDotsProps | undefined;
 }
 
-const { id, title, subtitle, variant = 'default', size = 'md', container = true, ...rest } = Astro.props;
+const { id, title, subtitle, variant = 'default', size = 'md', container = true, bluredDots, ...rest } = Astro.props;
 
-const sectionClasses = ['section', `variant-${variant}`, `size-${size}`];
+const sectionClasses = ['section', `variant-${variant}`, `size-${size}`, { 'section-has-dots': bluredDots?.length }];
 ---
 
 <section class:list={sectionClasses} {id} {...rest}>
+  {bluredDots?.map((dot) => <BluredDot {...dot} />)}
   {
     container ? (
       <div class="container mx-auto px-4">
@@ -48,16 +52,20 @@ const sectionClasses = ['section', `variant-${variant}`, `size-${size}`];
     @apply relative;
   }
 
+  .section.section-has-dots {
+    @apply overflow-hidden;
+  }
+
   .section.size-sm {
-    @apply py-8 lg:py-12;
+    @apply py-4 lg:py-6;
   }
 
   .section.size-md {
-    @apply py-12 lg:py-20;
+    @apply py-6 lg:py-10;
   }
 
   .section.size-lg {
-    @apply py-16 lg:py-28;
+    @apply py-8 lg:py-14;
   }
 
   .section.variant-default {

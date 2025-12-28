@@ -31,6 +31,13 @@ export interface AboutPageContent {
   serviceTitle: string;
   serviceIntro: string;
   serviceCards: AboutCardContent[];
+  serviceOutro: string;
+
+  // Section: Reliability guarantee
+  reliabilityTitle: string;
+  reliabilityParagraph1: string;
+  reliabilityParagraph2: string;
+  reliabilityParagraph3: string;
 
   // Section: Your brand is not your appearance
   brandTitle: string;
@@ -50,6 +57,15 @@ export interface AboutPageContent {
   contentParagraph2: string;
   contentParagraph3: string;
   contentSignature: string;
+
+  // Section: No experience needed
+  noExperienceTitle: string;
+  noExperienceParagraph1: string;
+  noExperienceParagraph2: string;
+  noExperienceImportantLabel: string;
+  noExperienceImportant: string;
+  noExperienceParagraph3: string;
+  noExperienceParagraph3Bold: string;
 
   // Section: Advantages articles
   advantagesSectionTitle: string;
@@ -113,7 +129,15 @@ export const aboutPageContent: LocalizedContent<AboutPageContent> = {
         icon: 'launch',
       },
     ],
-
+    serviceOutro:
+      '«Архитектор Личных Брендов» возьмёт Вас за руку и пошагово, методично поможет создать Вам самый ликвидный бизнес -  ваш Личный Бренд',
+    reliabilityTitle: 'Гарантия надежности: Что стоит за этим проектом',
+    reliabilityParagraph1:
+      'Сервис «Архитектор Личных Брендов» — результат 28-летнего опыта предпринимателя, разработавшего за время своей карьеры более 100 бизнес-планов для себя и клиентов, из которых более 75% получили финансирование. Для этого проекта была использована методология бизнес-планирования, по которой он защитил свою докторскую диссертацию по бизнес-планированию, признанная экспертным сообществом.',
+    reliabilityParagraph2:
+      'AI-сервис «Архитектор Личных Брендов» — это не обычный сервис копирайтинга, цена которого определяется «от балды», потому что «все так делают», по наитию или финансовому шантажу.',
+    reliabilityParagraph3:
+      'Вы также можете ознакомиться с его Резюме, опубликованном на признанной в мире профессиональной деловой соцсети LinkedIn — которая требует и проверяет предоставленную в этом резюме информацию.',
     brandTitle: 'ВАШ БРЕНД — ЭТО НЕ ВАША ВНЕШНОСТЬ',
     brandParagraph1:
       'Автор сервиса знает, что страх публичности и страх показывать свое лицо (из-за возраста, внешности или неуверенности) для подавляющего большинства людей — это самый серьезный психологический барьер.',
@@ -126,11 +150,11 @@ export const aboutPageContent: LocalizedContent<AboutPageContent> = {
     brandParagraph3:
       'Именно это ценят люди и именно за это они готовы платить. Если вы не хотите показывать себя — не нужно. Ваш Личный Бренд — это бизнес-модель, которая работает даже когда вы остаетесь в тени.',
 
-    scoutTitle: 'ЖИВОЕ ДОКАЗАТЕЛЬСТВО СТРАТЕГИИ: БИЗНЕС-СКАУТ',
+    scoutTitle: 'ЖИВОЕ ДОКАЗАТЕЛЬСТВО СТРАТЕГИИ: БИЗНЕС-СЛЕДОПЫТ',
     scoutParagraph1:
-      'Вы можете увидеть эффективность этой модели своими глазами: Основатель и автор AI-сервиса, Бизнес-Скаут, ведет свой бизнес под псевдонимом и не показывает лицо. Его 28-летний опыт — это не просто теория, это живое доказательство того, что можно создать прибыльную, масштабируемую бизнес-модель, ориентированную только на личные качества и уникальные навыки, без привязки к внешности.',
+      'Вы можете увидеть эффективность этой модели своими глазами: Основатель и автор AI-сервиса, Бизнес-Следопыт, ведет свой бизнес под псевдонимом и не показывает лицо. Его 28-летний опыт — это не просто теория, это живое доказательство того, что можно создать прибыльную, масштабируемую бизнес-модель, ориентированную только на личные качества и уникальные навыки, без привязки к внешности.',
     scoutParagraph2:
-      'Вы можете узнать о жизненном и бизнес-опыте создателя сервиса «Архитектор Личных Брендов» на его персональном сайте «Хроники Бизнес-Скаута».',
+      'Вы можете узнать о жизненном и бизнес-опыте создателя сервиса «Архитектор Личных Брендов» на его персональном сайте «Хроники Бизнес-Следопыта».',
 
     contentTitle: 'Контент, который работает на вас',
     contentParagraph1:
@@ -140,6 +164,17 @@ export const aboutPageContent: LocalizedContent<AboutPageContent> = {
     contentParagraph3:
       'Прямо сейчас вы находитесь на сайте сервиса, который помогает заложить фундамент для самого надежного бизнеса в вашей жизни. До него всего 10 пошаговых шагов. Перестройте свою реальность и живите той жизнью, о которой всегда мечтали и стремились.',
     contentSignature: 'С глубоким уважением,<br />Ваш Архитектор',
+
+    noExperienceTitle: 'Не нужен ни опыт, ни большой бюджет, ни месяцы ожидания',
+    noExperienceParagraph1:
+      'Сервис максимально упростил для Вас сложнейший процесс создания бизнеса. Вам не нужно учиться на бизнес-аналитика, маркетолога или финансового эксперта. Вам даже не потребуется никого из них нанимать. Всё, что Вам необходимо делать – это вдумчиво и развёрнуто отвечать на вопросы. Только брифинг и ничего более. Остальное «Архитектор Личных Брендов» сделает сам за считанные минуты',
+    noExperienceParagraph2:
+      'В результате Вы получите детальный, готовый к реализации бизнес-проект с готовыми цифровыми продуктами, продуманной маркетинговой стратегией и рассчитанной воронкой продаж. И вам не нужна команда профессионалов, которая обошлась бы в кругленькую сумму и несколько месяцев ожидания',
+    noExperienceImportantLabel: 'ОЧЕНЬ ВАЖНО:',
+    noExperienceImportant:
+      'этот сервис даёт возможность создать реальный бизнес практически любому человеку. Ни один консультант, а тем более ни одно агентство не станут работать с клиентом, у которого нет большого бюджета. Здесь же полный цикл – от аудита до полноценного запуска – обойдётся Пользователю в очень скромную и доступную сумму. О стоимости Вы можете узнать на странице «Как это работает, или 10 шагов до запуска готового бизнеса «Ваш Личный Бренд».',
+    noExperienceParagraph3: 'Вы создадите бизнес, который даст Вам то, к чему Вы стремитесь – ',
+    noExperienceParagraph3Bold: 'свободу и финансовую независимость от места и обстоятельств',
 
     advantagesSectionTitle: 'Преимущества AI-сервиса',
     advantagesSectionSubtitle: 'Читайте наши статьи',
@@ -196,6 +231,16 @@ export const aboutPageContent: LocalizedContent<AboutPageContent> = {
         icon: 'launch',
       },
     ],
+    serviceOutro:
+      'The "Architect of Personal Brands" will take you by the hand and step by step, methodically help you create the most liquid business - your Personal Brand',
+
+    reliabilityTitle: 'Reliability Guarantee: What stands behind this project',
+    reliabilityParagraph1:
+      'The "Architect of Personal Brands" service is the result of 28 years of entrepreneurial experience, having developed over 100 business plans for himself and clients during his career, of which more than 75% received funding. For this project, the business planning methodology was used, on which he defended his doctoral dissertation on business planning, recognized by the expert community.',
+    reliabilityParagraph2:
+      'The AI-service "Architect of Personal Brands" is not an ordinary copywriting service, the price of which is determined "out of thin air", because "everyone does it", by intuition or financial blackmail.',
+    reliabilityParagraph3:
+      'You can also review his Resume, published on the world-recognized professional business social network LinkedIn — which requires and verifies the information provided in this resume.',
 
     brandTitle: 'YOUR BRAND IS NOT YOUR APPEARANCE',
     brandParagraph1:
@@ -223,6 +268,17 @@ export const aboutPageContent: LocalizedContent<AboutPageContent> = {
     contentParagraph3:
       "Right now you are on the website of the service that helps you lay the foundation for the most reliable business in your life. Only 10 step-by-step steps separate you from it. Rebuild your reality and live the life you've always dreamed of and aspired to.",
     contentSignature: 'With deep respect,<br />Your Architect',
+
+    noExperienceTitle: 'No experience, big budget, or months of waiting needed',
+    noExperienceParagraph1:
+      'The service has simplified the complex process of creating a business as much as possible for you. You don\'t need to study to become a business analyst, marketer, or financial expert. You won\'t even need to hire any of them. All you need to do is thoughtfully and thoroughly answer the questions. Just briefing and nothing more. The "Architect of Personal Brands" will do the rest in a matter of minutes',
+    noExperienceParagraph2:
+      "As a result, you will receive a detailed, ready-to-implement business project with ready-made digital products, a well-thought-out marketing strategy, and a calculated sales funnel. And you don't need a team of professionals that would cost a pretty penny and several months of waiting",
+    noExperienceImportantLabel: 'VERY IMPORTANT:',
+    noExperienceImportant:
+      "this service makes it possible for almost anyone to create a real business. No consultant, let alone agency, will work with a client who doesn't have a large budget. Here, the full cycle – from audit to full launch – will cost the User a very modest and affordable amount. You can learn about the cost on the \"How It Works, or 10 Steps to Launching a Ready Business 'Your Personal Brand'\" page.",
+    noExperienceParagraph3: 'You will create a business that will give you what you strive for – ',
+    noExperienceParagraph3Bold: 'freedom and financial independence from place and circumstances',
 
     advantagesSectionTitle: 'Advantages of the AI-service',
     advantagesSectionSubtitle: 'Read our articles',

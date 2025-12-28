@@ -4,11 +4,17 @@ import Section from '@components/blocks/Section.astro';
 import Sidebar from '@components/blocks/Sidebar.astro';
 import Breadcrumbs from '@components/structures/Breadcrumbs.astro';
 import Accordion from '@components/ui/Accordion.astro';
+import Card from '@components/ui/Card.astro';
+import Button from '@components/ui/Button.astro';
+import { Image } from 'astro:assets';
 import { getFaqItems } from '@data/faq';
 import { getPageContent } from '@data/pages';
 import { getFaqContent } from '@data/page-content';
 import { getLatestBlogPosts } from '@utils/posts';
+import { contacts } from '@data/contacts';
 import { SUPPORTED_LANGUAGES, type SupportedLanguage } from '@/types/i18n';
+
+import helpIcon from '@assets/images/help.webp';
 
 export function getStaticPaths() {
   return SUPPORTED_LANGUAGES.map((lang) => ({
@@ -25,8 +31,34 @@ const blogPosts = await getLatestBlogPosts(lang, 2);
 
 <PageLayout head={page.meta} hero={page.hero}>
   <Section id="faq" variant="default">
-    <div class="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-8">
-      <div>
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 lg:gap-12">
+      <!-- Sidebar on the left -->
+      <Sidebar blogItems={blogPosts}>
+        <!-- Help Card -->
+        <Card variant="default" size="md" class="help-card">
+          <div class="flex flex-col items-center text-center gap-4 p-4">
+            <Image
+              src={helpIcon}
+              alt={content.helpCardTitle}
+              width={100}
+              height={100}
+              class="w-20 h-20 object-contain"
+            />
+            <h4 class="text-lg font-semibold text-heading">{content.helpCardTitle}</h4>
+            <p class="text-sm text-muted-foreground leading-relaxed">{content.helpCardDescription}</p>
+            <Button
+              text={content.helpCardButton}
+              href={contacts.telegramUrl}
+              variant="primary"
+              size="md"
+              target="_blank"
+            />
+          </div>
+        </Card>
+      </Sidebar>
+
+      <!-- Main Content on the right -->
+      <div class="faq-main">
         <Breadcrumbs items={[{ text: content.breadcrumb }]} class="mb-6" />
 
         <div class="mb-8">
@@ -37,8 +69,16 @@ const blogPosts = await getLatestBlogPosts(lang, 2);
           <Accordion items={faqItems.map((item) => ({ question: item.question, answer: item.answer }))} />
         </div>
       </div>
-
-      <Sidebar blogItems={blogPosts} />
     </div>
   </Section>
 </PageLayout>
+
+<style>
+  .faq-main {
+    @apply flex flex-col;
+  }
+
+  .help-card {
+    @apply border-border/50;
+  }
+</style>

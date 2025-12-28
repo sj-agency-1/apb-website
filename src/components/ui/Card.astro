@@ -1,18 +1,28 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 import Element from './Element.astro';
+import BluredDot from './BluredDot.astro';
+import type { BluredDotsProps } from '../schemas/blured-dot';
 
 interface Props extends HTMLAttributes<'div'> {
   variant?: 'default' | 'gradient' | 'outline' | 'cta' | undefined;
   size?: 'sm' | 'md' | 'lg' | undefined;
   direction?: 'row' | 'column' | undefined;
   blur?: boolean | undefined;
+  bluredDots?: BluredDotsProps | undefined;
 }
 
-const { variant = 'default', size = 'md', direction = 'column', blur = false, ...rest } = Astro.props;
+const { variant = 'default', size = 'md', direction = 'column', blur = false, bluredDots, ...rest } = Astro.props;
 ---
 
-<Element class:list={['card', { 'card-blur': blur }]} {variant} {size} {direction} {...rest}>
+<Element
+  class:list={['card', { 'card-blur': blur, 'card-has-dots': bluredDots?.length }]}
+  {variant}
+  {size}
+  {direction}
+  {...rest}
+>
+  {bluredDots?.map((dot) => <BluredDot {...dot} />)}
   <slot />
 </Element>
 
@@ -20,6 +30,10 @@ const { variant = 'default', size = 'md', direction = 'column', blur = false, ..
   @layer ui {
     .card {
       @apply rounded-2xl;
+
+      &.card-has-dots {
+        @apply relative overflow-hidden;
+      }
 
       &.card-blur {
         @apply backdrop-blur-sm bg-card/80;

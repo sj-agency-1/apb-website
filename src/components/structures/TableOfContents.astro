@@ -43,11 +43,11 @@ const { items, activeId } = Astro.props;
   }
 
   .toc-item {
-    @apply border-l-2 border-muted transition-colors duration-200;
+    @apply border-l-4 border-transparent transition-colors duration-200 rounded-sm;
   }
 
   .toc-item:has(.toc-link.active) {
-    @apply border-l-2 border-primary;
+    @apply border-l-4 border-primary;
   }
 
   .toc-link {
@@ -63,11 +63,7 @@ const { items, activeId } = Astro.props;
   }
 
   .toc-text {
-    @apply text-foreground font-medium text-sm leading-snug;
-  }
-
-  .toc-link.active .toc-text {
-    @apply text-heading font-semibold;
+    @apply text-heading font-semibold text-sm leading-snug;
   }
 </style>
 

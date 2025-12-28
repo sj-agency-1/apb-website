@@ -5,10 +5,13 @@ import Breadcrumbs from '@components/structures/Breadcrumbs.astro';
 import Card from '@components/ui/Card.astro';
 import Button from '@components/ui/Button.astro';
 import Modal from '@components/structures/Modal.astro';
+import { Image } from 'astro:assets';
 import { getReviews } from '@data/reviews';
 import { getPageContent } from '@data/pages';
 import { getReviewsContent } from '@data/page-content';
 import { SUPPORTED_LANGUAGES, type SupportedLanguage } from '@/types/i18n';
+
+import shareExperienceIcon from '@assets/images/share-experience.webp';
 
 export function getStaticPaths() {
   return SUPPORTED_LANGUAGES.map((lang) => ({
@@ -20,7 +23,7 @@ const { lang } = Astro.params as { lang: SupportedLanguage };
 const page = getPageContent('reviews', lang);
 const content = getReviewsContent(lang);
 const reviews = getReviews(lang);
-const REVIEWS_PER_PAGE = 6;
+const REVIEWS_PER_PAGE = 8; // 4 + 4 reviews per page (plus 1 card in between)
 ---
 
 <PageLayout head={page.meta} hero={page.hero}>
@@ -39,50 +42,91 @@ const REVIEWS_PER_PAGE = 6;
 
     <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {
-        reviews.map((review, index) => (
-          <Card
-            variant="default"
-            size="lg"
-            class:list={['review-card flex flex-col h-full', { hidden: index >= REVIEWS_PER_PAGE }]}
-            data-index={index}
-          >
-            <div class="flex items-start gap-4 mb-4">
-              <img
-                src={review.avatar}
-                alt={review.name}
-                width={64}
-                height={64}
-                class="w-16 h-16 rounded-full object-cover"
-              />
-              <div class="flex-1">
-                <h3 class="font-semibold text-heading">{review.name}</h3>
-                <p class="text-sm text-muted-foreground">
-                  {review.age} {content.ageYears}, {review.location}
-                </p>
-                {review.translated && (
-                  <span class="inline-flex items-center gap-1 text-xs text-muted-foreground mt-1">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="w-3 h-3"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
-                      />
-                    </svg>
-                    {content.translated}
-                  </span>
-                )}
-              </div>
-            </div>
-            <p class="text-foreground leading-relaxed flex-1">{review.text}</p>
-          </Card>
-        ))
+        reviews.map((review, index) => {
+          // Calculate position in current page (0-7 for 8 reviews)
+          const positionInPage = index % REVIEWS_PER_PAGE;
+          // Show share experience card after 4th review (position 4, meaning after indices 0,1,2,3)
+          const showShareCard = positionInPage === 4;
+          const pageNumber = Math.floor(index / REVIEWS_PER_PAGE);
+          const isFirstPage = pageNumber === 0;
+
+          return (
+            <>
+              {showShareCard && (
+                <Card
+                  variant="default"
+                  size="lg"
+                  class:list={[
+                    'share-experience-card flex flex-col items-center justify-center text-center h-full',
+                    { hidden: !isFirstPage },
+                  ]}
+                  data-page={pageNumber}
+                >
+                  <div class="flex flex-col items-center gap-4 p-6">
+                    <Image
+                      src={shareExperienceIcon}
+                      alt={content.shareExperienceTitle}
+                      width={120}
+                      height={120}
+                      class="w-24 h-24 object-contain"
+                    />
+                    <h3 class="text-xl font-semibold text-heading">{content.shareExperienceTitle}</h3>
+                    <p class="text-muted-foreground leading-relaxed">{content.shareExperienceDescription}</p>
+                    <Button
+                      text={content.shareExperienceButton}
+                      variant="primary"
+                      size="lg"
+                      class="leave-review-btn mt-2"
+                    />
+                  </div>
+                </Card>
+              )}
+              <Card
+                variant="default"
+                size="lg"
+                class:list={['review-card flex flex-col h-full', { hidden: !isFirstPage }]}
+                data-index={index}
+                data-page={pageNumber}
+              >
+                <div class="flex items-start gap-4 mb-4">
+                  <img
+                    src={review.avatar}
+                    alt={review.name}
+                    width={64}
+                    height={64}
+                    class="w-16 h-16 rounded-full object-cover"
+                  />
+                  <div class="flex-1">
+                    <h3 class="font-semibold text-heading">{review.name}</h3>
+                    <p class="text-sm text-muted-foreground">
+                      {review.age} {content.ageYears}, {review.location}
+                    </p>
+                    {review.translated && (
+                      <span class="inline-flex items-center gap-1 text-xs text-muted-foreground mt-1">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="w-3 h-3"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
+                          />
+                        </svg>
+                        {content.translated}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <p class="text-foreground leading-relaxed flex-1">{review.text}</p>
+              </Card>
+            </>
+          );
+        })
       }
     </div>
 
@@ -103,54 +147,57 @@ const REVIEWS_PER_PAGE = 6;
     </div>
   </Section>
 
-  <Modal id="leave-review-modal" title={content.modalTitle}>
-    <div class="flex flex-col items-center text-center gap-6 py-4">
-      <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-10 h-10 text-primary"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-          ></path>
-        </svg>
+  <Modal id="leave-review-modal" title={content.modalTitle} size="lg">
+    <div class="flex flex-col md:flex-row items-center gap-8">
+      <div class="flex-shrink-0">
+        <Image
+          src={shareExperienceIcon}
+          alt={content.modalHeading}
+          width={128}
+          height={128}
+          class="w-32 h-32 object-contain"
+        />
       </div>
-      <div>
-        <h3 class="text-xl font-semibold text-heading mb-2">{content.modalHeading}</h3>
-        <p class="text-foreground mb-6">
+      <div class="flex-1 text-center md:text-left">
+        <h3 class="text-2xl font-bold text-heading mb-2">{content.modalHeading}</h3>
+        <p class="text-foreground/80 mb-6">
           {content.modalDescription}
         </p>
-      </div>
-      <div class="flex flex-col sm:flex-row gap-3 w-full">
-        <Button text={content.loginButton} href={`/${lang}/login`} variant="primary" size="lg" class="flex-1" />
-        <Button text={content.registerButton} href={`/${lang}/register`} variant="outline" size="lg" class="flex-1" />
+        <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+          <Button text={content.loginButton} href={`/${lang}/login`} variant="primary" size="lg" />
+          <Button text={content.registerButton} href={`/${lang}/register`} variant="outline" size="lg" />
+        </div>
       </div>
     </div>
   </Modal>
 </PageLayout>
 
-<script define:vars={{ REVIEWS_PER_PAGE }}>
+<script>
   document.addEventListener('DOMContentLoaded', () => {
     const reviewCards = document.querySelectorAll('.review-card');
+    const shareCards = document.querySelectorAll('.share-experience-card');
     const paginationBtns = document.querySelectorAll('.pagination-btn');
-    const leaveReviewBtn = document.querySelector('.leave-review-btn');
+    const leaveReviewBtns = document.querySelectorAll('.leave-review-btn');
 
     // Pagination
     paginationBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
         const page = parseInt(btn.dataset.page || '0');
-        const startIndex = page * REVIEWS_PER_PAGE;
-        const endIndex = startIndex + REVIEWS_PER_PAGE;
 
-        // Show/hide cards
-        reviewCards.forEach((card, index) => {
-          if (index >= startIndex && index < endIndex) {
+        // Show/hide review cards based on page
+        reviewCards.forEach((card) => {
+          const cardPage = parseInt(card.dataset.page || '0');
+          if (cardPage === page) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        // Show/hide share experience cards based on page
+        shareCards.forEach((card) => {
+          const cardPage = parseInt(card.dataset.page || '0');
+          if (cardPage === page) {
             card.classList.remove('hidden');
           } else {
             card.classList.add('hidden');
@@ -168,12 +215,13 @@ const REVIEWS_PER_PAGE = 6;
     });
 
     // Leave review modal
-    if (leaveReviewBtn) {
-      leaveReviewBtn.addEventListener('click', () => {
+    leaveReviewBtns.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
         if (typeof window.openModal === 'function') {
           window.openModal('leave-review-modal');
         }
       });
-    }
+    });
   });
 </script>

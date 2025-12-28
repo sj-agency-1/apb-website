@@ -1,5 +1,5 @@
 ---
-import Image from '../ui/Image.astro';
+import { Icon } from 'astro-icon/components';
 import Accordion from '../ui/Accordion.astro';
 
 interface StepItem {
@@ -40,7 +40,7 @@ const {
       <details class="step-item" name="steps-accordion">
         <summary class="step-header">
           <div class="step-icon">
-            <Image src={item.icon} alt={item.title} width={48} height={48} />
+            <Icon name={item.icon} class="h-6 w-6 text-black" />
           </div>
           <div class="step-info">
             <span class="step-label">
@@ -127,7 +127,7 @@ const {
   }
 
   .step-icon {
-    @apply w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0 overflow-hidden;
+    @apply w-12 h-12 rounded-xl bg-primary flex items-center justify-center flex-shrink-0 overflow-hidden;
   }
 
   .step-icon :global(.image) {

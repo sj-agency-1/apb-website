@@ -56,7 +56,8 @@ export const ui = {
     'prefooter.subtitle':
       'Начните прямо сейчас и получите готовую бизнес-модель, которая обеспечит Вам финансовую свободу',
     'prefooter.cta': 'Начать',
-    'prefooter.ctaSubtext': 'Начать АУДИТ и Создать Бизнес «Личный Бренд»',
+    'prefooter.ctaSubtext1': 'Начать АУДИТ и Создать Бизнес',
+    'prefooter.ctaSubtext2': '«Личный Бренд»',
 
     // Breadcrumbs
     'breadcrumbs.home': 'Главная',
@@ -125,7 +126,8 @@ export const ui = {
     'prefooter.subtitle':
       'Start right now and get a ready-made business model that will provide you with financial freedom',
     'prefooter.cta': 'Start',
-    'prefooter.ctaSubtext': 'Start AUDIT and Create Business "Personal Brand"',
+    'prefooter.ctaSubtext1': 'Start AUDIT and Create Business',
+    'prefooter.ctaSubtext2': '"Personal Brand"',
 
     // Breadcrumbs
     'breadcrumbs.home': 'Home',

@@ -12,11 +12,12 @@ interface Props extends HTMLAttributes<'section'> {
     text: string;
     href: string;
   };
-  ctaSubtext?: string;
+  ctaSubtext1?: string;
+  ctaSubtext2?: string;
   backgroundImage?: string;
 }
 
-const { title, subtitle, cta, ctaSubtext, backgroundImage, ...rest } = Astro.props;
+const { title, subtitle, cta, ctaSubtext1, ctaSubtext2, backgroundImage, ...rest } = Astro.props;
 ---
 
 <section class="prefooter" {...rest}>
@@ -35,7 +36,15 @@ const { title, subtitle, cta, ctaSubtext, backgroundImage, ...rest } = Astro.pro
       </div>
       <div class="prefooter-action">
         <Button text={cta.text} href={cta.href} variant="secondary" size="lg" class="prefooter-button" />
-        {ctaSubtext && <span class="prefooter-subtext">{ctaSubtext}</span>}
+        {
+          (ctaSubtext1 || ctaSubtext2) && (
+            <span class="prefooter-subtext">
+              {ctaSubtext1}
+              <br />
+              {ctaSubtext2}
+            </span>
+          )
+        }
       </div>
     </div>
   </div>

@@ -58,5 +58,11 @@ Preparation phase
 
 - [x] Add docs for later use
 
-- [ ] Fix prod website
-  - [ ] Update tailwindcss approach to use (move layers in style attribyte of components to no-layer in separate file) - quick fix for now to make website working
+- [x] Fix prod website
+  - [x] Update tailwindcss approach to use (move layers in style attribyte of components to no-layer in separate file) - quick fix for now to make website working
+
+- [ ] Setup DecapCMS
+  - [ ] Setup OAuth Google Provider
+  - [ ] Accept invintation link
+  - [ ] Login via provider
+  - [ ] Full guide [here](/docs/decapcms-netlify-setup.md)

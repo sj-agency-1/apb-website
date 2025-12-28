@@ -1,0 +1,147 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'div'> {
+  id: string;
+}
+
+const { id, class: className, ...rest } = Astro.props;
+---
+
+<div id={id} class:list={['modal', className]} role="dialog" aria-modal="true" aria-hidden="true" {...rest}>
+  <div class="modal-backdrop" data-modal-close></div>
+  <div class="modal-container">
+    <button type="button" class="modal-close" data-modal-close aria-label="Close modal">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M18 6 6 18"></path>
+        <path d="m6 6 12 12"></path>
+      </svg>
+    </button>
+    <div class="modal-content">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  .modal {
+    @apply fixed inset-0 z-50 flex items-center justify-center p-4;
+    @apply opacity-0 pointer-events-none;
+    transition: opacity 0.2s ease-out;
+  }
+
+  .modal.is-open {
+    @apply opacity-100 pointer-events-auto;
+  }
+
+  .modal-backdrop {
+    @apply absolute inset-0 bg-black/70 backdrop-blur-sm;
+  }
+
+  .modal-container {
+    @apply relative z-10 w-full max-w-md;
+    @apply bg-card rounded-2xl p-8;
+    @apply transform scale-95;
+    transition: transform 0.2s ease-out;
+  }
+
+  .modal.is-open .modal-container {
+    @apply scale-100;
+  }
+
+  .modal-close {
+    @apply absolute top-4 right-4;
+    @apply flex items-center justify-center w-8 h-8 rounded-lg;
+    @apply text-muted-foreground hover:text-foreground hover:bg-secondary;
+    @apply transition-colors cursor-pointer;
+  }
+
+  .modal-content {
+    @apply flex flex-col items-center text-center gap-4;
+  }
+</style>
+
+<script>
+  declare global {
+    interface Window {
+      openModal: (id: string) => void;
+      closeModal: (id: string) => void;
+    }
+  }
+
+  function initModals() {
+    const modals = document.querySelectorAll('.modal');
+
+    modals.forEach((modal) => {
+      const closeButtons = modal.querySelectorAll('[data-modal-close]');
+
+      // Close on X button and backdrop click
+      closeButtons.forEach((btn) => {
+        btn.addEventListener('click', () => closeModal(modal));
+      });
+
+      // Close on ESC key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+          closeModal(modal);
+        }
+      });
+    });
+
+    // Global function to open modals
+    window.openModal = (id: string) => {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+    };
+
+    // Global function to close modals
+    window.closeModal = (id: string) => {
+      const modal = document.getElementById(id);
+      if (modal) {
+        closeModal(modal);
+      }
+    };
+  }
+
+  function closeModal(modal: Element) {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // Handle modal triggers
+  function initModalTriggers() {
+    const triggers = document.querySelectorAll('[data-modal-trigger]');
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const modalId = trigger.getAttribute('data-modal-trigger');
+        if (modalId) {
+          window.openModal(modalId);
+        }
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    initModals();
+    initModalTriggers();
+  });
+
+  initModals();
+  initModalTriggers();
+</script>

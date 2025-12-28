@@ -194,6 +194,24 @@ export const ui = {
 
     // Sidebar
     'sidebar.blogTitle': 'Читайте также',
+
+    // Breadcrumbs
+    'breadcrumbs.home': 'Главная',
+
+    // Blog Page
+    'blog.hero.pretitle': 'AI-сервис Архитектор Личных Брендов',
+    'blog.hero.title': 'Познавательно',
+    'blog.hero.subtitle': 'Полезные статьи и новости',
+    'blog.readMore': 'Подробнее',
+    'blog.allTags': 'Все',
+    'blog.pagination.prev': 'Назад',
+    'blog.pagination.next': 'Вперёд',
+
+    // Advantages Page
+    'advantagesPage.hero.pretitle': 'AI-сервис Архитектор Личных Брендов',
+    'advantagesPage.hero.title': 'Достоинства',
+    'advantagesPage.readMore': 'Подробнее',
+    'advantagesPage.allTags': 'Все',
   },
   en: {
     // Logo
@@ -383,5 +401,23 @@ export const ui = {
 
     // Sidebar
     'sidebar.blogTitle': 'Also read',
+
+    // Breadcrumbs
+    'breadcrumbs.home': 'Home',
+
+    // Blog Page
+    'blog.hero.pretitle': 'AI-service Architect of Personal Brands',
+    'blog.hero.title': 'Blog',
+    'blog.hero.subtitle': 'Useful articles and news',
+    'blog.readMore': 'Read more',
+    'blog.allTags': 'All',
+    'blog.pagination.prev': 'Previous',
+    'blog.pagination.next': 'Next',
+
+    // Advantages Page
+    'advantagesPage.hero.pretitle': 'AI-service Architect of Personal Brands',
+    'advantagesPage.hero.title': 'Advantages',
+    'advantagesPage.readMore': 'Read more',
+    'advantagesPage.allTags': 'All',
   },
 } as const;

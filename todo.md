@@ -23,23 +23,42 @@ Preparation phase
 
 - [ ] Create pages
   - [x] Home
-  - [ ] How It Works
-  - [ ] About
-  - [ ] Advantages + Advantage (implement Add content first below)
-  - [ ] Blog + Post
-  - [ ] Reviews
-  - [ ] FAQ
-  - [ ] Contacts
+  - [x] How It Works
+  - [x] About
+  - [x] Advantages + Advantage (implement Add content first below)
+  - [x] Blog + Post
+  - [x] Reviews
+  - [x] FAQ
+  - [x] Contacts
 
-- [ ] Add content
-  - [ ] Add and setup collections
-  - [ ] Add content for collections
+- [x] Add content
+  - [x] Add and setup collections
+  - [x] Add content for collections
+- [x] Retrieve data from collections
 
-- [ ] Add mising pages
-  - [ ] Review all links on the website (header/footer) and implement missing pages
+- [x] Add mising pages
+  - [x] Review all links on the website (header/footer) and implement missing pages
 
-- [ ] Fixes
-  - [ ] Active link of the current page in header menu
-  - [ ] Smooth scrolling
+- [x] Fixes
+  - [x] Active link of the current page in header menu
+  - [x] Smooth scrolling
+
+- [ ] Refactor code:
+  - [ ] Use translated content on pages when possible to keep ui.ts (with translations) small
+  - [ ] Remove unused code
+  - [ ] Refactor components and define some reusable components as blocks (like CTA cards and etc.) to follow DRY principle
+  - [ ] Review the component system and make sure it follows best practices, be maintainable while keeping them simple (do not overengineer)
+    - [ ] Move hero component to the Layout.
+- [ ] After all of this, run the `npm run fix` command and after that `npm run check` to fix all of the left errors
 
 - [ ] Animations
+
+- [ ] Manually review pages and adjust them
+
+- [ ] Add docs for later use
+
+- [ ] Deploy
+  - [ ] Setup CI/CD workflow to publish the website on Netlify
+  - [ ] Add DecapCMS
+  - [ ] Add domain
+  - [ ] Add CDN (cloudflare)

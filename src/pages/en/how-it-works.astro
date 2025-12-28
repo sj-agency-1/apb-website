@@ -1,0 +1,57 @@
+---
+import PageLayout from '@layouts/PageLayout.astro';
+import Hero from '@components/blocks/Hero.astro';
+import Section from '@components/blocks/Section.astro';
+import Breadcrumbs from '@components/structures/Breadcrumbs.astro';
+import StepsAccordion from '@components/structures/StepsAccordion.astro';
+import { getStepPricing } from '@data/pricing';
+
+const steps = getStepPricing('en');
+---
+
+<PageLayout
+  head={{
+    title: 'How It Works - Architect of Personal Brands',
+    description: '10 steps to creating your Personal Brand business',
+  }}
+>
+  <!-- Hero Section -->
+  <Hero layout="page" backgroundImage="/src/assets/images/bg-1.webp">
+    <div class="flex flex-col gap-2">
+      <div class="text-sm text-muted-foreground uppercase tracking-wider font-medium">
+        AI-service Architect of Personal Brands
+      </div>
+      <h1 class="text-4xl lg:text-5xl font-bold text-white leading-tight">How It Works</h1>
+    </div>
+  </Hero>
+
+  <!-- Content Section -->
+  <Section id="how-it-works" variant="default">
+    <Breadcrumbs items={[{ text: 'How It Works' }]} class="mb-6" />
+
+    <div class="mb-8">
+      <h2 class="text-2xl lg:text-3xl font-bold text-heading mb-4">
+        10 Steps to Creating Your Personal Brand Business
+      </h2>
+      <p class="text-foreground leading-relaxed">
+        The AI-service "Architect of Personal Brands" is not just an instruction, but a step-by-step route that leads
+        you from self-discovery to creating a full-fledged and profitable business. The entire process consists of 10
+        key stages, worked out to the smallest detail.
+      </p>
+    </div>
+
+    <div class="mb-6">
+      <h3 class="text-lg font-semibold text-heading mb-2">Here's what this journey looks like:</h3>
+    </div>
+
+    <StepsAccordion
+      items={steps}
+      stepLabel="Step"
+      descriptionLabel="Description"
+      purposeLabel="Why this step"
+      faqLabel="Frequently Asked Questions"
+      priceLabel="Price"
+      promoPriceLabel="Price with promo code"
+    />
+  </Section>
+</PageLayout>

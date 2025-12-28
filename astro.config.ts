@@ -12,6 +12,7 @@ import compress from 'astro-compress';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
+  site: 'https://apb.example.com', // TODO: Replace with actual site URL
   output: 'static',
 
   integrations: [

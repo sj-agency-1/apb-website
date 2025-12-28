@@ -1,0 +1,306 @@
+---
+import PageLayout from '@layouts/PageLayout.astro';
+import Hero from '@components/blocks/Hero.astro';
+import Section from '@components/blocks/Section.astro';
+import Breadcrumbs from '@components/structures/Breadcrumbs.astro';
+import Card from '@components/ui/Card.astro';
+import Button from '@components/ui/Button.astro';
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+
+import aboutHero from '@assets/images/pages/about-1.webp';
+import about1 from '@assets/images/pages/about-1.webp';
+import about2 from '@assets/images/pages/about-2.webp';
+import about3 from '@assets/images/pages/about-3.webp';
+
+// Get latest advantages posts
+const allAdvantages = await getCollection('advantages', (entry) => {
+  const [entryLang] = entry.id.split('/');
+  return entryLang === 'ru' && !entry.data.isArchive;
+});
+const advantagesPosts = allAdvantages
+  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime())
+  .slice(0, 3);
+---
+
+<PageLayout
+  head={{
+    title: 'О проекте - Архитектор Личных Брендов',
+    description: 'Узнайте об AI-сервисе, который поможет создать ваш Личный Бренд-Бизнес',
+  }}
+>
+  <Hero layout="page" backgroundImage="/src/assets/images/bg-1.webp">
+    <div class="flex flex-col gap-2">
+      <div class="text-sm text-muted-foreground uppercase tracking-wider font-medium">
+        AI-сервис Архитектор Личных Брендов
+      </div>
+      <h1 class="text-4xl lg:text-5xl font-bold text-white leading-tight">О проекте</h1>
+    </div>
+  </Hero>
+
+  <Section id="about" variant="default">
+    <div class="mb-12">
+      <Image src={aboutHero} alt="Архитектор Личных Брендов" width={1200} height={600} class="w-full rounded-2xl" />
+    </div>
+
+    <Breadcrumbs items={[{ text: 'О проекте' }]} class="mb-6" />
+
+    <div class="mb-12">
+      <h2 class="text-3xl lg:text-4xl font-bold text-heading mb-6">АРХИТЕКТОР ЛИЧНЫХ БРЕНДОВ</h2>
+      <div class="flex flex-col gap-6">
+        <h3 class="text-xl lg:text-2xl font-semibold text-heading">
+          Добро пожаловать на официальный сайт AI-сервиса «Архитектор Личных Брендов»
+        </h3>
+        <p class="text-lg text-foreground leading-relaxed">
+          Вы попали в кузницу, где рождаются по-настоящему прибыльные и надежные бизнесы, а не на очередную страницу
+          модного инструмента.
+        </p>
+        <p class="text-foreground leading-relaxed">
+          Личный Бренд — это не просто звучное имя, красивая внешность и набор постов в соцсетях. Это полноценный,
+          прибыльный и, что самое главное, самореализующий Бизнес. С одним условием — нужно отнестись к нему не менее
+          серьезно, как к любому проекту, приносящему солидный доход. «Вишенка на торте» — факт того, что бизнес под
+          названием «Личный Бренд» принадлежит только ВАМ, и отнять его не сможет никто и никогда.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+      <div class="flex flex-col gap-4">
+        <Image src={about1} alt="О сервисе" width={600} height={400} class="rounded-2xl" />
+      </div>
+      <div class="flex flex-col gap-4 justify-center">
+        <h3 class="text-2xl lg:text-3xl font-bold text-heading">
+          Секрет в фундаменте: почему AI-сервис «Архитектор Личных Брендов» — это принципиально другой подход
+        </h3>
+        <p class="text-foreground leading-relaxed">
+          Как сейчас принято «создавать» Личные Бренды? В основном, этим занимаются брендинговые или PR-агентства,
+          рекламщики. Они профессионально умеют создавать красивую картинку, информационный шум, писать и размещать
+          PR-статьи, управлять репутацией и повышать узнаваемость. НО! Они работают только с теми, у кого уже есть
+          большие бюджеты, готовые продукты или хотя бы четкое понимание, чего клиент хочет в информационном поле.
+        </p>
+        <p class="text-foreground leading-relaxed">
+          «Архитектор Личных Брендов» работает иначе. Сервис не пиарит, а строит бизнес с нуля под названием «Ваш Личный
+          Бренд». Он разрабатывает полноценную, эффективную и приносящую доход Бизнес-Модель, подстроенную под одного
+          конкретного человека, начиная от глубокого аудита, аналитики, позиционирования и заканчивая созданием линейки
+          цифровых продуктов с четкими расчетами — бизнес-планом, включая финансовую модель, дорожную карту и медиаплан.
+        </p>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <Image src={about3} alt="Архитектор Личных Брендов" width={1200} height={600} class="w-full rounded-2xl" />
+    </div>
+
+    <div class="mb-12">
+      <h3 class="text-2xl lg:text-3xl font-bold text-heading mb-6">Что именно делает сервис?</h3>
+      <p class="text-foreground leading-relaxed mb-8">
+        Представьте, что Личный Бренд — это ваш дом. Обычные специалисты могут красиво покрасить стены, оформить
+        интерьер, повесить дорогие шторы — то есть, сделать рекламу и PR. Сервис «Архитектор Личных Брендов» проектирует
+        и строит с нуля: закладывает фундамент, проводит коммуникации, возводит несущие конструкции, и только потом
+        приступает к отделке и благоустройству.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Card variant="default" size="lg">
+          <div class="flex flex-col gap-4 p-4">
+            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-8 h-8 text-primary"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+                ></path>
+              </svg>
+            </div>
+            <h4 class="text-lg font-semibold text-heading">Проводит аудит</h4>
+            <p class="text-muted-foreground leading-relaxed">
+              Сервис глубоко анализирует ваши скрытые и даже незамеченные вами качества и уникальный опыт, которые лягут
+              в основу вашего Личного Бренда.
+            </p>
+          </div>
+        </Card>
+        <Card variant="default" size="lg">
+          <div class="flex flex-col gap-4 p-4">
+            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-8 h-8 text-primary"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                ></path>
+              </svg>
+            </div>
+            <h4 class="text-lg font-semibold text-heading">Разрабатывает продукты, приносящие доход</h4>
+            <p class="text-muted-foreground leading-relaxed">
+              Он не просто консультирует, а создает для вас готовые, структурированные цифровые продукты (например,
+              онлайн-курсы или детализированные расписанные консультации, гайды, чек-листы и т.д.), готовые к
+              немедленному запуску.
+            </p>
+          </div>
+        </Card>
+        <Card variant="default" size="lg">
+          <div class="flex flex-col gap-4 p-4">
+            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-8 h-8 text-primary"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </div>
+            <h4 class="text-lg font-semibold text-heading">Создает финансовую модель и план действий</h4>
+            <p class="text-muted-foreground leading-relaxed">
+              Сервис проводит полное исследование рынка, ниши и конкурентов, чтобы установить правильную цену, которая
+              будет положительно воспринята аудиторией. Формирует детальный бизнес-план с финансовой моделью и дорожной
+              картой.
+            </p>
+          </div>
+        </Card>
+        <Card variant="default" size="lg">
+          <div class="flex flex-col gap-4 p-4">
+            <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-8 h-8 text-primary"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.58-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+                ></path>
+              </svg>
+            </div>
+            <h4 class="text-lg font-semibold text-heading">Полностью готовит к запуску</h4>
+            <p class="text-muted-foreground leading-relaxed">
+              Сервис создает профессиональные Технические Задания для дизайнеров и разработчиков, чтобы ваш Личный Бренд
+              выглядел достойно. Разрабатывает четкую контент-стратегию и медиаплан для продвижения.
+            </p>
+          </div>
+        </Card>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+      <div class="flex flex-col gap-4 justify-center">
+        <h3 class="text-2xl lg:text-3xl font-bold text-heading">ВАШ БРЕНД — ЭТО НЕ ВАША ВНЕШНОСТЬ</h3>
+        <p class="text-foreground leading-relaxed">
+          Автор сервиса знает, что страх публичности и страх показывать свое лицо (из-за возраста, внешности или
+          неуверенности) для подавляющего большинства людей — это самый серьезный психологический барьер.
+        </p>
+        <p class="text-foreground leading-relaxed">
+          Он не будет пытаться убедить вас преодолеть этот страх. Потому что Личный Бренд, который разрабатывает
+          AI-сервис, базируется не на вашей внешности, а на вашем внутреннем мире, на вашем «Я»:
+        </p>
+        <ul class="list-disc list-inside text-foreground space-y-2 ml-4">
+          <li>На ваших уникальных талантах, навыках и опыте</li>
+          <li>На ваших человеческих качествах и уникальном способе мышления</li>
+        </ul>
+        <p class="text-foreground leading-relaxed">
+          Именно это ценят люди и именно за это они готовы платить. Если вы не хотите показывать себя — не нужно. Ваш
+          Личный Бренд — это бизнес-модель, которая работает даже когда вы остаетесь в тени.
+        </p>
+      </div>
+      <div>
+        <Image src={about2} alt="Ваш Бренд" width={600} height={400} class="rounded-2xl" />
+      </div>
+    </div>
+
+    <div class="mb-12 bg-secondary/30 rounded-2xl p-8">
+      <h3 class="text-2xl lg:text-3xl font-bold text-heading mb-6">ЖИВОЕ ДОКАЗАТЕЛЬСТВО СТРАТЕГИИ: БИЗНЕС-СКАУТ</h3>
+      <p class="text-foreground leading-relaxed mb-4">
+        Вы можете увидеть эффективность этой модели своими глазами: Основатель и автор AI-сервиса, Бизнес-Скаут, ведет
+        свой бизнес под псевдонимом и не показывает лицо. Его 28-летний опыт — это не просто теория, это живое
+        доказательство того, что можно создать прибыльную, масштабируемую бизнес-модель, ориентированную только на
+        личные качества и уникальные навыки, без привязки к внешности.
+      </p>
+      <p class="text-foreground leading-relaxed mb-4">
+        Вы можете узнать о жизненном и бизнес-опыте создателя сервиса «Архитектор Личных Брендов» на его персональном
+        сайте «Хроники Бизнес-Скаута».
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+      <div>
+        <Image src={about3} alt="Контент" width={600} height={400} class="rounded-2xl" />
+      </div>
+      <div class="flex flex-col gap-4 justify-center">
+        <h3 class="text-2xl lg:text-3xl font-bold text-heading">Контент, который работает на вас</h3>
+        <p class="text-foreground leading-relaxed">
+          После того как фундамент вашего бизнеса заложен, сервис продолжает работать как ваш персональный контент-хаб и
+          интерактивный медиапланировщик.
+        </p>
+        <p class="text-foreground leading-relaxed">
+          «Архитектор» знает ваш Личный Бренд «с рождения» — с момента аудита и позиционирования. Поэтому любой контент,
+          который вы планируете создать (PR-статья, пост в соцсетях, сценарий видео), всегда будет максимально
+          персонализированным, уникальным и, главное, соответствующим вашей бизнес-модели и стратегии.
+        </p>
+        <p class="text-foreground leading-relaxed">
+          Прямо сейчас вы находитесь на сайте сервиса, который помогает заложить фундамент для самого надежного бизнеса
+          в вашей жизни. До него всего 10 пошаговых шагов. Перестройте свою реальность и живите той жизнью, о которой
+          всегда мечтали и стремились.
+        </p>
+        <p class="text-foreground italic mt-4">
+          С глубоким уважением,<br />
+          Ваш Архитектор
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <Section id="advantages-articles" title="Преимущества AI-сервиса" subtitle="Читайте наши статьи" variant="dark">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {
+        advantagesPosts.map((post) => (
+          <Card variant="default" size="sm" class="flex flex-col h-full">
+            {post.data.heroImage && (
+              <a href={`/ru/advantages/${post.slug}`} class="block aspect-video overflow-hidden rounded-xl mb-4">
+                <img
+                  src={post.data.heroImage}
+                  alt={post.data.title}
+                  width={400}
+                  height={250}
+                  class="w-full h-full object-cover"
+                />
+              </a>
+            )}
+            <div class="flex flex-col gap-3 flex-1 p-4">
+              <h4 class="text-lg font-semibold text-heading line-clamp-2">{post.data.title}</h4>
+              <div class="mt-auto">
+                <Button text="Читать далее" href={`/ru/advantages/${post.slug}`} variant="outline" size="sm" />
+              </div>
+            </div>
+          </Card>
+        ))
+      }
+    </div>
+    <div class="mt-8 flex justify-center">
+      <Button text="Смотреть все" href="/ru/advantages" variant="secondary" size="lg" />
+    </div>
+  </Section>
+</PageLayout>

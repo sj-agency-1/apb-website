@@ -1,0 +1,209 @@
+---
+import Card from '../ui/Card.astro';
+import Image from '../ui/Image.astro';
+import Accordion from '../ui/Accordion.astro';
+
+interface StepItem {
+  step: number;
+  icon: string;
+  title: string;
+  oldPrice: number | string;
+  newPrice: number | string;
+  description: string;
+  purpose: string;
+  faq: { question: string; answer: string }[];
+}
+
+interface Props {
+  items: StepItem[];
+  stepLabel?: string;
+  descriptionLabel?: string;
+  purposeLabel?: string;
+  faqLabel?: string;
+  priceLabel?: string;
+  promoPriceLabel?: string;
+}
+
+const {
+  items,
+  stepLabel = 'Этап',
+  descriptionLabel = 'Описание',
+  purposeLabel = 'Для чего этот этап',
+  faqLabel = 'Часто задаваемые Вопросы',
+  priceLabel = 'Стоимость',
+  promoPriceLabel = 'Стоимость по промокоду',
+} = Astro.props;
+---
+
+<div class="steps-accordion">
+  {
+    items.map((item, index) => (
+      <details class="step-item" name="steps-accordion">
+        <summary class="step-header">
+          <div class="step-icon">
+            <Image src={item.icon} alt={item.title} width={48} height={48} />
+          </div>
+          <div class="step-info">
+            <span class="step-label">
+              {stepLabel} {item.step}
+            </span>
+            <h3 class="step-title">{item.title}</h3>
+          </div>
+          <div class="step-prices">
+            <span class="step-old-price">${typeof item.oldPrice === 'number' ? item.oldPrice : item.oldPrice}</span>
+            <span class="step-new-price">
+              {typeof item.newPrice === 'number' ? `$${item.newPrice}` : item.newPrice}
+            </span>
+          </div>
+          <div class="step-toggle">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </div>
+        </summary>
+        <div class="step-content">
+          <div class="step-section">
+            <h4 class="step-section-title">{descriptionLabel}</h4>
+            <p class="step-section-text">{item.description}</p>
+          </div>
+          <div class="step-section">
+            <h4 class="step-section-title">{purposeLabel}</h4>
+            <p class="step-section-text">{item.purpose}</p>
+          </div>
+          <div class="step-prices-detail">
+            <div class="price-item">
+              <span class="price-label">{priceLabel}</span>
+              <span class="price-value old">${typeof item.oldPrice === 'number' ? item.oldPrice : item.oldPrice}</span>
+            </div>
+            <div class="price-item">
+              <span class="price-label">{promoPriceLabel}</span>
+              <span class="price-value new">
+                {typeof item.newPrice === 'number' ? `$${item.newPrice}` : item.newPrice}
+              </span>
+            </div>
+          </div>
+          {item.faq && item.faq.length > 0 && (
+            <div class="step-faq">
+              <h4 class="step-section-title">{faqLabel}</h4>
+              <Accordion items={item.faq.map((f) => ({ question: f.question, answer: f.answer }))} />
+            </div>
+          )}
+        </div>
+      </details>
+    ))
+  }
+</div>
+
+<style>
+  .steps-accordion {
+    @apply flex flex-col gap-4;
+  }
+
+  .step-item {
+    @apply rounded-2xl bg-card overflow-hidden border border-border/30;
+  }
+
+  .step-item[open] .step-toggle svg {
+    @apply rotate-180;
+  }
+
+  .step-header {
+    @apply flex items-center gap-4 p-5 cursor-pointer;
+    @apply hover:bg-secondary/50 transition-colors;
+    list-style: none;
+  }
+
+  .step-header::-webkit-details-marker {
+    display: none;
+  }
+
+  .step-icon {
+    @apply w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center flex-shrink-0 overflow-hidden;
+  }
+
+  .step-icon :global(.image) {
+    @apply w-full h-full object-contain;
+  }
+
+  .step-info {
+    @apply flex-1 min-w-0;
+  }
+
+  .step-label {
+    @apply text-xs text-muted-foreground uppercase tracking-wider;
+  }
+
+  .step-title {
+    @apply text-base font-semibold text-heading truncate;
+  }
+
+  .step-prices {
+    @apply flex items-center gap-3 flex-shrink-0;
+  }
+
+  .step-old-price {
+    @apply text-sm text-muted-foreground line-through;
+  }
+
+  .step-new-price {
+    @apply px-3 py-1 rounded-lg bg-primary text-primary-foreground font-semibold text-sm;
+  }
+
+  .step-toggle {
+    @apply text-muted-foreground transition-transform duration-300 flex-shrink-0;
+  }
+
+  .step-content {
+    @apply px-5 pb-5 pt-0 flex flex-col gap-6;
+  }
+
+  .step-section {
+    @apply flex flex-col gap-2;
+  }
+
+  .step-section-title {
+    @apply text-sm font-semibold text-heading;
+  }
+
+  .step-section-text {
+    @apply text-sm text-foreground leading-relaxed;
+  }
+
+  .step-prices-detail {
+    @apply flex flex-wrap gap-6;
+  }
+
+  .price-item {
+    @apply flex items-center gap-3;
+  }
+
+  .price-label {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .price-value {
+    @apply text-lg font-bold;
+  }
+
+  .price-value.old {
+    @apply text-muted-foreground line-through;
+  }
+
+  .price-value.new {
+    @apply px-3 py-1 rounded-lg bg-primary text-primary-foreground;
+  }
+
+  .step-faq {
+    @apply flex flex-col gap-3 mt-2 pt-4 border-t border-border/30;
+  }
+</style>

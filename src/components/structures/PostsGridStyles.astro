@@ -1,0 +1,81 @@
+---
+// PostsGrid Styles - Import this in pages that need posts grid, tags filter, and pagination styling
+---
+
+<style is:global>
+  /* Tags Filter */
+  .tags-filter {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .tag-button {
+    @apply px-4 py-2 rounded-xl text-sm font-medium transition-colors;
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary-hover;
+  }
+
+  .tag-button.active {
+    @apply bg-primary text-primary-foreground hover:bg-primary-hover;
+  }
+
+  /* Posts Grid - 3 columns on desktop */
+  .posts-grid {
+    @apply grid gap-6;
+    @apply grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
+  }
+
+  /* Post Card */
+  .post-card {
+    @apply flex flex-col h-full;
+  }
+
+  .post-image {
+    @apply block aspect-video overflow-hidden rounded-xl mb-4;
+  }
+
+  .post-image :global(.image) {
+    @apply w-full h-full object-cover transition-transform duration-300 hover:scale-105;
+  }
+
+  .post-content {
+    @apply flex flex-col gap-3 flex-1;
+  }
+
+  .post-title {
+    @apply line-clamp-2;
+  }
+
+  .post-excerpt {
+    @apply line-clamp-3 flex-1;
+  }
+
+  .post-cta {
+    @apply mt-auto w-fit;
+  }
+
+  /* Pagination */
+  .pagination {
+    @apply flex items-center justify-center gap-2 mt-12;
+  }
+
+  .pagination-btn {
+    @apply flex items-center justify-center w-10 h-10 rounded-xl transition-colors;
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary-hover;
+  }
+
+  .pagination-btn.disabled {
+    @apply opacity-50 pointer-events-none;
+  }
+
+  .pagination-num {
+    @apply flex items-center justify-center w-10 h-10 rounded-xl text-sm font-medium transition-colors;
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary-hover;
+  }
+
+  .pagination-num.active {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .pagination-ellipsis {
+    @apply flex items-center justify-center w-10 h-10 text-muted-foreground;
+  }
+</style>

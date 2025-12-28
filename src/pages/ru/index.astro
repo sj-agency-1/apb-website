@@ -15,6 +15,7 @@ import LaunchSteps from '@components/structures/LaunchSteps.astro';
 import Reviews from '@components/structures/Reviews.astro';
 import { useTranslations } from '@i18n/utils';
 import { reviews } from '@data/reviews';
+import { getLatestBlogPosts } from '@utils/posts';
 
 const t = useTranslations('ru');
 
@@ -36,21 +37,8 @@ const chapters = [
   { id: 'chapter-5', chapter: t('chapter5.label'), title: t('chapter5.title'), content: t('chapter5.content') },
 ];
 
-// Blog items for sidebar
-const blogItems = [
-  {
-    title:
-      'Ваш самый честный партнер: почему AI-сервис гарантирует 100% конфиденциальность и почему это ключ к вашему успеху',
-    href: '/ru/blog/honest-partner',
-    image: '/src/assets/images/posts/blog/1.webp',
-  },
-  {
-    title:
-      'Вам не нужно быть аналитиком: как сервис максимально упростил самую сложную работу, оставив вам только легкие ответы',
-    href: '/ru/blog/no-analyst-needed',
-    image: '/src/assets/images/posts/blog/2.webp',
-  },
-];
+// Blog items for sidebar (fetched dynamically)
+const blogItems = await getLatestBlogPosts('ru', 2);
 
 // Advantages
 const advantages = [

@@ -1,46 +1,28 @@
 import { defineCollection, z } from 'astro:content';
-// import { cardSchema } from '@components/schemas/card.ts';
-// import { pageSchema } from '@components/schemas/page.ts';
-// import { glob } from 'astro/loaders';
+
+// Shared post schema for blog and advantages
+const postSchema = z.object({
+  title: z.string(),
+  description: z.string().nullable().optional(),
+  excerptTitle: z.string().optional(), // Defaults to title if not provided
+  excerptDescription: z.string(),
+  publishDate: z.coerce.date(),
+  heroImage: z.string(),
+  tags: z.array(z.string()).default([]),
+  isArchive: z.boolean().default(false),
+});
 
 const blog = defineCollection({
-  schema: z.object({
-    title: z.string(),
-    date: z.date(),
-  }),
+  type: 'content',
+  schema: postSchema,
+});
+
+const advantages = defineCollection({
+  type: 'content',
+  schema: postSchema,
 });
 
 export const collections = {
-  blogCollection: blog,
-
-  // todo: define post schema using similar approach
-  // pages: defineCollection({
-  //   type: 'content',
-  //   schema: pageSchema,
-  // }),
-  // layouts: defineCollection({
-  //   type: 'data',
-  //   schema: pageSchema,
-  // }),
-  // records: defineCollection({
-  //   type: 'data',
-  //   schema: cardSchema,
-  // }),
+  blog,
+  advantages,
 };
-
-// const blog = defineCollection({
-//   // Load Markdown and MDX files in the `src/content/blog/` directory.
-//   loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
-//   // Type-check frontmatter using a schema
-//   schema: ({ image }) =>
-//     z.object({
-//       title: z.string(),
-//       description: z.string(),
-//       // Transform string to Date object
-//       pubDate: z.coerce.date(),
-//       updatedDate: z.coerce.date().optional(),
-//       heroImage: image().optional(),
-//     }),
-// });
-
-// export const collections = { blog };

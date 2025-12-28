@@ -59,6 +59,24 @@ export const reviews: ReviewProps[] = [
     avatar: '/src/assets/images/reviews/review-2.webp',
     translated: true,
   },
+  {
+    id: 'review-7',
+    name: 'Марина',
+    age: 34,
+    location: 'Казахстан',
+    text: 'Давно искала инструмент, который поможет структурировать мои знания и опыт в области психологии. AI-сервис «Архитектор Личных Брендов» превзошел все мои ожидания. За 3 месяца я создала линейку консультационных продуктов и запустила свой первый онлайн-курс. Особенно понравилась детальная проработка финансовой модели — теперь я точно знаю, сколько клиентов мне нужно для достижения своих целей.',
+    sex: 'female',
+    avatar: '/src/assets/images/reviews/review-1.webp',
+  },
+  {
+    id: 'review-8',
+    name: 'Алексей',
+    age: 51,
+    location: 'Беларусь',
+    text: 'Как бывший топ-менеджер крупной компании, я скептически относился к идее создания Личного Бренда. Казалось, что это что-то для молодых блогеров. Но сервис показал совсем другой подход — системный, бизнесовый, с четкими расчетами. Сейчас я веду консалтинговую практику и зарабатываю больше, чем на найме, при этом работаю когда хочу и с кем хочу. Рекомендую всем, кто задумывается о своем деле.',
+    sex: 'male',
+    avatar: '/src/assets/images/reviews/review-2.webp',
+  },
 ];
 
 export const reviewsEn: ReviewProps[] = [
@@ -119,5 +137,23 @@ export const reviewsEn: ReviewProps[] = [
     sex: 'male',
     avatar: '/src/assets/images/reviews/review-2.webp',
     translated: true,
+  },
+  {
+    id: 'review-7',
+    name: 'Marina',
+    age: 34,
+    location: 'Kazakhstan',
+    text: "I've been looking for a tool to help structure my knowledge and experience in psychology for a long time. The AI-service 'Architect of Personal Brands' exceeded all my expectations. In 3 months, I created a line of consulting products and launched my first online course. I especially liked the detailed financial model development — now I know exactly how many clients I need to achieve my goals.",
+    sex: 'female',
+    avatar: '/src/assets/images/reviews/review-1.webp',
+  },
+  {
+    id: 'review-8',
+    name: 'Alexey',
+    age: 51,
+    location: 'Belarus',
+    text: 'As a former top manager of a large company, I was skeptical about creating a Personal Brand. It seemed like something for young bloggers. But the service showed a completely different approach — systematic, business-oriented, with clear calculations. Now I run a consulting practice and earn more than I did as an employee, while working when I want and with whom I want. I recommend it to everyone who is thinking about their own business.',
+    sex: 'male',
+    avatar: '/src/assets/images/reviews/review-2.webp',
   },
 ];

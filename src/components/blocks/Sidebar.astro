@@ -59,6 +59,7 @@ const { tocItems, blogItems, blogTitle, activeId, sectionId = 'about', ctaText =
       top: 6rem;
       max-height: calc(100vh - 8rem);
       overflow-y: auto;
+      align-self: flex-start;
     }
   }
 </style>
@@ -77,18 +78,40 @@ const { tocItems, blogItems, blogTitle, activeId, sectionId = 'about', ctaText =
       const updateStickyBehavior = () => {
         const sectionRect = section.getBoundingClientRect();
         const sidebarEl = sidebar as HTMLElement;
+        const sidebarHeight = sidebarEl.offsetHeight;
+        const viewportHeight = window.innerHeight;
+        const topOffset = 96; // 6rem = 96px
 
-        // When section bottom is above viewport, unstick the sidebar
-        if (sectionRect.bottom <= 100) {
+        // Calculate the maximum scroll position where sidebar should stop being sticky
+        const sectionBottom = sectionRect.bottom;
+        const stopPoint = sidebarHeight + topOffset;
+
+        // When the section bottom is close to or above the sidebar bottom position
+        if (sectionBottom <= stopPoint) {
+          // Position the sidebar at the bottom of the section
           sidebarEl.style.position = 'relative';
           sidebarEl.style.top = 'auto';
+        } else if (sidebarHeight > viewportHeight - topOffset) {
+          // If sidebar is taller than viewport, let it scroll naturally
+          const scrollProgress = -sectionRect.top / (section.offsetHeight - viewportHeight);
+          const maxScroll = sidebarHeight - (viewportHeight - topOffset);
+
+          if (sectionRect.top <= 0 && sectionRect.bottom >= viewportHeight) {
+            sidebarEl.style.position = 'sticky';
+            sidebarEl.style.top = `${topOffset - Math.min(scrollProgress * maxScroll, maxScroll)}px`;
+          } else {
+            sidebarEl.style.position = '';
+            sidebarEl.style.top = '';
+          }
         } else {
+          // Normal sticky behavior
           sidebarEl.style.position = '';
           sidebarEl.style.top = '';
         }
       };
 
       window.addEventListener('scroll', updateStickyBehavior, { passive: true });
+      window.addEventListener('resize', updateStickyBehavior, { passive: true });
       updateStickyBehavior();
     });
   }

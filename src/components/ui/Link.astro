@@ -22,16 +22,7 @@ const {
 } = Astro.props;
 ---
 
-<Element
-  class:list="link"
-  as="a"
-  current={`/${Astro.params.page}/` === href}
-  {variant}
-  {size}
-  {href}
-  {target}
-  {...rest}
->
+<Element class:list="link" as="a" current={Astro.url.pathname === href} {variant} {size} {href} {target} {...rest}>
   <Fragment set:html={text} />
   <slot />
   <Icon name={icon} />
@@ -56,7 +47,7 @@ const {
         @apply text-muted-foreground hover:text-foreground;
 
         &.current {
-          @apply text-heading;
+          @apply text-white;
         }
       }
 

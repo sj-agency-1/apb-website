@@ -21,7 +21,7 @@ const { href = '/', size = 'md', image, text, ...rest } = Astro.props as Props;
 ---
 
 <Element class:list="logo" as={href ? 'a' : 'div'} {href} {size} {...rest}>
-  <Image {...image} width="40" height="40" />
+  <Image {...image} width={40} height={40} />
   <Fragment set:html={text} />
 </Element>
 

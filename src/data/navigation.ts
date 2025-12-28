@@ -127,7 +127,7 @@ export function getFooterData(lang: SupportedLanguage, t: TranslationFunction): 
   return {
     logo: {
       text: `<div><span class="font-heading font-bold text-heading">${t('logo.heading')}</span><br/><span class="text-xs text-muted-foreground">${t('logo.text')}</span></div>`,
-      image: { src: images.logo, alt: 'Logo', width: 40, height: 40 },
+      image: { src: images.logo, alt: 'Logo' },
     },
     socials: socialLinks,
     copyright: t('footer.copyright'),

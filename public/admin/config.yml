@@ -1,0 +1,325 @@
+# DecapCMS Configuration
+# https://decapcms.org/docs/configuration-options/
+
+# Backend Configuration - Uses Netlify Identity + Git Gateway
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to main)
+
+# Publish mode - Enable editorial workflow for draft/review/publish
+publish_mode: editorial_workflow
+
+# Media files configuration
+media_folder: 'src/assets/images/posts' # Where media files will be stored
+public_folder: '/src/assets/images/posts' # The src attribute for uploaded media
+
+# Site URL (used for the CMS preview)
+site_url: https://your-site.netlify.app # TODO: Replace with actual site URL
+display_url: https://your-site.netlify.app # TODO: Replace with actual site URL
+
+# Locale settings
+locale: 'en'
+
+# Slug configuration
+slug:
+  encoding: 'ascii'
+  clean_accents: true
+  sanitize_replacement: '-'
+
+# Collections
+collections:
+  # ============================================
+  # Blog Posts - English
+  # ============================================
+  - name: 'blog-en'
+    label: 'Blog (English)'
+    label_singular: 'Blog Post'
+    folder: 'src/content/blog/en'
+    create: true
+    slug: '{{slug}}'
+    extension: 'md'
+    format: 'frontmatter'
+    editor:
+      preview: true
+    sortable_fields: ['publishDate', 'title']
+    view_filters:
+      - label: 'Published'
+        field: isArchive
+        pattern: false
+      - label: 'Archived'
+        field: isArchive
+        pattern: true
+    fields:
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+        required: true
+
+      - label: 'Description'
+        name: 'description'
+        widget: 'string'
+        required: false
+
+      - label: 'Excerpt Title'
+        name: 'excerptTitle'
+        widget: 'string'
+        required: false
+        hint: 'Short title for excerpts/cards. Defaults to main title if empty.'
+
+      - label: 'Excerpt Description'
+        name: 'excerptDescription'
+        widget: 'string'
+        required: true
+        hint: 'Short description for listing pages and cards.'
+
+      - label: 'Publish Date'
+        name: 'publishDate'
+        widget: 'datetime'
+        date_format: 'YYYY-MM-DD'
+        time_format: false
+        required: true
+
+      - label: 'Hero Image'
+        name: 'heroImage'
+        widget: 'image'
+        required: true
+        hint: 'Path format: /src/assets/images/posts/blog/filename.webp'
+
+      - label: 'Tags'
+        name: 'tags'
+        widget: 'list'
+        required: false
+        default: []
+
+      - label: 'Archived'
+        name: 'isArchive'
+        widget: 'boolean'
+        default: false
+        required: false
+
+      - label: 'Body'
+        name: 'body'
+        widget: 'markdown'
+        required: true
+
+  # ============================================
+  # Blog Posts - Russian
+  # ============================================
+  - name: 'blog-ru'
+    label: 'Blog (Russian)'
+    label_singular: 'Blog Post'
+    folder: 'src/content/blog/ru'
+    create: true
+    slug: '{{slug}}'
+    extension: 'md'
+    format: 'frontmatter'
+    editor:
+      preview: true
+    sortable_fields: ['publishDate', 'title']
+    view_filters:
+      - label: 'Published'
+        field: isArchive
+        pattern: false
+      - label: 'Archived'
+        field: isArchive
+        pattern: true
+    fields:
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+        required: true
+
+      - label: 'Description'
+        name: 'description'
+        widget: 'string'
+        required: false
+
+      - label: 'Excerpt Title'
+        name: 'excerptTitle'
+        widget: 'string'
+        required: false
+        hint: 'Short title for excerpts/cards. Defaults to main title if empty.'
+
+      - label: 'Excerpt Description'
+        name: 'excerptDescription'
+        widget: 'string'
+        required: true
+        hint: 'Short description for listing pages and cards.'
+
+      - label: 'Publish Date'
+        name: 'publishDate'
+        widget: 'datetime'
+        date_format: 'YYYY-MM-DD'
+        time_format: false
+        required: true
+
+      - label: 'Hero Image'
+        name: 'heroImage'
+        widget: 'image'
+        required: true
+        hint: 'Path format: /src/assets/images/posts/blog/filename.webp'
+
+      - label: 'Tags'
+        name: 'tags'
+        widget: 'list'
+        required: false
+        default: []
+
+      - label: 'Archived'
+        name: 'isArchive'
+        widget: 'boolean'
+        default: false
+        required: false
+
+      - label: 'Body'
+        name: 'body'
+        widget: 'markdown'
+        required: true
+
+  # ============================================
+  # Advantages - English
+  # ============================================
+  - name: 'advantages-en'
+    label: 'Advantages (English)'
+    label_singular: 'Advantage'
+    folder: 'src/content/advantages/en'
+    create: true
+    slug: '{{slug}}'
+    extension: 'md'
+    format: 'frontmatter'
+    editor:
+      preview: true
+    sortable_fields: ['publishDate', 'title']
+    view_filters:
+      - label: 'Published'
+        field: isArchive
+        pattern: false
+      - label: 'Archived'
+        field: isArchive
+        pattern: true
+    fields:
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+        required: true
+
+      - label: 'Description'
+        name: 'description'
+        widget: 'string'
+        required: false
+
+      - label: 'Excerpt Title'
+        name: 'excerptTitle'
+        widget: 'string'
+        required: false
+        hint: 'Short title for excerpts/cards. Defaults to main title if empty.'
+
+      - label: 'Excerpt Description'
+        name: 'excerptDescription'
+        widget: 'string'
+        required: true
+        hint: 'Short description for listing pages and cards.'
+
+      - label: 'Publish Date'
+        name: 'publishDate'
+        widget: 'datetime'
+        date_format: 'YYYY-MM-DD'
+        time_format: false
+        required: true
+
+      - label: 'Hero Image'
+        name: 'heroImage'
+        widget: 'image'
+        required: true
+        hint: 'Path format: /src/assets/images/posts/advantages/filename.webp'
+
+      - label: 'Tags'
+        name: 'tags'
+        widget: 'list'
+        required: false
+        default: []
+
+      - label: 'Archived'
+        name: 'isArchive'
+        widget: 'boolean'
+        default: false
+        required: false
+
+      - label: 'Body'
+        name: 'body'
+        widget: 'markdown'
+        required: true
+
+  # ============================================
+  # Advantages - Russian
+  # ============================================
+  - name: 'advantages-ru'
+    label: 'Advantages (Russian)'
+    label_singular: 'Advantage'
+    folder: 'src/content/advantages/ru'
+    create: true
+    slug: '{{slug}}'
+    extension: 'md'
+    format: 'frontmatter'
+    editor:
+      preview: true
+    sortable_fields: ['publishDate', 'title']
+    view_filters:
+      - label: 'Published'
+        field: isArchive
+        pattern: false
+      - label: 'Archived'
+        field: isArchive
+        pattern: true
+    fields:
+      - label: 'Title'
+        name: 'title'
+        widget: 'string'
+        required: true
+
+      - label: 'Description'
+        name: 'description'
+        widget: 'string'
+        required: false
+
+      - label: 'Excerpt Title'
+        name: 'excerptTitle'
+        widget: 'string'
+        required: false
+        hint: 'Short title for excerpts/cards. Defaults to main title if empty.'
+
+      - label: 'Excerpt Description'
+        name: 'excerptDescription'
+        widget: 'string'
+        required: true
+        hint: 'Short description for listing pages and cards.'
+
+      - label: 'Publish Date'
+        name: 'publishDate'
+        widget: 'datetime'
+        date_format: 'YYYY-MM-DD'
+        time_format: false
+        required: true
+
+      - label: 'Hero Image'
+        name: 'heroImage'
+        widget: 'image'
+        required: true
+        hint: 'Path format: /src/assets/images/posts/advantages/filename.webp'
+
+      - label: 'Tags'
+        name: 'tags'
+        widget: 'list'
+        required: false
+        default: []
+
+      - label: 'Archived'
+        name: 'isArchive'
+        widget: 'boolean'
+        default: false
+        required: false
+
+      - label: 'Body'
+        name: 'body'
+        widget: 'markdown'
+        required: true

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
+    <title>Content Manager | APB Website</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      /* Loading indicator while CMS loads */
+      .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading" id="loading">Loading Content Manager...</div>
+    <!-- Include the Decap CMS script -->
+    <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
+    <script>
+      // Hide loading indicator once CMS is ready
+      document.getElementById('loading').style.display = 'none';
+    </script>
+  </body>
+</html>

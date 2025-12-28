@@ -1,0 +1,49 @@
+# Netlify Configuration
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  # Directory where the build command should be run
+  base = "/"
+  # Directory that contains the site files
+  publish = "dist"
+  # Build command to run
+  command = "npm run build"
+
+[build.environment]
+  # Node.js version
+  NODE_VERSION = "20"
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache static assets for 1 year
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache images for 1 year
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Redirect /admin to /admin/ (ensure trailing slash for DecapCMS)
+[[redirects]]
+  from = "/admin"
+  to = "/admin/"
+  status = 301
+  force = false
+
+# Handle SPA fallback for admin panel
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+  force = false

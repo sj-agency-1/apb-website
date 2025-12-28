@@ -174,9 +174,9 @@ const REVIEWS_PER_PAGE = 8; // 4 + 4 reviews per page (plus 1 card in between)
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const reviewCards = document.querySelectorAll('.review-card');
-    const shareCards = document.querySelectorAll('.share-experience-card');
-    const paginationBtns = document.querySelectorAll('.pagination-btn');
+    const reviewCards = document.querySelectorAll<HTMLElement>('.review-card');
+    const shareCards = document.querySelectorAll<HTMLElement>('.share-experience-card');
+    const paginationBtns = document.querySelectorAll<HTMLElement>('.pagination-btn');
     const leaveReviewBtns = document.querySelectorAll('.leave-review-btn');
 
     // Pagination

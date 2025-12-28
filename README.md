@@ -1,124 +1,77 @@
-# Base Repository Starter
+# Personal Brand Architect Website
 
-## Overview
+This repository contains the source code for the Personal Brand Architect website. It is a promotional and content-driven website for the Personal Brand Architect App.
 
-This repository serves as a robust template for creating new project repositories. It comes pre-configured with advanced AI development workflows, including GitHub Copilot integration and the [BMAD Method](https://github.com/bmad-code-org/BMAD-METHOD/), to accelerate your project setup and ensure best practices from day one.
+## Tech Stack
 
-## Features
+- **Framework**: [Astro](https://astro.build/)
+- **UI Framework**: [React](https://react.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Content**: [MDX](https://mdxjs.com/)
+- **Deployment**: Static site generation
+- **Linting**: [ESLint](https://eslint.org/)
+- **Formatting**: [Prettier](https://prettier.io/)
+- **Icons**: [Iconify](https://iconify.design/)
 
-- **AI-Driven Development**: Built-in support for GitHub Copilot and advanced prompt workflows
-- **BMAD Methodology**: Structured approach for project documentation and architecture
-- **Prompt Automation**: Ready-to-use prompt files for agents, chat modes, instructions, and more
-- **Easy Customization**: Designed to be cloned and adapted for any new repository
+## Getting Started
 
-## Quick Start
-
-1. **Clone this repository** to start your new project:
-
+1. **Clone this repository**:
    ```sh
-   git clone https://github.com/georgeparkdev/base-repository <your-new-project>
-   cd <your-new-project>
+   git clone https://github.com/sj-agency-1/apb-website
+   cd apb-website
    ```
 
-2. **Install BMAD** (Best Method for Architecture & Documentation):
-   - Run the following command to install BMAD globally:
-     ```sh
-     npm install -g @bmad/method
-     ```
-   - Or see the [BMAD Method repository](https://github.com/bmad-code-org/BMAD-METHOD/) for alternative installation options and full documentation.
-
-3. **Define Required Documentation**
-   - Use BMAD to generate essential docs (Product Requirements, Architecture, etc.) up to the PRD and architecture docs:
-     ```sh
-     bmad init
-     bmad doc create prd
-     bmad doc create architecture
-     ```
-   - For more details, see the [BMAD Method Guide](https://github.com/bmad-code-org/BMAD-METHOD/).
-
-4. **Set Up the AI Workflow**
-   - Run each prompt file below in a fresh chat (in the order listed) to fully enable the AI-powered development workflow:
-
-   **a. Collections (run first):**
-
+2. **Install dependencies**:
    ```sh
-   #file:suggest-awesome-github-copilot-collections.prompt.md
+   npm install
    ```
 
-   **b. Agents:**
-
+3. **Run the development server**:
    ```sh
-   #file:suggest-awesome-github-copilot-agents.prompt.md
+   npm run dev
    ```
 
-   **c. Instructions:**
+   The website will be available at `http://localhost:4321`.
 
-   ```sh
-   #file:suggest-awesome-github-copilot-instructions.prompt.md
-   ```
+## Available Scripts
 
-   **d. Prompts:**
+- `npm run dev`: Starts the development server.
+- `npm run start`: Alias for `npm run dev`.
+- `npm run build`: Builds the website for production.
+- `npm run preview`: Previews the production build locally.
+- `npm run astro`: Runs the Astro CLI.
+- `npm run check`: Runs all checks (Astro, ESLint, Prettier).
+- `npm run check:astro`: Checks for errors in Astro files.
+- `npm run check:eslint`: Lints the codebase with ESLint.
+- `npm run check:prettier`: Checks for formatting issues with Prettier.
+- `npm run fix`: Fixes all auto-fixable issues (ESLint, Prettier).
+- `npm run fix:eslint`: Fixes all auto-fixable ESLint issues.
+- `npm run fix:prettier`: Formats the codebase with Prettier.
 
-   ```sh
-   #file:suggest-awesome-github-copilot-prompts.prompt.md
-   ```
+## Project Structure
 
-   **e. Chat Modes:**
-
-   ```sh
-   #file:suggest-awesome-github-copilot-chatmodes.prompt.md
-   ```
-
-   > [!TIP]
-   > Run each prompt in a new chat for best results. This ensures a clean context for each setup phase.
-
-## Settings for the repository
-
-- Enforce rulesets if needed provided by the template
-- Add "Require status checks to pass" for branches after you setup checks for workflows
-- Branches rulesets:
-  - main:
-    - [x] Restrict updates
-    - [x] Restrict deletions
-    - [x] Require linear history
-    - [x] Require deployments to succeed
-    - [x] Require signed commits
-    - [x] Require a pull request before merging
-    - [x] Require status check to pass
-    - [x] Block force pushes
-  - dev:
-    - [x] Restrict deletions
-    - [x] Require a pull request before merging
-    - [x] Require status check to pass
-    - [x] Block force pushes
-- General settings:
-  - [x] Allow squash commits only (or other if preferred)
-  - [x] Always suggest updating pull request branches
-  - [x] Automatically delete head branches (if needed and rulesets are setup to prevent deletion of important branches)
-  - [x] Auto-close issues with merged linked pull requests
-
-## Recommended branch naming convention
-
-Use these branch names to keep history clear and workflows consistent:
-
-- `main`: Production-ready code (release branch).
-- `dev`: Ongoing development integration branch.
-- `feature/<feature-name>`: New features or user stories (one feature per branch).
-- `bugfix/<bugfix-name>`: Non-critical bug fixes that target `dev`.
-- `release/<version>`: Prepare a new release; used for final QA and versioning.
-- `hotfix/<hotfix-name>`: Critical fixes that must go directly to `main` and be merged back into `dev`.
-
-Examples:
-
-- `feature/user-authentication`
-- `bugfix/login-redirect`
-- `release/1.2.0`
-- `hotfix/csrf-patch`
-
----
+- `src/`: Contains the source code of the website.
+  - `assets/`: Static assets like images, fonts, and styles.
+  - `components/`: Reusable UI components.
+  - `content/`: MDX content for pages and blog posts.
+  - `data/`: Data files for the website.
+  - `i18n/`: Internationalization files.
+  - `layouts/`: Astro layouts for different page types.
+  - `pages/`: Astro pages.
+  - `styles/`: Global styles.
+  - `types/`: TypeScript type definitions.
+  - `utils/`: Utility functions.
+- `public/`: Static files that are copied to the build output.
+- `astro.config.ts`: Astro configuration file.
+- `tailwind.config.ts`: Tailwind CSS configuration file.
+- `tsconfig.json`: TypeScript configuration file.
 
 ## Learn More
 
+- **Astro:** [Full Guide & Documentation](https://docs.astro.build/)
+- **React:** [Official Documentation](https://react.dev/learn)
+- **Tailwind CSS:** [Official Documentation](https://tailwindcss.com/docs)
+- **MDX:** [Official Documentation](https://mdxjs.com/docs/what-is-mdx/)
 - **BMAD Method:** [Full Guide & Documentation](https://github.com/bmad-code-org/BMAD-METHOD/)
 - **GitHub Copilot:** [Official Documentation](https://docs.github.com/en/copilot)
 - **Awesome Copilot Prompts & Instructions:** [awesome-copilot](https://github.com/github/awesome-copilot)

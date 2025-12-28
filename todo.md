@@ -56,10 +56,4 @@ Preparation phase
 - [x] Manually review pages and adjust them
   - [x] Add 404
 
-- [ ] Add docs for later use
-
-- [ ] Deploy
-  - [ ] Setup CI/CD workflow to publish the website on Netlify
-  - [ ] Add DecapCMS
-  - [ ] Add domain
-  - [ ] Add CDN (cloudflare)
+- [x] Add docs for later use

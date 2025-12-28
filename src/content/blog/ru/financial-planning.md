@@ -4,7 +4,7 @@ description: 'Советы финансиста о том, как эффекти
 excerptTitle: 'Финансовое планирование для личного бренда'
 excerptDescription: 'Деньги любят счёт. Узнайте, как правильно распределить бюджет между различными каналами продвижения и получить максимальную отдачу от инвестиций.'
 publishDate: 2025-12-01
-heroImage: '/src/assets/images/posts/blog/3.webp'
+heroImage: '/assets/images/posts/blog/3.webp'
 tags: ['Советы финансиста', 'Бюджет']
 isArchive: false
 ---

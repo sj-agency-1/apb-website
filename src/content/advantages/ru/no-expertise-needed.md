@@ -4,7 +4,7 @@ description: 'Вам не нужно быть экспертом в разраб
 excerptTitle: 'Не нужно быть экспертом'
 excerptDescription: 'Вам не нужно быть экспертом в разработке цифровых продуктов или маркетинге. Вам нужно просто честно отвечать на вопросы анкеты — всё остальное сделает AI.'
 publishDate: 2025-12-05
-heroImage: '/src/assets/images/posts/advantages/7.webp'
+heroImage: '/assets/images/posts/advantages/7.webp'
 tags: ['Простота', 'Для новичков']
 isArchive: false
 ---

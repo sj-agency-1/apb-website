@@ -4,7 +4,7 @@ description: 'The service knows your Personal Brand from the first step and crea
 excerptTitle: 'Personalized Content'
 excerptDescription: "The culmination! The service knows your Personal Brand from 'birth': from the first 'Audit' step. Create exceptional, personalized, author's content."
 publishDate: 2025-11-28
-heroImage: '/src/assets/images/posts/advantages/1.webp'
+heroImage: '/assets/images/posts/advantages/1.webp'
 tags: ['Content', 'Personalization']
 isArchive: false
 ---

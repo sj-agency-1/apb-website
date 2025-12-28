@@ -4,7 +4,7 @@ description: 'Чётко структурированное ТЗ от серви
 excerptTitle: 'Профессиональное ТЗ на логотип — юридическая защита'
 excerptDescription: 'Ваше Техническое Задание (Этап 6) — это не только инструкция для дизайнера, но и правовая база. Чётко структурированное ТЗ от сервиса исключает двойное толкование.'
 publishDate: 2025-12-15
-heroImage: '/src/assets/images/posts/blog/3.webp'
+heroImage: '/assets/images/posts/blog/3.webp'
 tags: ['Советы юриста', 'Брендбук']
 isArchive: false
 ---

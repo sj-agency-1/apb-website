@@ -4,7 +4,7 @@ description: '«Архитектор Личных Брендов» — это б
 excerptTitle: '100% конфиденциальность'
 excerptDescription: '«Архитектор Личных Брендов» — это безличный ИИ. Это исключает человеческий фактор и избавит вас от чувства неловкости отвечать на некоторые вопросы.'
 publishDate: 2025-12-10
-heroImage: '/src/assets/images/posts/advantages/5.webp'
+heroImage: '/assets/images/posts/advantages/5.webp'
 tags: ['Конфиденциальность', 'Безопасность']
 isArchive: false
 ---

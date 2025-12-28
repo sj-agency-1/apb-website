@@ -4,7 +4,7 @@ description: "'Architect of Personal Brands' is an impersonal AI. This eliminate
 excerptTitle: '100% Confidentiality'
 excerptDescription: "'Architect of Personal Brands' is an impersonal AI. This eliminates the human factor and relieves you of the awkwardness of answering some questions."
 publishDate: 2025-12-10
-heroImage: '/src/assets/images/posts/advantages/5.webp'
+heroImage: '/assets/images/posts/advantages/5.webp'
 tags: ['Confidentiality', 'Security']
 isArchive: false
 ---

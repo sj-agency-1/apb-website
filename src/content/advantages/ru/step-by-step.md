@@ -4,7 +4,7 @@ description: 'Чёткая, структурированная система и
 excerptTitle: 'Пошаговая система: 10 этапов'
 excerptDescription: 'Чёткая, структурированная система из 10 этапов, которая ведёт вас от первого аудита до готового онлайн-бизнеса с цифровыми продуктами и стратегией продвижения.'
 publishDate: 2025-12-01
-heroImage: '/src/assets/images/posts/advantages/9.webp'
+heroImage: '/assets/images/posts/advantages/9.webp'
 tags: ['Система', 'Этапы']
 isArchive: false
 ---

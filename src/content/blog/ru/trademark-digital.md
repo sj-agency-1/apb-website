@@ -4,7 +4,7 @@ description: 'Узнайте, как юридически оформить ох�
 excerptTitle: 'Товарный знак в Digital: закрепите доменное имя'
 excerptDescription: 'Ваш цифровой адрес — это часть вашего актива. На основе уникального позиционирования, разработанного сервисом, вам нужно закрепить за собой ключевые цифровые идентификаторы.'
 publishDate: 2025-12-08
-heroImage: '/src/assets/images/posts/blog/6.webp'
+heroImage: '/assets/images/posts/blog/6.webp'
 tags: ['Советы юриста', 'Digital']
 isArchive: false
 ---

@@ -4,7 +4,7 @@ description: 'Узнайте, как использовать юридическ
 excerptTitle: 'Конфиденциальность в бизнесе: защита бизнес-модели'
 excerptDescription: 'Ваша бизнес-модель (Этапы 1-3) — это коммерческая тайна. Сервис «Архитектор Личных Брендов» гарантирует конфиденциальность внутри системы. Но как быть с внешними партнёрами?'
 publishDate: 2025-12-12
-heroImage: '/src/assets/images/posts/blog/4.webp'
+heroImage: '/assets/images/posts/blog/4.webp'
 tags: ['Советы юриста', 'Бизнес-модель']
 isArchive: false
 ---

@@ -4,7 +4,7 @@ description: 'С помощью AI-сервиса вы за считанные �
 excerptTitle: 'Доступность и скорость'
 excerptDescription: 'С помощью AI-сервиса «Архитектор Личных Брендов» вы за считанные часы можете разработать бизнес-модель, которая будет приносить доход. У команды экспертов на это уйдут месяцы.'
 publishDate: 2025-12-12
-heroImage: '/src/assets/images/posts/advantages/4.webp'
+heroImage: '/assets/images/posts/advantages/4.webp'
 tags: ['Скорость', 'Экономия']
 isArchive: false
 ---

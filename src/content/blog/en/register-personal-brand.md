@@ -4,7 +4,7 @@ description: 'Learn how to properly prepare documents so that no one can steal y
 excerptTitle: 'How to Register a Personal Brand: 3 Legal Protection Steps'
 excerptDescription: "Your name is a trademark. But what exactly should you protect? The 'Architect of Personal Brands' service at Stage 2 creates such unique positioning that it becomes your main legal asset."
 publishDate: 2025-12-20
-heroImage: '/src/assets/images/posts/blog/1.webp'
+heroImage: '/assets/images/posts/blog/1.webp'
 tags: ['Legal Tips', 'Personal Brand']
 isArchive: false
 ---

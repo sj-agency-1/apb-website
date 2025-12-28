@@ -4,7 +4,7 @@ description: 'A clear, structured system of 10 stages that leads you from idea t
 excerptTitle: 'Step-by-Step System: 10 Stages'
 excerptDescription: 'A clear, structured system of 10 stages that leads you from the first audit to a ready online business with digital products and promotion strategy.'
 publishDate: 2025-12-01
-heroImage: '/src/assets/images/posts/advantages/9.webp'
+heroImage: '/assets/images/posts/advantages/9.webp'
 tags: ['System', 'Stages']
 isArchive: false
 ---

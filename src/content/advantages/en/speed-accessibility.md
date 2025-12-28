@@ -4,7 +4,7 @@ description: 'With the AI service, you can develop a profitable business model i
 excerptTitle: 'Accessibility and Speed'
 excerptDescription: "With the AI service 'Architect of Personal Brands' you can develop a business model that will bring income in just a few hours. A team of experts would take months."
 publishDate: 2025-12-12
-heroImage: '/src/assets/images/posts/advantages/4.webp'
+heroImage: '/assets/images/posts/advantages/4.webp'
 tags: ['Speed', 'Savings']
 isArchive: false
 ---

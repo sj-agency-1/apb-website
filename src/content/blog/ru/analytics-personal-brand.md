@@ -4,7 +4,7 @@ description: 'Разберёмся, какие показатели действ
 excerptTitle: 'Аналитика для личного бренда: ключевые метрики'
 excerptDescription: 'Данные — это новая нефть. Узнайте, какие метрики помогут вам понять эффективность вашей стратегии и скорректировать курс вовремя.'
 publishDate: 2025-12-03
-heroImage: '/src/assets/images/posts/blog/2.webp'
+heroImage: '/assets/images/posts/blog/2.webp'
 tags: ['Советы бизнес-аналитика', 'Аналитика']
 isArchive: false
 ---

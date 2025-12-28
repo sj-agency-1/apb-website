@@ -4,7 +4,7 @@ description: 'С помощью сервиса вы можете создать 
 excerptTitle: 'Создание цифровых продуктов'
 excerptDescription: 'С помощью «Архитектора Личных Брендов» вы можете создать авторские цифровые продукты (онлайн-курс, онлайн консультация или тренинг), которые будут приносить вам доход.'
 publishDate: 2025-12-15
-heroImage: '/src/assets/images/posts/advantages/3.webp'
+heroImage: '/assets/images/posts/advantages/3.webp'
 tags: ['Цифровые продукты', 'Доход']
 isArchive: false
 ---

@@ -4,7 +4,7 @@ description: 'Learn about simple and effective legal ways to protect content fro
 excerptTitle: 'Copyright for Info Products: Protection from Theft'
 excerptDescription: 'You spent time creating a perfect, structured product (as the service does at Stage 4). Now you need to protect it! Learn about simple and effective legal ways to protect content.'
 publishDate: 2025-12-18
-heroImage: '/src/assets/images/posts/blog/2.webp'
+heroImage: '/assets/images/posts/blog/2.webp'
 tags: ['Legal Tips', 'Info Products']
 isArchive: false
 ---

@@ -4,7 +4,7 @@ description: "Let's figure out which indicators are really important for growing
 excerptTitle: 'Analytics for Personal Brand: Key Metrics'
 excerptDescription: 'Data is the new oil. Learn which metrics will help you understand the effectiveness of your strategy and adjust course in time.'
 publishDate: 2025-12-03
-heroImage: '/src/assets/images/posts/blog/2.webp'
+heroImage: '/assets/images/posts/blog/2.webp'
 tags: ['Business Analytics Tips', 'Analytics']
 isArchive: false
 ---

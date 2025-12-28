@@ -4,7 +4,7 @@ description: 'За алгоритмами сервиса стоит 28-летн�
 excerptTitle: '28 лет опыта за алгоритмами'
 excerptDescription: 'За алгоритмами сервиса стоит не фантазия экспертов по IT, а 28-летний, многогранный опыт Бизнес-Следопыта в кризис-менеджменте, M&A сделках и создании бизнесов.'
 publishDate: 2025-12-03
-heroImage: '/src/assets/images/posts/advantages/8.webp'
+heroImage: '/assets/images/posts/advantages/8.webp'
 tags: ['Опыт', 'История']
 isArchive: false
 ---

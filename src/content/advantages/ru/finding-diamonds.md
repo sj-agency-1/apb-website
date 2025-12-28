@@ -4,7 +4,7 @@ description: 'AI-сервис проводит глубокий аудит и н
 excerptTitle: 'Поиск ваших «Бриллиантов»'
 excerptDescription: 'AI-сервис проведет глубокий аудит. Находит скрытый потенциал и таланты, которые станут основой для уникального позиционирования вашего личного бренда.'
 publishDate: 2025-12-20
-heroImage: '/src/assets/images/posts/advantages/1.webp'
+heroImage: '/assets/images/posts/advantages/1.webp'
 tags: ['Аудит', 'Потенциал']
 isArchive: false
 ---

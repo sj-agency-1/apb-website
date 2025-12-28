@@ -4,7 +4,7 @@ description: 'Practical tips for working with media to promote your personal bra
 excerptTitle: 'Secrets of Effective PR for Personal Brand'
 excerptDescription: "Want leading publications to write about you? Learn how to properly build relationships with media and create newsworthy stories that will attract journalists' attention."
 publishDate: 2025-12-05
-heroImage: '/src/assets/images/posts/blog/1.webp'
+heroImage: '/assets/images/posts/blog/1.webp'
 tags: ['PR Tips', 'Public Relations']
 isArchive: false
 ---

@@ -89,24 +89,24 @@ export interface HomePageContent {
 
 // Step icons (shared between languages)
 const stepIcons = {
-  1: '/src/assets/images/steps-to-create-business/1-audit.webp',
-  2: '/src/assets/images/steps-to-create-business/2-positioning.webp',
-  3: '/src/assets/images/steps-to-create-business/3-monetization.webp',
-  4: '/src/assets/images/steps-to-create-business/4-create-product.webp',
-  5: '/src/assets/images/steps-to-create-business/5-research.webp',
-  6: '/src/assets/images/steps-to-create-business/6-pack.webp',
-  7: '/src/assets/images/steps-to-create-business/7-content-strategy.webp',
-  8: '/src/assets/images/steps-to-create-business/8-strategy.webp',
-  9: '/src/assets/images/steps-to-create-business/9-business-plan.webp',
-  10: '/src/assets/images/steps-to-create-business/10-content-production.webp',
+  1: '/assets/images/steps-to-create-business/1-audit.webp',
+  2: '/assets/images/steps-to-create-business/2-positioning.webp',
+  3: '/assets/images/steps-to-create-business/3-monetization.webp',
+  4: '/assets/images/steps-to-create-business/4-create-product.webp',
+  5: '/assets/images/steps-to-create-business/5-research.webp',
+  6: '/assets/images/steps-to-create-business/6-pack.webp',
+  7: '/assets/images/steps-to-create-business/7-content-strategy.webp',
+  8: '/assets/images/steps-to-create-business/8-strategy.webp',
+  9: '/assets/images/steps-to-create-business/9-business-plan.webp',
+  10: '/assets/images/steps-to-create-business/10-content-production.webp',
 };
 
 // Advantage icons (shared between languages)
 const advantageIcons = {
-  1: '/src/assets/images/advantages/1.webp',
-  2: '/src/assets/images/advantages/2.webp',
-  3: '/src/assets/images/advantages/3.webp',
-  4: '/src/assets/images/advantages/4.webp',
+  1: '/assets/images/advantages/1.webp',
+  2: '/assets/images/advantages/2.webp',
+  3: '/assets/images/advantages/3.webp',
+  4: '/assets/images/advantages/4.webp',
 };
 
 // =============================================================================

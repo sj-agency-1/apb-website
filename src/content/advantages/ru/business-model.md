@@ -4,7 +4,7 @@ description: 'Сервис разрабатывает стратегию мон�
 excerptTitle: 'Разработка бизнес-модели'
 excerptDescription: 'Сервис разрабатывает стратегию монетизации, продуктовые линейки, финансовый и бизнес планы. С помощью сервиса вы разработаете маркетинговую стратегию и воронки продаж.'
 publishDate: 2025-12-18
-heroImage: '/src/assets/images/posts/advantages/2.webp'
+heroImage: '/assets/images/posts/advantages/2.webp'
 tags: ['Бизнес-модель', 'Монетизация']
 isArchive: false
 ---

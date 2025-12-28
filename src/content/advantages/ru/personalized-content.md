@@ -4,7 +4,7 @@ description: 'Сервис знает ваш Личный Бренд с перв
 excerptTitle: 'Персонализированный контент'
 excerptDescription: 'Кульминация! Сервис знает ваш Личный Бренд с «самого рождения»: с первого шага «Аудит». Создайте исключительный, персонализированный, авторский контент.'
 publishDate: 2025-11-28
-heroImage: '/src/assets/images/posts/advantages/1.webp'
+heroImage: '/assets/images/posts/advantages/1.webp'
 tags: ['Контент', 'Персонализация']
 isArchive: false
 ---

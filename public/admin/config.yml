@@ -10,8 +10,8 @@ backend:
 publish_mode: editorial_workflow
 
 # Media files configuration
-media_folder: 'src/assets/images/posts' # Where media files will be stored
-public_folder: '/src/assets/images/posts' # The src attribute for uploaded media
+media_folder: 'public/assets/images/posts' # Where media files will be stored
+public_folder: '/assets/images/posts' # The src attribute for uploaded media
 
 # Site URL (used for the CMS preview)
 site_url: https://your-site.netlify.app # TODO: Replace with actual site URL
@@ -83,7 +83,7 @@ collections:
         name: 'heroImage'
         widget: 'image'
         required: true
-        hint: 'Path format: /src/assets/images/posts/blog/filename.webp'
+        hint: 'Path format: /assets/images/posts/blog/filename.webp'
 
       - label: 'Tags'
         name: 'tags'
@@ -157,7 +157,7 @@ collections:
         name: 'heroImage'
         widget: 'image'
         required: true
-        hint: 'Path format: /src/assets/images/posts/blog/filename.webp'
+        hint: 'Path format: /assets/images/posts/blog/filename.webp'
 
       - label: 'Tags'
         name: 'tags'
@@ -231,7 +231,7 @@ collections:
         name: 'heroImage'
         widget: 'image'
         required: true
-        hint: 'Path format: /src/assets/images/posts/advantages/filename.webp'
+        hint: 'Path format: /assets/images/posts/advantages/filename.webp'
 
       - label: 'Tags'
         name: 'tags'
@@ -305,7 +305,7 @@ collections:
         name: 'heroImage'
         widget: 'image'
         required: true
-        hint: 'Path format: /src/assets/images/posts/advantages/filename.webp'
+        hint: 'Path format: /assets/images/posts/advantages/filename.webp'
 
       - label: 'Tags'
         name: 'tags'

@@ -4,7 +4,7 @@ description: 'Practical tips for setting up advertising campaigns to promote you
 excerptTitle: 'Targeted Advertising: Find Your Audience'
 excerptDescription: 'Advertising can be a gold mine or a black hole for your budget. Learn how to set up targeting so that every dollar works for your personal brand.'
 publishDate: 2025-11-28
-heroImage: '/src/assets/images/posts/blog/4.webp'
+heroImage: '/assets/images/posts/blog/4.webp'
 tags: ['Advertising Tips', 'Targeting']
 isArchive: false
 ---

@@ -4,7 +4,7 @@ description: "With the service, you can create author's digital products that wi
 excerptTitle: 'Creating Digital Products'
 excerptDescription: "With 'Architect of Personal Brands' you can create author's digital products (online course, consultation, or training) that will bring you income."
 publishDate: 2025-12-15
-heroImage: '/src/assets/images/posts/advantages/3.webp'
+heroImage: '/assets/images/posts/advantages/3.webp'
 tags: ['Digital Products', 'Income']
 isArchive: false
 ---

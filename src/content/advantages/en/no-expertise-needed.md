@@ -4,7 +4,7 @@ description: "You don't need to be an expert in digital product development. You
 excerptTitle: 'No Expertise Needed'
 excerptDescription: "You don't need to be an expert in digital product development or marketing. You just need to honestly answer the questionnaire — the AI does everything else."
 publishDate: 2025-12-05
-heroImage: '/src/assets/images/posts/advantages/7.webp'
+heroImage: '/assets/images/posts/advantages/7.webp'
 tags: ['Simplicity', 'For Beginners']
 isArchive: false
 ---

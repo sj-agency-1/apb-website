@@ -73,8 +73,8 @@ export const socialLinks = [
 // =============================================================================
 
 export const images = {
-  logo: '/src/assets/images/logo.svg',
-  preFooterBackground: '/src/assets/images/bg-2.webp',
+  logo: '/assets/images/logo.svg',
+  preFooterBackground: '/assets/images/bg-2.webp',
 };
 
 // =============================================================================

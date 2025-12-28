@@ -4,7 +4,7 @@ description: 'Behind the service algorithms is 28 years of Business Scout experi
 excerptTitle: '28 Years of Experience Behind the Algorithms'
 excerptDescription: 'Behind the service algorithms is not IT expert fantasy, but 28 years of multifaceted Business Scout experience in crisis management, M&A deals, and building businesses.'
 publishDate: 2025-12-03
-heroImage: '/src/assets/images/posts/advantages/8.webp'
+heroImage: '/assets/images/posts/advantages/8.webp'
 tags: ['Experience', 'History']
 isArchive: false
 ---

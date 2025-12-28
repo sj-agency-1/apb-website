@@ -4,7 +4,7 @@ description: 'The service replaces business analysts, financial auditors, market
 excerptTitle: 'Replacing an Entire Team of Experts'
 excerptDescription: 'The service replaces an entire team of experts: business analysts, financial auditors, marketers, advertisers, and PR specialists. Instant results at an affordable price.'
 publishDate: 2025-12-08
-heroImage: '/src/assets/images/posts/advantages/6.webp'
+heroImage: '/assets/images/posts/advantages/6.webp'
 tags: ['Savings', 'Team']
 isArchive: false
 ---

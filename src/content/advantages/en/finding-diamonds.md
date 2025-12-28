@@ -4,7 +4,7 @@ description: 'The AI service conducts a deep audit and finds hidden potential an
 excerptTitle: "Finding Your 'Diamonds'"
 excerptDescription: "The AI service will conduct a deep audit. It finds hidden potential and talents that will become the basis for your personal brand's unique positioning."
 publishDate: 2025-12-20
-heroImage: '/src/assets/images/posts/advantages/1.webp'
+heroImage: '/assets/images/posts/advantages/1.webp'
 tags: ['Audit', 'Potential']
 isArchive: false
 ---

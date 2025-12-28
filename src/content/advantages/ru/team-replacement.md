@@ -4,7 +4,7 @@ description: 'Сервис заменяет бизнес-аналитиков, �
 excerptTitle: 'Замена целой команды экспертов'
 excerptDescription: 'Сервис заменяет целую команду экспертов: бизнес-аналитиков, финансовых аудиторов, маркетологов, рекламщиков и пиарщиков. Мгновенный результат по доступной цене.'
 publishDate: 2025-12-08
-heroImage: '/src/assets/images/posts/advantages/6.webp'
+heroImage: '/assets/images/posts/advantages/6.webp'
 tags: ['Экономия', 'Команда']
 isArchive: false
 ---

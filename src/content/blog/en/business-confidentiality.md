@@ -4,7 +4,7 @@ description: 'Learn how to use legal tools so that no one can steal your unique 
 excerptTitle: 'Business Confidentiality: Protecting Your Business Model'
 excerptDescription: "Your business model (Stages 1-3) is a trade secret. The 'Architect of Personal Brands' service guarantees confidentiality within the system. But what about external partners?"
 publishDate: 2025-12-12
-heroImage: '/src/assets/images/posts/blog/4.webp'
+heroImage: '/assets/images/posts/blog/4.webp'
 tags: ['Legal Tips', 'Business Model']
 isArchive: false
 ---

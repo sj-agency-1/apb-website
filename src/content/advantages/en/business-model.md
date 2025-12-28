@@ -4,7 +4,7 @@ description: 'The service develops monetization strategy, product lines, financi
 excerptTitle: 'Business Model Development'
 excerptDescription: "The service develops monetization strategy, product lines, financial and business plans. With the service, you'll develop marketing strategy and sales funnels."
 publishDate: 2025-12-18
-heroImage: '/src/assets/images/posts/advantages/2.webp'
+heroImage: '/assets/images/posts/advantages/2.webp'
 tags: ['Business Model', 'Monetization']
 isArchive: false
 ---

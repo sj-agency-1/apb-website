@@ -4,7 +4,7 @@ description: 'Learn how to properly document the violation and protect your asse
 excerptTitle: 'Content or Idea Stolen? Step-by-Step Guide'
 excerptDescription: "Idea theft is the main problem in the digital world. The 'Architect of Personal Brands' service provides complete documentation (Business Plan, Roadmap, Brief), which serves as evidence in case of conflict."
 publishDate: 2025-12-10
-heroImage: '/src/assets/images/posts/blog/5.webp'
+heroImage: '/assets/images/posts/blog/5.webp'
 tags: ['Legal Tips', 'Content Protection']
 isArchive: false
 ---

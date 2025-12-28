@@ -4,7 +4,7 @@ description: 'Практические советы по настройке ре
 excerptTitle: 'Таргетированная реклама: найдите свою аудиторию'
 excerptDescription: 'Реклама может быть золотой жилой или чёрной дырой для бюджета. Узнайте, как настроить таргетинг так, чтобы каждый рубль работал на ваш личный бренд.'
 publishDate: 2025-11-28
-heroImage: '/src/assets/images/posts/blog/4.webp'
+heroImage: '/assets/images/posts/blog/4.webp'
 tags: ['Советы рекламщика', 'Таргетинг']
 isArchive: false
 ---

@@ -4,7 +4,7 @@ description: 'Практические советы по работе со СМ�
 excerptTitle: 'Секреты эффективного PR для личного бренда'
 excerptDescription: 'Хотите, чтобы о вас писали ведущие издания? Узнайте, как правильно выстраивать отношения со СМИ и создавать информационные поводы, которые привлекут внимание журналистов.'
 publishDate: 2025-12-05
-heroImage: '/src/assets/images/posts/blog/1.webp'
+heroImage: '/assets/images/posts/blog/1.webp'
 tags: ['Советы пиарщика', 'PR']
 isArchive: false
 ---

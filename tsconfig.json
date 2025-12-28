@@ -10,6 +10,7 @@
     "allowJs": true,
     "baseUrl": ".",
     "paths": {
+      "@/*": ["./src/*"],
       "@i18n/*": ["./src/i18n/*"],
       "@layouts/*": ["./src/layouts/*"],
       "@components/*": ["./src/components/*"],

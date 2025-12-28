@@ -1,7 +1,6 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import PageLayout from '@layouts/PageLayout.astro';
-import Hero from '@components/blocks/Hero.astro';
 import Section from '@components/blocks/Section.astro';
 import Breadcrumbs from '@components/structures/Breadcrumbs.astro';
 import PostsGridStyles from '@components/structures/PostsGridStyles.astro';
@@ -12,8 +11,10 @@ import Heading from '@components/ui/Heading.astro';
 import Paragraph from '@components/ui/Paragraph.astro';
 import { useTranslations } from '@i18n/utils';
 import { LANGUAGES } from '@consts';
+import type { GetStaticPathsContext, Page } from '@/types/pagination';
+import type { SupportedLanguage } from '@/types/i18n';
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({ paginate }: GetStaticPathsContext) {
   const paths = [];
 
   for (const lang of LANGUAGES) {
@@ -39,9 +40,14 @@ export async function getStaticPaths({ paginate }) {
   return paths;
 }
 
-const { lang, tag } = Astro.params;
-const { page, allTags } = Astro.props;
-const t = useTranslations(lang as 'en' | 'ru');
+interface Props {
+  page: Page<CollectionEntry<'advantages'>>;
+  allTags: string[];
+}
+
+const { lang, tag } = Astro.params as { lang: SupportedLanguage; tag: string };
+const { page, allTags } = Astro.props as Props;
+const t = useTranslations(lang);
 
 const paginatedPosts = page.data;
 const selectedTag = tag;
@@ -85,36 +91,29 @@ function getSlug(id: string) {
 
 <PageLayout
   head={{
-    title: t('advantagesPage.hero.title'),
-    description: t('advantagesPage.hero.pretitle'),
+    title: t('advantages.hero.title'),
+    description: t('advantages.hero.pretitle'),
+  }}
+  hero={{
+    tagline: t('advantages.hero.pretitle'),
+    title: t('advantages.hero.title'),
   }}
 >
   <PostsGridStyles />
-  <!-- Hero Section -->
-  <Hero layout="page" backgroundImage="/src/assets/images/bg-1.webp">
-    <div class="flex flex-col gap-2">
-      <div class="text-sm text-muted-foreground uppercase tracking-wider font-medium">
-        {t('advantagesPage.hero.pretitle')}
-      </div>
-      <h1 class="text-4xl lg:text-5xl font-bold text-white leading-tight">
-        {t('advantagesPage.hero.title')}
-      </h1>
-    </div>
-  </Hero>
 
   <!-- Content Section -->
   <Section id="advantages-list" variant="default">
     <!-- Breadcrumbs -->
-    <Breadcrumbs items={[{ text: t('advantagesPage.hero.title') }]} class="mb-6" />
+    <Breadcrumbs items={[{ text: t('advantages.hero.title') }]} class="mb-6" />
 
     <!-- Tags Filter -->
     {
       showTagsAndSearch && allTags.length > 0 && (
         <div class="tags-filter mb-8">
           <a href={buildUrl(1, null)} class:list={['tag-button', { active: !selectedTag }]}>
-            {t('advantagesPage.allTags')}
+            {t('advantages.allTags')}
           </a>
-          {allTags.map((tItem) => (
+          {allTags.map((tItem: string) => (
             <a href={buildUrl(1, tItem)} class:list={['tag-button', { active: selectedTag === tItem }]}>
               {tItem}
             </a>
@@ -138,7 +137,7 @@ function getSlug(id: string) {
                 <Heading as="h3" size="lg" text={excerptTitle} class="post-title" />
                 <Paragraph text={post.data.excerptDescription} muted class="post-excerpt" />
                 <Button
-                  text={t('advantagesPage.readMore')}
+                  text={t('advantages.readMore')}
                   href={`/${lang}/advantages/${slug}`}
                   variant="outline"
                   size="sm"

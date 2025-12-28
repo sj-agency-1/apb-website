@@ -1,11 +1,11 @@
 ---
 title: "Finding Your 'Diamonds': How AI Discovers Your Hidden Potential"
-description: "The AI service conducts a deep audit and finds hidden potential and talents that will become the basis for unique positioning."
+description: 'The AI service conducts a deep audit and finds hidden potential and talents that will become the basis for unique positioning.'
 excerptTitle: "Finding Your 'Diamonds'"
 excerptDescription: "The AI service will conduct a deep audit. It finds hidden potential and talents that will become the basis for your personal brand's unique positioning."
 publishDate: 2025-12-20
-heroImage: "/src/assets/images/posts/advantages/1.webp"
-tags: ["Audit", "Potential"]
+heroImage: '/src/assets/images/posts/advantages/1.webp'
+tags: ['Audit', 'Potential']
 isArchive: false
 ---
 
@@ -27,4 +27,4 @@ Without understanding your 'diamonds', it's impossible to create unique position
 
 ---
 
-*Content to be added later.*
+_Content to be added later._

@@ -1,7 +1,6 @@
 ---
 import { getCollection, render } from 'astro:content';
 import PostLayout from '@layouts/PostLayout.astro';
-import Hero from '@components/blocks/Hero.astro';
 import Section from '@components/blocks/Section.astro';
 import Sidebar from '@components/blocks/Sidebar.astro';
 import Breadcrumbs from '@components/structures/Breadcrumbs.astro';
@@ -48,19 +47,11 @@ const blogItems = await getLatestBlogPosts(lang as 'en' | 'ru', 2);
     title: post.data.title,
     description: post.data.description || post.data.excerptDescription,
   }}
+  hero={{
+    tagline: t('advantages.hero.pretitle'),
+    title: t('advantages.hero.title'),
+  }}
 >
-  <!-- Hero Section -->
-  <Hero layout="page" backgroundImage="/src/assets/images/bg-1.webp">
-    <div class="flex flex-col gap-2">
-      <div class="text-sm text-muted-foreground uppercase tracking-wider font-medium">
-        {t('advantagesPage.hero.pretitle')}
-      </div>
-      <h1 class="text-4xl lg:text-5xl font-bold text-white leading-tight">
-        {t('advantagesPage.hero.title')}
-      </h1>
-    </div>
-  </Hero>
-
   <!-- Content Section -->
   <Section id="post-content" variant="default">
     <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 lg:gap-12">
@@ -69,7 +60,7 @@ const blogItems = await getLatestBlogPosts(lang as 'en' | 'ru', 2);
         tocItems={tocItems}
         blogItems={blogItems}
         blogTitle={t('sidebar.blogTitle')}
-        ctaText={t('advantagesPage.readMore')}
+        ctaText={t('advantages.readMore')}
         sectionId="post-content"
       />
 
@@ -77,7 +68,7 @@ const blogItems = await getLatestBlogPosts(lang as 'en' | 'ru', 2);
       <div class="post-main">
         <!-- Breadcrumbs -->
         <Breadcrumbs
-          items={[{ text: t('advantagesPage.hero.title'), href: `/${lang}/advantages` }, { text: post.data.title }]}
+          items={[{ text: t('advantages.hero.title'), href: `/${lang}/advantages` }, { text: post.data.title }]}
           class="mb-6"
         />
 

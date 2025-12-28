@@ -1,0 +1,143 @@
+---
+import HomeLayout from '@layouts/HomeLayout.astro';
+import Section from '@components/blocks/Section.astro';
+import Content from '@components/blocks/Content.astro';
+import Sidebar from '@components/blocks/Sidebar.astro';
+import CtaCard from '@components/blocks/CtaCard.astro';
+import Heading from '@components/ui/Heading.astro';
+import Paragraph from '@components/ui/Paragraph.astro';
+import Image from '@components/ui/Image.astro';
+import Accordion from '@components/ui/Accordion.astro';
+import AdvantagesList from '@components/structures/AdvantagesList.astro';
+import LaunchSteps from '@components/structures/LaunchSteps.astro';
+import Reviews from '@components/structures/Reviews.astro';
+import { getHomeContent } from '@data/home';
+import { getReviews } from '@data/reviews';
+import { getLatestBlogPosts } from '@utils/posts';
+import { SUPPORTED_LANGUAGES, type SupportedLanguage } from '@/types/i18n';
+
+// Get language from URL parameter
+export function getStaticPaths() {
+  return SUPPORTED_LANGUAGES.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params as { lang: SupportedLanguage };
+const content = getHomeContent(lang);
+
+// Get blog posts for sidebar
+const blogItems = await getLatestBlogPosts(lang, 2);
+
+// Select reviews based on language
+const reviewsData = getReviews(lang);
+---
+
+<HomeLayout head={content.meta} hero={content.hero}>
+  <!-- About Section with Sidebar -->
+  <Section id="about" variant="default">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 lg:gap-12">
+      <Sidebar
+        tocItems={content.tocItems}
+        blogItems={blogItems}
+        blogTitle={content.sidebar.blogTitle}
+        ctaText={content.sidebar.ctaText}
+      />
+      <div class="flex flex-col gap-8">
+        <Heading as="h2" size="4xl" text={content.sectionTitles.about} />
+        <Content chapters={content.chapters} />
+        <CtaCard
+          variant="default"
+          title={content.cta.create.title}
+          subtitle={content.cta.create.subtitle}
+          buttonText={content.cta.create.buttonText}
+          buttonHref={content.cta.create.buttonHref}
+        />
+      </div>
+    </div>
+  </Section>
+
+  <!-- Advantages Section -->
+  <Section
+    id="advantages"
+    title={content.sectionTitles.advantages}
+    subtitle={content.sectionTitles.advantagesSubtitle}
+    variant="dark"
+  >
+    <AdvantagesList items={content.advantages} />
+    <div class="mt-8 flex justify-center">
+      <CtaCard
+        variant="gradient"
+        title={content.cta.advantages.title}
+        subtitle={content.cta.advantages.subtitle}
+        buttonText={content.cta.advantages.buttonText}
+        buttonHref={content.cta.advantages.buttonHref}
+        class="max-w-3xl"
+      />
+    </div>
+  </Section>
+
+  <!-- Steps Section -->
+  <Section
+    id="steps"
+    title={content.sectionTitles.steps}
+    subtitle={content.sectionTitles.stepsSubtitle}
+    variant="default"
+  >
+    <LaunchSteps
+      items={content.launchSteps}
+      stepLabel={lang === 'ru' ? 'Шаг' : 'Step'}
+      ctaStep={{
+        title: content.cta.steps.title,
+        subtitle: content.cta.steps.subtitle,
+        buttonText: content.cta.steps.buttonText,
+        buttonHref: content.cta.steps.buttonHref,
+      }}
+    />
+  </Section>
+
+  <!-- FAQ Section -->
+  <Section id="faq" variant="default">
+    <div class="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-8 lg:gap-16">
+      <div class="flex flex-col gap-4">
+        <Heading as="h2" size="4xl" text={content.sectionTitles.faq} />
+        <Paragraph text={content.sectionTitles.faqSubtitle} muted />
+        <div class="mt-4">
+          <Image src="/src/assets/images/pages/faq.webp" alt="FAQ" width={500} height={400} class="rounded-2xl" />
+        </div>
+        <div class="mt-4 flex justify-center lg:justify-start w-full">
+          <CtaCard
+            variant="primary"
+            title={content.cta.faq.title}
+            subtitle={content.cta.faq.subtitle}
+            buttonText={content.cta.faq.buttonText}
+            buttonHref={content.cta.faq.buttonHref}
+            size="md"
+            class="w-full"
+          />
+        </div>
+      </div>
+      <Accordion items={content.faqItems} />
+    </div>
+  </Section>
+
+  <!-- Reviews Section -->
+  <Section
+    id="reviews"
+    title={content.sectionTitles.reviews}
+    subtitle={content.sectionTitles.reviewsSubtitle}
+    variant="dark"
+  >
+    <Reviews reviews={reviewsData} />
+    <div class="mt-8 flex justify-center">
+      <CtaCard
+        variant="gradient"
+        title={content.cta.reviews.title}
+        subtitle={content.cta.reviews.subtitle}
+        buttonText={content.cta.reviews.buttonText}
+        buttonHref={content.cta.reviews.buttonHref}
+        class="max-w-3xl"
+      />
+    </div>
+  </Section>
+</HomeLayout>

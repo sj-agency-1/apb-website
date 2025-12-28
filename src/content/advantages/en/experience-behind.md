@@ -1,11 +1,11 @@
 ---
 title: "28 Years of Experience Behind the Algorithms: The Creator's Story"
-description: "Behind the service algorithms is 28 years of Business Scout experience in crisis management and M&A deals."
-excerptTitle: "28 Years of Experience Behind the Algorithms"
-excerptDescription: "Behind the service algorithms is not IT expert fantasy, but 28 years of multifaceted Business Scout experience in crisis management, M&A deals, and building businesses."
+description: 'Behind the service algorithms is 28 years of Business Scout experience in crisis management and M&A deals.'
+excerptTitle: '28 Years of Experience Behind the Algorithms'
+excerptDescription: 'Behind the service algorithms is not IT expert fantasy, but 28 years of multifaceted Business Scout experience in crisis management, M&A deals, and building businesses.'
 publishDate: 2025-12-03
-heroImage: "/src/assets/images/posts/advantages/8.webp"
-tags: ["Experience", "History"]
+heroImage: '/src/assets/images/posts/advantages/8.webp'
+tags: ['Experience', 'History']
 isArchive: false
 ---
 
@@ -26,4 +26,4 @@ Only such experience guarantees that each stage of the service is thoroughly dev
 
 ---
 
-*Content to be added later.*
+_Content to be added later._

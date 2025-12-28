@@ -14,6 +14,7 @@ This repository serves as a robust template for creating new project repositorie
 ## Quick Start
 
 1. **Clone this repository** to start your new project:
+
    ```sh
    git clone https://github.com/georgeparkdev/base-repository <your-new-project>
    cd <your-new-project>
@@ -39,26 +40,31 @@ This repository serves as a robust template for creating new project repositorie
    - Run each prompt file below in a fresh chat (in the order listed) to fully enable the AI-powered development workflow:
 
    **a. Collections (run first):**
+
    ```sh
    #file:suggest-awesome-github-copilot-collections.prompt.md
    ```
 
    **b. Agents:**
+
    ```sh
    #file:suggest-awesome-github-copilot-agents.prompt.md
    ```
 
    **c. Instructions:**
+
    ```sh
    #file:suggest-awesome-github-copilot-instructions.prompt.md
    ```
 
    **d. Prompts:**
+
    ```sh
    #file:suggest-awesome-github-copilot-prompts.prompt.md
    ```
 
    **e. Chat Modes:**
+
    ```sh
    #file:suggest-awesome-github-copilot-chatmodes.prompt.md
    ```
@@ -89,7 +95,7 @@ This repository serves as a robust template for creating new project repositorie
   - [x] Allow squash commits only (or other if preferred)
   - [x] Always suggest updating pull request branches
   - [x] Automatically delete head branches (if needed and rulesets are setup to prevent deletion of important branches)
-  - [x] Auto-close issues with merged linked pull requests 
+  - [x] Auto-close issues with merged linked pull requests
 
 ## Recommended branch naming convention
 

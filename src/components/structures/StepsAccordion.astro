@@ -1,5 +1,4 @@
 ---
-import Card from '../ui/Card.astro';
 import Image from '../ui/Image.astro';
 import Accordion from '../ui/Accordion.astro';
 
@@ -37,7 +36,7 @@ const {
 
 <div class="steps-accordion">
   {
-    items.map((item, index) => (
+    items.map((item) => (
       <details class="step-item" name="steps-accordion">
         <summary class="step-header">
           <div class="step-icon">

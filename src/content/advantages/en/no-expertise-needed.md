@@ -1,11 +1,11 @@
 ---
-title: "No Expertise Needed: The Service Does Everything for You"
+title: 'No Expertise Needed: The Service Does Everything for You'
 description: "You don't need to be an expert in digital product development. You just need to answer the questionnaire."
-excerptTitle: "No Expertise Needed"
+excerptTitle: 'No Expertise Needed'
 excerptDescription: "You don't need to be an expert in digital product development or marketing. You just need to honestly answer the questionnaire — the AI does everything else."
 publishDate: 2025-12-05
-heroImage: "/src/assets/images/posts/advantages/7.webp"
-tags: ["Simplicity", "For Beginners"]
+heroImage: '/src/assets/images/posts/advantages/7.webp'
+tags: ['Simplicity', 'For Beginners']
 isArchive: false
 ---
 
@@ -27,4 +27,4 @@ The service does everything for you.
 
 ---
 
-*Content to be added later.*
+_Content to be added later._

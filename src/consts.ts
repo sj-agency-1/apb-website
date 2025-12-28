@@ -4,5 +4,5 @@
 export const SITE_TITLE = 'Архитектор Личных Брендов';
 export const SITE_DESCRIPTION = 'AI-сервис для создания личного бренда и онлайн бизнеса за 10 шагов';
 
-export const LANGUAGES = ['ru', 'en'];
-export const DEFAULT_LANGUAGE = 'ru';
+// Re-export language constants from centralized types for backward compatibility
+export { SUPPORTED_LANGUAGES as LANGUAGES, DEFAULT_LANGUAGE } from '@/types/i18n';

@@ -1,4 +1,5 @@
 Preparation phase
+
 - [x] Setup i18n
 - [x] Install BMad
 
@@ -43,17 +44,17 @@ Preparation phase
   - [x] Active link of the current page in header menu
   - [x] Smooth scrolling
 
-- [ ] Refactor code:
-  - [ ] Use translated content on pages when possible to keep ui.ts (with translations) small
-  - [ ] Remove unused code
-  - [ ] Refactor components and define some reusable components as blocks (like CTA cards and etc.) to follow DRY principle
-  - [ ] Review the component system and make sure it follows best practices, be maintainable while keeping them simple (do not overengineer)
-    - [ ] Move hero component to the Layout.
-- [ ] After all of this, run the `npm run fix` command and after that `npm run check` to fix all of the left errors
-
-- [ ] Animations
+- [x] Refactor code:
+  - [x] Use translated content on pages when possible to keep ui.ts (with translations) small
+  - [x] Remove unused code
+  - [x] Refactor components and define some reusable components as blocks (like CTA cards and etc.) to follow DRY principle
+  - [x] Review the component system and make sure it follows best practices, be maintainable while keeping them simple (do not overengineer)
+    - [x] Move hero component to the Layout.
+- [x] After all of this, run the `npm run fix` command and after that `npm run check` to fix all of the left errors
+- [x] Refactor again
 
 - [ ] Manually review pages and adjust them
+- [ ] Animations
 
 - [ ] Add docs for later use
 

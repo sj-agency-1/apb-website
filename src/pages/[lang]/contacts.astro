@@ -1,35 +1,33 @@
 ---
 import PageLayout from '@layouts/PageLayout.astro';
-import Hero from '@components/blocks/Hero.astro';
 import Section from '@components/blocks/Section.astro';
 import Breadcrumbs from '@components/structures/Breadcrumbs.astro';
 import Card from '@components/ui/Card.astro';
 import Button from '@components/ui/Button.astro';
 import { contacts } from '@data/contacts';
+import { getPageContent } from '@data/pages';
+import { getContactsContent } from '@data/page-content';
+import { SUPPORTED_LANGUAGES, type SupportedLanguage } from '@/types/i18n';
+
+export function getStaticPaths() {
+  return SUPPORTED_LANGUAGES.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params as { lang: SupportedLanguage };
+const page = getPageContent('contacts', lang);
+const content = getContactsContent(lang);
 ---
 
-<PageLayout
-  head={{
-    title: 'Контакты - Архитектор Личных Брендов',
-    description: 'Свяжитесь с нами через Telegram, телефон или email',
-  }}
->
-  <Hero layout="page" backgroundImage="/src/assets/images/bg-1.webp">
-    <div class="flex flex-col gap-2">
-      <div class="text-sm text-muted-foreground uppercase tracking-wider font-medium">
-        AI-сервис Архитектор Личных Брендов
-      </div>
-      <h1 class="text-4xl lg:text-5xl font-bold text-white leading-tight">Контакты</h1>
-    </div>
-  </Hero>
-
+<PageLayout head={page.meta} hero={page.hero}>
   <Section id="contacts" variant="default">
-    <Breadcrumbs items={[{ text: 'Контакты' }]} class="mb-6" />
+    <Breadcrumbs items={[{ text: content.breadcrumb }]} class="mb-6" />
 
     <div class="mb-8">
-      <h2 class="text-2xl lg:text-3xl font-bold text-heading mb-4">Свяжитесь с нами</h2>
+      <h2 class="text-2xl lg:text-3xl font-bold text-heading mb-4">{content.heading}</h2>
       <p class="text-foreground leading-relaxed">
-        Есть вопросы или нужна помощь? Мы здесь, чтобы помочь. Выберите наиболее удобный способ связи.
+        {content.description}
       </p>
     </div>
 
@@ -50,7 +48,7 @@ import { contacts } from '@data/contacts';
           </div>
           <div>
             <h3 class="text-lg font-semibold text-heading mb-1">Telegram</h3>
-            <p class="text-muted-foreground mb-4">Самый быстрый способ связи</p>
+            <p class="text-muted-foreground mb-4">{content.telegramSubtitle}</p>
             <a
               href={contacts.telegramUrl}
               target="_blank"
@@ -82,8 +80,8 @@ import { contacts } from '@data/contacts';
             </svg>
           </div>
           <div>
-            <h3 class="text-lg font-semibold text-heading mb-1">Телефон</h3>
-            <p class="text-muted-foreground mb-4">Позвоните нам напрямую</p>
+            <h3 class="text-lg font-semibold text-heading mb-1">Phone</h3>
+            <p class="text-muted-foreground mb-4">{content.phoneSubtitle}</p>
             <a href={contacts.phoneUrl} class="text-primary font-medium hover:underline">
               {contacts.phone}
             </a>
@@ -111,7 +109,7 @@ import { contacts } from '@data/contacts';
           </div>
           <div>
             <h3 class="text-lg font-semibold text-heading mb-1">Email</h3>
-            <p class="text-muted-foreground mb-4">Пишите нам в любое время</p>
+            <p class="text-muted-foreground mb-4">{content.emailSubtitle}</p>
             <a href={contacts.emailUrl} class="text-primary font-medium hover:underline">
               {contacts.email}
             </a>
@@ -123,10 +121,10 @@ import { contacts } from '@data/contacts';
     <div class="bg-gradient-to-r from-primary/20 to-secondary rounded-2xl">
       <div class="flex flex-col md:flex-row items-center justify-between gap-6 p-8">
         <div>
-          <h3 class="text-xl font-semibold text-heading mb-2">Нужна поддержка?</h3>
-          <p class="text-foreground">Наша служба поддержки готова помочь вам с любыми вопросами о сервисе.</p>
+          <h3 class="text-xl font-semibold text-heading mb-2">{content.socialHeading}</h3>
+          <p class="text-foreground">{content.socialDescription}</p>
         </div>
-        <Button text="Связаться с поддержкой" href={contacts.telegramUrl} variant="primary" size="lg" target="_blank" />
+        <Button text={content.formSubmit} href={contacts.telegramUrl} variant="primary" size="lg" target="_blank" />
       </div>
     </div>
   </Section>

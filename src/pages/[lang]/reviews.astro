@@ -1,42 +1,40 @@
 ---
 import PageLayout from '@layouts/PageLayout.astro';
-import Hero from '@components/blocks/Hero.astro';
 import Section from '@components/blocks/Section.astro';
 import Breadcrumbs from '@components/structures/Breadcrumbs.astro';
 import Card from '@components/ui/Card.astro';
 import Button from '@components/ui/Button.astro';
 import Modal from '@components/structures/Modal.astro';
-import { reviews } from '@data/reviews';
+import { getReviews } from '@data/reviews';
+import { getPageContent } from '@data/pages';
+import { getReviewsContent } from '@data/page-content';
+import { SUPPORTED_LANGUAGES, type SupportedLanguage } from '@/types/i18n';
 
+export function getStaticPaths() {
+  return SUPPORTED_LANGUAGES.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params as { lang: SupportedLanguage };
+const page = getPageContent('reviews', lang);
+const content = getReviewsContent(lang);
+const reviews = getReviews(lang);
 const REVIEWS_PER_PAGE = 6;
 ---
 
-<PageLayout
-  head={{
-    title: 'Отзывы - Архитектор Личных Брендов',
-    description: 'Читайте отзывы пользователей, которые создали свой Личный Бренд-Бизнес с помощью нашего AI-сервиса',
-  }}
->
-  <Hero layout="page" backgroundImage="/src/assets/images/bg-1.webp">
-    <div class="flex flex-col gap-2">
-      <div class="text-sm text-muted-foreground uppercase tracking-wider font-medium">
-        AI-сервис Архитектор Личных Брендов
-      </div>
-      <h1 class="text-4xl lg:text-5xl font-bold text-white leading-tight">Отзывы</h1>
-    </div>
-  </Hero>
-
+<PageLayout head={page.meta} hero={page.hero}>
   <Section id="reviews" variant="default">
-    <Breadcrumbs items={[{ text: 'Отзывы' }]} class="mb-6" />
+    <Breadcrumbs items={[{ text: content.breadcrumb }]} class="mb-6" />
 
     <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-8">
       <div>
-        <h2 class="text-2xl lg:text-3xl font-bold text-heading mb-2">Что говорят наши пользователи</h2>
+        <h2 class="text-2xl lg:text-3xl font-bold text-heading mb-2">{content.heading}</h2>
         <p class="text-foreground">
-          Реальные отзывы людей, которые построили свой Личный Бренд-Бизнес с помощью нашего AI-сервиса
+          {content.description}
         </p>
       </div>
-      <Button text="Оставить отзыв" variant="primary" size="lg" class="leave-review-btn" />
+      <Button text={content.leaveReview} variant="primary" size="lg" class="leave-review-btn" />
     </div>
 
     <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -59,7 +57,7 @@ const REVIEWS_PER_PAGE = 6;
               <div class="flex-1">
                 <h3 class="font-semibold text-heading">{review.name}</h3>
                 <p class="text-sm text-muted-foreground">
-                  {review.age} лет, {review.location}
+                  {review.age} {content.ageYears}, {review.location}
                 </p>
                 {review.translated && (
                   <span class="inline-flex items-center gap-1 text-xs text-muted-foreground mt-1">
@@ -77,7 +75,7 @@ const REVIEWS_PER_PAGE = 6;
                         d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
                       />
                     </svg>
-                    Переведено
+                    {content.translated}
                   </span>
                 )}
               </div>
@@ -105,7 +103,7 @@ const REVIEWS_PER_PAGE = 6;
     </div>
   </Section>
 
-  <Modal id="leave-review-modal" title="Оставить отзыв">
+  <Modal id="leave-review-modal" title={content.modalTitle}>
     <div class="flex flex-col items-center text-center gap-6 py-4">
       <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center">
         <svg
@@ -124,15 +122,14 @@ const REVIEWS_PER_PAGE = 6;
         </svg>
       </div>
       <div>
-        <h3 class="text-xl font-semibold text-heading mb-2">Требуется авторизация</h3>
+        <h3 class="text-xl font-semibold text-heading mb-2">{content.modalHeading}</h3>
         <p class="text-foreground mb-6">
-          Чтобы оставить отзыв, необходимо войти в свой аккаунт. Только верифицированные пользователи, которые
-          воспользовались нашим сервисом, могут оставлять отзывы.
+          {content.modalDescription}
         </p>
       </div>
       <div class="flex flex-col sm:flex-row gap-3 w-full">
-        <Button text="Войти" href="/ru/login" variant="primary" size="lg" class="flex-1" />
-        <Button text="Регистрация" href="/ru/register" variant="outline" size="lg" class="flex-1" />
+        <Button text={content.loginButton} href={`/${lang}/login`} variant="primary" size="lg" class="flex-1" />
+        <Button text={content.registerButton} href={`/${lang}/register`} variant="outline" size="lg" class="flex-1" />
       </div>
     </div>
   </Modal>

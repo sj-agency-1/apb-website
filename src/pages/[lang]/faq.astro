@@ -1,0 +1,44 @@
+---
+import PageLayout from '@layouts/PageLayout.astro';
+import Section from '@components/blocks/Section.astro';
+import Sidebar from '@components/blocks/Sidebar.astro';
+import Breadcrumbs from '@components/structures/Breadcrumbs.astro';
+import Accordion from '@components/ui/Accordion.astro';
+import { getFaqItems } from '@data/faq';
+import { getPageContent } from '@data/pages';
+import { getFaqContent } from '@data/page-content';
+import { getLatestBlogPosts } from '@utils/posts';
+import { SUPPORTED_LANGUAGES, type SupportedLanguage } from '@/types/i18n';
+
+export function getStaticPaths() {
+  return SUPPORTED_LANGUAGES.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params as { lang: SupportedLanguage };
+const page = getPageContent('faq', lang);
+const content = getFaqContent(lang);
+const faqItems = getFaqItems(lang);
+const blogPosts = await getLatestBlogPosts(lang, 2);
+---
+
+<PageLayout head={page.meta} hero={page.hero}>
+  <Section id="faq" variant="default">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-8">
+      <div>
+        <Breadcrumbs items={[{ text: content.breadcrumb }]} class="mb-6" />
+
+        <div class="mb-8">
+          <h2 class="text-2xl lg:text-3xl font-bold text-heading mb-4">{content.heading}</h2>
+        </div>
+
+        <div class="space-y-4">
+          <Accordion items={faqItems.map((item) => ({ question: item.question, answer: item.answer }))} />
+        </div>
+      </div>
+
+      <Sidebar blogItems={blogPosts} />
+    </div>
+  </Section>
+</PageLayout>

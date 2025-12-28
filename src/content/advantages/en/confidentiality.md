@@ -1,11 +1,11 @@
 ---
-title: "100% Confidentiality: Why AI is Safer Than Humans"
+title: '100% Confidentiality: Why AI is Safer Than Humans'
 description: "'Architect of Personal Brands' is an impersonal AI. This eliminates the human factor and guarantees complete confidentiality."
-excerptTitle: "100% Confidentiality"
+excerptTitle: '100% Confidentiality'
 excerptDescription: "'Architect of Personal Brands' is an impersonal AI. This eliminates the human factor and relieves you of the awkwardness of answering some questions."
 publishDate: 2025-12-10
-heroImage: "/src/assets/images/posts/advantages/5.webp"
-tags: ["Confidentiality", "Security"]
+heroImage: '/src/assets/images/posts/advantages/5.webp'
+tags: ['Confidentiality', 'Security']
 isArchive: false
 ---
 
@@ -27,4 +27,4 @@ You can be as honest as possible because there's no fear of judgment or criticis
 
 ---
 
-*Content to be added later.*
+_Content to be added later._

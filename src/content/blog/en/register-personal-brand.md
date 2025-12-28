@@ -1,11 +1,11 @@
 ---
-title: "How to Register a Personal Brand: 3 Steps for Legal Protection of Your Name, Alias, and Positioning"
-description: "Learn how to properly prepare documents so that no one can steal your unique idea and key message."
-excerptTitle: "How to Register a Personal Brand: 3 Legal Protection Steps"
+title: 'How to Register a Personal Brand: 3 Steps for Legal Protection of Your Name, Alias, and Positioning'
+description: 'Learn how to properly prepare documents so that no one can steal your unique idea and key message.'
+excerptTitle: 'How to Register a Personal Brand: 3 Legal Protection Steps'
 excerptDescription: "Your name is a trademark. But what exactly should you protect? The 'Architect of Personal Brands' service at Stage 2 creates such unique positioning that it becomes your main legal asset."
 publishDate: 2025-12-20
-heroImage: "/src/assets/images/posts/blog/1.webp"
-tags: ["Legal Tips", "Personal Brand"]
+heroImage: '/src/assets/images/posts/blog/1.webp'
+tags: ['Legal Tips', 'Personal Brand']
 isArchive: false
 ---
 
@@ -32,4 +32,4 @@ After identifying elements and verifying uniqueness, prepare documents for trade
 
 ---
 
-*Content to be added later.*
+_Content to be added later._

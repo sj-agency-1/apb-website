@@ -1,11 +1,11 @@
 ---
-title: "Trademark in Digital: How to Secure Your Domain Name and Account Names (And Why to Do It Before Launch)"
-description: "Learn how to legally protect your trademark in digital even before you start active promotion."
-excerptTitle: "Trademark in Digital: Secure Your Domain Name"
-excerptDescription: "Your digital address is part of your asset. Based on the unique positioning developed by the service, you need to secure your key digital identifiers."
+title: 'Trademark in Digital: How to Secure Your Domain Name and Account Names (And Why to Do It Before Launch)'
+description: 'Learn how to legally protect your trademark in digital even before you start active promotion.'
+excerptTitle: 'Trademark in Digital: Secure Your Domain Name'
+excerptDescription: 'Your digital address is part of your asset. Based on the unique positioning developed by the service, you need to secure your key digital identifiers.'
 publishDate: 2025-12-08
-heroImage: "/src/assets/images/posts/blog/6.webp"
-tags: ["Legal Tips", "Digital"]
+heroImage: '/src/assets/images/posts/blog/6.webp'
+tags: ['Legal Tips', 'Digital']
 isArchive: false
 ---
 
@@ -27,4 +27,4 @@ If you plan to work in international markets, consider registering your trademar
 
 ---
 
-*Content to be added later.*
+_Content to be added later._

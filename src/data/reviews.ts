@@ -1,159 +1,142 @@
-import type { ReviewProps } from '@components/schemas/review';
+/**
+ * Reviews data
+ * Restructured with localized content pattern
+ */
 
-export const reviews: ReviewProps[] = [
-  {
-    id: 'review-1',
-    name: 'Ирина',
-    age: 45,
-    location: 'Россия',
-    text: 'Очень интересно. Увлеклась и создала себе 2 цифровых продукта. Сейчас на этапе бизнес-плана немного застопорилась. Вот на этом этапе вопросы для меня сложноваты. Читаю – вроде понятно, а ответить затрудняюсь. Но в целом очень довольна – много о себе узнала нового, о чем даже не подозревала',
-    sex: 'female',
-    avatar: '/src/assets/images/reviews/review-1.webp',
-  },
-  {
-    id: 'review-2',
-    name: 'Helga',
-    age: 62,
-    location: 'Германия',
-    text: 'По рекомендации воспользовалась сервисом. Я весьма скептична и никогда не думала о своём Личном Бренде. Мне кажется это довольно смешным в моем возрасте. Но я попробовала и увлеклась. Это интересно узнать о себе то, что не замечала 62 года своей жизни. Ради интереса продукт Закрытое сообщество стал приносить мне маленький доход по подписке. У меня больше 2 000 подписчиков. Но меня интересуют не деньги, а то, что я нашла людей, которым нравится то, что я делаю. Они ценят мои труды. Спасибо!',
-    sex: 'female',
-    avatar: '/src/assets/images/reviews/review-1.webp',
-    translated: true,
-  },
-  {
-    id: 'review-3',
-    name: 'Егор',
-    age: 39,
-    location: 'Украина',
-    text: 'Я всю жизнь занимаюсь видеопродакшеном. Уже много лет задумывался о своем личном бренде. Но никак «руки не доходили». Я знаю, что самому создать Личный бренд с нуля – это очень сложно и трудоемко, особенно когда опыта нет. Наблюдал за селебрити, политиками и пытался анализировать. Но это все бесполезно, если честно. Поэтому когда мне посоветовали этот сервис, я понял, что нашёл то, что так давно искал. Я очень благодарен разработчикам этого сервиса, потому что с его помощью я наконец-то создал себе Личный Бренд. И не просто бренд, а это действительно работающий бизнес, который приносит мне каждый день доход, а я занимаюсь любимым делом. Спасибо, вам ребята!',
-    sex: 'male',
-    avatar: '/src/assets/images/reviews/review-2.webp',
-    translated: true,
-  },
-  {
-    id: 'review-4',
-    name: 'Ирина',
-    age: 45,
-    location: 'Россия',
-    text: 'Очень интересно. Увлеклась и создала себе 2 цифровых продукта. Сейчас на этапе бизнес-плана немного застопорилась. Вот на этом этапе вопросы для меня сложноваты. Читаю – вроде понятно, а ответить затрудняюсь. Но в целом очень довольна – много о себе узнала нового, о чем даже не подозревала',
-    sex: 'female',
-    avatar: '/src/assets/images/reviews/review-1.webp',
-  },
-  {
-    id: 'review-5',
-    name: 'Helga',
-    age: 62,
-    location: 'Германия',
-    text: 'По рекомендации воспользовалась сервисом. Я весьма скептична и никогда не думала о своём Личном Бренде. Мне кажется это довольно смешным в моем возрасте. Но я попробовала и увлеклась. Это интересно узнать о себе то, что не замечала 62 года своей жизни. Ради интереса продукт Закрытое сообщество стал приносить мне маленький доход по подписке. У меня больше 2 000 подписчиков. Но меня интересуют не деньги, а то, что я нашла людей, которым нравится то, что я делаю. Они ценят мои труды. Спасибо!',
-    sex: 'female',
-    avatar: '/src/assets/images/reviews/review-1.webp',
-    translated: true,
-  },
-  {
-    id: 'review-6',
-    name: 'Егор',
-    age: 39,
-    location: 'Украина',
-    text: 'Я всю жизнь занимаюсь видеопродакшеном. Уже много лет задумывался о своем личном бренде. Но никак «руки не доходили». Я знаю, что самому создать Личный бренд с нуля – это очень сложно и трудоемко, особенно когда опыта нет. Наблюдал за селебрити, политиками и пытался анализировать. Но это все бесполезно, если честно. Поэтому когда мне посоветовали этот сервис, я понял, что нашёл то, что так давно искал. Я очень благодарен разработчикам этого сервиса, потому что с его помощью я наконец-то создал себе Личный Бренд. И не просто бренд, а это действительно работающий бизнес, который приносит мне каждый день доход, а я занимаюсь любимым делом. Спасибо, вам ребята!',
-    sex: 'male',
-    avatar: '/src/assets/images/reviews/review-2.webp',
-    translated: true,
-  },
-  {
-    id: 'review-7',
-    name: 'Марина',
-    age: 34,
-    location: 'Казахстан',
-    text: 'Давно искала инструмент, который поможет структурировать мои знания и опыт в области психологии. AI-сервис «Архитектор Личных Брендов» превзошел все мои ожидания. За 3 месяца я создала линейку консультационных продуктов и запустила свой первый онлайн-курс. Особенно понравилась детальная проработка финансовой модели — теперь я точно знаю, сколько клиентов мне нужно для достижения своих целей.',
-    sex: 'female',
-    avatar: '/src/assets/images/reviews/review-1.webp',
-  },
-  {
-    id: 'review-8',
-    name: 'Алексей',
-    age: 51,
-    location: 'Беларусь',
-    text: 'Как бывший топ-менеджер крупной компании, я скептически относился к идее создания Личного Бренда. Казалось, что это что-то для молодых блогеров. Но сервис показал совсем другой подход — системный, бизнесовый, с четкими расчетами. Сейчас я веду консалтинговую практику и зарабатываю больше, чем на найме, при этом работаю когда хочу и с кем хочу. Рекомендую всем, кто задумывается о своем деле.',
-    sex: 'male',
-    avatar: '/src/assets/images/reviews/review-2.webp',
-  },
-];
+import type { SupportedLanguage, LocalizedContent } from '@/types/i18n';
 
-export const reviewsEn: ReviewProps[] = [
-  {
-    id: 'review-1',
-    name: 'Irina',
-    age: 45,
-    location: 'Russia',
-    text: "Very interesting. I got carried away and created 2 digital products for myself. I'm currently a bit stuck at the business plan stage. The questions at this stage are a bit difficult for me. I read them and they seem clear, but I struggle to answer. But overall I'm very satisfied - I learned a lot of new things about myself that I didn't even suspect.",
-    sex: 'female',
-    avatar: '/src/assets/images/reviews/review-1.webp',
-  },
-  {
-    id: 'review-2',
-    name: 'Helga',
-    age: 62,
-    location: 'Germany',
-    text: "I used the service on recommendation. I'm quite skeptical and never thought about my Personal Brand. It seems rather funny at my age. But I tried it and got hooked. It's interesting to learn about yourself what you haven't noticed in 62 years of your life. Out of curiosity, the Closed Community product started bringing me a small subscription income. I have over 2,000 subscribers. But I'm not interested in money, but in finding people who like what I do. They appreciate my efforts. Thank you!",
-    sex: 'female',
-    avatar: '/src/assets/images/reviews/review-1.webp',
-    translated: true,
-  },
-  {
-    id: 'review-3',
-    name: 'Egor',
-    age: 39,
-    location: 'Ukraine',
-    text: "I've been doing video production all my life. For many years I've been thinking about my personal brand. But I never got around to it. I know that creating a Personal Brand from scratch on your own is very difficult and time-consuming, especially when you have no experience. I observed celebrities, politicians and tried to analyze. But it's all useless, honestly. So when I was recommended this service, I realized I found what I had been looking for so long. I'm very grateful to the developers of this service, because with its help I finally created my Personal Brand. And not just a brand, but a truly working business that brings me income every day, and I do what I love. Thank you, guys!",
-    sex: 'male',
-    avatar: '/src/assets/images/reviews/review-2.webp',
-    translated: true,
-  },
-  {
-    id: 'review-4',
-    name: 'Irina',
-    age: 45,
-    location: 'Russia',
-    text: "Very interesting. I got carried away and created 2 digital products for myself. I'm currently a bit stuck at the business plan stage. The questions at this stage are a bit difficult for me. I read them and they seem clear, but I struggle to answer. But overall I'm very satisfied - I learned a lot of new things about myself that I didn't even suspect.",
-    sex: 'female',
-    avatar: '/src/assets/images/reviews/review-1.webp',
-  },
-  {
-    id: 'review-5',
-    name: 'Helga',
-    age: 62,
-    location: 'Germany',
-    text: "I used the service on recommendation. I'm quite skeptical and never thought about my Personal Brand. It seems rather funny at my age. But I tried it and got hooked. It's interesting to learn about yourself what you haven't noticed in 62 years of your life. Out of curiosity, the Closed Community product started bringing me a small subscription income. I have over 2,000 subscribers. But I'm not interested in money, but in finding people who like what I do. They appreciate my efforts. Thank you!",
-    sex: 'female',
-    avatar: '/src/assets/images/reviews/review-1.webp',
-    translated: true,
-  },
-  {
-    id: 'review-6',
-    name: 'Egor',
-    age: 39,
-    location: 'Ukraine',
-    text: "I've been doing video production all my life. For many years I've been thinking about my personal brand. But I never got around to it. I know that creating a Personal Brand from scratch on your own is very difficult and time-consuming, especially when you have no experience. I observed celebrities, politicians and tried to analyze. But it's all useless, honestly. So when I was recommended this service, I realized I found what I had been looking for so long. I'm very grateful to the developers of this service, because with its help I finally created my Personal Brand. And not just a brand, but a truly working business that brings me income every day, and I do what I love. Thank you, guys!",
-    sex: 'male',
-    avatar: '/src/assets/images/reviews/review-2.webp',
-    translated: true,
-  },
-  {
-    id: 'review-7',
-    name: 'Marina',
-    age: 34,
-    location: 'Kazakhstan',
-    text: "I've been looking for a tool to help structure my knowledge and experience in psychology for a long time. The AI-service 'Architect of Personal Brands' exceeded all my expectations. In 3 months, I created a line of consulting products and launched my first online course. I especially liked the detailed financial model development — now I know exactly how many clients I need to achieve my goals.",
-    sex: 'female',
-    avatar: '/src/assets/images/reviews/review-1.webp',
-  },
-  {
-    id: 'review-8',
-    name: 'Alexey',
-    age: 51,
-    location: 'Belarus',
-    text: 'As a former top manager of a large company, I was skeptical about creating a Personal Brand. It seemed like something for young bloggers. But the service showed a completely different approach — systematic, business-oriented, with clear calculations. Now I run a consulting practice and earn more than I did as an employee, while working when I want and with whom I want. I recommend it to everyone who is thinking about their own business.',
-    sex: 'male',
-    avatar: '/src/assets/images/reviews/review-2.webp',
-  },
-];
+// =============================================================================
+// TYPES
+// =============================================================================
+
+export interface ReviewProps {
+  id: string;
+  name: string;
+  age: number;
+  location: string;
+  text: string;
+  sex: 'male' | 'female';
+  avatar: string;
+  translated?: boolean;
+}
+
+// =============================================================================
+// REVIEWS DATA
+// =============================================================================
+
+const reviewsData: LocalizedContent<ReviewProps[]> = {
+  ru: [
+    {
+      id: 'review-1',
+      name: 'Ирина',
+      age: 45,
+      location: 'Россия',
+      text: 'Очень интересно. Увлеклась и создала себе 2 цифровых продукта. Сейчас на этапе бизнес-плана немного застопорилась. Вот на этом этапе вопросы для меня сложноваты. Читаю – вроде понятно, а ответить затрудняюсь. Но в целом очень довольна – много о себе узнала нового, о чем даже не подозревала',
+      sex: 'female',
+      avatar: '/src/assets/images/reviews/review-1.webp',
+    },
+    {
+      id: 'review-2',
+      name: 'Helga',
+      age: 62,
+      location: 'Германия',
+      text: 'По рекомендации воспользовалась сервисом. Я весьма скептична и никогда не думала о своём Личном Бренде. Мне кажется это довольно смешным в моем возрасте. Но я попробовала и увлеклась. Это интересно узнать о себе то, что не замечала 62 года своей жизни. Ради интереса продукт Закрытое сообщество стал приносить мне маленький доход по подписке. У меня больше 2 000 подписчиков. Но меня интересуют не деньги, а то, что я нашла людей, которым нравится то, что я делаю. Они ценят мои труды. Спасибо!',
+      sex: 'female',
+      avatar: '/src/assets/images/reviews/review-1.webp',
+      translated: true,
+    },
+    {
+      id: 'review-3',
+      name: 'Егор',
+      age: 39,
+      location: 'Украина',
+      text: 'Я всю жизнь занимаюсь видеопродакшеном. Уже много лет задумывался о своем личном бренде. Но никак «руки не доходили». Я знаю, что самому создать Личный бренд с нуля – это очень сложно и трудоемко, особенно когда опыта нет. Наблюдал за селебрити, политиками и пытался анализировать. Но это все бесполезно, если честно. Поэтому когда мне посоветовали этот сервис, я понял, что нашёл то, что так давно искал. Я очень благодарен разработчикам этого сервиса, потому что с его помощью я наконец-то создал себе Личный Бренд. И не просто бренд, а это действительно работающий бизнес, который приносит мне каждый день доход, а я занимаюсь любимым делом. Спасибо, вам ребята!',
+      sex: 'male',
+      avatar: '/src/assets/images/reviews/review-2.webp',
+      translated: true,
+    },
+    {
+      id: 'review-4',
+      name: 'Марина',
+      age: 34,
+      location: 'Казахстан',
+      text: 'Давно искала инструмент, который поможет структурировать мои знания и опыт в области психологии. AI-сервис «Архитектор Личных Брендов» превзошел все мои ожидания. За 3 месяца я создала линейку консультационных продуктов и запустила свой первый онлайн-курс. Особенно понравилась детальная проработка финансовой модели — теперь я точно знаю, сколько клиентов мне нужно для достижения своих целей.',
+      sex: 'female',
+      avatar: '/src/assets/images/reviews/review-1.webp',
+    },
+    {
+      id: 'review-5',
+      name: 'Алексей',
+      age: 51,
+      location: 'Беларусь',
+      text: 'Как бывший топ-менеджер крупной компании, я скептически относился к идее создания Личного Бренда. Казалось, что это что-то для молодых блогеров. Но сервис показал совсем другой подход — системный, бизнесовый, с четкими расчетами. Сейчас я веду консалтинговую практику и зарабатываю больше, чем на найме, при этом работаю когда хочу и с кем хочу. Рекомендую всем, кто задумывается о своем деле.',
+      sex: 'male',
+      avatar: '/src/assets/images/reviews/review-2.webp',
+    },
+  ],
+  en: [
+    {
+      id: 'review-1',
+      name: 'Irina',
+      age: 45,
+      location: 'Russia',
+      text: "Very interesting. I got carried away and created 2 digital products for myself. I'm currently a bit stuck at the business plan stage. The questions at this stage are a bit difficult for me. I read them and they seem clear, but I struggle to answer. But overall I'm very satisfied - I learned a lot of new things about myself that I didn't even suspect.",
+      sex: 'female',
+      avatar: '/src/assets/images/reviews/review-1.webp',
+    },
+    {
+      id: 'review-2',
+      name: 'Helga',
+      age: 62,
+      location: 'Germany',
+      text: "I used the service on recommendation. I'm quite skeptical and never thought about my Personal Brand. It seems rather funny at my age. But I tried it and got hooked. It's interesting to learn about yourself what you haven't noticed in 62 years of your life. Out of curiosity, the Closed Community product started bringing me a small subscription income. I have over 2,000 subscribers. But I'm not interested in money, but in finding people who like what I do. They appreciate my efforts. Thank you!",
+      sex: 'female',
+      avatar: '/src/assets/images/reviews/review-1.webp',
+      translated: true,
+    },
+    {
+      id: 'review-3',
+      name: 'Egor',
+      age: 39,
+      location: 'Ukraine',
+      text: "I've been doing video production all my life. For many years I've been thinking about my personal brand. But I never got around to it. I know that creating a Personal Brand from scratch on your own is very difficult and time-consuming, especially when you have no experience. I observed celebrities, politicians and tried to analyze. But it's all useless, honestly. So when I was recommended this service, I realized I found what I had been looking for so long. I'm very grateful to the developers of this service, because with its help I finally created my Personal Brand. And not just a brand, but a truly working business that brings me income every day, and I do what I love. Thank you, guys!",
+      sex: 'male',
+      avatar: '/src/assets/images/reviews/review-2.webp',
+      translated: true,
+    },
+    {
+      id: 'review-4',
+      name: 'Marina',
+      age: 34,
+      location: 'Kazakhstan',
+      text: "I've been looking for a tool to help structure my knowledge and experience in psychology for a long time. The AI-service 'Architect of Personal Brands' exceeded all my expectations. In 3 months, I created a line of consulting products and launched my first online course. I especially liked the detailed financial model development — now I know exactly how many clients I need to achieve my goals.",
+      sex: 'female',
+      avatar: '/src/assets/images/reviews/review-1.webp',
+    },
+    {
+      id: 'review-5',
+      name: 'Alexey',
+      age: 51,
+      location: 'Belarus',
+      text: 'As a former top manager of a large company, I was skeptical about creating a Personal Brand. It seemed like something for young bloggers. But the service showed a completely different approach — systematic, business-oriented, with clear calculations. Now I run a consulting practice and earn more than I did as an employee, while working when I want and with whom I want. I recommend it to everyone who is thinking about their own business.',
+      sex: 'male',
+      avatar: '/src/assets/images/reviews/review-2.webp',
+    },
+  ],
+};
+
+// =============================================================================
+// HELPER FUNCTIONS
+// =============================================================================
+
+/**
+ * Get reviews for a specific language
+ */
+export function getReviews(lang: SupportedLanguage): ReviewProps[] {
+  return reviewsData[lang];
+}
+
+// Legacy exports for backward compatibility
+export const reviews = reviewsData.ru;
+export const reviewsRu = reviewsData.ru;
+export const reviewsEn = reviewsData.en;

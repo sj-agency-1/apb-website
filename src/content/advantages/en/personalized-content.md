@@ -1,11 +1,11 @@
 ---
-title: "Personalized Content: AI Knows Your Brand from Birth"
-description: "The service knows your Personal Brand from the first step and creates exceptional, personalized content."
-excerptTitle: "Personalized Content"
+title: 'Personalized Content: AI Knows Your Brand from Birth'
+description: 'The service knows your Personal Brand from the first step and creates exceptional, personalized content.'
+excerptTitle: 'Personalized Content'
 excerptDescription: "The culmination! The service knows your Personal Brand from 'birth': from the first 'Audit' step. Create exceptional, personalized, author's content."
 publishDate: 2025-11-28
-heroImage: "/src/assets/images/posts/advantages/1.webp"
-tags: ["Content", "Personalization"]
+heroImage: '/src/assets/images/posts/advantages/1.webp'
+tags: ['Content', 'Personalization']
 isArchive: false
 ---
 
@@ -30,4 +30,4 @@ No copywriter can write for you the way the AI can, knowing every aspect of your
 
 ---
 
-*Content to be added later.*
+_Content to be added later._

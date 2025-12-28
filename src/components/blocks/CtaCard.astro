@@ -1,0 +1,67 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import Card from '../ui/Card.astro';
+import Heading from '../ui/Heading.astro';
+import Paragraph from '../ui/Paragraph.astro';
+import Button from '../ui/Button.astro';
+
+interface Props extends HTMLAttributes<'div'> {
+  variant?: 'default' | 'gradient' | 'primary';
+  title: string;
+  subtitle?: string;
+  buttonText: string;
+  buttonHref: string;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const {
+  variant = 'default',
+  title,
+  subtitle,
+  buttonText,
+  buttonHref,
+  size = 'lg',
+  class: className,
+  ...rest
+} = Astro.props;
+
+// Map CTA variant to Card variant and additional classes
+const variantConfig = {
+  default: {
+    cardVariant: 'default' as const,
+    cardClass: 'bg-secondary',
+    buttonVariant: 'primary' as const,
+    buttonClass: '',
+  },
+  gradient: {
+    cardVariant: 'gradient' as const,
+    cardClass: '',
+    buttonVariant: 'primary' as const,
+    buttonClass: '',
+  },
+  primary: {
+    cardVariant: 'default' as const,
+    cardClass: 'bg-primary',
+    buttonVariant: 'secondary' as const,
+    buttonClass: 'bg-white text-black hover:bg-white/90',
+  },
+};
+
+const config = variantConfig[variant];
+---
+
+<Card variant={config.cardVariant} direction="row" size={size} class:list={[config.cardClass, className]} {...rest}>
+  <div class="flex flex-col gap-1 sm:gap-2">
+    <Heading as="h3" size="xl" text={title} class:list={[{ 'text-white': variant === 'primary' }]} />
+    {
+      subtitle && (
+        <Paragraph
+          text={subtitle}
+          muted={variant !== 'primary'}
+          class:list={[{ 'text-white/80': variant === 'primary' }]}
+        />
+      )
+    }
+  </div>
+  <Button text={buttonText} href={buttonHref} variant={config.buttonVariant} size="md" class={config.buttonClass} />
+</Card>

@@ -1,0 +1,212 @@
+---
+import PageLayout from '@layouts/PageLayout.astro';
+import Section from '@components/blocks/Section.astro';
+import Breadcrumbs from '@components/structures/Breadcrumbs.astro';
+import Card from '@components/ui/Card.astro';
+import Button from '@components/ui/Button.astro';
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import { getPageContent } from '@data/pages';
+import { getAboutContent } from '@data/about-content';
+import { SUPPORTED_LANGUAGES, type SupportedLanguage } from '@/types/i18n';
+
+import aboutHero from '@assets/images/pages/about-2.webp';
+import about1 from '@assets/images/pages/about-1.webp';
+import about2 from '@assets/images/pages/about-2.webp';
+import about3 from '@assets/images/pages/about-3.webp';
+
+export function getStaticPaths() {
+  return SUPPORTED_LANGUAGES.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const { lang } = Astro.params as { lang: SupportedLanguage };
+const page = getPageContent('about', lang);
+const content = getAboutContent(lang);
+
+// Get latest advantages posts
+const allAdvantages = await getCollection('advantages', (entry) => {
+  const [entryLang] = entry.id.split('/');
+  return entryLang === lang && !entry.data.isArchive;
+});
+const advantagesPosts = allAdvantages
+  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime())
+  .slice(0, 3);
+
+// Icon paths for service cards
+const cardIcons = {
+  audit:
+    'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4',
+  products:
+    'M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10',
+  financial:
+    'M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z',
+  launch:
+    'M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.58-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z',
+};
+---
+
+<PageLayout head={page.meta} hero={page.hero}>
+  <Section id="about" variant="default">
+    <Breadcrumbs items={[{ text: content.breadcrumb }]} class="mb-6" />
+
+    <div class="mb-12">
+      <h2 class="text-3xl lg:text-4xl font-bold text-heading mb-6">{content.mainTitle}</h2>
+      <div class="flex flex-col gap-6">
+        <h3 class="text-xl lg:text-2xl font-semibold text-heading">
+          {content.welcomeTitle}
+        </h3>
+        <p class="text-lg text-foreground leading-relaxed">
+          {content.welcomeIntro}
+        </p>
+        <p class="text-foreground leading-relaxed">
+          {content.welcomeDescription}
+        </p>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <Image src={aboutHero} alt={content.heroAlt} width={1200} height={600} class="w-full rounded-2xl" />
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+      <div class="flex flex-col gap-4">
+        <Image src={about1} alt={content.aboutServiceAlt} width={600} height={400} class="rounded-2xl" />
+      </div>
+      <div class="flex flex-col gap-4 justify-center">
+        <h3 class="text-2xl lg:text-3xl font-bold text-heading">
+          {content.secretTitle}
+        </h3>
+        <p class="text-foreground leading-relaxed">
+          {content.secretParagraph1}
+        </p>
+        <p class="text-foreground leading-relaxed">
+          {content.secretParagraph2}
+        </p>
+      </div>
+    </div>
+
+    <div class="mb-12">
+      <h3 class="text-2xl lg:text-3xl font-bold text-heading mb-6">{content.serviceTitle}</h3>
+      <p class="text-foreground leading-relaxed mb-8">
+        {content.serviceIntro}
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {
+          content.serviceCards.map((card) => (
+            <Card variant="default" size="lg">
+              <div class="flex flex-col gap-4 p-4">
+                <div class="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-8 h-8 text-primary"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={cardIcons[card.icon]} />
+                  </svg>
+                </div>
+                <h4 class="text-lg font-semibold text-heading">{card.title}</h4>
+                <p class="text-muted-foreground leading-relaxed">{card.description}</p>
+              </div>
+            </Card>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+      <div class="flex flex-col gap-4 justify-center">
+        <h3 class="text-2xl lg:text-3xl font-bold text-heading">{content.brandTitle}</h3>
+        <p class="text-foreground leading-relaxed">
+          {content.brandParagraph1}
+        </p>
+        <p class="text-foreground leading-relaxed">
+          {content.brandParagraph2}
+        </p>
+        <ul class="list-disc list-inside text-foreground space-y-2 ml-4">
+          {content.brandListItems.map((item) => <li>{item}</li>)}
+        </ul>
+        <p class="text-foreground leading-relaxed">
+          {content.brandParagraph3}
+        </p>
+      </div>
+      <div>
+        <Image src={about2} alt={content.yourBrandAlt} width={600} height={400} class="rounded-2xl" />
+      </div>
+    </div>
+
+    <div class="mb-12 bg-secondary/30 rounded-2xl p-8">
+      <h3 class="text-2xl lg:text-3xl font-bold text-heading mb-6">{content.scoutTitle}</h3>
+      <p class="text-foreground leading-relaxed mb-4">
+        {content.scoutParagraph1}
+      </p>
+      <p class="text-foreground leading-relaxed mb-4">
+        {content.scoutParagraph2}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+      <div>
+        <Image src={about3} alt={content.contentAlt} width={600} height={400} class="rounded-2xl" />
+      </div>
+      <div class="flex flex-col gap-4 justify-center">
+        <h3 class="text-2xl lg:text-3xl font-bold text-heading">{content.contentTitle}</h3>
+        <p class="text-foreground leading-relaxed">
+          {content.contentParagraph1}
+        </p>
+        <p class="text-foreground leading-relaxed">
+          {content.contentParagraph2}
+        </p>
+        <p class="text-foreground leading-relaxed">
+          {content.contentParagraph3}
+        </p>
+        <p class="text-foreground italic mt-4" set:html={content.contentSignature} />
+      </div>
+    </div>
+  </Section>
+
+  <Section
+    id="advantages-articles"
+    title={content.advantagesSectionTitle}
+    subtitle={content.advantagesSectionSubtitle}
+    variant="dark"
+  >
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {
+        advantagesPosts.map((post) => (
+          <Card variant="default" size="sm" class="flex flex-col h-full">
+            {post.data.heroImage && (
+              <a href={`/${lang}/advantages/${post.slug}`} class="block aspect-video overflow-hidden rounded-xl mb-4">
+                <img
+                  src={post.data.heroImage}
+                  alt={post.data.title}
+                  width={400}
+                  height={250}
+                  class="w-full h-full object-cover"
+                />
+              </a>
+            )}
+            <div class="flex flex-col gap-3 flex-1 p-4">
+              <h4 class="text-lg font-semibold text-heading line-clamp-2">{post.data.title}</h4>
+              <div class="mt-auto">
+                <Button
+                  text={content.readMoreButton}
+                  href={`/${lang}/advantages/${post.slug}`}
+                  variant="outline"
+                  size="sm"
+                />
+              </div>
+            </div>
+          </Card>
+        ))
+      }
+    </div>
+    <div class="mt-8 flex justify-center">
+      <Button text={content.seeAllButton} href={`/${lang}/advantages`} variant="secondary" size="lg" />
+    </div>
+  </Section>
+</PageLayout>

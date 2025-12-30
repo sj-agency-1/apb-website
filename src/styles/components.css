@@ -1372,11 +1372,11 @@ main {
 }
 
 .step-content {
-  @apply flex w-full items-start gap-4 rounded-2xl border border-border/30 bg-linear-to-br from-secondary/60 to-transparent p-5 lg:w-[calc(50%-2rem)];
+  @apply flex w-full items-start gap-4 rounded-2xl border border-border/30 bg-secondary/50 mt-2 py-6!;
 }
 
 .step-content-cta {
-  @apply flex w-full flex-col items-start justify-between gap-4 rounded-2xl bg-primary p-6 lg:w-[calc(50%-2rem)] lg:flex-row lg:items-center;
+  @apply flex w-full flex-col items-start justify-between gap-4 rounded-2xl bg-primary p-6 lg:flex-row lg:items-center;
 }
 
 .launch-step.left .step-content,
@@ -1615,7 +1615,7 @@ body {
 }
 
 .step-item {
-  @apply overflow-hidden rounded-2xl border border-border/30 bg-card;
+  @apply overflow-hidden;
 }
 
 .step-item[open] .step-toggle svg {
@@ -1623,7 +1623,7 @@ body {
 }
 
 .step-header {
-  @apply flex cursor-pointer items-center gap-4 p-5 transition-colors hover:bg-secondary/50;
+  @apply flex cursor-pointer items-center gap-4 p-5 transition-colors hover:bg-card/70 rounded-2xl border border-border/30 bg-secondary/50;
   list-style: none;
 }
 

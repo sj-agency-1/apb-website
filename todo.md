@@ -17,10 +17,10 @@
     - [x] Home page, advantages section, fix icons (icon - text horizontally)
     - [x] Sidebar, on all pages, load advantages instead of blog
     - [x] On home page, launch steps section, fix icons (increase size, remove bg)
-    - [ ] On how-it-works page, accordion:
-      - [ ] Content of accordion has separate card
-      - [ ] Fix content containts on width (currently only 50% make 100%)
-      - [ ] Inner accordion make as cards as parent
+    - [x] On how-it-works page, accordion:
+      - [x] Content of accordion has separate card
+      - [x] Fix content containts on width (currently only 50% make 100%)
+      - [x] Inner accordion make as cards as parent
     - [ ] On about page:
       - [ ] First content section (with picture) change 50/50 to 40/60 (same on sections below)
       - [ ] At the bottom, before prefooter, use same layout as on reviews section on home page: scrollable, 9 blog items, add arrows, fix title positining

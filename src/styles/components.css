@@ -1256,6 +1256,10 @@ main {
   @apply flex-col gap-3;
 }
 
+.variant-card .blog-item {
+  @apply flex-col gap-0;
+}
+
 .blog-image {
   @apply block aspect-video w-full overflow-hidden rounded-lg;
 }
@@ -1266,6 +1270,10 @@ main {
 
 .variant-vertical .blog-image {
   @apply aspect-video w-full;
+}
+
+.variant-card .blog-image {
+  @apply aspect-video w-full rounded-none;
 }
 
 .blog-image .image {
@@ -1282,6 +1290,10 @@ main {
 
 .variant-vertical .blog-content {
   @apply gap-3;
+}
+
+.variant-card .blog-content {
+  @apply flex flex-col gap-3 p-5;
 }
 
 .blog-title {

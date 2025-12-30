@@ -30,10 +30,10 @@
       - [x] Max show 6 rows, add show/hide button
       - [x] Blured transparent modal
     - [ ] FAQ:
-      - [ ] Increase size of the icon
-      - [ ] Load blog items, instead of advantages
-      - [ ] Wrap every item to card
-      - [ ] Title not in content as well as breadcrumbs
+      - [x] Increase size of the icon
+      - [x] Load blog items, instead of advantages
+      - [x] Wrap every item to card
+      - [x] Title not in content as well as breadcrumbs
     - [ ] Contacts:
       - [ ] Increase size of icons
     - [ ] On posts:

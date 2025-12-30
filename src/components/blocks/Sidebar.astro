@@ -12,9 +12,10 @@ interface Props extends HTMLAttributes<'aside'> {
   blogTitle?: string;
   activeId?: string;
   ctaText?: string;
+  blogStyle?: 'grouped' | 'cards';
 }
 
-const { tocItems, blogItems, blogTitle, activeId, ctaText = 'Подробнее', ...rest } = Astro.props;
+const { tocItems, blogItems, blogTitle, activeId, ctaText = 'Подробнее', blogStyle = 'grouped', ...rest } = Astro.props;
 ---
 
 <aside class="sidebar" {...rest}>
@@ -27,12 +28,23 @@ const { tocItems, blogItems, blogTitle, activeId, ctaText = 'Подробнее'
   }
 
   {
-    blogItems && blogItems.length > 0 && (
-      <Card blur variant="outline" size="md" class="sidebar-card">
-        {blogTitle && <h4 class="sidebar-title">{blogTitle}</h4>}
-        <BlogList items={blogItems} variant="vertical" ctaText={ctaText} />
-      </Card>
-    )
+    blogItems &&
+      blogItems.length > 0 &&
+      (blogStyle === 'grouped' ? (
+        <Card blur variant="outline" size="md" class="sidebar-card">
+          {blogTitle && <h4 class="sidebar-title">{blogTitle}</h4>}
+          <BlogList items={blogItems} variant="vertical" ctaText={ctaText} />
+        </Card>
+      ) : (
+        <>
+          {blogTitle && <h4 class="sidebar-title">{blogTitle}</h4>}
+          {blogItems.map((item) => (
+            <Card blur variant="outline" size="md" class="sidebar-card p-0 overflow-hidden">
+              <BlogList items={[item]} variant="card" ctaText={ctaText} />
+            </Card>
+          ))}
+        </>
+      ))
   }
 
   <slot />

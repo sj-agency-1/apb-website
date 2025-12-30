@@ -24,7 +24,7 @@
     - [ ] On about page:
       - [x] First content section (with picture) change 50/50 to 40/60 (same on sections below)
       - [x] At the bottom, before prefooter, use same layout as on reviews section on home page: scrollable, 9 blog items, add arrows, fix title positining
-      - [ ] Section with the "COntent that works for you", wrap to card and fix proportions
+      - [x] Section with the "COntent that works for you", wrap to card and fix proportions
     - [ ] Review page:
       - [ ] Fix on big screens
       - [ ] Max show 6 rows, add show/hide button

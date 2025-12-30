@@ -4,6 +4,7 @@ import Section from '@components/blocks/Section.astro';
 import Breadcrumbs from '@components/structures/Breadcrumbs.astro';
 import Card from '@components/ui/Card.astro';
 import Button from '@components/ui/Button.astro';
+import Icon from '@components/ui/Icon.astro';
 import Modal from '@components/structures/Modal.astro';
 import { Image } from 'astro:assets';
 import { getReviews } from '@data/reviews';
@@ -43,12 +44,18 @@ const REVIEWS_PER_PAGE = 8; // 4 + 4 reviews per page (plus 1 card in between)
     <div id="reviews-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {
         reviews.map((review, index) => {
-          // Calculate position in current page (0-7 for 8 reviews)
-          const positionInPage = index % REVIEWS_PER_PAGE;
-          // Show share experience card after 4th review (position 4, meaning after indices 0,1,2,3)
-          const showShareCard = positionInPage === 4;
           const pageNumber = Math.floor(index / REVIEWS_PER_PAGE);
           const isFirstPage = pageNumber === 0;
+
+          // Calculate if the current page is full (has 8 reviews)
+          const startOfPage = pageNumber * REVIEWS_PER_PAGE;
+          const endOfPage = Math.min(startOfPage + REVIEWS_PER_PAGE, reviews.length);
+          const itemsOnThisPage = endOfPage - startOfPage;
+          const isPageFull = itemsOnThisPage === REVIEWS_PER_PAGE;
+
+          // Show share experience card as the 5th element (index 4 in the page) only if the page is full
+          const positionInPage = index % REVIEWS_PER_PAGE;
+          const showShareCard = isPageFull && positionInPage === 4;
 
           return (
             <>
@@ -56,13 +63,11 @@ const REVIEWS_PER_PAGE = 8; // 4 + 4 reviews per page (plus 1 card in between)
                 <Card
                   variant="default"
                   size="lg"
-                  class:list={[
-                    'share-experience-card flex flex-col items-center justify-center text-center h-full',
-                    { hidden: !isFirstPage },
-                  ]}
+                  class="share-experience-card flex flex-col items-center justify-center text-center h-full w-full"
+                  style={!isFirstPage ? 'display: none;' : ''}
                   data-page={pageNumber}
                 >
-                  <div class="flex flex-col items-center gap-4 p-6">
+                  <div class="flex flex-col items-center gap-4">
                     <Image
                       src={shareExperienceIcon}
                       alt={content.shareExperienceTitle}
@@ -84,7 +89,8 @@ const REVIEWS_PER_PAGE = 8; // 4 + 4 reviews per page (plus 1 card in between)
               <Card
                 variant="default"
                 size="lg"
-                class:list={['review-card flex flex-col h-full', { hidden: !isFirstPage }]}
+                class="review-card flex flex-col h-full w-auto!"
+                style={!isFirstPage ? 'display: none;' : ''}
                 data-index={index}
                 data-page={pageNumber}
               >
@@ -122,7 +128,20 @@ const REVIEWS_PER_PAGE = 8; // 4 + 4 reviews per page (plus 1 card in between)
                     )}
                   </div>
                 </div>
-                <p class="text-foreground leading-relaxed flex-1">{review.text}</p>
+                <div class="review-content relative flex-1">
+                  <p class="text-foreground leading-relaxed line-clamp-6" id={`review-text-${index}`}>
+                    {review.text}
+                  </p>
+                  <button
+                    class="text-accent-blue text-sm font-medium mt-2 hover:underline focus:outline-none toggle-review-btn items-center gap-1 hidden"
+                    data-target={`review-text-${index}`}
+                    data-text-more={content.showMore}
+                    data-text-less={content.showLess}
+                  >
+                    {content.showMore}
+                    <Icon name="chevron-down" class="w-4 h-4 inline align-middle" />
+                  </button>
+                </div>
               </Card>
             </>
           );
@@ -130,21 +149,9 @@ const REVIEWS_PER_PAGE = 8; // 4 + 4 reviews per page (plus 1 card in between)
       }
     </div>
 
-    <div id="pagination" class="flex justify-center gap-2 mt-8">
-      {
-        Array.from({ length: Math.ceil(reviews.length / REVIEWS_PER_PAGE) }).map((_, pageIndex) => (
-          <button
-            class:list={[
-              'pagination-btn w-10 h-10 rounded-lg font-medium transition-colors',
-              pageIndex === 0 ? 'bg-primary text-white' : 'bg-secondary text-foreground hover:bg-primary/20',
-            ]}
-            data-page={pageIndex}
-          >
-            {pageIndex + 1}
-          </button>
-        ))
-      }
-    </div>
+    <nav id="pagination" class="pagination mt-8 flex justify-center gap-2" aria-label="Pagination">
+      {/* Pagination will be rendered by JS */}
+    </nav>
   </Section>
 
   <Modal id="leave-review-modal" title={content.modalTitle} size="lg">
@@ -173,55 +180,179 @@ const REVIEWS_PER_PAGE = 8; // 4 + 4 reviews per page (plus 1 card in between)
 </PageLayout>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  function initReviews() {
     const reviewCards = document.querySelectorAll<HTMLElement>('.review-card');
     const shareCards = document.querySelectorAll<HTMLElement>('.share-experience-card');
-    const paginationBtns = document.querySelectorAll<HTMLElement>('.pagination-btn');
+    const paginationContainer = document.getElementById('pagination');
     const leaveReviewBtns = document.querySelectorAll('.leave-review-btn');
+    const toggleBtns = document.querySelectorAll<HTMLElement>('.toggle-review-btn');
 
-    // Pagination
-    paginationBtns.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const page = parseInt(btn.dataset.page || '0');
+    const itemsPerPage = 8;
+    const totalPages = Math.ceil(reviewCards.length / itemsPerPage);
+    let currentPage = 0;
 
-        // Show/hide review cards based on page
-        reviewCards.forEach((card) => {
-          const cardPage = parseInt(card.dataset.page || '0');
-          if (cardPage === page) {
-            card.classList.remove('hidden');
-          } else {
-            card.classList.add('hidden');
-          }
-        });
+    // Show More/Less Logic
+    toggleBtns.forEach((btn) => {
+      const targetId = btn.dataset.target;
+      if (!targetId) return;
+      const textEl = document.getElementById(targetId);
+      if (!textEl) return;
 
-        // Show/hide share experience cards based on page
-        shareCards.forEach((card) => {
-          const cardPage = parseInt(card.dataset.page || '0');
-          if (cardPage === page) {
-            card.classList.remove('hidden');
-          } else {
-            card.classList.add('hidden');
-          }
-        });
+      // Check if truncation is needed
+      if (textEl.scrollHeight > textEl.clientHeight) {
+        btn.classList.remove('hidden');
+      }
 
-        // Update active button
-        paginationBtns.forEach((b) => {
-          b.classList.remove('bg-primary', 'text-white');
-          b.classList.add('bg-secondary', 'text-foreground');
-        });
-        btn.classList.remove('bg-secondary', 'text-foreground');
-        btn.classList.add('bg-primary', 'text-white');
+      // Clone button to remove old event listeners if any (when re-initializing)
+      const newBtn = btn.cloneNode(true) as HTMLElement;
+      btn.parentNode?.replaceChild(newBtn, btn);
+
+      newBtn.addEventListener('click', () => {
+        const isExpanded = !textEl.classList.contains('line-clamp-6');
+        if (isExpanded) {
+          textEl.classList.add('line-clamp-6');
+          newBtn.innerHTML = `${newBtn.dataset.textMore || 'Show more'} <svg class="w-4 h-4 inline align-middle" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>`;
+        } else {
+          textEl.classList.remove('line-clamp-6');
+          newBtn.innerHTML = `${newBtn.dataset.textLess || 'Show less'} <svg class="w-4 h-4 inline align-middle" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>`;
+        }
       });
     });
 
-    // Leave review modal
+    // Pagination Logic
+    function renderPagination() {
+      if (!paginationContainer || totalPages <= 1) {
+        if (paginationContainer) paginationContainer.innerHTML = '';
+        return;
+      }
+
+      let html = '';
+
+      // Prev Button
+      const prevDisabled = currentPage === 0;
+      html += `
+        <button
+          class="pagination-btn ${prevDisabled ? 'disabled' : ''}"
+          ${prevDisabled ? 'disabled' : ''}
+          data-action="prev"
+          aria-label="Previous page"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+      `;
+
+      // Page Numbers
+      const pageNumbers = [];
+      if (totalPages <= 7) {
+        for (let i = 0; i < totalPages; i++) pageNumbers.push(i);
+      } else {
+        if (currentPage <= 2) {
+          pageNumbers.push(0, 1, 2, '...', totalPages - 1);
+        } else if (currentPage >= totalPages - 3) {
+          pageNumbers.push(0, '...', totalPages - 3, totalPages - 2, totalPages - 1);
+        } else {
+          pageNumbers.push(0, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages - 1);
+        }
+      }
+
+      pageNumbers.forEach((num) => {
+        if (typeof num === 'number') {
+          const isActive = num === currentPage;
+          html += `
+            <button
+              class="pagination-num ${isActive ? 'active' : ''}"
+              data-page="${num}"
+              aria-current="${isActive ? 'page' : 'false'}"
+            >
+              ${num + 1}
+            </button>
+          `;
+        } else {
+          html += `<span class="pagination-ellipsis">${num}</span>`;
+        }
+      });
+
+      // Next Button
+      const nextDisabled = currentPage === totalPages - 1;
+      html += `
+        <button
+          class="pagination-btn ${nextDisabled ? 'disabled' : ''}"
+          ${nextDisabled ? 'disabled' : ''}
+          data-action="next"
+          aria-label="Next page"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      `;
+
+      paginationContainer.innerHTML = html;
+
+      // Add Event Listeners
+      paginationContainer.querySelectorAll('button').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          if (btn.dataset.action === 'prev') {
+            if (currentPage > 0) showPage(currentPage - 1);
+          } else if (btn.dataset.action === 'next') {
+            if (currentPage < totalPages - 1) showPage(currentPage + 1);
+          } else if (btn.dataset.page) {
+            showPage(parseInt(btn.dataset.page));
+          }
+        });
+      });
+    }
+
+    function showPage(page: number) {
+      currentPage = page;
+
+      reviewCards.forEach((card) => {
+        const cardPage = parseInt(card.dataset.page || '0');
+        if (cardPage === page) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Share card logic
+      shareCards.forEach((card) => {
+        const cardPage = parseInt(card.dataset.page || '0');
+        if (cardPage === page) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      renderPagination();
+
+      // Scroll to top of reviews if not initial load
+      const reviewsSection = document.getElementById('reviews');
+      if (reviewsSection) {
+        const rect = reviewsSection.getBoundingClientRect();
+        if (rect.top < 0) {
+          reviewsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+
+    // Initial Render
+    renderPagination();
+
+    // Leave review modal triggers
     leaveReviewBtns.forEach((btn) => {
-      btn.addEventListener('click', (e) => {
+      // Clone to remove old listeners
+      const newBtn = btn.cloneNode(true) as HTMLElement;
+      btn.parentNode?.replaceChild(newBtn, btn);
+
+      newBtn.addEventListener('click', (e) => {
         e.preventDefault();
         if (typeof window.openModal === 'function') {
           window.openModal('leave-review-modal');
         }
       });
     });
-  });
+  }
+
+  document.addEventListener('DOMContentLoaded', initReviews);
+  document.addEventListener('astro:page-load', initReviews);
 </script>

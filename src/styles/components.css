@@ -1372,7 +1372,8 @@ main {
 }
 
 .step-content {
-  @apply flex w-full items-start gap-4 rounded-2xl border border-border/30 bg-secondary/50 mt-2 py-6 !;
+  @apply flex w-full items-start gap-4 rounded-2xl border border-border/30 bg-secondary/50 mt-2;
+  padding-top: 24px !important;
 }
 
 .step-content-cta {
@@ -1458,11 +1459,11 @@ body {
 }
 
 .modal-backdrop {
-  @apply absolute inset-0 bg-black/70 backdrop-blur-md;
+  @apply absolute inset-0 bg-black/40 backdrop-blur-md;
 }
 
 .modal-container {
-  @apply relative z-10 w-full scale-95 transform rounded-2xl bg-card p-6 md:p-8;
+  @apply relative z-10 w-full scale-95 transform backdrop-blur-lg rounded-2xl bg-card/80 border border-white/10 shadow-2xl p-6 md:p-8;
   transition: transform 0.2s ease-out;
 }
 

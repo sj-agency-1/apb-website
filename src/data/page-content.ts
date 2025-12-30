@@ -178,6 +178,8 @@ export interface ReviewsPageContent {
   shareExperienceTitle: string;
   shareExperienceDescription: string;
   shareExperienceButton: string;
+  showMore: string;
+  showLess: string;
 }
 
 export const reviewsPageContent: LocalizedContent<ReviewsPageContent> = {
@@ -201,6 +203,8 @@ export const reviewsPageContent: LocalizedContent<ReviewsPageContent> = {
     shareExperienceDescription:
       'Оставьте свой отзыв на сайте, чтобы другие пользователи узнали о вашем опыте работы с платформой',
     shareExperienceButton: 'Оставить отзыв',
+    showMore: 'Раскрыть',
+    showLess: 'Скрыть',
   },
   en: {
     breadcrumb: 'Reviews',
@@ -222,6 +226,8 @@ export const reviewsPageContent: LocalizedContent<ReviewsPageContent> = {
     shareExperienceDescription:
       'Leave your review on the site so that other users learn about your experience with the platform',
     shareExperienceButton: 'Leave a review',
+    showMore: 'Show more',
+    showLess: 'Show less',
   },
 };
 

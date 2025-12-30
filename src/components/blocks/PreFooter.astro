@@ -3,7 +3,6 @@ import type { HTMLAttributes } from 'astro/types';
 import Heading from '../ui/Heading.astro';
 import Paragraph from '../ui/Paragraph.astro';
 import Button from '../ui/Button.astro';
-import Image from '../ui/Image.astro';
 
 interface Props extends HTMLAttributes<'section'> {
   title: string;
@@ -20,38 +19,47 @@ interface Props extends HTMLAttributes<'section'> {
 const { title, subtitle, cta, ctaSubtext1, ctaSubtext2, backgroundImage, ...rest } = Astro.props;
 ---
 
-<section class="prefooter" {...rest}>
+<section class="prefooter relative" {...rest}>
   {
     backgroundImage && (
-      <div class="prefooter-background">
-        <Image src={backgroundImage} alt="" width={1920} height={600} />
-      </div>
+      <div
+        class="prefooter-background opacity-50"
+        style={{
+          backgroundImage: `url('${backgroundImage}')`,
+          backgroundPosition: 'center top',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
     )
   }
-  <div class="container mx-auto px-4 h-full">
-    <div class="prefooter-content">
-      <div class="prefooter-text">
-        <Heading as="h2" size="4xl" text={title} />
-        {subtitle && <Paragraph text={subtitle} size="lg" muted />}
+  <div class="container mx-auto px-4 h-full relative z-10">
+    <div class="prefooter-content flex flex-row w-full h-full">
+      <div class="prefooter-left w-1/2 flex flex-col justify-center">
+        <div class="prefooter-text">
+          <Heading as="h2" size="4xl" text={title} />
+          {subtitle && <Paragraph text={subtitle} size="lg" muted />}
+        </div>
+        <div class="prefooter-action mt-6">
+          <Button
+            text={cta.text}
+            href={cta.href}
+            variant="secondary"
+            size="lg"
+            class="prefooter-button bg-white! text-black! hover:bg-white/90!"
+          />
+          {
+            (ctaSubtext1 || ctaSubtext2) && (
+              <span class="prefooter-subtext">
+                {ctaSubtext1}
+                <br />
+                {ctaSubtext2}
+              </span>
+            )
+          }
+        </div>
       </div>
-      <div class="prefooter-action">
-        <Button
-          text={cta.text}
-          href={cta.href}
-          variant="secondary"
-          size="lg"
-          class="prefooter-button bg-white! text-black! hover:bg-white/90!"
-        />
-        {
-          (ctaSubtext1 || ctaSubtext2) && (
-            <span class="prefooter-subtext">
-              {ctaSubtext1}
-              <br />
-              {ctaSubtext2}
-            </span>
-          )
-        }
-      </div>
+      <div class="prefooter-right w-1/2"></div>
     </div>
   </div>
 </section>

@@ -40,9 +40,15 @@ const isHome = layout === 'home';
 <section class:list={['hero', { 'hero-home': isHome, 'hero-page': !isHome }]} {...rest}>
   {
     backgroundImage && (
-      <div class="hero-background">
-        <Image src={backgroundImage} alt="" width={1920} height={1080} />
-      </div>
+      <div
+        class="hero-background opacity-60"
+        style={{
+          backgroundImage: `url('${backgroundImage}')`,
+          backgroundPosition: 'center top',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+        }}
+      />
     )
   }
   <div class="container mx-auto px-4 h-full relative z-10">

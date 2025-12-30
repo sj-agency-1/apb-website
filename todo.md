@@ -45,7 +45,7 @@
     - [x] Fix table of contents when clicking (home page). Currently, it highlight the next chapter
     - [x] On home page, faq section, open first accordion element by default
     - [x] On home page, reviews section, fix title and add arrows. Make scrollable by swipe on desktop as well
-    - [] Prefooter, separate content to 2 section, keep content on the left section. And fix bg positioning to bottom
+    - [x] Prefooter, separate content to 2 section, keep content on the left section. And fix bg positioning to bottom
 
 
 

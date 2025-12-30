@@ -10,15 +10,20 @@ export interface AccordionItem {
 
 interface Props extends HTMLAttributes<'div'> {
   items: AccordionItem[];
+  openedItemsByDefault?: number[];
 }
 
-const { items, ...rest } = Astro.props;
+const { items, openedItemsByDefault = [], ...rest } = Astro.props;
 ---
 
 <Element class:list="accordion" {...rest}>
   {
-    items.map((item) => (
-      <details class="accordion-item" name="accordion">
+    items.map((item, idx) => (
+      <details
+        class="accordion-item"
+        name="accordion"
+        {...(openedItemsByDefault && openedItemsByDefault.includes(idx) ? { open: true } : {})}
+      >
         <summary class="accordion-trigger">
           <span class="accordion-title">{item.question}</span>
           <Icon name="chevron-down" class="accordion-icon" />

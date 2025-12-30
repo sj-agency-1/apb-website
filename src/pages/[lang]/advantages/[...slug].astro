@@ -6,7 +6,7 @@ import Sidebar from '@components/blocks/Sidebar.astro';
 import Breadcrumbs from '@components/structures/Breadcrumbs.astro';
 import Card from '@components/ui/Card.astro';
 import { useTranslations } from '@i18n/utils';
-import { getLatestBlogPosts } from '@utils/posts';
+import { getLatestAdvantagesPosts } from '@utils/posts';
 
 export async function getStaticPaths() {
   const posts = await getCollection('advantages');
@@ -38,8 +38,8 @@ const tocItems = headings
     text: h.text,
   }));
 
-// Get latest blog posts for sidebar
-const blogItems = await getLatestBlogPosts(lang as 'en' | 'ru', 2);
+// Get latest advantages posts for sidebar
+const blogItems = await getLatestAdvantagesPosts(lang as 'en' | 'ru', 2);
 ---
 
 <PostLayout

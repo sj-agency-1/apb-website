@@ -15,7 +15,7 @@
     - [x] Active link in header is not working on different pages
     - [x] Remove margin-top to the header navigation items (desktop, check mobile too)
     - [x] Home page, advantages section, fix icons (icon - text horizontally)
-    - [ ] Sidebar, on all pages, load advantages instead of blog
+    - [x] Sidebar, on all pages, load advantages instead of blog
     - [ ] On home page, launch steps section, fix icons (increase size, remove bg)
     - [ ] On how-it-works page, accordion:
       - [ ] Content of accordion has separate card

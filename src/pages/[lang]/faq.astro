@@ -10,7 +10,7 @@ import { Image } from 'astro:assets';
 import { getFaqItems } from '@data/faq';
 import { getPageContent } from '@data/pages';
 import { getFaqContent } from '@data/page-content';
-import { getLatestBlogPosts } from '@utils/posts';
+import { getLatestAdvantagesPosts } from '@utils/posts';
 import { contacts } from '@data/contacts';
 import { SUPPORTED_LANGUAGES, type SupportedLanguage } from '@/types/i18n';
 
@@ -26,7 +26,7 @@ const { lang } = Astro.params as { lang: SupportedLanguage };
 const page = getPageContent('faq', lang);
 const content = getFaqContent(lang);
 const faqItems = getFaqItems(lang);
-const blogPosts = await getLatestBlogPosts(lang, 2);
+const blogPosts = await getLatestAdvantagesPosts(lang, 2);
 ---
 
 <PageLayout head={page.meta} hero={page.hero}>

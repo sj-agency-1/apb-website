@@ -13,7 +13,7 @@ import LaunchSteps from '@components/structures/LaunchSteps.astro';
 import Reviews from '@components/structures/Reviews.astro';
 import { getHomeContent } from '@data/home';
 import { getReviews } from '@data/reviews';
-import { getLatestBlogPosts } from '@utils/posts';
+import { getLatestAdvantagesPosts } from '@utils/posts';
 import { SUPPORTED_LANGUAGES, type SupportedLanguage } from '@/types/i18n';
 
 // Get language from URL parameter
@@ -26,8 +26,8 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: SupportedLanguage };
 const content = getHomeContent(lang);
 
-// Get blog posts for sidebar
-const blogItems = await getLatestBlogPosts(lang, 2);
+// Get advantages posts for sidebar
+const blogItems = await getLatestAdvantagesPosts(lang, 2);
 
 // Select reviews based on language
 const reviewsData = getReviews(lang);

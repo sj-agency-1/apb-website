@@ -1,67 +1,56 @@
-Preparation phase
+- [ ] Fixes
 
-- [x] Setup i18n
-- [x] Install BMad
+  - [ ] Mobile
+    - [ ] Main page, hero component, 
+    - [ ] Remove table of contents
+    - [ ] List of posts should below content
+    - [ ] CTA card, text center. "Создать свой \n Онлайн бизнес". "Который называется \n Личный бренд"
+    - [ ] Advantages, merge secondary and ternary cards
+    - [ ] stepsToLaunch, show timeline
+    - [ ] Prefooter, mobile
+  
+  
+  - [ ] All
+    - [ ] Reduce the container-width
+    - [ ] Active link in header is not working on different pages
+    - [ ] Remove margin-top to the header navigation items (desktop, check mobile too)
+    - [ ] Home page, advantages section, fix icons (icon - text horizontally)
+    - [ ] Sidebar, on all pages, load advantages instead of blog
+    - [ ] On home page, launch steps section, fix icons (increase size, remove bg)
+    - [ ] On how-it-works page, accordion:
+      - [ ] Content of accordion has separate card
+      - [ ] Fix content containts on width (currently only 50% make 100%)
+      - [ ] Inner accordion make as cards as parent
+    - [ ] On about page:
+      - [ ] First content section (with picture) change 50/50 to 40/60 (same on sections below)
+      - [ ] At the bottom, before prefooter, use same layout as on reviews section on home page: scrollable, 9 blog items, add arrows, fix title positining
+      - [ ] Section with the "COntent that works for you", wrap to card and fix proportions
+    - [ ] Review page:
+      - [ ] Fix on big screens
+      - [ ] Max show 6 rows, add show/hide button
+      - [ ] Blured transparent modal
+    - [ ] FAQ:
+      - [ ] Increase size of the icon
+      - [ ] Load blog items, instead of advantages
+      - [ ] Wrap every item to card
+      - [ ] Title not in content as well as breadcrumbs
+    - [ ] Contacts:
+      - [ ] INcrease size of icons
+    - [ ] On posts:
+      - [ ] advantages, item page: show other advantages in sidebar
+      - [ ] blog, item page: show other blogs in sidebar 
+    - [ ] When language switched, change flag icon
 
-- [x] Plan the work
-  - [x] Extracting assets from Figma
-  - [x] Work items on features
-  - [x] Styling/Components
-  - [x] Pages
+  - [ ] Desktop
+    - [x] Fix table of contents when clicking (home page). Currently, it highlight the next chapter
+    - [ ] On home page, faq section, open first accordion element by default
+    - [ ] On home page, reviews section, fix title and add arrows. Make scrollable by swipe on desktop as well
+    - [ ] Prefooter, separate content to 2 section, keep content on the left section. And fix bg positioning to bottom
 
-- [x] Extract assets from figma
-  - [x] Export images
-  - [x] Downsize images using online services
-  - [x] Put images to the folders and rename them
-  - [x] Prepare fonts
 
-- [x] Prepare blocks
-  - [x] Header + Responsiveness
-  - [x] Footer
-  - [x] Sidebar
-  - [x] Content
-  - [x] Section
 
-- [x] Create pages
-  - [x] Home
-  - [x] How It Works
-  - [x] About
-  - [x] Advantages + Advantage (implement Add content first below)
-  - [x] Blog + Post
-  - [x] Reviews
-  - [x] FAQ
-  - [x] Contacts
 
-- [x] Add content
-  - [x] Add and setup collections
-  - [x] Add content for collections
-- [x] Retrieve data from collections
-
-- [x] Add mising pages
-  - [x] Review all links on the website (header/footer) and implement missing pages
-
-- [x] Fixes
-  - [x] Active link of the current page in header menu
-  - [x] Smooth scrolling
-
-- [x] Refactor code:
-  - [x] Use translated content on pages when possible to keep ui.ts (with translations) small
-  - [x] Remove unused code
-  - [x] Refactor components and define some reusable components as blocks (like CTA cards and etc.) to follow DRY principle
-  - [x] Review the component system and make sure it follows best practices, be maintainable while keeping them simple (do not overengineer)
-    - [x] Move hero component to the Layout.
-- [x] After all of this, run the `npm run fix` command and after that `npm run check` to fix all of the left errors
-- [x] Refactor again
-
-- [x] Manually review pages and adjust them
-  - [x] Add 404
-
-- [x] Add docs for later use
-
-- [x] Fix prod website
-  - [x] Update tailwindcss approach to use (move layers in style attribyte of components to no-layer in separate file) - quick fix for now to make website working
-
-- [ ] Setup DecapCMS
+- [ ] Setup DecapCMS (When domain owned)
   - [ ] Setup OAuth Google Provider
   - [ ] Accept invintation link
   - [ ] Login via provider

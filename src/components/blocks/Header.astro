@@ -5,10 +5,12 @@ import Button from '../ui/Button.astro';
 import LanguagePicker from '../ui/LanguagePicker.astro';
 import Icon from '../ui/Icon.astro';
 import type { HeaderProps } from '../schemas/header';
+import { getLangFromUrl } from '@i18n/utils';
 
 type Props = HeaderProps;
 
 const { logo, nav, mobileNav1, mobileNav2, action, lang } = Astro.props;
+const currentLang = getLangFromUrl(Astro.url);
 ---
 
 <header class="header sticky top-0 w-full">
@@ -23,7 +25,7 @@ const { logo, nav, mobileNav1, mobileNav2, action, lang } = Astro.props;
 
     <div class="hidden lg:flex items-center gap-4">
       {action && <Button {...action} variant="primary" class="font-bold" />}
-      {lang && <LanguagePicker />}
+      {lang && <LanguagePicker current={currentLang} />}
     </div>
 
     <!-- Mobile Actions -->
@@ -94,7 +96,7 @@ const { logo, nav, mobileNav1, mobileNav2, action, lang } = Astro.props;
     }
 
     <div class="flex flex-col items-center">
-      {lang && <LanguagePicker />}
+      {lang && <LanguagePicker current={currentLang} />}
     </div>
   </div>
 </header>

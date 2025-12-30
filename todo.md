@@ -36,10 +36,10 @@
       - [x] Title not in content as well as breadcrumbs
     - [x] Contacts:
       - [x] Increase size of icons
-    - [ ] On posts:
-      - [ ] advantages, item page: show other advantages in sidebar
-      - [ ] blog, item page: show other blogs in sidebar 
-    - [ ] When language switched, change flag icon
+    - [x] On posts:
+      - [x] advantages, item page: show other advantages in sidebar
+      - [x] blog, item page: show other blogs in sidebar 
+    - [x] When language switched, change flag icon
 
   - [ ] Desktop
     - [x] Fix table of contents when clicking (home page). Currently, it highlight the next chapter

@@ -1390,11 +1390,11 @@ main {
 }
 
 .step-icon {
-  @apply flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-secondary;
+  @apply flex h-full shrink-0 items-center justify-center rounded-xl;
 }
 
 .step-icon .image {
-  @apply h-8 w-8 object-contain;
+  @apply h-20 w-20 object-contain;
 }
 
 .step-text {

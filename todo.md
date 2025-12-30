@@ -11,7 +11,7 @@
   
   
   - [ ] All
-    - [ ] Reduce the container-width
+    - [x] Reduce the container-width
     - [ ] Active link in header is not working on different pages
     - [ ] Remove margin-top to the header navigation items (desktop, check mobile too)
     - [ ] Home page, advantages section, fix icons (icon - text horizontally)

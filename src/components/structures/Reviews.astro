@@ -1,40 +1,133 @@
 ---
 import type { ReviewProps } from '../schemas/review';
 import Image from '../ui/Image.astro';
+import Heading from '../ui/Heading.astro';
+import Paragraph from '../ui/Paragraph.astro';
+import Button from '../ui/Button.astro';
+import Icon from '../ui/Icon.astro';
 
 interface Props {
   reviews: ReviewProps[];
+  title?: string;
+  subtitle?: string;
   moreText?: string;
   moreHref?: string;
 }
 
-const { reviews } = Astro.props;
+const { reviews, title, subtitle } = Astro.props;
 ---
 
-<div class="reviews-carousel">
-  <div class="reviews-track">
-    {
-      reviews.map((review) => (
-        <div class="review-card">
-          <div class="review-avatar">
-            {review.avatar ? (
-              <Image src={review.avatar} alt={review.name} width={100} height={100} />
-            ) : (
-              <div class={`avatar-placeholder ${review.sex}`} />
-            )}
-          </div>
-          <div class="review-meta">
-            <h4 class="review-name">
-              {review.name}, {review.age} лет
-            </h4>
-            <p class="review-location">
-              {review.location}
-              {review.translated && ' *Перевод с оригинала'}
-            </p>
-          </div>
-          <p class="review-text">{review.text}</p>
+<div class="reviews-container">
+  <div class="flex flex-col md:flex-row justify-between items-end mb-8 lg:mb-12 gap-4">
+    <div class="flex flex-col gap-3 text-left">
+      {title && <Heading as="h2" size="4xl" text={title} />}
+      {subtitle && <Paragraph text={subtitle} muted />}
+    </div>
+    <div class="flex gap-2 shrink-0">
+      <Button variant="outline" class="prev-review px-3" aria-label="Previous review">
+        <div class="flex items-center justify-center">
+          <Icon name="arrow-left" />
         </div>
-      ))
-    }
+      </Button>
+      <Button variant="outline" class="next-review px-3" aria-label="Next review">
+        <div class="flex items-center justify-center">
+          <Icon name="arrow-right" />
+        </div>
+      </Button>
+    </div>
+  </div>
+
+  <div class="reviews-carousel cursor-grab active:cursor-grabbing">
+    <div class="reviews-track">
+      {
+        reviews.map((review) => (
+          <div class="review-card select-none">
+            <div class="review-avatar">
+              {review.avatar ? (
+                <Image src={review.avatar} alt={review.name} width={100} height={100} />
+              ) : (
+                <div class={`avatar-placeholder ${review.sex}`} />
+              )}
+            </div>
+            <div class="review-meta">
+              <h4 class="review-name">
+                {review.name}, {review.age} лет
+              </h4>
+              <p class="review-location">
+                {review.location}
+                {review.translated && ' *Перевод с оригинала'}
+              </p>
+            </div>
+            <p class="review-text">{review.text}</p>
+          </div>
+        ))
+      }
+    </div>
   </div>
 </div>
+
+<script>
+  function initReviews() {
+    const carousels = document.querySelectorAll('.reviews-carousel');
+
+    carousels.forEach((carousel) => {
+      const container = carousel.closest('.reviews-container');
+      if (!container) return;
+
+      // Check if already initialized
+      if ((carousel as unknown as { __reviewsInitialized: boolean }).__reviewsInitialized) return;
+      (carousel as unknown as { __reviewsInitialized: boolean }).__reviewsInitialized = true;
+
+      const prevBtn = container.querySelector('.prev-review');
+      const nextBtn = container.querySelector('.next-review');
+
+      if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+          carousel.scrollBy({ left: -400, behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', () => {
+          carousel.scrollBy({ left: 400, behavior: 'smooth' });
+        });
+      }
+
+      // Drag to scroll
+      let isDown = false;
+      let startX: number;
+      let scrollLeft: number;
+
+      const c = carousel as HTMLElement;
+
+      c.addEventListener('mousedown', (e) => {
+        isDown = true;
+        c.classList.add('active');
+        startX = e.clientX - c.getBoundingClientRect().left;
+        scrollLeft = c.scrollLeft;
+      });
+
+      c.addEventListener('mouseleave', () => {
+        isDown = false;
+        c.classList.remove('active');
+      });
+
+      c.addEventListener('mouseup', () => {
+        isDown = false;
+        c.classList.remove('active');
+      });
+
+      c.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.clientX - c.getBoundingClientRect().left;
+        const walk = (x - startX) * 2; // scroll-fast
+        c.scrollLeft = scrollLeft - walk;
+      });
+    });
+  }
+
+  // Run on initial load
+  initReviews();
+
+  // Run on view transitions
+  document.addEventListener('astro:page-load', initReviews);
+</script>

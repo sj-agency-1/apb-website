@@ -21,7 +21,7 @@
       - [x] Content of accordion has separate card
       - [x] Fix content containts on width (currently only 50% make 100%)
       - [x] Inner accordion make as cards as parent
-    - [ ] On about page:
+    - [x] On about page:
       - [x] First content section (with picture) change 50/50 to 40/60 (same on sections below)
       - [x] At the bottom, before prefooter, use same layout as on reviews section on home page: scrollable, 9 blog items, add arrows, fix title positining
       - [x] Section with the "COntent that works for you", wrap to card and fix proportions
@@ -34,8 +34,8 @@
       - [x] Load blog items, instead of advantages
       - [x] Wrap every item to card
       - [x] Title not in content as well as breadcrumbs
-    - [ ] Contacts:
-      - [ ] Increase size of icons
+    - [x] Contacts:
+      - [x] Increase size of icons
     - [ ] On posts:
       - [ ] advantages, item page: show other advantages in sidebar
       - [ ] blog, item page: show other blogs in sidebar 

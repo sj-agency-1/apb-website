@@ -199,7 +199,11 @@ const reviewsData = getReviews(lang);
 
   <!-- Reviews Section -->
   <Section id="reviews">
-    <Reviews reviews={reviewsData} title={content.sectionTitles.reviews} subtitle={content.sectionTitles.reviewsSubtitle} />
+    <Reviews
+      reviews={reviewsData}
+      title={content.sectionTitles.reviews}
+      subtitle={content.sectionTitles.reviewsSubtitle}
+    />
     <div class="mt-8 flex justify-center">
       <CtaCard
         variant="gradient"

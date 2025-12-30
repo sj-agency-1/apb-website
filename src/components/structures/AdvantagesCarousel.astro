@@ -1,0 +1,139 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Heading from '../ui/Heading.astro';
+import Paragraph from '../ui/Paragraph.astro';
+import Button from '../ui/Button.astro';
+import Icon from '../ui/Icon.astro';
+
+interface Props {
+  posts: CollectionEntry<'advantages'>[];
+  title?: string;
+  subtitle?: string;
+  lang: string;
+  readMoreText: string;
+  seeAllText?: string;
+  seeAllHref?: string;
+}
+
+const { posts, title, subtitle, lang, readMoreText, seeAllText, seeAllHref } = Astro.props;
+---
+
+<div class="advantages-carousel-container">
+  <div class="flex flex-col md:flex-row justify-between items-end mb-8 lg:mb-12 gap-4">
+    <div class="flex flex-col gap-3 text-left">
+      {title && <Heading as="h2" size="4xl" text={title} />}
+      {subtitle && <Paragraph text={subtitle} muted />}
+    </div>
+    <div class="flex gap-2 shrink-0">
+      <Button variant="outline" class="prev-advantage px-3" aria-label="Previous advantage">
+        <div class="flex items-center justify-center">
+          <Icon name="arrow-left" />
+        </div>
+      </Button>
+      <Button variant="outline" class="next-advantage px-3" aria-label="Next advantage">
+        <div class="flex items-center justify-center">
+          <Icon name="arrow-right" />
+        </div>
+      </Button>
+      {seeAllText && seeAllHref && <Button text={seeAllText} href={seeAllHref} variant="outline" />}
+    </div>
+  </div>
+
+  <div class="advantages-carousel cursor-grab active:cursor-grabbing">
+    <div class="advantages-track">
+      {
+        posts.map((post) => (
+          <div class="advantage-card select-none">
+            {post.data.heroImage && (
+              <a
+                href={`/${lang}/advantages/${post.slug}`}
+                class="block aspect-video overflow-hidden rounded-xl mb-4 w-full"
+              >
+                <img
+                  src={post.data.heroImage}
+                  alt={post.data.title}
+                  width={400}
+                  height={250}
+                  class="w-full h-full object-cover"
+                  draggable="false"
+                />
+              </a>
+            )}
+            <div class="flex flex-col gap-3 flex-1 w-full">
+              <h4 class="text-lg font-semibold text-heading line-clamp-2">{post.data.title}</h4>
+              <div class="mt-auto">
+                <Button text={readMoreText} href={`/${lang}/advantages/${post.slug}`} variant="outline" size="sm" />
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<script>
+  function initAdvantages() {
+    const carousels = document.querySelectorAll('.advantages-carousel');
+
+    carousels.forEach((carousel) => {
+      const container = carousel.closest('.advantages-carousel-container');
+      if (!container) return;
+
+      // Check if already initialized
+      if ((carousel as unknown as { __advantagesInitialized: boolean }).__advantagesInitialized) return;
+      (carousel as unknown as { __advantagesInitialized: boolean }).__advantagesInitialized = true;
+
+      const prevBtn = container.querySelector('.prev-advantage');
+      const nextBtn = container.querySelector('.next-advantage');
+
+      if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+          carousel.scrollBy({ left: -400, behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', () => {
+          carousel.scrollBy({ left: 400, behavior: 'smooth' });
+        });
+      }
+
+      // Drag to scroll
+      let isDown = false;
+      let startX: number;
+      let scrollLeft: number;
+
+      const c = carousel as HTMLElement;
+
+      c.addEventListener('mousedown', (e) => {
+        isDown = true;
+        c.classList.add('active');
+        startX = e.clientX - c.getBoundingClientRect().left;
+        scrollLeft = c.scrollLeft;
+      });
+
+      c.addEventListener('mouseleave', () => {
+        isDown = false;
+        c.classList.remove('active');
+      });
+
+      c.addEventListener('mouseup', () => {
+        isDown = false;
+        c.classList.remove('active');
+      });
+
+      c.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.clientX - c.getBoundingClientRect().left;
+        const walk = (x - startX) * 2; // scroll-fast
+        c.scrollLeft = scrollLeft - walk;
+      });
+    });
+  }
+
+  // Run on initial load
+  initAdvantages();
+
+  // Run on view transitions
+  document.addEventListener('astro:page-load', initAdvantages);
+</script>

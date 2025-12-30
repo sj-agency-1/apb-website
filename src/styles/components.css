@@ -1372,7 +1372,7 @@ main {
 }
 
 .step-content {
-  @apply flex w-full items-start gap-4 rounded-2xl border border-border/30 bg-secondary/50 mt-2 py-6!;
+  @apply flex w-full items-start gap-4 rounded-2xl border border-border/30 bg-secondary/50 mt-2 py-6 !;
 }
 
 .step-content-cta {
@@ -1834,4 +1834,26 @@ body {
 
 .post-content .prose blockquote {
   @apply border-l-primary text-muted-foreground;
+}
+
+/* ============================================
+   ADVANTAGES CAROUSEL COMPONENT
+   ============================================ */
+.advantages-carousel {
+  @apply relative -mx-4 overflow-x-auto px-4 pb-4;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.advantages-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.advantages-track {
+  @apply flex gap-6;
+  width: max-content;
+}
+
+.advantage-card {
+  @apply flex w-80 md:w-96 shrink-0 flex-col items-start gap-4 rounded-2xl border border-border/30 bg-secondary p-4 text-left;
 }

@@ -13,7 +13,9 @@ export async function getStaticPaths() {
 
   const paths = posts.map((post) => {
     const [lang, ...slugParts] = post.id.split('/');
-    const slug = slugParts.join('/').replace(/\.mdx?$/, '');
+    const filenameSlug = slugParts.join('/').replace(/\.mdx?$/, '');
+    // Use custom slug from frontmatter if provided, otherwise use filename
+    const slug = post.data.slug || filenameSlug;
     return {
       params: { lang, slug: slug || undefined },
       props: { post },
@@ -67,7 +69,10 @@ const blogItems = await getLatestBlogPosts(lang as 'en' | 'ru', 2);
       <div class="post-main">
         <!-- Breadcrumbs -->
         <Breadcrumbs
-          items={[{ text: t('blog.hero.title'), href: `/${lang}/blog` }, { text: post.data.title }]}
+          items={[
+            { text: t('blog.hero.title'), href: `/${lang}/blog` },
+            { text: post.data.breadcrumbsTitle || post.data.title },
+          ]}
           class="mb-6"
         />
 

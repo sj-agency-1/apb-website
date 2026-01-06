@@ -55,8 +55,8 @@
     - [x] Prefooter, separate content to 2 section, keep content on the left section. And fix bg positioning to bottom
   - [ ] Fix advantages on production
 
-- [ ] Setup DecapCMS (When domain owned)
-  - [ ] Setup OAuth Google Provider
-  - [ ] Accept invintation link
-  - [ ] Login via provider
-  - [ ] Full guide [here](/docs/decapcms-netlify-setup.md)
+- [x] Setup DecapCMS (When domain owned)
+  - [x] Setup OAuth Google Provider
+  - [x] Accept invintation link
+  - [x] Login via provider
+  - [x] Full guide [here](/docs/decapcms-netlify-setup.md)

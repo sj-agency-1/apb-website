@@ -1,8 +1,7 @@
 - [ ] Fixes
-
   - [ ] Mobile
     - [ ] Home page
-      - [ ] Main page, hero component, 
+      - [ ] Main page, hero component,
       - [ ] Remove table of contents
       - [ ] List of posts should below content
       - [ ] CTA card, text center. "Создать свой \n Онлайн бизнес". "Который называется \n Личный бренд"
@@ -18,10 +17,7 @@
     - [ ] FAQ:
       - [ ] Order: FAQ, CTA card, posts
 
-- [ ]  
-  
-  
-  - [x] All
+- [ ] - [x] All
     - [x] Reduce the container-width
     - [x] Active link in header is not working on different pages
     - [x] Remove margin-top to the header navigation items (desktop, check mobile too)
@@ -49,7 +45,7 @@
       - [x] Increase size of icons
     - [x] On posts:
       - [x] advantages, item page: show other advantages in sidebar
-      - [x] blog, item page: show other blogs in sidebar 
+      - [x] blog, item page: show other blogs in sidebar
     - [x] When language switched, change flag icon
 
   - [ ] Desktop
@@ -58,8 +54,6 @@
     - [x] On home page, reviews section, fix title and add arrows. Make scrollable by swipe on desktop as well
     - [x] Prefooter, separate content to 2 section, keep content on the left section. And fix bg positioning to bottom
   - [ ] Fix advantages on production
-
-
 
 - [ ] Setup DecapCMS (When domain owned)
   - [ ] Setup OAuth Google Provider

@@ -167,7 +167,7 @@
    HEADING COMPONENT
    ============================================ */
 .heading,
-.prose> :is(h1, h2, h3, h4, h5, h6) {
+.prose > :is(h1, h2, h3, h4, h5, h6) {
   @apply scroll-mt-20 font-bold tracking-tight text-heading font-heading;
 
   code {
@@ -328,7 +328,7 @@
       @apply bottom-2 right-2;
     }
 
-    .icon+.input-input {
+    .icon + .input-input {
       @apply pr-9;
     }
   }
@@ -344,7 +344,7 @@
       @apply bottom-2.5 right-2.5;
     }
 
-    .icon+.input-input {
+    .icon + .input-input {
       @apply pr-10;
     }
   }
@@ -360,7 +360,7 @@
       @apply bottom-3.5 right-3.5;
     }
 
-    .icon+.input-input {
+    .icon + .input-input {
       @apply pr-11;
     }
   }
@@ -409,7 +409,7 @@
    LINK COMPONENT
    ============================================ */
 .link,
-.prose-content>*:not(.prose-footer)>a {
+.prose-content > *:not(.prose-footer) > a {
   @apply cursor-pointer transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
 
   &.variant-primary,
@@ -673,7 +673,6 @@
   }
 
   &.size-sm {
-
     .checkbox-input,
     .icon.checkbox-icon {
       @apply size-3.5;
@@ -681,7 +680,6 @@
   }
 
   &.size-md {
-
     .checkbox-input,
     .checkbox-icon {
       @apply size-4;
@@ -689,7 +687,6 @@
   }
 
   &.size-lg {
-
     .checkbox-input,
     .checkbox-icon {
       @apply size-4.5;
@@ -717,7 +714,7 @@
 .proof {
   @apply flex items-center;
 
-  >.avatar {
+  > .avatar {
     @apply -mr-5 last-of-type:mr-2;
   }
 
@@ -812,7 +809,7 @@
     }
   }
 
-  .switch-input:checked~.switch-mark {
+  .switch-input:checked ~ .switch-mark {
     @apply bg-primary;
 
     &::before {
@@ -864,7 +861,7 @@
       @apply border-t border-border bg-secondary text-heading;
     }
 
-    tr+tr {
+    tr + tr {
       @apply border-t border-border;
     }
 

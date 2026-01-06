@@ -1,16 +1,27 @@
 - [ ] Fixes
 
   - [ ] Mobile
-    - [ ] Main page, hero component, 
-    - [ ] Remove table of contents
-    - [ ] List of posts should below content
-    - [ ] CTA card, text center. "Создать свой \n Онлайн бизнес". "Который называется \n Личный бренд"
-    - [ ] Advantages, merge secondary and ternary cards
-    - [ ] stepsToLaunch, show timeline
-    - [ ] Prefooter, mobile
+    - [ ] Home page
+      - [ ] Main page, hero component, 
+      - [ ] Remove table of contents
+      - [ ] List of posts should below content
+      - [ ] CTA card, text center. "Создать свой \n Онлайн бизнес". "Который называется \n Личный бренд"
+      - [ ] Advantages, merge secondary and ternary cards
+      - [ ] stepsToLaunch, show timeline
+      - [ ] Prefooter, mobile
+      - [ ] FAQ section, move CTA card to bottom
+    - [ ] How it works page:
+      - [ ] Move Business Plan (9 stage) to 7th stage. Old 7th stage move to 8th, 8th to 9th and etc.
+    - [ ] Header - when context menu is opened, merge 2 navs into 1 (do not separate them by spacing)
+    - [ ] Reviews page:
+      - [ ] Remove the first "add review" buttton, before reviews list (on desktop too)
+    - [ ] FAQ:
+      - [ ] Order: FAQ, CTA card, posts
+
+- [ ]  
   
   
-  - [ ] All
+  - [x] All
     - [x] Reduce the container-width
     - [x] Active link in header is not working on different pages
     - [x] Remove margin-top to the header navigation items (desktop, check mobile too)
@@ -29,7 +40,7 @@
       - [x] Fix on big screens
       - [x] Max show 6 rows, add show/hide button
       - [x] Blured transparent modal
-    - [ ] FAQ:
+    - [x] FAQ:
       - [x] Increase size of the icon
       - [x] Load blog items, instead of advantages
       - [x] Wrap every item to card
@@ -46,7 +57,7 @@
     - [x] On home page, faq section, open first accordion element by default
     - [x] On home page, reviews section, fix title and add arrows. Make scrollable by swipe on desktop as well
     - [x] Prefooter, separate content to 2 section, keep content on the left section. And fix bg positioning to bottom
-
+  - [ ] Fix advantages on production
 
 
 

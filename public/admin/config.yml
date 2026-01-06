@@ -14,8 +14,8 @@ media_folder: 'public/assets/images/posts' # Where media files will be stored
 public_folder: '/assets/images/posts' # The src attribute for uploaded media
 
 # Site URL (used for the CMS preview)
-site_url: https://your-site.netlify.app # TODO: Replace with actual site URL
-display_url: https://your-site.netlify.app # TODO: Replace with actual site URL
+site_url: https://architect-of-personal-brand.com
+display_url: https://architect-of-personal-brand.com
 
 # Locale settings
 locale: 'en'

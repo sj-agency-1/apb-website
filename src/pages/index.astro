@@ -2,4 +2,13 @@
 import { DEFAULT_LANGUAGE } from '@consts';
 ---
 
-<meta http-equiv="refresh" content=`0;url=/${DEFAULT_LANGUAGE}/` />
+<script define:vars={{ defaultLang: DEFAULT_LANGUAGE }}>
+  if (window.location.hash.startsWith('#invite_token') || window.location.hash.startsWith('#recovery_token')) {
+    window.location.href = '/admin/' + window.location.hash;
+  } else {
+    window.location.href = '/' + defaultLang + '/';
+  }
+</script>
+<noscript>
+  <meta http-equiv="refresh" content=`0;url=/${DEFAULT_LANGUAGE}/` />
+</noscript>

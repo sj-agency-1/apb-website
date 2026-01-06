@@ -18,6 +18,8 @@ const lang = getLangFromUrl(Astro.url);
 <html lang={lang}>
   <Head {...head} />
   <body {...rest}>
+    <!-- Netlify Identity Widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <slot />
     <script>
       // Smooth scroll with offset for sticky header

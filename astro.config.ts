@@ -14,7 +14,7 @@ import tailwindcss from '@tailwindcss/vite';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  site: 'https://apb.example.com', // TODO: Replace with actual site URL
+  site: 'https://architect-of-personal-brand.com',
   output: 'static',
 
   integrations: [

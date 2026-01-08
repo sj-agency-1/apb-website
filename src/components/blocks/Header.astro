@@ -62,7 +62,7 @@ const currentLang = getLangFromUrl(Astro.url);
     }
 
     {
-      mobileNav1 && (
+      mobileNav1 && mobileNav1.length > 0 && (
         <ul class="space-y-4 list-none p-0 m-0 text-center">
           {mobileNav1.map((link) => (
             <li>
@@ -79,7 +79,7 @@ const currentLang = getLangFromUrl(Astro.url);
     }
 
     {
-      mobileNav2 && (
+      mobileNav2 && mobileNav2.length > 0 && (
         <ul class="space-y-4 list-none p-0 m-0 text-center">
           {mobileNav2.map((link) => (
             <li>

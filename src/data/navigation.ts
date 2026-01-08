@@ -108,12 +108,16 @@ export function getHeaderData(lang: SupportedLanguage, t: TranslationFunction): 
       { text: t('header.nav.howItWorks'), href: `/${lang}/how-it-works` },
       { text: t('header.nav.about'), href: `/${lang}/about` },
       { text: t('header.nav.advantages'), href: `/${lang}/advantages` },
-    ],
-    mobileNav2: [
       { text: t('header.nav.blog'), href: `/${lang}/blog` },
       { text: t('header.nav.reviews'), href: `/${lang}/reviews` },
       { text: t('header.nav.faq'), href: `/${lang}/faq` },
       { text: t('header.nav.contacts'), href: `/${lang}/contacts` },
+    ],
+    mobileNav2: [
+      // { text: t('header.nav.blog'), href: `/${lang}/blog` },
+      // { text: t('header.nav.reviews'), href: `/${lang}/reviews` },
+      // { text: t('header.nav.faq'), href: `/${lang}/faq` },
+      // { text: t('header.nav.contacts'), href: `/${lang}/contacts` },
     ],
     action: { text: t('header.actions.login'), href: '/login' },
     lang: true,

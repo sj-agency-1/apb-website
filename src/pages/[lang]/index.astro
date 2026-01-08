@@ -181,7 +181,7 @@ const reviewsData = getReviews(lang);
         <div class="mt-4">
           <Image src="/assets/images/pages/faq.webp" alt="FAQ" width={500} height={400} class="rounded-2xl" />
         </div>
-        <div class="mt-4 flex justify-center lg:justify-start w-full">
+        <div class="mt-4 hidden lg:flex justify-center lg:justify-start w-full">
           <CtaCard
             variant="primary"
             title={content.cta.faq.title}
@@ -195,6 +195,18 @@ const reviewsData = getReviews(lang);
         </div>
       </div>
       <Accordion items={content.faqItems} openedItemsByDefault={[0]} />
+      <div class="block lg:hidden">
+        <CtaCard
+          variant="primary"
+          title={content.cta.faq.title}
+          subtitle={content.cta.faq.subtitle}
+          buttonText={content.cta.faq.buttonText}
+          buttonHref={content.cta.faq.buttonHref}
+          size="md"
+          class="w-full"
+          bluredDots={[]}
+        />
+      </div>
     </div>
   </Section>
 

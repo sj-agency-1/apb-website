@@ -14,8 +14,8 @@
     - [x] Header - when context menu is opened, merge 2 navs into 1 (do not separate them by spacing)
     - [x] Reviews page:
       - [x] Remove the first "add review" buttton, before reviews list (on desktop too)
-    - [ ] FAQ:
-      - [ ] Order: FAQ, CTA card, posts
+    - [x] FAQ:
+      - [x] Order: FAQ, posts, CTA card
     - [ ] Fix header icon on switch
 
 - [x] All

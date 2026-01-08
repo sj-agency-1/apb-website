@@ -1536,8 +1536,8 @@ body {
   @apply h-full w-full object-cover transition-transform duration-300 hover:scale-105;
 }
 
-.post-content {
-  @apply flex flex-1 flex-col gap-3;
+.post-content article {
+  @apply flex flex-1 flex-col gap-4;
 }
 
 .post-title {
@@ -1846,7 +1846,7 @@ body {
 }
 
 .post-content {
-  @apply bg-card;
+  @apply bg-transparent!;
 }
 
 .post-content .prose {

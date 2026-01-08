@@ -1,7 +1,7 @@
 - [ ] Fixes
   - [ ] Mobile
     - [ ] Home page
-      - [ ] Main page, hero component,
+      - [x] Main page, hero component,
       - [ ] Remove table of contents
       - [ ] List of posts should below content
       - [ ] CTA card, text center. "Создать свой \n Онлайн бизнес". "Который называется \n Личный бренд"

@@ -164,35 +164,35 @@ export const homeContentRu: HomePageContent = {
       chapter: 'Глава 1',
       title: 'Добро пожаловать на официальный сайт AI-сервиса «Архитектор Личных Брендов».',
       content:
-        '<p>Вы давно мечтаете о финансовой свободе и о том, чтобы создать стабильный, масштабируемый источник дохода, который работает на Вас, где бы Вы не находились? Вы уже давно хотите жить и путешествовать по всему миру и зарабатывать без привязки к месту работы?</p><p>Это возможно. С сервисом «Архитектор Личных Брендов». И для этого совершенно НЕ нужно становится публичной медийной персоной и ежедневно «показывать себя» в социальных сетях</p>',
+        '<p>Вы хотите превратить свои знания в систему, которая приносит доход 24/7, избавляя вас от необходимости работать "от звонка до звонка"? Мечтаете о бизнесе, который помещается в ноутбуке и позволяет вам решать, где и как пройдет ваш рабочий день?</p><p>Именно для этого был разработан AI-сервис «Архитектор Личных Брендов», с помощью которого Вы можете создать свой авторский цифровой продукт и просчитать бизнес-модель. Вам не нужно быть экспертом или опытным предпринимателем – ИИ возьмет на себя роль вашего главного бизнес-консультанта: он предложит выверенные стратегии, подскажет решения и поможет обойти острые углы, даже если вы только начинаете.</p>',
     },
     {
       id: 'chapter-2',
       chapter: 'Глава 2',
-      title: 'Главный секрет: Зарабатывайте на своих навыках и скрытых возможностях, а не на публичности',
+      title: 'Главный секрет: Зарабатывайте на своих навыках и скрытых возможностях, а не на публичности.',
       content:
-        '<p>Большинство людей заблуждаются, когда полагают, что Личный бренд могут создать только интересные, яркие и талантливые люди. Что для успеха нужно обязательно постоянно быть на виду, преодолевать страх камеры и бороться со стеснением. Из-за этого многие и отказываются от идеи создать онлайн бизнес, который основывается на личных качествах</p><p>С AI-сервисом «Архитектор Личных Брендов» Вы убедитесь, что Личный Бренд – это не «красивый костюм», а самое настоящее коммерческое предприятие, которое приносит прибыль. Истинный источник дохода основывается не на Вашей внешности, а на ваших уникальных, зачастую скрытых интеллектуальных активах</p>',
+        '<p>Большинство людей заблуждаются, когда полагают, что Личный бренд могут создать только интересные, яркие и талантливые люди. Что для успеха нужно обязательно постоянно быть на виду, преодолевать страх камеры и бороться со стеснением. Из-за этого многие и отказываются от идеи создать онлайн бизнес, который основывается на личных качествах.</p><p>С AI-сервисом «Архитектор Личных Брендов» Вы увидите, что Личный Бренд – это не просто профиль в соц сетях, а цифровой бизнес-актив. Истинный источник дохода основывается не на Вашей внешности, а на ваших уникальных, зачастую скрытых интеллектуальных ценностях.</p>',
     },
     {
       id: 'chapter-3',
       chapter: 'Глава 3',
-      title: 'От потенциала к прибыльному бизнес-плану',
+      title: 'От потенциала к прибыльному бизнес-плану.',
       content:
-        '<p>Как правило, специалисты по Личному Бренду – это пиарщики и рекламщики. Их задача – создать «шум» и повысить узнаваемость. И логика их проста: чем больше аудитория у Личного Бренда, тем выше гонорары за рекламу. Но! До этого «светлого будущего» много лет и нужно много денег. И очень много-много личного времени. Да и то не факт, что рекламодатели выстроятся в очередь</p><p>AI-сервис «Архитектор Личных Брендов» работает иначе: сначала он с нуля помогает разработать эффективную и просчитанную бизнес-модель с конкретными источниками дохода (цифровыми продуктами) и только потом разрабатывает маркетинговые и рекламные стратегии</p>',
+        '<p>Как правило, специалисты по Личному Бренду – это пиарщики и рекламщики. Их задача – создать «шум» и повысить узнаваемость. И логика их проста: чем больше аудитория у Личного Бренда, тем выше гонорары за рекламу. Но! До этого «светлого будущего» много лет и нужно много денег. И очень много-много личного времени. Да и то не факт, что рекламодатели выстроятся в очередь.</p><p>AI-сервис «Архитектор Личных Брендов» работает иначе: сначала он с нуля помогает разработать эффективную и просчитанную бизнес-модель с конкретными источниками дохода (цифровыми продуктами) и только потом разрабатывает маркетинговую и рекламные стратегии.</p>',
     },
     {
       id: 'chapter-4',
       chapter: 'Глава 4',
-      title: 'Ваше преимущество: скорость и доступная цена',
+      title: 'Ваше преимущество: скорость и доступная цена.',
       content:
-        '<p>Создание такого бизнес-плана, включающего аудит, исследование, финансовое моделирование и разработку продуктовой линейки требует нескольких месяцев командной работы профессиональных экспертов: бизнес-аналитиков, маркетологов, финансовых аудиторов, юристов, продакт-менеджеров и рекламщиков (читайте – «нужны колоссальные инвестиции»)</p><p>«Архитектор Личных Брендов» выполняет эту сложнейшую аналитическую работу за одно мгновение. От Вас ожидается лишь одно: честно и развернуто отвечать на вопросы анкет каждого этапа. Вам не нужно быть экспертом или опытным предпринимателем – все свои знания и умения Вам предоставит ИИ.</p><p><strong>Помните:</strong> ни один бизнес-консультант или пиарщик (а тем более целое консалтинговое агентство) не станет заниматься столь глубокой, пошаговой проработкой с клиентом, у которого нет «кругленькой» суммы для оплаты их весьма дорогих услуг</p>',
+        '<p>Создание такого бизнес-плана, включающего аудит, исследование, финансовое моделирование и разработку продуктовой линейки требует нескольких месяцев командной работы профессиональных экспертов: бизнес-аналитиков, маркетологов, финансовых аудиторов, юристов, продакт-менеджров и рекламщиков (читайте – «нужны коллосальные инвестиции»).</p><p>С помощью сервиса «Архитектор Личных Брендов» Вы за один день сделаете то, на что у команды экспертов уходят недели, а то и месяцы, и при этом сэкономите приличную сумму. От Вас ожидается лишь одно: честно и развернуто отвечать на вопросы анкет каждого этапа.</p><p><strong>Помните:</strong> Как правило, глубокая пошаговая проработка бизнес-стратегии и создание цифрового актива в консалтинговых агентствах или у бизнес-консультантов — это прерогатива VIP-пакетов, стоимость которых доступна лишь избранным.</p>',
     },
     {
       id: 'chapter-5',
       chapter: 'Глава 5',
       title: 'Почему стоит создать онлайн бизнес с AI-сервисом «Архитектор Личных Брендов»',
       content:
-        '<p>За алгоритмами сервиса стоит не фантазия экспертов по IT и AI, а 28-летний, многогранный опыт Бизнес-Следопыта в кризис-менеджменте, M&A сделках, создании с нуля и вывода бизнесов на международные рынки. Только такой опыт гарантирует, что каждый этап сервиса досконально проработан с точки зрения реальной финансовой и бизнесовой логики</p><p>Создайте для себя свой самый надёжный источник онлайн-заработка – бизнес, который называется «Личный бренд». Сделайте первый шаг прямо сейчас – пройдите АУДИТ, чтобы выявить ваш скрытый потенциал и возможности. Найдите свои «бриллианты», которые навсегда изменят вашу жизнь</p><p><strong>Стоимость первого этапа всего $9! А по промо-коду БЕСПЛАТНО!</strong></p><p>Узнать подробнее обо всех этапах и всех ценах Вы можете на странице <a href="/how-it-works">«Как это работает»</a></p>',
+        '<p>В алгоритмы сервиса зашит 28-летний реального многогранного опыта Бизнес-Следопыта в стратегическом консалтинге, кризис-менеджменте, M&A-сделках и экспансии на международные рынки. Это ваша защита от ошибок, на которых другие теряют миллионы.</p><p>Создайте для себя цифровой актив, который останется с вами навсегда — ваш Личный Бренд, разработанный по выверенным методологиям и стандартам серьёзного бизнеса.</p><p>Сделайте первый шаг прямо сейчас – расшифруйте свою ДНК Личности, чтобы выявить скрытый потенциал и возможности. Найдите свои «бриллианты», на которых вы сможете построить уверенное будущее и бизнес, которым будете гордиться.</p><p><strong>Стоимость первого этапа всего $10! А по промо-коду БЕСПЛАТНО!</strong></p><p>Узнать подробнее обо всех этапах и всех ценах Вы можете на странице <a href="/how-it-works">«Как это работает»</a>.</p>',
     },
   ],
 
@@ -401,19 +401,19 @@ export const homeContentEn: HomePageContent = {
     {
       id: 'chapter-1',
       chapter: 'Chapter 1',
-      text: 'Welcome to the official website of the AI-service "Architect of Personal Brands".',
+      text: 'Welcome to the official website of the "Personal Brand Architect" AI service.',
     },
     {
       id: 'chapter-2',
       chapter: 'Chapter 2',
-      text: 'The main secret: Earn on your skills and hidden opportunities, not on publicity',
+      text: 'The Main Secret: Earn on your skills and hidden opportunities, not on publicity.',
     },
-    { id: 'chapter-3', chapter: 'Chapter 3', text: 'From potential to a profitable business plan' },
-    { id: 'chapter-4', chapter: 'Chapter 4', text: 'Your advantage: speed and affordable price' },
+    { id: 'chapter-3', chapter: 'Chapter 3', text: 'From potential to a profitable business plan.' },
+    { id: 'chapter-4', chapter: 'Chapter 4', text: 'Your advantage: speed and affordable price.' },
     {
       id: 'chapter-5',
       chapter: 'Chapter 5',
-      text: 'Why you should create an online business with the AI-service "Architect of Personal Brands"',
+      text: 'Why create an online business with the "Personal Brand Architect" AI service',
     },
   ],
 
@@ -421,37 +421,37 @@ export const homeContentEn: HomePageContent = {
     {
       id: 'chapter-1',
       chapter: 'Chapter 1',
-      title: 'Welcome to the official website of the AI-service "Architect of Personal Brands".',
+      title: 'Welcome to the official website of the "Personal Brand Architect" AI service.',
       content:
-        '<p>Have you long dreamed of financial freedom and creating a stable, scalable source of income that works for you, wherever you are? Have you long wanted to live and travel around the world and earn without being tied to your workplace?</p><p>This is possible. With the "Architect of Personal Brands" service. And for this, you absolutely DO NOT need to become a public media person and "show yourself" daily on social networks</p>',
+        '<p>Do you want to turn your knowledge into a system that generates income 24/7, freeing you from the need to work "clock in to clock out"? Dreaming of a business that fits in a laptop and allows you to decide where and how your workday goes?</p><p>This is exactly what the "Personal Brand Architect" AI service was developed for, with which you can create your own author\'s digital product and calculate a business model. You do not need to be an expert or an experienced entrepreneur – AI will take on the role of your main business consultant: it will offer verified strategies, suggest solutions, and help you bypass sharp corners, even if you are just starting out.</p>',
     },
     {
       id: 'chapter-2',
       chapter: 'Chapter 2',
-      title: 'The main secret: Earn on your skills and hidden opportunities, not on publicity',
+      title: 'The Main Secret: Earn on your skills and hidden opportunities, not on publicity.',
       content:
-        '<p>Most people are mistaken when they believe that only interesting, bright and talented people can create a Personal Brand. That for success you need to constantly be in the spotlight, overcome the fear of the camera and fight shyness. Because of this, many refuse the idea of creating an online business based on personal qualities</p><p>With the AI-service "Architect of Personal Brands" you will see that a Personal Brand is not a "beautiful suit", but a real commercial enterprise that brings profit. The true source of income is based not on your appearance, but on your unique, often hidden intellectual assets</p>',
+        '<p>Most people are mistaken when they believe that only interesting, bright, and talented people can create a Personal Brand. That for success, one must constantly be in sight, overcome the fear of the camera, and fight shyness. Because of this, many refuse the idea of creating an online business based on personal qualities.</p><p>With the "Personal Brand Architect" AI service, you will see that a Personal Brand is not just a profile on social networks, but a digital business asset. The true source of income is based not on your appearance, but on your unique, often hidden intellectual values.</p>',
     },
     {
       id: 'chapter-3',
       chapter: 'Chapter 3',
-      title: 'From potential to a profitable business plan',
+      title: 'From potential to a profitable business plan.',
       content:
-        '<p>As a rule, Personal Brand specialists are PR people and advertisers. Their task is to create "buzz" and increase awareness. And their logic is simple: the larger the audience of the Personal Brand, the higher the fees for advertising. But! It takes many years and a lot of money to reach this "bright future". And a lot of personal time. And even then, it\'s not certain that advertisers will line up</p><p>The AI-service "Architect of Personal Brands" works differently: first, it helps develop an effective and calculated business model from scratch with specific income sources (digital products) and only then develops marketing and advertising strategies</p>',
+        '<p>As a rule, Personal Brand specialists are PR and advertising people. Their task is to create "noise" and increase recognition. And their logic is simple: the larger the audience of the Personal Brand, the higher the advertising fees. But! Until this "bright future", there are many years and a lot of money needed. And very, very much personal time. And it is not a fact that advertisers will line up.</p><p>The "Personal Brand Architect" AI service works differently: first, it helps to develop an effective and calculated business model from scratch with specific sources of income (digital products) and only then develops marketing and advertising strategies.</p>',
     },
     {
       id: 'chapter-4',
       chapter: 'Chapter 4',
-      title: 'Your advantage: speed and affordable price',
+      title: 'Your advantage: speed and affordable price.',
       content:
-        '<p>Creating such a business plan, including audit, research, financial modeling and product line development, requires several months of teamwork by professional experts: business analysts, marketers, financial auditors, lawyers, product managers and advertisers (read – "colossal investments are needed")</p><p>"Architect of Personal Brands" performs this complex analytical work in an instant. All that is expected from you is one thing: honestly and thoroughly answer the questionnaire questions at each stage. You don\'t need to be an expert or an experienced entrepreneur – AI will provide you with all its knowledge and skills.</p><p><strong>Remember:</strong> no business consultant or PR specialist (and even more so an entire consulting agency) will engage in such deep, step-by-step work with a client who does not have a "round" sum to pay for their very expensive services</p>',
+        '<p>Creating such a business plan, including audit, research, financial modeling, and product line development requires several months of teamwork of professional experts: business analysts, marketers, financial auditors, lawyers, product managers, and advertisers (read – "colossal investments are needed").</p><p>With the help of the "Personal Brand Architect" service, you will do in one day what a team of experts takes weeks or even months to do, and at the same time save a decent amount. Only one thing is expected from you: to answer the questionnaires of each stage honestly and in detail.</p><p><strong>Remember:</strong> As a rule, deep step-by-step elaboration of a business strategy and the creation of a digital asset in consulting agencies or with business consultants is the prerogative of VIP packages, the cost of which is available only to the chosen few.</p>',
     },
     {
       id: 'chapter-5',
       chapter: 'Chapter 5',
-      title: 'Why you should create an online business with the AI-service "Architect of Personal Brands"',
+      title: 'Why create an online business with the "Personal Brand Architect" AI service',
       content:
-        '<p>Behind the service algorithms is not the fantasy of IT and AI experts, but 28 years of multifaceted experience of the Business Scout in crisis management, M&A deals, creating from scratch and bringing businesses to international markets. Only such experience guarantees that each stage of the service is thoroughly developed from the point of view of real financial and business logic</p><p>Create your most reliable source of online earnings – a business called "Personal Brand". Take the first step right now – take the AUDIT to identify your hidden potential and opportunities. Find your "diamonds" that will change your life forever</p><p><strong>The cost of the first stage is only $9! And with a promo code it\'s FREE!</strong></p><p>You can learn more about all stages and prices on the <a href="/how-it-works">"How It Works"</a> page</p>',
+        '<p>The service algorithms embed 28 years of real multifaceted experience of the Business Pathfinder in strategic consulting, crisis management, M&A transactions, and expansion into international markets. This is your protection against errors on which others lose millions.</p><p>Create a digital asset for yourself that will stay with you forever — your Personal Brand, developed according to verified methodologies and standards of serious business.</p><p>Make the first step right now – decipher your Personality DNA to reveal hidden potential and opportunities. Find your "diamonds" on which you can build a confident future and a business you will be proud of.</p><p><strong>The cost of the first stage is only $10! And with a promo code, it\'s FREE!</strong></p><p>You can find out more about all stages and all prices on the <a href="/how-it-works">"How it works"</a> page.</p>',
     },
   ],
 

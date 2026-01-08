@@ -88,93 +88,91 @@ export const aboutPageContent: LocalizedContent<AboutPageContent> = {
   ru: {
     breadcrumb: 'О проекте',
     mainTitle: 'АРХИТЕКТОР ЛИЧНЫХ БРЕНДОВ',
-    welcomeTitle: 'Добро пожаловать на официальный сайт AI-сервиса «Архитектор Личных Брендов»',
+    welcomeTitle: 'Добро пожаловать на официальный сайт AI-сервиса «Архитектор Личных Брендов».',
     welcomeIntro:
-      'Вы попали в кузницу, где рождаются по-настоящему прибыльные и надежные бизнесы, а не на очередную страницу модного инструмента.',
+      'Вы попали в кузницу, в которой с помощью передовых технологий проектируются по-настоящему системные и надежные бизнесы. Это не страница очередного «модного инструмента» — это вход в пространство большой бизнес-архитектуры.',
     welcomeDescription:
-      'Личный Бренд — это не просто звучное имя, красивая внешность и набор постов в соцсетях. Это полноценный, прибыльный и, что самое главное, самореализующий Бизнес. С одним условием — нужно отнестись к нему не менее серьезно, как к любому проекту, приносящему солидный доход. «Вишенка на торте» — факт того, что бизнес под названием «Личный Бренд» принадлежит только ВАМ, и отнять его не сможет никто и никогда.',
+      'Личный Бренд — это не просто яркое название, красивая внешность или набор постов в социальных сетях. С помощью сервиса «APB» Вы можете преобразовать свои таланты, навыки и своё имя в полноценный, прибыльный и быстрореализуемый цифровой актив. \nПри одном единственном условии — если Вы сами решите относиться к нему так же серьезно, как к любому проекту, приносящему солидные доходы. «Вишенка на торте» заключается в том, что онлайн-бизнес под названием «Личный Бренд» принадлежит только ВАМ.',
 
-    secretTitle: 'Секрет в фундаменте: почему AI-сервис «Архитектор Личных Брендов» — это принципиально другой подход',
+    secretTitle: 'Секрет в фундаменте: почему AI-сервис «Архитектор Личных Брендов» - это принципиально другой подход.',
     secretParagraph1:
-      'Как сейчас принято «создавать» Личные Бренды? В основном, этим занимаются брендинговые или PR-агентства, рекламщики. Они профессионально умеют создавать красивую картинку, информационный шум, писать и размещать PR-статьи, управлять репутацией и повышать узнаваемость. НО! Они работают только с теми, у кого уже есть большие бюджеты, готовые продукты или хотя бы четкое понимание, чего клиент хочет в информационном поле.',
+      'Как принято «создавать» Личные бренды сейчас? В основном, этим занимаются брендинговые или PR-агентства, рекламщики. Они профессионально умеют создавать красивую картинку, информационный шум, писать и размещать PR-статьи, управлять репутацией и повышать узнаваемость. НО! Они работают только с теми, у кого есть большие бюджеты, готовый продукт или хотя бы четкое понимание того, чего именно хочет клиент в информационном поле.',
     secretParagraph2:
-      '«Архитектор Личных Брендов» работает иначе. Сервис не пиарит, а строит бизнес с нуля под названием «Ваш Личный Бренд». Он разрабатывает полноценную, эффективную и приносящую доход Бизнес-Модель, подстроенную под одного конкретного человека, начиная от глубокого аудита, аналитики, позиционирования и заканчивая созданием линейки цифровых продуктов с четкими расчетами — бизнес-планом, включая финансовую модель, дорожную карту и медиаплан.',
+      '«Архитектор Личных Брендов» работает иначе. С помощью инструментов сервиса Вы не просто «пиаритесь», а с нуля проектируете Ваш онлайн бизнес. Вы разрабатываете полноценную, эффективную и нацеленную на доход бизнес-модель, заточенную под Вас как под конкретную личность: начиная от глубинного аудита и разработки позиционирования и заканчивая проектированием авторских цифровых продуктов с рассчитанным бизнес-планом, включающим финансовую модель и дорожную карту.',
 
-    serviceTitle: 'Что именно делает сервис?',
+    serviceTitle: 'Что именно Вы создаете с помощью сервиса?',
     serviceIntro:
-      'Представьте, что Личный Бренд — это ваш дом. Обычные специалисты могут красиво покрасить стены, оформить интерьер, повесить дорогие шторы — то есть, сделать рекламу и PR. Сервис «Архитектор Личных Брендов» проектирует и строит с нуля: закладывает фундамент, проводит коммуникации, возводит несущие конструкции, и только потом приступает к отделке и благоустройству.',
+      'Представьте, что Личный бренд – это ваш дом. Обычные специалисты могут красиво покрасить стены, сделать дизайн интерьера, повесить дорогие шторы (сделать рекламу и PR). С помощью сервиса «Архитектор Личных Брендов» Вы проектируете и строите «здание» с нуля: закладываете фундамент, прокладываете коммуникации, возводите несущие конструкции и только потом приступаете к отделке и благоустройству.',
     serviceCards: [
       {
-        title: 'Проводит аудит',
+        title: 'Проводите аудит потенциала',
         description:
-          'Сервис глубоко анализирует ваши скрытые и даже незамеченные вами качества и уникальный опыт, которые лягут в основу вашего Личного Бренда.',
+          'Вы глубоко анализируете свои скрытые качества и уникальный опыт, которые с помощью алгоритмов ИИ превращаются в прочный фундамент Вашего Бренда.',
         icon: 'audit',
       },
       {
-        title: 'Разрабатывает продукты, приносящие доход',
+        title: 'Разрабатываете продукты для монетизации',
         description:
-          'Он не просто консультирует, а создает для вас готовые, структурированные цифровые продукты (например, онлайн-курсы или детализированные расписанные консультации, гайды, чек-листы и т.д.), готовые к немедленному запуску.',
+          'Вы не просто получаете советы, а с помощью сервиса проектируете АВТОРСКИЕ цифровые продукты (курсы, системы консультаций, гайды), архитектура которых полностью подготовлена к техническому воплощению и запуску.',
         icon: 'products',
       },
       {
-        title: 'Создает финансовую модель и план действий',
+        title: 'Расчитаете финансовую модель и план действий',
         description:
-          'Сервис проводит полное исследование рынка, ниши и конкурентов, чтобы установить правильную цену, которая будет положительно воспринята аудиторией. Формирует детальный бизнес-план с финансовой моделью и дорожной картой.',
+          'С помощью инструментов сервиса Вы проводите исследование рынка и ниши, чтобы определить цену, нацеленную на успех. Вы формируете подробный бизнес-план и финансовую модель — документы, создание которых у профессиональных аналитиков стоит тысячи долларов и занимает месяцы.',
         icon: 'financial',
       },
       {
-        title: 'Полностью готовит к запуску',
+        title: 'Подготовитесь к профессиональному старту',
         description:
-          'Сервис создает профессиональные Технические Задания для дизайнеров и разработчиков, чтобы ваш Личный Бренд выглядел достойно. Разрабатывает четкую контент-стратегию и медиаплан для продвижения.',
+          'Вы создаете четкие Технические Задания для специалистов и разрабатываете контент-стратегию, чтобы Ваш Личный Бренд с первого дня выглядел достойно и дорого.',
         icon: 'launch',
       },
     ],
     serviceOutro:
-      '«Архитектор Личных Брендов» возьмёт Вас за руку и пошагово, методично поможет создать Вам самый ликвидный бизнес -  ваш Личный Бренд',
-    reliabilityTitle: 'Гарантия надежности: Что стоит за этим проектом',
+      'С помощью сервиса «Архитектор Личных Брендов» Вы пошагово, методично сможете создать свой первый надёжный онлайн бизнес с авторскими цифровыми активами.',
+
+    reliabilityTitle: 'Гарантия надёжности: Кто стоит за этим проектом',
     reliabilityParagraph1:
-      'Сервис «Архитектор Личных Брендов» — результат 28-летнего опыта предпринимателя, разработавшего за время своей карьеры более 100 бизнес-планов для себя и клиентов, из которых более 75% получили финансирование. Для этого проекта была использована методология бизнес-планирования, по которой он защитил свою докторскую диссертацию по бизнес-планированию, признанная экспертным сообществом.',
+      'Такой комплексный, проработанный до мелочей сервис не могли самостоятельно создать ни PR-агентства, ни рекламщики, ни даже IT-специалисты. Для этого нужен опыт построения реальных, работающих бизнесов.',
     reliabilityParagraph2:
-      'AI-сервис «Архитектор Личных Брендов» — это не обычный сервис копирайтинга, цена которого определяется «от балды», потому что «все так делают», по наитию или финансовому шантажу.',
+      'AI-сервис «Архитектор Личных Брендов» - это авторский проект профессионального бизнес-консультанта, известного под псевдонимом Business Pathfinder, с 28-летним опытом в кризис-менеджементе, бизнес-аналитике, M&A-сделок и экспансии на международные рынки.',
     reliabilityParagraph3:
-      'Вы также можете ознакомиться с его Резюме, опубликованном на признанной в мире профессиональной деловой соцсети LinkedIn — которая требует и проверяет предоставленную в этом резюме информацию.',
+      'Этот опыт и позволил разработать систему, которая помогает Вам создавать успешные модели, учитывая даже психологический аспект: при создании сильного бренда важно быть откровенным, но люди часто стесняются раскрываться перед живым консультантом. «Архитектор Личных Брендов» решает эту проблему, благодаря использованию ИИ: Пользователь знает, что общается с безличным интеллектом. Это снимает психологические барьеры. Человек перестает стесняться, отбрасывает страх осуждения, оценки или непонимания и готов отвечать максимально честно, прямо и открыто.',
+
     brandTitle: 'ВАШ БРЕНД — ЭТО НЕ ВАША ВНЕШНОСТЬ',
     brandParagraph1:
-      'Автор сервиса знает, что страх публичности и страх показывать свое лицо (из-за возраста, внешности или неуверенности) для подавляющего большинства людей — это самый серьезный психологический барьер.',
+      'Страх публичности для подавляющего большинства людей — это самый серьезный психологический барьер.',
     brandParagraph2:
-      'Он не будет пытаться убедить вас преодолеть этот страх. Потому что Личный Бренд, который разрабатывает AI-сервис, базируется не на вашей внешности, а на вашем внутреннем мире, на вашем «Я»:',
-    brandListItems: [
-      'На ваших уникальных талантах, навыках и опыте',
-      'На ваших человеческих качествах и уникальном способе мышления',
-    ],
+      'С помощью сервиса Вы проектируете Личный Бренд, основанный на Вашем внутреннем мире и талантах, а не на картинке. Если Вы не хотите показывать лицо — Вы можете этого не делать.',
+    brandListItems: [],
     brandParagraph3:
-      'Именно это ценят люди и именно за это они готовы платить. Если вы не хотите показывать себя — не нужно. Ваш Личный Бренд — это бизнес-модель, которая работает даже когда вы остаетесь в тени.',
+      'С помощью методологии APB Вы создаете бизнес-модель, которая может работать, даже когда Вы остаетесь в тени.',
 
-    scoutTitle: 'ЖИВОЕ ДОКАЗАТЕЛЬСТВО СТРАТЕГИИ: БИЗНЕС-СЛЕДОПЫТ',
+    scoutTitle: 'ЖИВОЕ ДОКАЗАТЕЛЬСТВО СТРАТЕГИИ',
     scoutParagraph1:
-      'Вы можете увидеть эффективность этой модели своими глазами: Основатель и автор AI-сервиса, Бизнес-Следопыт, ведет свой бизнес под псевдонимом и не показывает лицо. Его 28-летний опыт — это не просто теория, это живое доказательство того, что можно создать прибыльную, масштабируемую бизнес-модель, ориентированную только на личные качества и уникальные навыки, без привязки к внешности.',
+      'Вы можете убедиться в этом сами: Основатель сервиса, Бизнес-Следопыт, сам ведет бизнес под псевдонимом и не демонстрирует свое лицо. Его успех — это живой пример того, что с помощью правильных инструментов можно создать масштабный проект, ориентированную только на Ваши уникальные навыки.',
     scoutParagraph2:
-      'Вы можете узнать о жизненном и бизнес-опыте создателя сервиса «Архитектор Личных Брендов» на его персональном сайте «Хроники Бизнес-Следопыта».',
+      'Узнать о жизненом и деловом опыте создателя сервиса «Архитектор Личных Брендов» Вы можете на его личном сайте «Хроники Бизнес-Следопыта»',
 
-    contentTitle: 'Контент, который работает на вас',
+    contentTitle: 'Контент, который работает на Вас',
     contentParagraph1:
-      'После того как фундамент вашего бизнеса заложен, сервис продолжает работать как ваш персональный контент-хаб и интерактивный медиапланировщик.',
+      'После того, как Вы заложили фундамент, сервис продолжает помогать Вам как личный контент-цех. Любой созданный Вами материал (посты, сценарии, статьи) будет идеально соответствовать Вашей стратегии, потому что «Архитектор» знает Ваш проект с самого момента его «рождения».',
     contentParagraph2:
-      '«Архитектор» знает ваш Личный Бренд «с рождения» — с момента аудита и позиционирования. Поэтому любой контент, который вы планируете создать (PR-статья, пост в соцсетях, сценарий видео), всегда будет максимально персонализированным, уникальным и, главное, соответствующим вашей бизнес-модели и стратегии.',
-    contentParagraph3:
-      'Прямо сейчас вы находитесь на сайте сервиса, который помогает заложить фундамент для самого надежного бизнеса в вашей жизни. До него всего 10 пошаговых шагов. Перестройте свою реальность и живите той жизнью, о которой всегда мечтали и стремились.',
-    contentSignature: 'С глубоким уважением,<br />Ваш Архитектор',
+      'Всего 10 пошаговых этапов отделяют Вас от этого. С помощью сервиса Вы закладываете основу для той реальности и того уровня свободы, к которым всегда стремились.',
+    contentParagraph3: '',
+    contentSignature: 'С глубоким Почтением,<br />Ваш Архитектор',
 
-    noExperienceTitle: 'Не нужен ни опыт, ни большой бюджет, ни месяцы ожидания',
+    noExperienceTitle: 'Вам не нужно быть опытным экспертом с большим стартовым капиталом.',
     noExperienceParagraph1:
-      'Сервис максимально упростил для Вас сложнейший процесс создания бизнеса. Вам не нужно учиться на бизнес-аналитика, маркетолога или финансового эксперта. Вам даже не потребуется никого из них нанимать. Всё, что Вам необходимо делать – это вдумчиво и развёрнуто отвечать на вопросы. Только брифинг и ничего более. Остальное «Архитектор Личных Брендов» сделает сам за считанные минуты',
+      'Сервис максимально упростил для Вас сложнейшие процессы. Вам не нужно учиться на бизнес-аналитика, маркетолога или финансового эксперта. Вам не потребуется нанимать дорогую команду экспертов.',
     noExperienceParagraph2:
-      'В результате Вы получите детальный, готовый к реализации бизнес-проект с готовыми цифровыми продуктами, продуманной маркетинговой стратегией и рассчитанной воронкой продаж. И вам не нужна команда профессионалов, которая обошлась бы в кругленькую сумму и несколько месяцев ожидания',
-    noExperienceImportantLabel: 'ОЧЕНЬ ВАЖНО:',
+      'Всё, что Вам необходимо делать – это вдумчиво и развёрнуто отвечать на вопросы. Только анкетирование и ничего более. Всю аналитическую нагрузку сервис берет на себя.',
+    noExperienceImportantLabel: '',
     noExperienceImportant:
-      'этот сервис даёт возможность создать реальный бизнес практически любому человеку. Ни один консультант, а тем более ни одно агентство не станут работать с клиентом, у которого нет большого бюджета. Здесь же полный цикл – от аудита до полноценного запуска – обойдётся Пользователю в очень скромную и доступную сумму. О стоимости Вы можете узнать на странице «Как это работает, или 10 шагов до запуска готового бизнеса «Ваш Личный Бренд».',
-    noExperienceParagraph3: 'Вы создадите бизнес, который даст Вам то, к чему Вы стремитесь – ',
-    noExperienceParagraph3Bold: 'свободу и финансовую независимость от места и обстоятельств',
+      'В результате Вы получаете детальный, готовый к реализации бизнес-проект с готовыми цифровыми продуктами, продуманной маркетинговой стратегией и рассчитанной воронкой продаж. И вам не нужна команда профессионалов, которая обошлась бы в кругленькую сумму и несколько месяцев ожидания.',
+    noExperienceParagraph3: 'О стоимости Вы можете узнать на странице «Как это работает».',
+    noExperienceParagraph3Bold: '',
 
     advantagesSectionTitle: 'Преимущества AI-сервиса',
     advantagesSectionSubtitle: 'Читайте наши статьи',
@@ -189,96 +187,91 @@ export const aboutPageContent: LocalizedContent<AboutPageContent> = {
   en: {
     breadcrumb: 'About',
     mainTitle: 'ARCHITECT OF PERSONAL BRANDS',
-    welcomeTitle: 'Welcome to the official website of the AI-service "Architect of Personal Brands"',
+    welcomeTitle: 'Welcome to the official website of the AI-service "Architect of Personal Brands".',
     welcomeIntro:
-      "You've entered a forge where truly profitable and reliable businesses are born, not just another trendy tool page.",
+      'You have entered a forge where truly systemic and reliable businesses are designed using advanced technologies. This is not the page of another "trendy tool" — this is the entrance to the space of big business architecture.',
     welcomeDescription:
-      'A Personal Brand is not just a catchy name, beautiful appearance, and a set of social media posts. It\'s a full-fledged, profitable, and most importantly, self-realizing Business. With one condition - you need to take it not so seriously, like any project that brings solid income. The "cherry on top" is the fact that a business called "Personal Brand" belongs only to YOU, and no one will ever be able to take it away.',
+      'A Personal Brand is not just a catchy name, beautiful appearance, or a set of posts on social networks. With the help of the "APB" service, you can transform your talents, skills, and your name into a full-fledged, profitable, and quickly implementable digital asset. \nOn one single condition — if you yourself decide to treat it as seriously as any project that brings solid income. The "cherry on top" lies in the fact that the online business called "Personal Brand" belongs only to YOU.',
 
     secretTitle:
-      'The secret in the foundation: why AI-service "Architect of Personal Brands" is a fundamentally different approach',
+      'The secret in the foundation: why the AI-service "Architect of Personal Brands" is a fundamentally different approach.',
     secretParagraph1:
-      'How is it customary to "create" Personal Brands now? Basically, branding or PR agencies, advertisers do this. They professionally know how to create a beautiful picture, informational noise, write and post PR articles, manage reputation and increase recognition. BUT! They only work with those who already have big budgets, ready products, or at least a clear understanding of what the client wants in the information field.',
+      'How is it customary to "create" Personal Brands now? Basically, branding or PR agencies and advertisers do this. They professionally know how to create a beautiful picture, informational noise, write and place PR articles, manage reputation, and increase recognition. BUT! They only work with those who have big budgets, a ready-made product, or at least a clear understanding of exactly what the client wants in the information field.',
     secretParagraph2:
-      '"Architect of Personal Brands" works differently. The service doesn\'t PR, but builds a business from scratch under the name "Your Personal Brand". It develops a complete, effective and income-generating Business Model, tailored for one specific person, starting from a deep audit, analytics, positioning and ending with the creation of a line of digital products with clear calculations - a business plan, including a financial model, roadmap and media plan.',
+      '"Architect of Personal Brands" works differently. With the help of the service tools, you are not just "PR-ing" yourself, but designing your online business from scratch. You develop a full-fledged, effective, and income-oriented business model tailored to You as a specific individual: starting from deep audit and positioning development to designing original digital products with a calculated business plan, including a financial model and a roadmap.',
 
-    serviceTitle: 'What exactly does the service do?',
+    serviceTitle: 'What exactly do you create with the help of the service?',
     serviceIntro:
-      'Imagine that a Personal Brand is your home. Ordinary specialists can beautifully paint the walls, design the interior, hang expensive curtains - that is, make advertising and PR. The service "Architect of Personal Brands" designs and builds from scratch: lays the foundation, runs communications, erects load-bearing structures, and only then starts finishing and landscaping.',
+      'Imagine that a Personal Brand is your house. Ordinary specialists can beautifully paint the walls, do interior design, hang expensive curtains (do advertising and PR). With the help of the "Architect of Personal Brands" service, you design and build a "building" from scratch: lay the foundation, lay communications, erect load-bearing structures, and only then proceed to finishing and landscaping.',
     serviceCards: [
       {
-        title: 'Conducts an audit',
+        title: 'Conduct potential audit',
         description:
-          'The service deeply analyzes your hidden and even unnoticed qualities and unique experience that will form the basis of your Personal Brand.',
+          'You deeply analyze your hidden qualities and unique experience, which, with the help of AI algorithms, turn into a solid foundation for your Brand.',
         icon: 'audit',
       },
       {
-        title: 'Develops income-generating products',
+        title: 'Develop products for monetization',
         description:
-          "It doesn't just advise, but creates ready-made, structured digital products for you (for example, online courses or detailed scheduled consultations, guides, checklists, etc.) that are ready for immediate launch.",
+          "You don't just get advice, but with the help of the service, you design AUTHOR'S digital products (courses, consultation systems, guides), the architecture of which is fully prepared for technical implementation and launch.",
         icon: 'products',
       },
       {
-        title: 'Creates a financial model and action plan',
+        title: 'Calculate financial model and action plan',
         description:
-          'The service conducts a full market research, niche and competitors to set the right price that will be positively received by the audience. It forms a detailed business plan with a financial model and roadmap.',
+          'With the help of the service tools, you conduct market and niche research to determine a price aimed at success. You form a detailed business plan and financial model — documents whose creation by professional analysts costs thousands of dollars and takes months.',
         icon: 'financial',
       },
       {
-        title: 'Fully prepares for launch',
+        title: 'Prepare for professional start',
         description:
-          'The service creates professional Technical Specifications for designers and developers so that your Personal Brand looks dignified. It develops a clear content strategy and media plan for promotion.',
+          'You create clear Terms of Reference for specialists and develop a content strategy so that your Personal Brand looks dignified and expensive from day one.',
         icon: 'launch',
       },
     ],
     serviceOutro:
-      'The "Architect of Personal Brands" will take you by the hand and step by step, methodically help you create the most liquid business - your Personal Brand',
+      'With the help of the "Architect of Personal Brands" service, you will be able to step-by-step, methodically create your first reliable online business with author\'s digital assets.',
 
-    reliabilityTitle: 'Reliability Guarantee: What stands behind this project',
+    reliabilityTitle: 'Reliability Guarantee: Who is behind this project',
     reliabilityParagraph1:
-      'The "Architect of Personal Brands" service is the result of 28 years of entrepreneurial experience, having developed over 100 business plans for himself and clients during his career, of which more than 75% received funding. For this project, the business planning methodology was used, on which he defended his doctoral dissertation on business planning, recognized by the expert community.',
+      'Such a complex, detailed service could not be created independently by PR agencies, advertisers, or even IT specialists. This requires experience in building real, working businesses.',
     reliabilityParagraph2:
-      'The AI-service "Architect of Personal Brands" is not an ordinary copywriting service, the price of which is determined "out of thin air", because "everyone does it", by intuition or financial blackmail.',
+      'The AI-service "Architect of Personal Brands" is an author\'s project of a professional business consultant known under the pseudonym Business Pathfinder, with 28 years of experience in crisis management, business analytics, M&A deals, and expansion into international markets.',
     reliabilityParagraph3:
-      'You can also review his Resume, published on the world-recognized professional business social network LinkedIn — which requires and verifies the information provided in this resume.',
+      'This experience allowed developing a system that helps you create successful models, taking into account even the psychological aspect: when creating a strong brand, it is important to be frank, but people are often shy to open up to a live consultant. "Architect of Personal Brands" solves this problem thanks to the use of AI: The user knows that they are communicating with an impersonal intelligence. This removes psychological barriers. A person stops being shy, discards the fear of judgment, evaluation, or misunderstanding, and is ready to answer as honestly, directly, and openly as possible.',
 
     brandTitle: 'YOUR BRAND IS NOT YOUR APPEARANCE',
-    brandParagraph1:
-      'The author of the service knows that the fear of publicity and fear of showing your face (due to age, appearance, or insecurity) for the vast majority of people is the most serious psychological barrier.',
+    brandParagraph1: 'The fear of publicity for the vast majority of people is the most serious psychological barrier.',
     brandParagraph2:
-      'He will not try to convince you to overcome this fear. Because the Personal Brand that the AI-service develops is based not on your appearance, but on your inner world, on your "I":',
-    brandListItems: [
-      'On your unique talents, skills, and experience',
-      'On your human qualities and unique way of thinking',
-    ],
+      "With the help of the service, you design a Personal Brand based on your inner world and talents, not on a picture. If you don't want to show your face — you don't have to.",
+    brandListItems: [],
     brandParagraph3:
-      "This is what people value, and this is what they are willing to pay for. If you don't want to show yourself — you don't have to. Your Personal Brand is a business model that works even when you stay in the shadows.",
+      'With the help of the APB methodology, you create a business model that can work even when you stay in the shadows.',
 
-    scoutTitle: 'LIVING PROOF OF STRATEGY: BUSINESS SCOUT',
+    scoutTitle: 'LIVING PROOF OF STRATEGY',
     scoutParagraph1:
-      'You can see the effectiveness of this model firsthand: The Founder and author of the AI-service, Business Scout, runs his business under a pseudonym and does not show his face. His 28-year experience is not just theory, it is living proof that you can create a profitable, scalable business model focused only on personal qualities and unique skills, without being tied to appearance.',
+      'You can verify this yourself: The Founder of the service, Business Pathfinder, runs the business under a pseudonym and does not demonstrate his face. His success is a living example that with the help of the right tools, you can create a large-scale project focused only on your unique skills.',
     scoutParagraph2:
-      'You can learn about the life and business experience of the creator of the "Architect of Personal Brands" service on his personal website "Chronicles of Business Scout".',
+      'You can learn about the life and business experience of the creator of the "Architect of Personal Brands" service on his personal website "Chronicles of Business Pathfinder"',
 
-    contentTitle: 'Content that works for you',
+    contentTitle: 'Content that works for You',
     contentParagraph1:
-      'After your business foundation is laid, the service continues to work as your personal content hub and interactive media planner.',
+      'After you have laid the foundation, the service continues to help you as a personal content factory. Any material you create (posts, scripts, articles) will ideally match your strategy because "Architect" knows your project from the very moment of its "birth".',
     contentParagraph2:
-      '"Architect" knows your Personal Brand "from birth" - from the moment of audit and positioning. Therefore, any content you plan to create (PR article, social media post, video script) will always be as personalized, unique, and most importantly, match your business model and strategy.',
-    contentParagraph3:
-      "Right now you are on the website of the service that helps you lay the foundation for the most reliable business in your life. Only 10 step-by-step steps separate you from it. Rebuild your reality and live the life you've always dreamed of and aspired to.",
-    contentSignature: 'With deep respect,<br />Your Architect',
+      'Only 10 step-by-step stages separate you from this. With the help of the service, you lay the foundation for that reality and that level of freedom you have always strived for.',
+    contentParagraph3: '',
+    contentSignature: 'With deep Respect,<br />Your Architect',
 
-    noExperienceTitle: 'No experience, big budget, or months of waiting needed',
+    noExperienceTitle: "You don't need to be an experienced expert with a large starting capital.",
     noExperienceParagraph1:
-      'The service has simplified the complex process of creating a business as much as possible for you. You don\'t need to study to become a business analyst, marketer, or financial expert. You won\'t even need to hire any of them. All you need to do is thoughtfully and thoroughly answer the questions. Just briefing and nothing more. The "Architect of Personal Brands" will do the rest in a matter of minutes',
+      "The service has simplified the most complex processes for you as much as possible. You don't need to study to be a business analyst, marketer, or financial expert. You won't need to hire an expensive team of experts.",
     noExperienceParagraph2:
-      "As a result, you will receive a detailed, ready-to-implement business project with ready-made digital products, a well-thought-out marketing strategy, and a calculated sales funnel. And you don't need a team of professionals that would cost a pretty penny and several months of waiting",
-    noExperienceImportantLabel: 'VERY IMPORTANT:',
+      'All you need to do is thoughtfully and detailedly answer questions. Only questioning and nothing more. The service takes all the analytical load on itself.',
+    noExperienceImportantLabel: '',
     noExperienceImportant:
-      "this service makes it possible for almost anyone to create a real business. No consultant, let alone agency, will work with a client who doesn't have a large budget. Here, the full cycle – from audit to full launch – will cost the User a very modest and affordable amount. You can learn about the cost on the \"How It Works, or 10 Steps to Launching a Ready Business 'Your Personal Brand'\" page.",
-    noExperienceParagraph3: 'You will create a business that will give you what you strive for – ',
-    noExperienceParagraph3Bold: 'freedom and financial independence from place and circumstances',
+      "As a result, you receive a detailed, ready-to-implement business project with ready-made digital products, a well-thought-out marketing strategy, and a calculated sales funnel. And you don't need a team of professionals that would cost a pretty penny and several months of waiting.",
+    noExperienceParagraph3: 'You can find out about the cost on the "How It Works" page.',
+    noExperienceParagraph3Bold: '',
 
     advantagesSectionTitle: 'Advantages of the AI-service',
     advantagesSectionSubtitle: 'Read our articles',

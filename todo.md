@@ -5,7 +5,7 @@
       - [x] Remove table of contents
       - [x] List of posts should below content
       - [x] CTA card, text center. "Создать свой \n Онлайн бизнес". "Который называется \n Личный бренд"
-      - [ ] Advantages, merge secondary and ternary cards
+      - [x] Advantages, merge secondary and ternary cards
       - [ ] stepsToLaunch, show timeline
       - [ ] Prefooter, mobile
       - [ ] FAQ section, move CTA card to bottom

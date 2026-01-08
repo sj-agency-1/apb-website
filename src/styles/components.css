@@ -1224,6 +1224,7 @@ main {
 .sidebar-card {
   @apply border-border/50;
 }
+
 .sidebar-card.table-of-contents-card {
   @apply hidden lg:block;
 }
@@ -1817,6 +1818,20 @@ body {
 
 .advantage-secondary {
   @apply text-sm leading-relaxed text-foreground;
+}
+
+.advantage-text-wrapper {
+  @apply flex flex-col lg:contents;
+}
+
+@media (max-width: 1023px) {
+  .advantage-text-wrapper>.advantage-content-card:not(:last-child) {
+    @apply rounded-b-none pb-2;
+  }
+
+  .advantage-text-wrapper>.advantage-secondary-card {
+    @apply rounded-t-none pt-2;
+  }
 }
 
 /* ============================================

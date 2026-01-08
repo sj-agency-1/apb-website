@@ -52,14 +52,16 @@ const iconCardDots: BluredDotsProps = [
             <h3 class="advantage-title">{item.title}</h3>
           </div>
         </Card>
-        <Card variant="default" size="md" class="advantage-content-card">
-          <p class="advantage-description">{item.description}</p>
-        </Card>
-        {item.secondaryDescription && (
-          <Card variant="default" size="md" class="advantage-secondary-card">
-            <p class="advantage-secondary">{item.secondaryDescription}</p>
+        <div class="advantage-text-wrapper">
+          <Card variant="default" size="md" class="advantage-content-card">
+            <p class="advantage-description">{item.description}</p>
           </Card>
-        )}
+          {item.secondaryDescription && (
+            <Card variant="default" size="md" class="advantage-secondary-card">
+              <p class="advantage-secondary">{item.secondaryDescription}</p>
+            </Card>
+          )}
+        </div>
       </div>
     ))
   }

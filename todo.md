@@ -1,5 +1,5 @@
-- [ ] Fixes
-  - [ ] Mobile
+- [x] Fixes
+  - [x] Mobile
     - [x] Home page
       - [x] Main page, hero component,
       - [x] Remove table of contents
@@ -16,7 +16,7 @@
       - [x] Remove the first "add review" buttton, before reviews list (on desktop too)
     - [x] FAQ:
       - [x] Order: FAQ, posts, CTA card
-    - [ ] Fix header icon on switch
+    - [x] Fix header icon on switch
 
 - [x] All
   - [x] Reduce the container-width

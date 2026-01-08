@@ -7,7 +7,7 @@
       - [x] CTA card, text center. "Создать свой \n Онлайн бизнес". "Который называется \n Личный бренд"
       - [x] Advantages, merge secondary and ternary cards
       - [x] stepsToLaunch, show timeline
-      - [ ] Prefooter, mobile
+      - [x] Prefooter, mobile
       - [ ] FAQ section, move CTA card to bottom
     - [ ] How it works page:
       - [ ] Move Business Plan (9 stage) to 7th stage. Old 7th stage move to 8th, 8th to 9th and etc.
@@ -16,6 +16,7 @@
       - [ ] Remove the first "add review" buttton, before reviews list (on desktop too)
     - [ ] FAQ:
       - [ ] Order: FAQ, CTA card, posts
+    - [ ] Fix header icon on switch
 
 - [x] All
   - [x] Reduce the container-width

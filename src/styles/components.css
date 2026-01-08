@@ -28,7 +28,7 @@
    BUTTON COMPONENT
    ============================================ */
 .button {
-  @apply inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium leading-none transition-colors;
+  @apply flex w-full sm:inline-flex sm:w-auto cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-medium leading-none transition-colors;
   @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background;
   @apply disabled:pointer-events-none disabled:opacity-50;
 
@@ -1101,8 +1101,7 @@ main {
    PREFOOTER COMPONENT
    ============================================ */
 .prefooter {
-  @apply relative overflow-hidden;
-  height: 280px;
+  @apply relative overflow-hidden h-auto py-8;
 }
 
 @media (min-width: 1024px) {
@@ -1128,7 +1127,7 @@ main {
 }
 
 .prefooter-action {
-  @apply flex flex-row items-start gap-3;
+  @apply flex flex-col lg:flex-row items-center lg:items-start gap-3;
 }
 
 .prefooter-subtext {

@@ -34,13 +34,15 @@ const { title, subtitle, cta, ctaSubtext1, ctaSubtext2, backgroundImage, ...rest
     )
   }
   <div class="container mx-auto px-4 h-full relative z-10">
-    <div class="prefooter-content flex flex-row w-full h-full">
-      <div class="prefooter-left w-1/2 flex flex-col justify-center">
+    <div class="prefooter-content flex flex-col lg:flex-row w-full h-full">
+      <div
+        class="prefooter-left w-full lg:w-1/2 flex flex-col justify-center items-center text-center lg:items-start lg:text-left"
+      >
         <div class="prefooter-text">
-          <Heading as="h2" size="4xl" text={title} />
+          <Heading as="h2" size="2xl" text={title} />
           {subtitle && <Paragraph text={subtitle} size="lg" muted />}
         </div>
-        <div class="prefooter-action mt-6">
+        <div class="prefooter-action mt-6 w-full lg:w-auto">
           <Button
             text={cta.text}
             href={cta.href}
@@ -59,7 +61,7 @@ const { title, subtitle, cta, ctaSubtext1, ctaSubtext2, backgroundImage, ...rest
           }
         </div>
       </div>
-      <div class="prefooter-right w-1/2"></div>
+      <div class="prefooter-right w-full lg:w-1/2"></div>
     </div>
   </div>
 </section>

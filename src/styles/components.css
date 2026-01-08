@@ -1224,6 +1224,9 @@ main {
 .sidebar-card {
   @apply border-border/50;
 }
+.sidebar-card.table-of-contents-card {
+  @apply hidden lg:block;
+}
 
 .sidebar-title {
   @apply mb-4 text-sm font-semibold uppercase tracking-wider text-heading;

@@ -21,7 +21,7 @@ const { tocItems, blogItems, blogTitle, activeId, ctaText = 'Подробнее'
 <aside class="sidebar" {...rest}>
   {
     tocItems && tocItems.length > 0 && (
-      <Card blur variant="outline" size="md" class="sidebar-card">
+      <Card blur variant="outline" size="md" class="sidebar-card table-of-contents-card">
         {activeId ? <TableOfContents items={tocItems} activeId={activeId} /> : <TableOfContents items={tocItems} />}
       </Card>
     )

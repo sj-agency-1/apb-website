@@ -1,0 +1,273 @@
+---
+import PageLayout from '@layouts/PageLayout.astro';
+import Section from '@components/blocks/Section.astro';
+import Sidebar from '@components/blocks/Sidebar.astro';
+import Breadcrumbs from '@components/structures/Breadcrumbs.astro';
+import Content from '@components/blocks/Content.astro';
+import { getPageContent } from '@data/pages';
+import { getLatestAdvantagesPosts } from '@utils/posts';
+import { getLegalPageContent } from '@data/page-content';
+import { SUPPORTED_LANGUAGES } from '@/types/i18n';
+import type { TocItem } from '@components/structures/TableOfContents.astro';
+
+export function getStaticPaths() {
+  return SUPPORTED_LANGUAGES.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const page = getPageContent('affiliate', 'en');
+const content = getLegalPageContent('affiliate', 'en');
+
+const chapters = [
+  {
+    id: 'preamble',
+    chapter: '',
+    title: 'PREAMBLE (PURPOSE OF THE DOCUMENT)',
+    content: `
+      <p>These Terms (Affiliate Agreement) are a legally binding agreement defining the procedure for marketing promotion of the "Architect of Personal Brands" Service by independent participants.</p>
+      <p>Purpose of the document: To regulate the rules for attracting new Users, establish the procedure for calculating and paying remuneration, and strictly limit the Owner's liability for any unauthorized statements or promises made by Partners.</p>
+      <p>This document regulates:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>The status of the Partner as an independent contractor (not an agent);</li>
+        <li>Rules for using intellectual property in advertising;</li>
+        <li>Financial conditions and anti-fraud mechanisms (Holding Period, KYC);</li>
+        <li>Measures of liability for violation of marketing ethics and Disclaimer provisions.</li>
+      </ul>
+    `,
+  },
+  {
+    id: 'chapter-1',
+    chapter: '1.',
+    title: 'GENERAL PROVISIONS AND ACCEPTANCE OF TERMS',
+    content: `
+      <p>1.1. These Terms regulate the relationship between the Owner of the "Architect of Personal Brands" Service (hereinafter referred to as the Owner) and the User who has participated in the Affiliate Program (hereinafter referred to as the Partner/Ambassador), and establish the procedure for promoting the Service, calculating remuneration, and the liability of the parties.</p>
+      <p>These Terms constitute an agreement for the provision of marketing services. The Partner acts as an independent contractor. These Terms do not create agency, representation, or employment relationships. The Partner has no authority to give guarantees or accept obligations on behalf of the Owner.</p>
+      <p>1.2. Integration with the Legal Package: These Terms are an integral part of the Service's Public Offer (Terms & Conditions). Acceptance of these Terms automatically means full and unconditional acceptance of the following documents:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>Public Offer Agreement (Terms & Conditions)</li>
+        <li>User Agreement</li>
+        <li>Privacy Policy</li>
+        <li>Content Usage Rules</li>
+        <li>Disclaimer</li>
+        <li>User Account Guidelines</li>
+      </ul>
+      <p>1.3. Acceptance of Terms: Acceptance (full and unconditional acceptance) of these Terms is recognized as any of the following actions:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>a) Completing the registration procedure on the Service.</li>
+        <li>b) Receipt and/or use by the Partner of their unique Referral Code or Referral Link.</li>
+      </ul>
+    `,
+  },
+  {
+    id: 'chapter-2',
+    chapter: '2.',
+    title: 'LEGAL STATUS OF THE PARTIES',
+    content: `
+      <p>2.1. Independent Contractor: The Partner acts as an independent contractor.</p>
+      <p>2.2. Exclusion of Legal Relations: These Terms do not create between the Owner and the Partner any relationships of employment, representation, agency, joint venture, partnership, or legal partnership in any applicable jurisdiction. The Partner has no authority to give guarantees, accept obligations, or conclude contracts on behalf of or at the expense of the Service Owner.</p>
+      <p>2.3. Independence: The Partner independently determines the methods, means, and time of their activities to attract referrals.</p>
+      <p>2.4. Prohibition on the use of official status: The Partner is strictly forbidden to use terms such as "Official Representative", "Branch", "Service Employee" in their profiles, advertising, or communication. The Partner is obliged to indicate their status as an "Independent Affiliate Program Participant". Any violation of this clause deprives the Partner of the right to refer to the Owner's lack of awareness.</p>
+    `,
+  },
+  {
+    id: 'chapter-3',
+    chapter: '3.',
+    title: 'RIGHTS AND OBLIGATIONS OF THE PARTNER',
+    content: `
+      <p>3.1. The Partner undertakes:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>a) To use only conscientious and legal methods for promotion.</li>
+        <li>b) Not to generate spam, not to use mass unauthorized mailings, and not to engage in activities that discredit the Service or its Author.</li>
+        <li>c) Not to create false (fake) accounts and not to register themselves as a referral.</li>
+        <li>d) Not to use the Service's trademark, logo, or name in advertising campaigns, except as prescribed in clause 6.1 of these Terms.</li>
+      </ul>
+      <p>3.2. CATEGORICAL PROHIBITION ON GUARANTEES AND STATEMENTS: The Partner is prohibited from making any public or private statements that contradict the "DISCLAIMER" document of the Service. In particular, the following are prohibited:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>Promises of guaranteed financial success, profit, or ROI.</li>
+        <li>Claims that the Service is personal consulting or a financial advisor.</li>
+      </ul>
+      <p>3.3. Liability for Statements: The Partner bears sole responsibility to the referral and third parties for any losses caused by their unauthorized, false, or inaccurate statements.</p>
+      <p>3.4. Right to Audit and Removal: The Owner has the right at any time to demand the removal or correction of any advertising material of the Partner if, in the Owner's opinion, it distorts the essence of the Service or violates the Disclaimer. Failure to comply with the requirement within 24 hours is grounds for immediate termination.</p>
+      <p>3.5. Anti-Fraud and Prohibited Traffic. The Partner is strictly prohibited from:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>Using contextual advertising on the brand (Search Arbitrage) using keywords "Architect of Personal Brand", "APB", "Архитектор Личных Брендов" or the Author's names.</li>
+        <li>Using spam to attract traffic.</li>
+        <li>Creating fictitious accounts (Self-referral) to receive refback.</li>
+        <li>Using any formulations about "instant wealth" or "financial pyramids". Violation of these conditions entails immediate resetting of the Bonus balance without the right of restoration.</li>
+      </ul>
+    `,
+  },
+  {
+    id: 'chapter-4',
+    chapter: '4.',
+    title: 'STATUS STRUCTURE AND REMUNERATION',
+    content: `
+      <p>4.1. Level Hierarchy and Qualification: Within the Program, there are three access levels determining the license scope and remuneration size:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>
+          <strong>Level 1 ("Specialist"):</strong>
+          <ul class="list-disc ml-6 space-y-2 my-2">
+            <li>Condition: Assigned automatically to every user immediately after registration.</li>
+            <li>Limits: Allows working only on 1 (one) Personal Brand project.</li>
+            <li>Affiliate Model: Remuneration at this level is 10%. This is the stage of personal acquaintance with the product. Access to the Knowledge Base is available.</li>
+            <li>Extended functionality: no access to managing 3 projects.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Level 2 ("Expert"):</strong>
+          <ul class="list-disc ml-6 space-y-2 my-2">
+            <li>Condition (Qualification): Activated upon payment of monthly access to Extended Functionality. The cost is an amount equivalent to $27.</li>
+            <li>Limits and capabilities: The User gets the right to simultaneously manage up to 3 independent Personal Brand projects in one account.</li>
+            <li>Affiliate Model: Remuneration of 15% is accrued from all payments of attracted referrals.</li>
+            <li>Important condition: Commission is accrued only if there is an active and paid monthly subscription.</li>
+            <li>Failure to meet conditions: If the subscription is not paid, the status is downgraded to Specialist level, access to extended functionality is suspended, and remuneration is lowered to 10% (all referrals remain assigned to them) from all new payments.</li>
+            <li>Status restoration: upon subscription activation, access to extended functionality is restored for the next 30 calendar days, remuneration increases to 15%.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Level 3 ("Strategist"):</strong>
+          <ul class="list-disc ml-6 space-y-2 my-2">
+            <li>Condition (Qualification): Assigned automatically and permanently after the user successfully completes all 10 stages of the Methodology on their own project.</li>
+            <li>Limits and capabilities: Extended functionality (up to 3 brands and access to the Knowledge Base) is provided to the user for free, without the need to pay a subscription fee.</li>
+            <li>Affiliate Model: Maximum remuneration — 20% of all referral payments, which is assigned to the Strategist indefinitely.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Level 4 ("Professional")</strong>
+          <ul class="list-disc ml-6 space-y-2 my-2">
+            <li>Condition (Qualification): Registration via a special one-time code.</li>
+            <li>Limits and capabilities: Extended functionality (up to 10 brands and access to the Knowledge Base) is provided for free.</li>
+            <li>Affiliate Model: Maximum remuneration — 30% of all referral payments, which is assigned to the Professional indefinitely.</li>
+            <li>Status retention conditions: at least 100 primary sales (activation of the 2nd stage) in the first 90 days. Traffic quality – at least 20 activations of the 4th stage.</li>
+            <li>Failure to meet conditions: If at least one of the conditions is not met, the status is downgraded to Strategist level and remuneration is lowered to 20% (all referrals remain assigned to them) from all new payments.</li>
+            <li>Status restoration: If the Partner shows growth again within 90 days after the status downgrade: at least 100 new primary sales and at least 20 activations of the 4th stage, their Professional status is restored and remuneration increases to 30% for the next period.</li>
+          </ul>
+        </li>
+      </ul>
+      <p>4.2. Legal status of names: The Parties unconditionally confirm that the marketing names of the levels indicated in clause 4.1 are solely elements of the game interface (gamification) and loyalty system. Assignment of the status "Specialist", "Expert", or "Strategist" does not endow the User with the rights of an official representative, agent, or employee of the Service and does not change their status as an independent contractor.</p>
+      <p>4.3. Referral Assignment: A User who comes via a Referral Code/Link is permanently assigned to the Partner (Referrer). Remuneration is accrued from all future payments of this referral for Service services and paid content.</p>
+      <p>4.4. Basis for remuneration accrual.</p>
+      <p>Remuneration is calculated in percent (from 10% to 30% depending on status) and is accrued exclusively from amounts actually debited from the Referral's balance as payment for Service services and access to paid content.</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>Important: Remuneration accrual does not occur at the moment of the Referral replenishing their balance (Top-up), but is carried out only at the moment of actual purchase (activation of a Methodology stage or purchase of a document). This excludes payment of remuneration for funds that may be withdrawn or returned to the Referral.</li>
+      </ul>
+      <p>4.5. Separation of balances and types of accounting units.</p>
+      <p>To ensure transparency of calculations in the User's Personal Account, two balances are used – Personal Account and Affiliate Account, and two types of accounting values:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>APB Rewards (Affiliate Account) — units in which accrued Affiliate remuneration is calculated. Funds on this balance are recognized as the Owner's accounts payable to the Partner and are available for withdrawal to external accounts (according to clause 4.6) or for internal conversion.</li>
+        <li>APB Credits (Personal Account) — units of access to Service functionality (payment for stages, content generation).</li>
+      </ul>
+      <p>4.6. Internal Conversion (Redeem).</p>
+      <p>The Partner has the right at any time to convert APB Rewards into APB Credits at a 1:1 rate.</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>Status of funds after conversion: From the moment of clicking the "Convert" button (or similar in meaning), these units transfer to the status of "access units", are considered used for payment of Service services, and are not subject to reverse withdrawal to external accounts, exchange for cash, or refund.</li>
+        <li>Conversion priority: The minimum withdrawal threshold rule (50 USD) does not apply to the conversion of remuneration into access units.</li>
+      </ul>
+      <p>4.7. Verification period and payment conditions:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>Holding Period: The Owner sets a verification period for each transaction of up to 14 (fourteen) days. In the event of a refund by the Referral (Refund) or chargeback (Chargeback), the accrued remuneration is annulled.</li>
+        <li>Minimum threshold: an amount equivalent to 50 (fifty) USD (not applicable for internal conversion according to clause 4.6).</li>
+        <li>Identification (KYC): When requesting a withdrawal of an amount equivalent to 200 (two hundred) USD, the Owner has the right to request documents confirming the Partner's identity. Refusal of KYC equates to the inability to confirm the legality of traffic and leads to a freeze on payments.</li>
+      </ul>
+      <p>4.8. Downgrade conditions: In case of cessation of payment for extended functionality (for the "Expert" level), the User's status is downgraded to the "Specialist" level and accrual of new APB Rewards is suspended. Previously accumulated APB Rewards units are preserved on the Affiliate Account balance, but their withdrawal may be restricted until active status is restored or the minimum threshold (50 USD) is met.</p>
+    `,
+  },
+  {
+    id: 'chapter-5',
+    chapter: '5.',
+    title: 'FINANCIAL CONDITIONS AND TAXATION',
+    content: `
+      <p>5.1. Threshold and payment currency:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>The minimum threshold for forming a withdrawal request is an amount equivalent to 50 (fifty) US dollars.</li>
+        <li>All balances in the Personal Account are displayed in accounting units pegged to the USD equivalent solely for accounting purposes.</li>
+        <li>The Owner does not guarantee payment in fiat USD currency. Payment is made in available fiat currencies or stablecoins (e.g., USDT) at the internal Service rate or the payment aggregator's rate on the transaction date.</li>
+      </ul>
+      <p>5.2. Withdrawal Methods: Withdrawal of funds is carried out at the Owner's discretion through any available payment system or in cryptocurrency chosen by the Partner.</p>
+      <p>5.3. Transaction Costs: The Partner bears sole responsibility for paying all commissions of banks, payment systems, and blockchain networks (gas fees) arising during the transfer of remuneration. These costs (exchange commissions, payment service commissions, blockchain conversion commissions, etc.) are deducted from the payment amount.</p>
+      <p>5.4. Taxation:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>a) The Service Owner is not a tax agent for the Partner.</li>
+        <li>b) The Partner bears sole responsibility for all tax obligations, fees, and deductions arising in their jurisdiction of residence related to receiving remuneration under the Affiliate Program.</li>
+      </ul>
+    `,
+  },
+  {
+    id: 'chapter-6',
+    chapter: '6.',
+    title: 'INTELLECTUAL PROPERTY AND MARKETING',
+    content: `
+      <p>6.1. License to IP for Promotion: The Owner grants the Partner a limited, non-exclusive, non-transferable, revocable license to use the provided marketing materials (including the APB logo, text templates, banners from the Knowledge Base) solely for the purpose of promoting the Service.</p>
+      <p>6.2. Prohibition on IP Violation: The Partner is prohibited from modifying, deforming, or using the provided marketing materials and any elements of the Service Methodology (clause 1.3 of Content Usage Rules) to create competing products, services, courses, or training of third-party AI systems.</p>
+      <p>6.3. Compliance with IP Rules: Violation of this section constitutes a violation of Content Usage Rules and entails immediate termination and sanctions.</p>
+    `,
+  },
+  {
+    id: 'chapter-7',
+    chapter: '7.',
+    title: 'SUSPENSION AND TERMINATION (SANCTIONS)',
+    content: `
+      <p>7.1. Owner's Right to Terminate: The Owner has the right to immediately and unilaterally terminate these Terms and annul the Partner's status without prior notice and without reimbursement, in case of:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>a) Violation of clause 3.1 (Spam, unscrupulous advertising).</li>
+        <li>b) Violation of clause 3.2 (Violation of DISCLAIMER).</li>
+        <li>c) Violation of clause 6.2 (Violation of CONTENT USAGE RULES).</li>
+        <li>d) Fraud (self-referral, hacking).</li>
+      </ul>
+      <p>7.2. Retention of remuneration for damages: In case of termination of Terms on the grounds of clause 7.1, accumulated but unpaid remuneration is recognized by the Parties as proportional compensation for reputational damage and administrative expenses of the Owner associated with eliminating the consequences of the Partner's violations. This retention is final and not subject to refund.</p>
+      <p>7.3. Inactive accounts: If the Partner shows no activity in the Personal Account (no logins) for more than 180 calendar days, the Owner has the right to recognize such account as inactive. In this case, remuneration accrual is suspended, and accumulated Rewards points not claimed for withdrawal may be annulled.</p>
+    `,
+  },
+  {
+    id: 'chapter-8',
+    chapter: '8.',
+    title: 'GOVERNING LAW AND JURISDICTION',
+    content: `
+      <p>8.1. Governing Law: These Terms, including questions of their interpretation, are governed exclusively by English Law.</p>
+      <p>8.2. Exclusive Jurisdiction: All disputes arising from these Terms are subject to final resolution in the High Court of Justice in London, England.</p>
+    `,
+  },
+  {
+    id: 'chapter-9',
+    chapter: '9.',
+    title: 'INDEMNIFICATION',
+    content: `
+      <p>9.1. The Partner undertakes to fully indemnify the Owner for any losses, legal costs, fines, and expenses for legal assistance arising as a result of any third-party claims caused by unauthorized statements of the Partner, their violation of the Disclaimer or these Terms. The Partner is obliged to act on the Owner's side in any legal process regarding such claims.</p>
+    `,
+  },
+];
+
+const blogItems = await getLatestAdvantagesPosts('en', 2);
+const tocItems: TocItem[] = chapters.map((item) => ({
+  id: item.id,
+  text: item.title,
+  chapter: item.chapter,
+}));
+---
+
+<PageLayout head={page.meta} hero={page.hero}>
+  <Section variant="default">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 lg:gap-12">
+      <Sidebar
+        tocItems={tocItems}
+        blogItems={blogItems}
+        blogTitle="Useful materials"
+        ctaText="Read more"
+        class="order-last lg:order-first"
+      />
+      <div class="flex flex-col gap-8">
+        <Breadcrumbs items={[{ text: content.breadcrumb }]} class="mb-6" />
+        <div class="prose dark:prose-invert max-w-none">
+          <div class="py-4">
+            <p class="uppercase font-bold text-lg mb-2">AFFILIATE AGREEMENT</p>
+            <p>of the AI Service "Architect of Personal Brands"</p>
+            <p>Date of last update: 20.02.2026</p>
+            <p>Effective from: 18.02.2026</p>
+          </div>
+          <Content chapters={chapters} />
+        </div>
+      </div>
+    </div>
+  </Section>
+</PageLayout>

@@ -1,0 +1,184 @@
+---
+import PageLayout from '@layouts/PageLayout.astro';
+import Section from '@components/blocks/Section.astro';
+import Sidebar from '@components/blocks/Sidebar.astro';
+import Breadcrumbs from '@components/structures/Breadcrumbs.astro';
+import Content from '@components/blocks/Content.astro';
+import { getPageContent } from '@data/pages';
+import { getLatestAdvantagesPosts } from '@utils/posts';
+import { getLegalPageContent } from '@data/page-content';
+import { SUPPORTED_LANGUAGES } from '@/types/i18n';
+import type { TocItem } from '@components/structures/TableOfContents.astro';
+
+export function getStaticPaths() {
+  return SUPPORTED_LANGUAGES.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const page = getPageContent('privacy', 'en');
+const content = getLegalPageContent('privacy', 'en');
+
+const chapters = [
+  {
+    id: 'chapter-1',
+    chapter: '1.',
+    title: 'GENERAL PROVISIONS AND DATA CONTROLLER',
+    content: `
+      <p>1.1. Data Controller: The controller of personal data processed within the Service is the platform administration represented by the Owner, as indicated in the Offer. The Owner's details are also indicated in the Offer Agreement. The User has the right to request a full extract of their data by sending a request to info@personal-brand-architect.com. The Owner undertakes to provide a response within 30 (thirty) calendar days from the moment of receipt of the request. In case of exceptional complexity of the request or a large volume of data, the Owner has the right to extend the response period for another 60 (sixty) days, notifying the User about this. The Owner reserves the right to request confirmation from the sender that they are the account owner (for example, by sending a confirmation email from the registration Email or other available method). In this case, the response period is calculated from the moment of confirmation of the sender's identity. This measure is necessary to prevent unauthorized access by third parties to User data, as well as to exclude abuse and automated attacks (DDoS requests).</p>
+      <p>1.2. Applicability: This Privacy Policy (hereinafter referred to as the Policy) is an integral part of the Public Offer Agreement (Terms & Conditions), User Agreement, Content Usage Rules, Account Instructions, and Affiliate Program Terms. Acceptance of the Offer means full and unconditional consent of the User to the terms of this Policy. In case of any contradictions between the technical rules for data processing in the Policy and legal guarantees in the Offer, the Public Offer Agreement shall prevail.</p>
+      <p>1.3. Jurisdiction: This Policy is developed taking into account the requirements of English law and applicable international data protection standards, including principles set forth in the General Data Protection Regulation (GDPR), regardless of the User's location.</p>
+    `,
+  },
+  {
+    id: 'chapter-2',
+    chapter: '2.',
+    title: 'DATA CATEGORIES AND PROCESSING PURPOSES',
+    content: `
+      <p>The Service Owner processes the following categories of data: Data collection is minimized and limited to information necessary for the functioning of the Service:</p>
+      <p>2.1. Registration Data: Includes email address and name (pseudonym). Used to identify the User and provide access to the Personal Account.</p>
+      <p>2.2. Financial Data: Includes transaction ID, amount, and payment status. Used to account for APB Credits balance and comply with AML requirements. The Owner does not collect or store full bank card details or User's crypto wallet details.</p>
+      <p>2.3. Content Data: Includes User's answers to AI questions and audit input data. Used exclusively for generating strategic reports.</p>
+      <p>2.4. Technical Data: Includes IP address and activity logs. Used to prevent cyberattacks and unauthorized access to intellectual property (reverse engineering).</p>
+      <p>2.5. Limitation on data categories: The Service is not intended for processing special categories of personal data, including information about racial or ethnic origin, political opinions, religious or philosophical beliefs, as well as data concerning health or intimate life. The User is prohibited from entering such information into any input fields of the Service. In case the User enters such data on their own initiative, they are recognized as technical text not subject to special protection, and the Owner is not responsible for the consequences of their processing.</p>
+      <p>2.6. Nature of processing: Since the Service is intended for Business-Users (Prosumers), data processing is carried out solely for the purpose of facilitating the User's professional and commercial activities. The User acknowledges that information entered into the Service for personal brand development is considered data related to their professional activity, and not to private life.</p>
+    `,
+  },
+  {
+    id: 'chapter-3',
+    chapter: '3.',
+    title: 'TECHNOLOGICAL SAFEGUARDS AND AI SECURITY (AI SAFEGUARD)',
+    content: `
+      <p>3.1. Security of data transfer to AI: The Owner uses Enterprise-level service packages to interact with external AI models via an application programming interface (API). According to the technical standards of such providers, User data transmitted via API is not used to train public models and is protected from open access. The Owner takes all commercially reasonable actions to control data processing conditions by providers, however, the User understands that the Owner cannot guarantee the immutability of service terms and security policies of external AI developer companies and is not responsible for the actions of third parties.</p>
+      <p>3.2. Sub-processors: The User agrees that the Owner has the right to engage various AI providers (OpenAI, Anthropic, etc.) as sub-processors. The current list of providers is available to the User upon request to Support Email. Changing a provider is carried out without notification if the level of data protection remains equivalent.</p>
+      <p>3.3. Automatic anonymization: Internal use of data to improve Service algorithms is carried out programmatically in an anonymized form, which excludes the possibility of identifying the User's identity by Owner's employees or third parties.</p>
+      <p>3.4. Data Confidentiality: The Service Owner recognizes the high confidentiality of information entered by the User at Stage 1 (Audit) and subsequent stages. This information is critically important for the User's Personal Brand.</p>
+      <p>3.5. Anonymization Principle: User Data and generated AI content are stored and used exclusively in encrypted and anonymized form and are not subject to transfer to third parties in a format that allows identifying the User.</p>
+      <p>3.6. Pseudonymization: Instead of the term "anonymization", the Parties use the term "pseudonymization" (according to GDPR). User Content is separated from their personal identifiers programmatically. The User realizes that due to the specifics of creating a Personal Brand, information entered by them (company names, niche achievements) may indirectly indicate their identity. Entering such information is carried out by the User at their own risk.</p>
+    `,
+  },
+  {
+    id: 'chapter-4',
+    chapter: '4.',
+    title: 'DATA TRANSFER TO THIRD PARTIES',
+    content: `
+      <p>4.1. Payment Gateway ("Now Payments"): The Service Owner transfers to the external payment gateway ("Now Payments") only those data that are absolutely necessary for processing financial transactions (amount, currency, User ID). The Owner does not store or transfer full bank card details or User's crypto wallets.</p>
+      <p>4.2. Technical infrastructure and hosting: User Data may be processed and stored on servers of professional cloud providers (including, but not limited to: AWS, Google Cloud, Hetzner) located in various jurisdictions, including countries of the European Economic Area and the USA. By using the Service, the User agrees that technical data may be transferred outside their country of residence to ensure uninterrupted operation of the Platform, subject to strict confidentiality obligations.</p>
+      <p>4.3. Third-party metrics and analytics (Google/Yandex): To ensure the stability of the Service, Google Analytics and other analytics tools are used, which collect anonymized technical information (device type, session time, region) via Cookies. The User is notified and agrees that using these tools may entail the transfer of technical data (IP address, Cookies) to jurisdictions other than the User's country of residence.</p>
+      <p>4.4. Technical files (Cookies): The Service uses Cookies to maintain the User's session in the Personal Account. By using the Service, the User gives explicit consent to the installation of technical and analytical Cookies. managing Cookie settings is available to the User in their browser settings. Disabling Cookies in the browser may lead to the inability to use the Platform functionality.</p>
+      <p>4.5. Legal Obligations: Data may be disclosed upon lawful request of competent authorities (courts, regulators) if such request complies with applicable law (English law).</p>
+    `,
+  },
+  {
+    id: 'chapter-5',
+    chapter: '5.',
+    title: 'RETENTION PERIODS AND DATA SUBJECT RIGHTS',
+    content: `
+      <p>5.1. Retention Periods: In accordance with cl. 15.4 of the Offer Agreement and cl. 7.5 of the User Agreement, Personal data is stored for the duration of the User's account validity and for:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>Personal data (Email, name): Deleted within 30 days after account deletion upon User request, unless necessary to comply with tax legislation.</li>
+        <li>Technical logs and transaction data: Stored for 5 (five) years after its deletion in accordance with cl. 15.4 of the Offer for the purposes of complying with international legislation (AML/KYC), legal obligations, fraud prevention and providing an evidentiary basis for protecting the Owner's interests in court (Legal Defense). Data in logs is stored in encrypted form and is not available for daily processing. After 5 years, data is subject to final anonymization (removal of links to User identity) and may be stored further exclusively in the form of statistics.</li>
+      </ul>
+      <p>5.2. User Rights (Data Subject): In accordance with applicable law, the User has the right to:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>a) Right of Access: Receive confirmation whether their data is being processed, and access this data.</li>
+        <li>b) Right to Rectification: Demand correction of inaccurate or incomplete data.</li>
+        <li>c) Right to Erasure ("Right to be forgotten"): Demand deletion of data if its storage is no longer necessary.</li>
+        <li>d) Right to Restriction of Processing: Demand restriction of data processing in certain cases.</li>
+        <li>e) Right to Data Portability: This right is implemented by providing the User with an export of registration data in JSON or CSV format. Generated AI strategies and reports are provided in the form and formats available to the User in the Personal Account interface at the time of request.</li>
+      </ul>
+      <p>To exercise these rights, the User should send a written request to info@personal-brand-architect.com.</p>
+    `,
+  },
+  {
+    id: 'chapter-6',
+    chapter: '6.',
+    title: 'DATA PROTECTION MEASURES',
+    content: `
+      <p>The Service Owner applies appropriate technical and organizational measures to protect User's personal data from unauthorized or unlawful access, destruction, alteration, or disclosure. These measures include encryption, access control, regular backups, and network infrastructure protection.</p>
+    `,
+  },
+  {
+    id: 'chapter-7',
+    chapter: '7.',
+    title: 'CHANGES TO THE POLICY',
+    content: `
+      <p>The Owner reserves the right to make changes to this Policy. The Owner notifies the User about changes by publishing a new version with an updated date. In case of significant changes, the Owner sends a notification to the Email and in the User's Personal Account. If the User does not agree with the new edition, they must stop using the Service and send a request for data deletion. Continued use of the Service is considered as confirmation of previously given consent on the terms of the updated Policy.</p>
+    `,
+  },
+  {
+    id: 'chapter-8',
+    chapter: '8.',
+    title: 'LANGUAGE AND INTERPRETATION PRIORITY',
+    content: `
+      <p>8.1. Prevailing Version: This Policy is drafted in Russian exclusively for the convenience of Users. In order to ensure compliance with English law, the English version has unconditional priority (Prevailing Version). In case of any contradictions in the interpretation of terms or conditions, the Parties and the Court shall be guided by the text in English.</p>
+    `,
+  },
+  {
+    id: 'chapter-9',
+    chapter: '9.',
+    title: 'DETAILS AND CONTACT INFORMATION',
+    content: `
+      <p>9.1. Provider Details:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>Name: Individual Service Provider Sergey Vyacheslavovich Pak</li>
+        <li>Trade Name: Architect of Personal Brand</li>
+        <li>Registration Number (if any): 165-284-35-29</li>
+        <li>Legal Address / Correspondence Address: Moscow, Sumskaya st., 29</li>
+      </ul>
+      <p>Communication Channels:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>Support Service (general questions): info@personal-brand-architect.com</li>
+        <li>Legal Department (claims and notifications): lawyer@personal-brand-architect.com</li>
+        <li>Official Website: https://personal-brand-architect.com</li>
+      </ul>
+      <p>9.2. Status of address and electronic notifications: The Parties acknowledge the address specified in cl. 9.1, as well as the User's email address specified during registration, as proper addresses for serving any correspondence, including pre-trial claims and court summons. The notification is considered received by the User 24 hours after sending to Email or publication in the Personal Account, if the Provider has not received an automatic notification of a system delivery failure.</p>
+      <p>9.3. Contractual Recognition and Enforcement (Enforcement Clause): Given the cross-border nature of the Service and the choice of English law, the Parties unconditionally undertake to recognize and enforce any final decisions of competent courts (according to Section 14 of the Public Offer Agreement), issued within the framework of this Agreement. The Parties waive any objections to the enforcement of such decisions based on differences in jurisdictions or location of assets, to the extent that this does not contradict the mandatory norms of public policy of the country of enforcement.</p>
+      <p>9.4. Change of Details: The Provider has the right to unilaterally change their details by updating the text of this Offer. Continued use of the Service by the User after such an update is considered proper notification of the User about the change of Provider's details.</p>
+      <p>9.5. Service of Process: The User unconditionally agrees that the email address specified by them during registration in the Service is recognized as a proper and exclusive address for serving any legal correspondence, including claims, court notices, lawsuits, and subpoenas. Service of any documents to this email address is recognized by the Parties as equivalent to personal service (Personal Service) to the User. Any notice or lawsuit is considered received by the User after 24 (twenty-four) hours from the moment the letter is sent by the Owner, regardless of the fact of its actual reading by the User or the settings of the mail server filtering (including the "Spam" folder). The User bears sole responsibility for the operability of the email address specified during registration and assumes all risks associated with untimely familiarization with legal correspondence.</p>
+    `,
+  },
+];
+
+const blogItems = await getLatestAdvantagesPosts('en', 2);
+const tocItems: TocItem[] = chapters.map((item) => ({
+  id: item.id,
+  text: item.title,
+  chapter: item.chapter,
+}));
+---
+
+<PageLayout head={page.meta} hero={page.hero}>
+  <Section variant="default">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 lg:gap-12">
+      <Sidebar
+        tocItems={tocItems}
+        blogItems={blogItems}
+        blogTitle="Useful Articles"
+        ctaText="Read More"
+        class="order-last lg:order-first"
+      />
+      <div class="flex flex-col gap-8">
+        <Breadcrumbs items={[{ text: content.breadcrumb }]} class="mb-6" />
+        <div class="prose dark:prose-invert max-w-none">
+          <div class="py-4">
+            <p><strong>PRIVACY POLICY of the AI-service "Architect of Personal Brands"</strong></p>
+            <p>Effective Date: 20.02.2026</p>
+            <p>Last Updated: 20.02.2026</p>
+            <p>
+              <strong>PREAMBLE (INTRODUCTION)</strong><br />
+              This Privacy Policy (hereinafter referred to as the "Policy") explains how the Service collects, uses, stores,
+              and protects your data. IMPORTANT: Developing a personal brand through AI involves transferring sensitive information,
+              so the goal of the SaaS platform "Personal Brand Architect" is to ensure transparency in User data processing
+              and its protection through anonymization, encryption, and the use of secure data transmission channels (Enterprise
+              API). By using the Service, the User entrusts their personal data. If the User does not agree with the processing
+              methods described in this document, they must stop using the Platform. This Policy is a legally binding supplement
+              to the Offer Agreement and User Agreement.
+            </p>
+          </div>
+          <Content chapters={chapters} />
+        </div>
+      </div>
+    </div>
+  </Section>
+</PageLayout>

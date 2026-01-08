@@ -22,7 +22,7 @@ const { chapters, ...rest } = Astro.props;
       chapters.map((chapter) => (
         <article class="content-chapter" id={chapter.id}>
           <div class="chapter-header">
-            <span class="chapter-label">{chapter.chapter}</span>
+            {/* <span class="chapter-label">{chapter.chapter}</span> */}
             <Heading as="h3" size="2xl" text={chapter.title} />
           </div>
           <div class="chapter-body">

@@ -1,0 +1,267 @@
+---
+import PageLayout from '@layouts/PageLayout.astro';
+import Section from '@components/blocks/Section.astro';
+import Sidebar from '@components/blocks/Sidebar.astro';
+import Breadcrumbs from '@components/structures/Breadcrumbs.astro';
+import Content from '@components/blocks/Content.astro';
+import { getPageContent } from '@data/pages';
+import { getLatestAdvantagesPosts } from '@utils/posts';
+import { getLegalPageContent } from '@data/page-content';
+import { SUPPORTED_LANGUAGES } from '@/types/i18n';
+import type { TocItem } from '@components/structures/TableOfContents.astro';
+
+export function getStaticPaths() {
+  return SUPPORTED_LANGUAGES.map((lang) => ({
+    params: { lang },
+  }));
+}
+
+const page = getPageContent('terms', 'en');
+const content = getLegalPageContent('terms', 'en');
+
+const chapters = [
+  {
+    id: 'preamble',
+    chapter: '',
+    title: 'PREAMBLE (INTRODUCTION)',
+    content: `
+      <p>This User Agreement (hereinafter — the "Agreement") is a legally binding contract between the Service Owner and the User. It defines the technical and legal rules for accessing the Personal Account, the procedure for using Artificial Intelligence (AI) tools, and establishes strict restrictions on intellectual property protection and rules of business interaction.</p>
+      <p class="uppercase font-bold">ATTENTION: If you do not agree with any provision of this Agreement, you are obliged to immediately stop using the Service and leave the Personal Account. Continued use of the Platform, activation of any stages of the Methodology, or topping up the balance are recognized as your full and unconditional agreement (Acceptance) with the text of this document.</p>
+    `,
+  },
+  {
+    id: 'chapter-1',
+    chapter: '1.',
+    title: 'RELATION OF DOCUMENTS AND DEFINITIONS',
+    content: `
+      <p>1.1. Hierarchy and unity of documents:</p>
+      <p>Relation to the Offer: This User Agreement (hereinafter – the Agreement) is an integral part of the Public Offer Agreement (Terms & Conditions) of the "Architect of Personal Brands" Service (hereinafter – the Offer). Acceptance of the Offer automatically means full and unconditional acceptance of the terms of this Agreement, Content Usage Rules, Disclaimer of Warranties and Representations, Privacy Policy, and Affiliate Program Terms.</p>
+      <p>In case of any contradictions between the text of this Agreement and the Offer, the Public Offer Agreement shall have unconditional priority. The User acknowledges that the "Personal Account Instructions", marketing materials, and support service messages are auxiliary and cannot change or cancel the scope of liability established in the Offer and this Agreement.</p>
+      <p>1.2. Terms: "Service Owner" (Sergey Vyacheslavovich P., Business-Pathfinder), "Service", "User", "Methodology", "Offer Acceptance", "Personal Account Instructions", "Affiliate Program Terms", and others used in this Agreement have the same meaning as in the Offer.</p>
+      <p>1.3. Technical nature of terms: The name "Architect of Personal Brands" is exclusively a marketing name for the software interface (SaaS). The use of this word, as well as the terms "Methodology", "Strategy", or "Plan" does not imply the provision of individual consulting or professional services by a live specialist. The User acknowledges that they interact exclusively with an algorithm (AI), the results of which are probabilistic in nature.</p>
+    `,
+  },
+  {
+    id: 'chapter-2',
+    chapter: '2.',
+    title: 'USER RIGHTS AND OBLIGATIONS',
+    content: `
+      <p>2.1. Professional responsibility: Given the User's status as a Business-User (Prosumer), the User acknowledges that they possess sufficient qualifications to independently assess the risks associated with using AI tools. The User undertakes to independently verify any generated content before publishing it or implementing it into business processes.</p>
+      <p>2.2. User Obligations:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>a) Provide accurate and truthful data when registering and using the Service.</li>
+        <li>b) Use the Service exclusively for lawful purposes and in accordance with its intended use (personal brand development), strictly complying with the Content Usage Rules, without attempting reverse engineering, copying the Methodology, or creating competing products. The User is prohibited from reverse engineering, copying, or reproducing the Methodology, logic, question structure, and Service algorithms, or using them to create competing products. The right to use generated Reports is regulated by Section 11 of the Offer Agreement.</li>
+        <li>c) Immediately notify the Owner of unauthorized use of their account.</li>
+        <li>d) Independently bear responsibility for any tax consequences associated with balance top-ups, fund deductions, currency conversion, and fund withdrawals.</li>
+        <li>e) Comply with the rules and procedures for using the Personal Account set out in the "Personal Account Instructions" document, and, in case of participation, fulfill all conditions of the "Affiliate Program Terms".</li>
+        <li>f) Guarantee of professional use: By accepting this Agreement, the User reaffirms their status as an entrepreneur or professional (Prosumer). The User guarantees that they possess sufficient qualifications to use AI tools. Any claims of "misunderstanding AI principles" or "interface complexity" are recognized by the Parties as knowingly false and aimed at abuse of rights.</li>
+        <li>g) Personal responsibility for the Account: The Account is strictly individual. Transferring access to the Account to third parties is prohibited. Any action performed under the User's account is recognized as an action of the User themselves. The Owner does not accept claims of "unauthorized access" unless the User proves the fact of direct hacking of the Platform infrastructure itself.</li>
+      </ul>
+      <p>2.3. Prohibited Use:</p>
+      <p>The User is strictly prohibited from:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>a) Violating the Intellectual Property rights of the Owner and Author (Section 11 of the Offer Agreement).</li>
+        <li>b) Carrying out mass, automated, or bad-faith generation of strategic documents for the purpose of their subsequent resale, creating a database, or use outside of personal commercial purposes.</li>
+        <li>c) Using the Service to distribute illegal, discriminatory, or harmful information.</li>
+        <li>d) IP Protection: The User acknowledges that the exclusive right to the Methodology (logic, algorithms, Service structure) belongs to the Author. The User's ownership right extends only to Reports generated by the Service based on their data, according to Section 11 of the Offer Agreement.</li>
+        <li>e) Prohibition on legal and technical analysis: It is prohibited to use the Service for the purpose of "reverse engineering" algorithms, searching for legal vulnerabilities, or conducting comparative tests to discredit the Methodology. Violation of this clause is recognized as a material violation of the License terms.</li>
+      </ul>
+      <p>2.4. Code of interaction and compensation (Liquidated Damages): The User is categorially prohibited from showing aggression, using profanity, or exerting psychological pressure on the Owner's staff ("Toxic behavior"), including blackmail with negative reviews or threats of legal prosecution outside the pre-trial procedure. The Parties agree that Toxic behavior is a Material Breach of the Agreement, as it destabilizes business processes and requires the Owner to involve security specialists and lawyers to record and process the incident.</p>
+      <p>Due to the difficulty of accurately calculating damages in each case, the Parties establish that upon termination of the Agreement for Toxic behavior, the remaining APB Credits on the User's balance are recognized as an agreed assessment of the Owner's minimum costs for:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>i) technical termination of access,</li>
+        <li>ii) conducting an internal investigation of the incident,</li>
+        <li>iii) legal support for account closure,</li>
+        <li>iv) compensation for distracting key personnel from commercial activities.</li>
+      </ul>
+      <p>The User unconditionally agrees that the remaining APB Credits on their balance are withheld by the Owner as Liquidated Damages, but in any case, the withholding amount cannot exceed 1,000 (one thousand) Credits. Any balance exceeding this amount is subject to return to the User minus payment system commissions.</p>
+    `,
+  },
+  {
+    id: 'chapter-3',
+    chapter: '3.',
+    title: 'RULES FOR USING SERVICE TOOLS',
+    content: `
+      <p>3.1. Personal Account Use: The User undertakes to use the Service functionality, including internal reports, forms, and navigation, strictly in accordance with the provisions of the "Personal Account Instructions" document.</p>
+      <p>3.2. Affiliate Program (Legal Status): Theoretical participation of the User in the Affiliate Program is regulated by a separate document "Affiliate Program Terms". A User who has received Partner status confirms that their activity is independent, does not fall under labor or agency legislation, and does not create employment or representation relations with the Service Owner.</p>
+      <p>3.3. Nature of actions in the interface: Each action of the User to "Activate" or "Unlock" stages of the Methodology within the Personal Account is a final and unconditional confirmation of the realization of part of the License rights. From the moment of clicking the "Activate" button (or similar), any clicks/presses on stage activation buttons in the interface, as well as performing actions for authorization via Email, are recognized as a simple electronic signature and have legal force equivalent to a handwritten signature in any jurisdiction.</p>
+      <p>After the User has clicked the "Start"/"Activate" button (or similar), the License for the specific stage is considered fully granted and used. Refunds of Credits for activated stages are impossible under any circumstances.</p>
+      <p>3.4. Dynamism and SLA: The Service is provided "as is". The Owner has the right to change AI models (API providers), the interface, and the composition of tools without notice. Short-term access interruptions of up to 48 hours (No SLA) or changes in AI output logic are not a service defect, a violation of the Agreement, and do not give the right to compensation or refunds.</p>
+      <p>3.5. Dependence on providers (Downstream Liability): The Service is provided on an "as is" and "as available" basis. The Owner does not guarantee uninterrupted operation of the Service 24/7: The operation of the Service depends on third-party APIs (OpenAI, etc.). The User receives access to the "Methodology as it is at the moment of activation", and not to a specific version of third-party technologies.</p>
+      <p>The User realizes that the operation of the Service critically depends on the APIs of third-party AI laboratories. Any sanctions, failures, or changes in provider policies, API disconnection, or sanctions restrictions against these providers are recognized as force majeure circumstances for the Owner.</p>
+      <p>3.6. Verification obligation (Fact-checking): The User acknowledges that the Service is a tool for automated hypothesis generation. The User is obliged to conduct independent verification (Fact-checking) of any generation results for reliability, absence of libel, compliance with legislation and ethical norms. Posting or using content generated by AI without prior verification and editing by the User is a violation of this Agreement.</p>
+      <p>The Owner is not responsible for the accuracy of data or possible libel contained in AI responses, as the User is the final editor and publisher of the content.</p>
+      <p>3.7. Technological specifics (Black Box Disclaimer): The User realizes that AI works on the basis of neural networks, the results of which can be unpredictable and differ for identical requests. The inability to "logically explain" a specific generation is a technical feature of the technology and is not recognized as poor-quality service provision.</p>
+      <p>3.8. Probabilistic nature of AI: The User acknowledges that AI is a forecasting tool, not a reference book. AI "hallucinations", technical failures in generation, or data inaccuracy are not a service defect. By activating a Methodology stage, the User accepts the risk that the result may require manual adjustment.</p>
+      <p>3.9. Legal status and conditions for using generated AI content:</p>
+      <p>3.9.1. Scope of rights and disclaimer of uniqueness guarantee: From the moment APB Credits are deducted for activating a Methodology stage, the Owner grants the User the right to use the generated Content (reports, plans, texts) on the terms of an Individual License for a period of 50 (fifty) years worldwide. This license includes the right to publish, modify, and use the Content for the User's personal and commercial purposes.</p>
+      <p>The User realizes and unconditionally accepts the technological specifics of AI: due to the probabilistic algorithms of neural networks, the Service may generate similar or identical Content for different Users (especially if niches, target audiences, or input data coincide). The Owner does not guarantee absolute uniqueness of the Content. The User voluntarily accepts the risk of possible coincidence of generation results and waives any claims against the Owner or third parties related to the lack of content uniqueness or violation of "copyright" to AI generation results.</p>
+      <p>3.9.2. Conditional character (Conditionality) and revocation of rights: The rights specified in clause 3.9.1 are granted to the User only subject to strict compliance with the terms of the Offer and this Agreement. In case of termination of the Agreement due to the User's fault (including, but not limited to: "toxic behavior", violation of License terms, reverse engineering attempts), the license granted for all previously obtained Content is automatically annulled (Revocation). From the moment of annulment, the User is obliged to stop any use of the Content and ensure the deletion of all its copies.</p>
+      <p>3.9.3. Technological and competitive prohibitions: The User is specifically prohibited from using the Content (as well as its structure, logical links, and prompts that became known to them in the process of using the Service) for:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>1. Any interaction with AI models (including third-party LLMs) aimed at reproducing the Methodology logic, automated analysis of the Service structure, or creating derivative prompts (including fine-tuning, RAG, or prompt-injection methods).</li>
+        <li>2. Creating software products, SaaS platforms, or educational courses directly or indirectly competing with the "Architect of Personal Brands" Service.</li>
+      </ul>
+      <p>Violation of this prohibition is recognized as a violation of trade secrets and entails a fine provided for in clause 11.4 of the Offer ($50,000).</p>
+      <p>3.9.4. Protection of Methodology as a trade secret: The User acknowledges that the Content is a form of expression of the Owner's Methodology. Obtaining a license for the Content does not create co-authorship relations. Any attempt by the User to register exclusive copyrights or patents on the structure, algorithms, or logic contained in the Content is recognized as a gross violation of the Owner's intellectual rights and entails liability provided for in Section 11 of the Offer.</p>
+      <p>3.9.5. Owner's right to use data: The Owner guarantees that they will not transfer the User's identical report file to third parties. However, the Owner reserves the right to use anonymized fragments of Content and statistical generation data to improve AI algorithms and develop the Methodology without paying compensation to the User.</p>
+      <p>3.9.6. Data Portability & GDPR: The User has the right to export their personal data and generation results (Content) in a commonly accepted machine-readable format (e.g., PDF or JSON) exclusively during the validity period of the active account. The Owner bears no obligation to provide tools for data export after termination of the Agreement or expiration of access to Methodology stages. Content export does not terminate the restrictions established in clause 3.9.3 (prohibition on training third-party AI).</p>
+    `,
+  },
+  {
+    id: 'chapter-4',
+    chapter: '4.',
+    title: 'DETAILED REGULATION OF FINANCIAL TRANSACTIONS',
+    content: `
+      <p>4.1. Internal Balance Top-up:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>a) Transaction Responsibility: The User independently bears responsibility for the correctness of entering payment data, crypto wallet addresses, and choosing a payment gateway.</li>
+        <li>b) Non-refundable advance (Personal Account): Topping up the Personal Account balance (purchasing APB Credits) is recognized as purchasing digital access rights and is a non-refundable advance payment. APB Credits are not subject to reverse exchange for fiat currency or cryptocurrency, except in cases of termination of the Agreement at the initiative of the Owner in the absence of the User's fault.</li>
+      </ul>
+      <p>4.2. Fund Deduction and Tariffs:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>a) Funds are deducted automatically when the User transitions to the next stage of strategy development according to tariffs established by the Owner.</li>
+        <li>b) Tariffs may be changed by the Owner unilaterally with prior notification to the User 3 (three) working days before the changes take effect.</li>
+      </ul>
+      <p>4.3. Withdrawal Process (Affiliate Account):</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>a) Withdrawal right: Withdrawal of funds is possible exclusively from the Affiliate Account balance (accumulated APB Rewards units).</li>
+        <li>b) Identification: The Owner reserves the right to request identity verification (KYC/AML) from the User before processing a withdrawal request, especially for amounts exceeding the equivalent of 200 USD or strictly upon suspicion of fraud.</li>
+        <li>c) Commission Calculation: When withdrawing, the amount is calculated as the balance on the Affiliate Account minus:
+          <ul class="list-disc ml-6 space-y-2 my-2">
+            <li>i. 0.2% Fixed Service Commission;</li>
+            <li>ii. Variable Payment Gateway Commissions, Blockchain Gas Fees, and conversion costs.</li>
+          </ul>
+        </li>
+        <li>d) Final Amount: The User unconditionally agrees that the final amount to be received may differ from the request amount due to currency exchange rate fluctuations, changes in blockchain commissions, or payment service fees at the time of processing.</li>
+      </ul>
+      <p>4.4. Tax independence: The Owner is not a tax agent for the User. Any exchange rates indicated on the Site are for reference purposes to simplify understanding of the volume of APB Credits. The User independently bears responsibility for any conversion rates of their bank or payment system. Risks of conversion and obligations to declare income lie exclusively with the User.</p>
+      <p>4.5. Protection against balance manipulation (Anti-Money Laundering): Refund of unused advance (APB Credits) is carried out exclusively by the same method and to the same details from which the top-up was made. The Owner has the right to block any refund request if it looks like an attempt to cash out or "launder" funds, until the User provides full explanations. The User bears the risk of impossibility of refund if their details have become inactive or blocked in their jurisdiction.</p>
+      <p>4.6. Verification period and payment conditions:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>Holding Period: The Owner establishes a verification period for each transaction of up to 14 (fourteen) days...</li>
+        <li>Minimum threshold: usage amount equivalent to 50 (fifty) USD (does not apply to internal conversion according to clause 4.6 of this Agreement).</li>
+        <li>Identification (KYC): Only upon requesting a withdrawal of an amount equivalent to 200 (two hundred) USD, the Owner has the right to request documents...</li>
+      </ul>
+      <p>4.7. Downgrade conditions: In case of cessation of payment for extended functionality (for the "Expert" level), the User's status is downgraded to the "Specialist" level and accrual of new APB Rewards is suspended. Previously accumulated APB Rewards units are stored on the Affiliate Account balance, but their withdrawal may be limited until active status is restored or the minimum threshold (50 USD) is met.</p>
+    `,
+  },
+  {
+    id: 'chapter-5',
+    chapter: '5.',
+    title: 'DISCLAIMER FOR PAYMENT SYSTEMS AND TECHNICAL FAILURES',
+    content: `
+      <p>5.1. Liability for payment providers and Blockchain:</p>
+      <p>The Service Owner fully disclaims responsibility for any financial and technical losses of the User caused by:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>a) Exchange Rate Differences: Any losses arising from fluctuations in exchange rates between the moment of top-up/withdrawal request and actual crediting/debiting of funds (for transactions involving fiat/crypto conversion).</li>
+        <li>b) Technical Failures/Delays/Errors of the payment provider (service): Failures, calculation errors, processing delays, transaction rejection, or temporary cessation of the provider's payment gateway operation.</li>
+        <li>c) Blockchain Problems: Incorrect wallet address entry by the User, network congestion, Gas Fee changes, hard forks, or any other technical problems in the blockchain network that may lead to transaction delay or loss.</li>
+      </ul>
+      <p>5.2. Service Failures:</p>
+      <p>The Owner will make reasonable efforts to ensure uninterrupted operation of the Service. However, the Owner is not responsible for temporary technical failures, interruptions in access to the Service caused by force majeure circumstances, hacker attacks, hosting problems, or other events beyond the Owner's reasonable control.</p>
+      <p>5.3. Violations within the Affiliate Program:</p>
+      <p>5.3.1. To account for the User's achievements in the Affiliate Program, the Affiliate Account interface is used, which displays accrued APB Rewards units. Conditions for participation and level qualifications (Specialist, Expert, Strategist) are spelled out in the "Affiliate Program Terms" document.</p>
+      <p>5.3.2. The Owner guarantees the correctness of accounting for APB Rewards accrued for good-faith actions. In case of a technical failure, the Owner restores the correct number of units based on system log data.</p>
+      <p>5.3.3. Annulment of units: The Owner has the right to unilaterally annul APB Rewards on the Affiliate Account in case of violation by the User of the "Affiliate Program Terms", including, but not limited to: use of spam, fraud, creation of fictitious accounts, misleading Referrals).</p>
+    `,
+  },
+  {
+    id: 'chapter-6',
+    chapter: '6.',
+    title: 'DISPUTE RESOLUTION AND GOVERNING LAW',
+    content: `
+      <p>6.1. Applicable Law: This Agreement, including all interpretations, rights, and obligations related thereto, is governed exclusively by English law.</p>
+      <p>6.2. Dispute Resolution Procedure: All disputes are resolved in accordance with the procedure established in Section 7 of the Offer, including:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>a) Mandatory Pre-trial Procedure (30 days).</li>
+        <li>b) Exclusive Jurisdiction of the High Court of Justice in London, England.</li>
+      </ul>
+    `,
+  },
+  {
+    id: 'chapter-7',
+    chapter: '7.',
+    title: 'TERM AND TERMINATION',
+    content: `
+      <p>7.1. Term: The Agreement enters into force from the moment of Acceptance of the Offer by the User and is valid until terminated on the grounds provided for in this Agreement.</p>
+      <p>7.2. Termination at the Owner's Initiative: The Owner has the right to immediately terminate the User's access to the Service unilaterally (terminate the Agreement) without reimbursement, in case of:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>a) Violation by the User of the Intellectual Property rights of the Owner or Author, including violation of the Content Usage Rules (clause 3 of said Rules).</li>
+        <li>b) Commission by the User of fraudulent actions or attempts at unauthorized access.</li>
+        <li>c) Violation by the User of clause 2.2. (Prohibited Use).</li>
+        <li>d) Violation by the User of provisions of the "Personal Account Instructions" document.</li>
+        <li>e) Violation by the User of any provisions of the "Affiliate Program Terms" document (including, but not limited to, creation of false accounts, spam, or dissemination of false guarantees).</li>
+      </ul>
+      <p>7.3. Financial consequences of termination due to User's fault:</p>
+      <p>In case of termination of the Agreement due to the User's fault (toxic behavior, IP violation, fraud), the balance of funds on the User's accounts is withheld by the Owner as Liquidated Damages (agreed compensation for incident audit and account closure).</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>The withholding amount constitutes the entire balance on the Affiliate Account and part of the balance on the Personal Account, but in aggregate cannot exceed 1,000 APB Credits (or equivalent in Rewards).</li>
+        <li>This liability limitation (1000 Credits) concerns exclusively administrative expenses for account closure and does not limit the Owner's right to recover compensation in the amount of $50,000 for violation of intellectual rights, provided for in clause 11.4 of the Offer.</li>
+      </ul>
+      <p>7.4. Right to Temporary Suspension (Suspension Right): The Owner has the right to unilaterally temporarily suspend the User's access to the Service and Personal Account, as well as the ability to withdraw funds from the balance, in case of detection of suspicious actions, investigation of alleged violations (including IP violations, Personal Account Instructions, or Affiliate Program Terms) or in case of technical works. Such suspension is not a termination of the Agreement and may last until the causes are eliminated or the internal investigation is completed.</p>
+      <p>During the suspension period for investigation purposes, the running of any pre-trial procedure terms is frozen. The Owner is not responsible for the User's lost profit caused by temporary account blocking upon suspicion of violation of the Agreement terms.</p>
+      <p>7.5. Right to be forgotten: In accordance with clause 15.4 of the Offer, for the purposes of complying with international legislation (AML/KYC) and providing an evidentiary basis for protecting the Owner's interests in court, encrypted logs of User actions and transaction data are stored for 5 (five) years from the moment of termination of access to the Account. After this period, personal data is subject to full deletion or final anonymization.</p>
+      <p>7.6. Non-assignability: User rights under this Agreement (including access to the account and APB Credits) are personal. They cannot be transferred, sold, gifted, or assigned to third parties. In case of the User's death or liquidation of a legal entity, the account is blocked, and Credits are annulled without the right of inheritance or payment of monetary equivalent.</p>
+    `,
+  },
+  {
+    id: 'chapter-8',
+    chapter: '8.',
+    title: 'GENERAL PROVISIONS',
+    content: `
+      <p>8.1. Language: This Agreement is drawn up in Russian exclusively for the convenience of Russian-speaking Users. For the purposes of ensuring transparency for the international community and compliance with the chosen applicable law (English Law), the English version has unconditional priority (Prevailing Version). In case of any discrepancies in the interpretation of terms or conditions between the Russian and English versions, the Parties and the Court must be guided by the text in English.</p>
+      <p>8.2. Modification of terms: The Owner has the right to change the User Agreement at any time. Continued use of the Service after the update date (indicated at the beginning of the document) is recognized as unconditional agreement of the User with the new edition. The User is obliged to independently check the update date before each balance top-up.</p>
+      <p>8.3. Class Action Waiver: The User agrees to resolve any disputes with the Owner exclusively on an individual basis. Participation in class actions or group arbitrations is prohibited.</p>
+      <p>8.4. Severability:</p>
+      <p>If any provision of this Agreement is recognized by a court as invalid, this does not affect the validity of the remaining provisions, which retain full legal force.</p>
+      <p>8.5. Provider Details and Contact Information:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>Name: Individual Service Provider Sergey Vyacheslavovich Pak</li>
+        <li>Trade Name: Architect of Personal Brand</li>
+        <li>Registration Number (if applicable): 165-284-35-29</li>
+        <li>Legal Address / Correspondence Address: Moscow, Sumskaya St., 29</li>
+      </ul>
+       <p>Communication Channels:</p>
+      <ul class="list-disc ml-6 space-y-2 my-2">
+        <li>Support Service (general questions): info@personal-brand-architect.com</li>
+        <li>Legal Department (claims and notifications): lawyer@personal-brand-architect.com</li>
+        <li>Official Website: https://personal-brand-architect.com</li>
+      </ul>
+    `,
+  },
+];
+
+const blogItems = await getLatestAdvantagesPosts('en', 2);
+const tocItems: TocItem[] = chapters.map((item) => ({
+  id: item.id,
+  text: item.title,
+  chapter: item.chapter,
+}));
+---
+
+<PageLayout head={page.meta} hero={page.hero}>
+  <Section variant="default">
+    <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 lg:gap-12">
+      <Sidebar
+        tocItems={tocItems}
+        blogItems={blogItems}
+        blogTitle="Useful Materials"
+        ctaText="Read more"
+        class="order-last lg:order-first"
+      />
+      <div class="flex flex-col gap-8">
+        <Breadcrumbs items={[{ text: content.breadcrumb }]} class="mb-6" />
+        <div class="prose dark:prose-invert max-w-none">
+          <div class="py-4">
+            <p><strong>USER AGREEMENT (TERMS OF SERVICE)</strong></p>
+            <p>of the AI-service "Architect of Personal Brands"</p>
+            <p>Last updated: 20.02.2026</p>
+            <p>Effective from: 18.02.2026</p>
+          </div>
+          <Content chapters={chapters} />
+        </div>
+      </div>
+    </div>
+  </Section>
+</PageLayout>

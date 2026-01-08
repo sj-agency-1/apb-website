@@ -9,8 +9,8 @@
       - [x] stepsToLaunch, show timeline
       - [x] Prefooter, mobile
       - [x] FAQ section, move CTA card to bottom
-    - [ ] How it works page:
-      - [ ] Move Business Plan (9 stage) to 7th stage. Old 7th stage move to 8th, 8th to 9th and etc.
+    - [x] How it works page:
+      - [x] Move Business Plan (9 stage) to 7th stage. Old 7th stage move to 8th, 8th to 9th and etc.
     - [ ] Header - when context menu is opened, merge 2 navs into 1 (do not separate them by spacing)
     - [ ] Reviews page:
       - [ ] Remove the first "add review" buttton, before reviews list (on desktop too)

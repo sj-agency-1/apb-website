@@ -274,6 +274,40 @@ const stepsPricing: StepPricing[] = [
   },
   {
     step: 7,
+    icon: 'heroicons:briefcase',
+    oldPrice: 162,
+    newPrice: 147,
+    translations: {
+      ru: {
+        title: 'БИЗНЕС-ПЛАН, ФИНАНСОВАЯ МОДЕЛЬ И ДОРОЖНАЯ КАРТА',
+        description:
+          'Комплексный бизнес-план с финансовыми прогнозами, расчетами окупаемости и пошаговой дорожной картой развития.',
+        purpose:
+          'Бизнес-план - это ваш компас и гарантия жизнеспособности бизнеса. Он собирает всю проделанную работу в один документ.',
+        faq: [
+          {
+            question: 'Что включает финансовая модель?',
+            answer: 'Прогноз доходов и расходов, точка безубыточности, ROI, сроки окупаемости инвестиций.',
+          },
+        ],
+      },
+      en: {
+        title: 'BUSINESS PLAN, FINANCIAL MODEL AND ROADMAP',
+        description:
+          'Comprehensive business plan with financial forecasts, payback calculations and step-by-step development roadmap.',
+        purpose:
+          'The business plan is your compass and guarantee of business viability. It collects all the work done into one document.',
+        faq: [
+          {
+            question: 'What does the financial model include?',
+            answer: 'Revenue and expense forecast, break-even point, ROI, investment payback periods.',
+          },
+        ],
+      },
+    },
+  },
+  {
+    step: 8,
     icon: 'heroicons:document-text',
     oldPrice: 69,
     newPrice: 57,
@@ -308,7 +342,7 @@ const stepsPricing: StepPricing[] = [
     },
   },
   {
-    step: 8,
+    step: 9,
     icon: 'heroicons:rocket-launch',
     oldPrice: 139,
     newPrice: 125,
@@ -336,40 +370,6 @@ const stepsPricing: StepPricing[] = [
             question: 'What promotion channels are used?',
             answer:
               'Social networks, contextual advertising, SEO, email marketing, partnerships and other channels depending on your niche.',
-          },
-        ],
-      },
-    },
-  },
-  {
-    step: 9,
-    icon: 'heroicons:briefcase',
-    oldPrice: 162,
-    newPrice: 147,
-    translations: {
-      ru: {
-        title: 'БИЗНЕС-ПЛАН, ФИНАНСОВАЯ МОДЕЛЬ И ДОРОЖНАЯ КАРТА',
-        description:
-          'Комплексный бизнес-план с финансовыми прогнозами, расчетами окупаемости и пошаговой дорожной картой развития.',
-        purpose:
-          'Бизнес-план - это ваш компас и гарантия жизнеспособности бизнеса. Он собирает всю проделанную работу в один документ.',
-        faq: [
-          {
-            question: 'Что включает финансовая модель?',
-            answer: 'Прогноз доходов и расходов, точка безубыточности, ROI, сроки окупаемости инвестиций.',
-          },
-        ],
-      },
-      en: {
-        title: 'BUSINESS PLAN, FINANCIAL MODEL AND ROADMAP',
-        description:
-          'Comprehensive business plan with financial forecasts, payback calculations and step-by-step development roadmap.',
-        purpose:
-          'The business plan is your compass and guarantee of business viability. It collects all the work done into one document.',
-        faq: [
-          {
-            question: 'What does the financial model include?',
-            answer: 'Revenue and expense forecast, break-even point, ROI, investment payback periods.',
           },
         ],
       },

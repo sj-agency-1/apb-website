@@ -53,7 +53,7 @@
     - [x] On home page, faq section, open first accordion element by default
     - [x] On home page, reviews section, fix title and add arrows. Make scrollable by swipe on desktop as well
     - [x] Prefooter, separate content to 2 section, keep content on the left section. And fix bg positioning to bottom
-  - [ ] Fix advantages on production
+  - [x] Fix advantages on production
 
 - [x] Setup DecapCMS (When domain owned)
   - [x] Setup OAuth Google Provider

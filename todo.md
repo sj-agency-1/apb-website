@@ -3,7 +3,7 @@
     - [ ] Home page
       - [x] Main page, hero component,
       - [x] Remove table of contents
-      - [ ] List of posts should below content
+      - [x] List of posts should below content
       - [ ] CTA card, text center. "Создать свой \n Онлайн бизнес". "Который называется \n Личный бренд"
       - [ ] Advantages, merge secondary and ternary cards
       - [ ] stepsToLaunch, show timeline

@@ -15,10 +15,19 @@ interface Props extends HTMLAttributes<'aside'> {
   blogStyle?: 'grouped' | 'cards';
 }
 
-const { tocItems, blogItems, blogTitle, activeId, ctaText = 'Подробнее', blogStyle = 'grouped', ...rest } = Astro.props;
+const {
+  tocItems,
+  blogItems,
+  blogTitle,
+  activeId,
+  ctaText = 'Подробнее',
+  blogStyle = 'grouped',
+  class: className,
+  ...rest
+} = Astro.props;
 ---
 
-<aside class="sidebar" {...rest}>
+<aside class:list={['sidebar', className]} {...rest}>
   {
     tocItems && tocItems.length > 0 && (
       <Card blur variant="outline" size="md" class="sidebar-card table-of-contents-card">

@@ -72,8 +72,8 @@
     - [x] Change place of steps similar to `how it works` page
     - [x] Fix launch steps on mobile
     - [x] Adjust reviews width on mobile
-  - [ ] About:
-    - [ ] Add arrows to the advantages list
+  - [x] About:
+    - [x] Add arrows to the advantages list
   - [ ] General:
     - [ ] Fix advantages block on mobile (arrows and buttons)
     - [ ] Change "Преимущества" to "Достоинтсва" on russian 

@@ -24,18 +24,22 @@ const { posts, title, subtitle, lang, readMoreText, seeAllText, seeAllHref } = A
       {title && <Heading as="h2" size="4xl" text={title} />}
       {subtitle && <Paragraph text={subtitle} muted />}
     </div>
-    <div class="flex gap-2 shrink-0">
-      <Button variant="outline" class="prev-advantage px-3" aria-label="Previous advantage">
-        <div class="flex items-center justify-center">
-          <Icon name="arrow-left" />
-        </div>
-      </Button>
-      <Button variant="outline" class="next-advantage px-3" aria-label="Next advantage">
-        <div class="flex items-center justify-center">
-          <Icon name="arrow-right" />
-        </div>
-      </Button>
-      {seeAllText && seeAllHref && <Button text={seeAllText} href={seeAllHref} variant="outline" />}
+
+    <div class="hidden lg:block">
+      <!-- Show on desktop -->
+      <div class="flex gap-2 shrink-0">
+        <Button variant="outline" class="prev-advantage px-3" aria-label="Previous advantage">
+          <div class="flex items-center justify-center">
+            <Icon name="arrow-left" />
+          </div>
+        </Button>
+        <Button variant="outline" class="next-advantage px-3" aria-label="Next advantage">
+          <div class="flex items-center justify-center">
+            <Icon name="arrow-right" />
+          </div>
+        </Button>
+        {seeAllText && seeAllHref && <Button text={seeAllText} href={seeAllHref} variant="outline" />}
+      </div>
     </div>
   </div>
 
@@ -70,70 +74,98 @@ const { posts, title, subtitle, lang, readMoreText, seeAllText, seeAllHref } = A
       }
     </div>
   </div>
+
+  <div class="block lg:hidden">
+    <!-- Show on Mobile -->
+    <div class="flex gap-2 shrink-0">
+      <Button variant="outline" class="prev-advantage-mob px-3" aria-label="Previous advantage">
+        <div class="flex items-center justify-center">
+          <Icon name="arrow-left" />
+        </div>
+      </Button>
+      <Button variant="outline" class="next-advantage-mob px-3" aria-label="Next advantage">
+        <div class="flex items-center justify-center">
+          <Icon name="arrow-right" />
+        </div>
+      </Button>
+    </div>
+  </div>
+
+  <script>
+    function initAdvantages() {
+      const carousels = document.querySelectorAll('.advantages-carousel');
+
+      carousels.forEach((carousel) => {
+        const container = carousel.closest('.advantages-carousel-container');
+        if (!container) return;
+
+        // Check if already initialized
+        if ((carousel as unknown as { __advantagesInitialized: boolean }).__advantagesInitialized) return;
+        (carousel as unknown as { __advantagesInitialized: boolean }).__advantagesInitialized = true;
+
+        const prevBtn = container.querySelector('.prev-advantage');
+        const nextBtn = container.querySelector('.next-advantage');
+        const prevBtnMob = container.querySelector('.prev-advantage-mob');
+        const nextBtnMob = container.querySelector('.next-advantage-mob');
+
+        if (prevBtn && nextBtn) {
+          prevBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: -400, behavior: 'smooth' });
+          });
+
+          nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: 400, behavior: 'smooth' });
+          });
+        }
+
+        if (prevBtnMob && nextBtnMob) {
+          prevBtnMob.addEventListener('click', () => {
+            carousel.scrollBy({ left: -300, behavior: 'smooth' });
+          });
+
+          nextBtnMob.addEventListener('click', () => {
+            carousel.scrollBy({ left: 300, behavior: 'smooth' });
+          });
+        }
+
+        // Drag to scroll
+        let isDown = false;
+        let startX: number;
+        let scrollLeft: number;
+
+        const c = carousel as HTMLElement;
+
+        c.addEventListener('mousedown', (e) => {
+          isDown = true;
+          c.classList.add('active');
+          startX = e.clientX - c.getBoundingClientRect().left;
+          scrollLeft = c.scrollLeft;
+        });
+
+        c.addEventListener('mouseleave', () => {
+          isDown = false;
+          c.classList.remove('active');
+        });
+
+        c.addEventListener('mouseup', () => {
+          isDown = false;
+          c.classList.remove('active');
+        });
+
+        c.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.clientX - c.getBoundingClientRect().left;
+          const walk = (x - startX) * 2; // scroll-fast
+          c.scrollLeft = scrollLeft - walk;
+        });
+      });
+    }
+
+    // Run on initial load
+    initAdvantages();
+
+    // Run on view transitions
+    document.addEventListener('astro:page-load', initAdvantages);
+  </script>
 </div>
-
-<script>
-  function initAdvantages() {
-    const carousels = document.querySelectorAll('.advantages-carousel');
-
-    carousels.forEach((carousel) => {
-      const container = carousel.closest('.advantages-carousel-container');
-      if (!container) return;
-
-      // Check if already initialized
-      if ((carousel as unknown as { __advantagesInitialized: boolean }).__advantagesInitialized) return;
-      (carousel as unknown as { __advantagesInitialized: boolean }).__advantagesInitialized = true;
-
-      const prevBtn = container.querySelector('.prev-advantage');
-      const nextBtn = container.querySelector('.next-advantage');
-
-      if (prevBtn && nextBtn) {
-        prevBtn.addEventListener('click', () => {
-          carousel.scrollBy({ left: -400, behavior: 'smooth' });
-        });
-
-        nextBtn.addEventListener('click', () => {
-          carousel.scrollBy({ left: 400, behavior: 'smooth' });
-        });
-      }
-
-      // Drag to scroll
-      let isDown = false;
-      let startX: number;
-      let scrollLeft: number;
-
-      const c = carousel as HTMLElement;
-
-      c.addEventListener('mousedown', (e) => {
-        isDown = true;
-        c.classList.add('active');
-        startX = e.clientX - c.getBoundingClientRect().left;
-        scrollLeft = c.scrollLeft;
-      });
-
-      c.addEventListener('mouseleave', () => {
-        isDown = false;
-        c.classList.remove('active');
-      });
-
-      c.addEventListener('mouseup', () => {
-        isDown = false;
-        c.classList.remove('active');
-      });
-
-      c.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.clientX - c.getBoundingClientRect().left;
-        const walk = (x - startX) * 2; // scroll-fast
-        c.scrollLeft = scrollLeft - walk;
-      });
-    });
-  }
-
-  // Run on initial load
-  initAdvantages();
-
-  // Run on view transitions
-  document.addEventListener('astro:page-load', initAdvantages);
-</script>

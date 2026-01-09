@@ -174,7 +174,7 @@ export const aboutPageContent: LocalizedContent<AboutPageContent> = {
     noExperienceParagraph3: 'О стоимости Вы можете узнать на странице «Как это работает».',
     noExperienceParagraph3Bold: '',
 
-    advantagesSectionTitle: 'Преимущества AI-сервиса',
+    advantagesSectionTitle: 'Достоинства AI-сервиса',
     advantagesSectionSubtitle: 'Читайте наши статьи',
     readMoreButton: 'Читать далее',
     seeAllButton: 'Смотреть все',

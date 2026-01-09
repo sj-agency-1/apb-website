@@ -32,11 +32,6 @@ const shareUrls = {
 <Element class:list={['share-buttons']} {...rest}>
   <span class="share-label text-sm text-muted-foreground font-medium">{shareLabel}:</span>
 
-  <!-- Toast Notification -->
-  <div class="copy-toast" role="alert" aria-live="polite">
-    {copiedLabel}
-  </div>
-
   <div class="share-icons flex flex-wrap items-center gap-2">
     <!-- Copy Link Button -->
     <Button
@@ -155,85 +150,44 @@ const shareUrls = {
   .copy-link-btn.copied {
     color: hsl(var(--success, 142 76% 36%));
   }
-
-  .copy-toast {
-    position: fixed;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%) translateY(100px);
-    background: hsl(var(--success, 142 76% 36%));
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    box-shadow:
-      0 4px 6px -1px rgb(0 0 0 / 0.1),
-      0 2px 4px -2px rgb(0 0 0 / 0.1);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
-    z-index: 9999;
-  }
-
-  .copy-toast.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
 </style>
 
 <script>
-  document.addEventListener('astro:page-load', () => {
-    const copyButtons = document.querySelectorAll('.copy-link-btn');
+  const copyButtons = document.querySelectorAll('.copy-link-btn');
+  copyButtons.forEach((btn) => {
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault();
 
-    copyButtons.forEach((btn) => {
-      btn.addEventListener('click', async (e) => {
-        e.preventDefault();
+      const button = e.currentTarget as HTMLElement;
+      const urlData = button.dataset.url;
+      const copiedLabel = button.dataset.copiedLabel || 'Copied!';
 
-        const button = e.currentTarget as HTMLElement;
-        const urlData = button.dataset.url;
-        const copiedLabel = button.dataset.copiedLabel || 'Copied!';
+      if (!urlData) return;
 
-        if (!urlData) return;
+      // Get the full URL (handle both full URLs and relative paths)
+      let fullUrl = urlData;
+      if (!urlData.startsWith('http')) {
+        // If it's a relative path, construct the full URL
+        fullUrl = window.location.origin + (urlData.startsWith('/') ? urlData : '/' + urlData);
+      } else {
+        // If it's already a full URL, use it as is
+        fullUrl = urlData;
+      }
+      try {
+        await navigator.clipboard.writeText(fullUrl);
 
-        // Get the full URL (handle both full URLs and relative paths)
-        let fullUrl = urlData;
-        if (!urlData.startsWith('http')) {
-          // If it's a relative path, construct the full URL
-          fullUrl = window.location.origin + (urlData.startsWith('/') ? urlData : '/' + urlData);
-        } else {
-          // If it's already a full URL, use it as is
-          fullUrl = urlData;
-        }
+        // Visual feedback on button
+        button.classList.add('copied');
+        button.setAttribute('title', copiedLabel);
 
-        try {
-          await navigator.clipboard.writeText(fullUrl);
-
-          // Visual feedback on button
-          button.classList.add('copied');
-          button.setAttribute('title', copiedLabel);
-
-          // Show toast notification
-          const shareButtons = button.closest('.share-buttons');
-          const toast = shareButtons?.querySelector('.copy-toast');
-          if (toast) {
-            toast.classList.add('show');
-
-            // Hide toast after 2 seconds
-            setTimeout(() => {
-              toast.classList.remove('show');
-            }, 2000);
-          }
-
-          // Reset button after 2 seconds
-          setTimeout(() => {
-            button.classList.remove('copied');
-            button.setAttribute('title', button.dataset.copyLabel || 'Copy link');
-          }, 2000);
-        } catch (err) {
-          console.error('Failed to copy URL:', err);
-        }
-      });
+        // Reset button after 2 seconds
+        setTimeout(() => {
+          button.classList.remove('copied');
+          button.setAttribute('title', button.dataset.copyLabel || 'Copy link');
+        }, 2000);
+      } catch (err) {
+        console.error('Failed to copy URL:', err);
+      }
     });
   });
 </script>

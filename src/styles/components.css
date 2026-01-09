@@ -1365,15 +1365,15 @@ main {
    LAUNCHSTEPS COMPONENT
    ============================================ */
 .launch-steps {
-  @apply relative flex flex-col gap-0;
+  @apply relative flex flex-col gap-4;
 }
 
 .timeline-line {
-  @apply absolute bottom-0 left-6 top-0 block w-px -translate-x-1/2 bg-muted lg:left-1/2;
+  @apply absolute bottom-0 left-0 top-0 block w-px -translate-x-1/2 bg-muted lg:left-1/2;
 }
 
 .launch-step {
-  @apply relative flex items-center w-full pl-12 lg:w-1/2 lg:pl-0;
+  @apply relative flex items-center w-full pl-6 lg:w-1/2 lg:pl-0;
   min-height: 140px;
 }
 
@@ -1386,7 +1386,7 @@ main {
 }
 
 .timeline-dot {
-  @apply absolute left-6 top-1/2 z-10 block h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent;
+  @apply absolute left-0 top-1/2 z-10 block h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent;
 }
 
 .launch-step.left .timeline-dot {

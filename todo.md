@@ -70,7 +70,7 @@
     - [x] Add "В первый раз БЕСПЛАТНО" under the first stage under the price with the promocode.
   - [ ] Home page:
     - [x] Change place of steps similar to `how it works` page
-    - [ ] Fix launch steps on mobile
+    - [x] Fix launch steps on mobile
     - [ ] Adjust reviews width on mobile
   - [ ] About:
     - [ ] Add arrows to the advantages list

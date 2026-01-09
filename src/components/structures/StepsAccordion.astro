@@ -11,6 +11,7 @@ interface StepItem {
   description: string;
   purpose: string;
   faq: { question: string; answer: string }[];
+  discountText?: string;
 }
 
 interface Props {
@@ -79,21 +80,30 @@ const {
             <h4 class="step-section-title">{descriptionLabel}</h4>
             <p class="step-section-text">{item.description}</p>
           </div>
-          <div class="step-section">
-            <h4 class="step-section-title">{purposeLabel}</h4>
-            <p class="step-section-text">{item.purpose}</p>
-          </div>
-          <div class="step-prices-detail">
-            <div class="price-item">
-              <span class="price-label">{priceLabel}</span>
-              <span class="price-value old">${typeof item.oldPrice === 'number' ? item.oldPrice : item.oldPrice}</span>
+          {item.purpose && (
+            <div class="step-section">
+              <h4 class="step-section-title">{purposeLabel}</h4>
+              <p class="step-section-text">{item.purpose}</p>
             </div>
-            <div class="price-item">
-              <span class="price-label">{promoPriceLabel}</span>
-              <span class="price-value new">
-                {typeof item.newPrice === 'number' ? `$${item.newPrice}` : item.newPrice}
-              </span>
+          )}
+          {item.oldPrice && item.newPrice && (
+            <div class="step-prices-detail">
+              <div class="price-item">
+                <span class="price-label">{priceLabel}</span>
+                <span class="price-value old">
+                  ${typeof item.oldPrice === 'number' ? item.oldPrice : item.oldPrice}
+                </span>
+              </div>
+              <div class="price-item">
+                <span class="price-label">{promoPriceLabel}</span>
+                <span class="price-value new">
+                  {typeof item.newPrice === 'number' ? `$${item.newPrice}` : item.newPrice}
+                </span>
+              </div>
             </div>
+          )}
+          <div>
+            {item.discountText && <span class="text-sm font-bold text-primary uppercase">{item.discountText}</span>}
           </div>
           {item.faq && item.faq.length > 0 && (
             <div class="step-faq">

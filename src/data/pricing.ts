@@ -21,6 +21,7 @@ export interface StepTranslation {
   faq: FaqItem[];
   oldPrice?: number | string;
   newPrice?: number | string;
+  discountText?: string;
 }
 
 export interface StepPricingBase {
@@ -44,6 +45,7 @@ export interface LocalizedStep {
   description: string;
   purpose: string;
   faq: FaqItem[];
+  discountText?: string;
 }
 
 // =============================================================================
@@ -59,6 +61,7 @@ const stepsPricing: StepPricing[] = [
     translations: {
       ru: {
         title: 'АУДИТ ЛИЧНОСТИ',
+        discountText: 'В первый раз БЕСПЛАТНО',
         description:
           'На этом первом этапе сервис проводит глубокий аудит вашей личности, опыта, навыков и скрытых талантов. Это интеллектуальное интервью, где вам нужно честно и развернуто отвечать на вопросы. Сервис анализирует полученные данные, используя аналитические алгоритмы, базирующиеся на методологиях бизнес-аудита и психологии личности.',
         purpose:
@@ -83,6 +86,7 @@ const stepsPricing: StepPricing[] = [
       },
       en: {
         title: 'PERSONALITY AUDIT',
+        discountText: 'First time FREE',
         description:
           'At this first stage, the service conducts a deep audit of your personality, experience, skills, and hidden talents. This is an intellectual interview where you need to answer questions honestly and in detail. The service analyzes the data received, using analytical algorithms based on business audit methodologies and personality psychology.',
         purpose:

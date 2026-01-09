@@ -76,4 +76,4 @@
     - [x] Add arrows to the advantages list
   - [x] General:
     - [x] Fix advantages block on mobile (arrows and buttons)
-    - [x] Change "Преимущества" to "Достоинтсва" on russian 
+    - [x] Change "Преимущества" to "Достоинтсва" on russian

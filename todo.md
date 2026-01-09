@@ -77,3 +77,7 @@
   - [x] General:
     - [x] Fix advantages block on mobile (arrows and buttons)
     - [x] Change "Преимущества" to "Достоинтсва" on russian
+
+Additional requested features:
+
+- [x] Add share buttons on posts (advanatages, blog)

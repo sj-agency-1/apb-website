@@ -69,7 +69,7 @@
     - [x] Fix click behavior on mobile ("этапы 2,3,4,5,6,7,8,9,10 открываются не в начале текста, а в конце или на ЧаВо")
     - [x] Add "В первый раз БЕСПЛАТНО" under the first stage under the price with the promocode.
   - [ ] Home page:
-    - [ ] Change place of steps similar to `how it works` page
+    - [x] Change place of steps similar to `how it works` page
     - [ ] Fix launch steps on mobile
     - [ ] Adjust reviews width on mobile
   - [ ] About:

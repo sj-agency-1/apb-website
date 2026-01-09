@@ -43,6 +43,12 @@ const tocItems = headings
 
 // Get latest advantages posts for sidebar
 const blogItems = await getLatestAdvantagesPosts(lang as 'en' | 'ru', 2);
+
+// Get the slug from the post
+const [, ...slugParts] = post.id.split('/');
+const filenameSlug = slugParts.join('/').replace(/\.mdx?$/, '');
+const slug = post.data.slug || filenameSlug;
+const postUrl = `/${lang}/advantages/${slug}`;
 ---
 
 <PostLayout
@@ -86,7 +92,7 @@ const blogItems = await getLatestAdvantagesPosts(lang as 'en' | 'ru', 2);
           <!-- Share Buttons -->
           <ShareButtons
             title={post.data.title}
-            url={Astro.url.href}
+            url={postUrl}
             shareLabel={t('share.label')}
             copyLinkLabel={t('share.copyLink')}
             copiedLabel={t('share.copied')}

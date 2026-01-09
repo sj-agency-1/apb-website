@@ -37,7 +37,7 @@ const {
 <div class="steps-accordion">
   {
     items.map((item) => (
-      <details class="step-item" name="steps-accordion">
+      <details class="step-item">
         <summary class="step-header">
           <div class="step-icon">
             <Icon name={item.icon} class="h-6 w-6 text-black" />
@@ -49,10 +49,14 @@ const {
             <h3 class="step-title">{item.title}</h3>
           </div>
           <div class="step-prices">
-            <span class="step-old-price">${typeof item.oldPrice === 'number' ? item.oldPrice : item.oldPrice}</span>
-            <span class="step-new-price">
-              {typeof item.newPrice === 'number' ? `$${item.newPrice}` : item.newPrice}
-            </span>
+            {item.oldPrice && (
+              <span class="step-old-price">${typeof item.oldPrice === 'number' ? item.oldPrice : item.oldPrice}</span>
+            )}
+            {item.newPrice && (
+              <span class="step-new-price">
+                {typeof item.newPrice === 'number' ? `$${item.newPrice}` : item.newPrice}
+              </span>
+            )}
           </div>
           <div class="step-toggle">
             <svg

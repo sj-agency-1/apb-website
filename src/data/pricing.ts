@@ -618,8 +618,8 @@ const stepsPricing: StepPricing[] = [
   {
     step: 11,
     icon: 'heroicons:cpu-chip',
-    oldPrice: 'Индивидуально',
-    newPrice: 'Индивидуально',
+    oldPrice: '',
+    newPrice: '',
     translations: {
       ru: {
         title: 'ЭТАП АВТОМАТИЗАЦИИ (Опционально)',
@@ -649,8 +649,8 @@ const stepsPricing: StepPricing[] = [
         description:
           'In addition to the main 10 steps, there is an 11th, which you connect when your business brand starts to grow actively. At this stage, the service creates automation of routine processes so that you can scale effectively, free up your time, and earn even more.',
         purpose: '',
-        oldPrice: 'Individually',
-        newPrice: 'Individually',
+        oldPrice: '',
+        newPrice: '',
         faq: [
           {
             question: 'Why is this stage optional?',

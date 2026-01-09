@@ -80,6 +80,11 @@ export const ui = {
     // Sidebar
     'sidebar.blogTitle': 'Читайте также',
 
+    // Share Buttons
+    'share.label': 'Поделиться',
+    'share.copyLink': 'Копировать ссылку',
+    'share.copied': 'Скопировано!',
+
     // Common UI
     'common.readMore': 'Подробнее',
     'common.learnMore': 'Узнать больше',
@@ -149,6 +154,11 @@ export const ui = {
 
     // Sidebar
     'sidebar.blogTitle': 'Related Articles',
+
+    // Share Buttons
+    'share.label': 'Share',
+    'share.copyLink': 'Copy link',
+    'share.copied': 'Copied!',
 
     // Common UI
     'common.readMore': 'Read more',

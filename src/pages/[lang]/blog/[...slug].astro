@@ -5,6 +5,7 @@ import Section from '@components/blocks/Section.astro';
 import Sidebar from '@components/blocks/Sidebar.astro';
 import Breadcrumbs from '@components/structures/Breadcrumbs.astro';
 import Card from '@components/ui/Card.astro';
+import ShareButtons from '@components/ui/ShareButtons.astro';
 import { useTranslations } from '@i18n/utils';
 import { getLatestBlogPosts } from '@utils/posts';
 
@@ -81,6 +82,15 @@ const blogItems = await getLatestBlogPosts(lang as 'en' | 'ru', 2);
           <article class="prose prose-invert max-w-none">
             <Content />
           </article>
+
+          <!-- Share Buttons -->
+          <ShareButtons
+            title={post.data.title}
+            url={Astro.url.href}
+            shareLabel={t('share.label')}
+            copyLinkLabel={t('share.copyLink')}
+            copiedLabel={t('share.copied')}
+          />
         </Card>
       </div>
     </div>

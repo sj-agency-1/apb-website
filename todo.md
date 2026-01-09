@@ -62,18 +62,18 @@
   - [x] Login via provider
   - [x] Full guide [here](/docs/decapcms-netlify-setup.md)
 
-- [ ] New edits (2026-01-09):
-  - [ ] How it works page:
+- [x] New edits (2026-01-09):
+  - [x] How it works page:
     - [x] Fix FAQ block (width of inner accordions)
     - [x] Fix click behavior ("2,3,4,5 этапы при клике открывается либо середина, либо конец информационного окна")
     - [x] Fix click behavior on mobile ("этапы 2,3,4,5,6,7,8,9,10 открываются не в начале текста, а в конце или на ЧаВо")
     - [x] Add "В первый раз БЕСПЛАТНО" under the first stage under the price with the promocode.
-  - [ ] Home page:
+  - [x] Home page:
     - [x] Change place of steps similar to `how it works` page
     - [x] Fix launch steps on mobile
     - [x] Adjust reviews width on mobile
   - [x] About:
     - [x] Add arrows to the advantages list
-  - [ ] General:
-    - [ ] Fix advantages block on mobile (arrows and buttons)
-    - [ ] Change "Преимущества" to "Достоинтсва" on russian 
+  - [x] General:
+    - [x] Fix advantages block on mobile (arrows and buttons)
+    - [x] Change "Преимущества" to "Достоинтсва" on russian 

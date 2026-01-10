@@ -25,15 +25,17 @@ const totalSteps = items.length;
     items.map((item, index) => (
       <div class={`launch-step ${index % 2 === 0 ? 'left' : 'right'}`}>
         <div class="step-content">
-          <div class="step-icon">
-            <Image src={item.icon} alt={item.title} width={80} height={80} />
-          </div>
-          <div class="step-text">
-            <span class="step-number">
-              {stepLabel} {item.step}
-            </span>
-            <h3 class="step-title">{item.title}</h3>
-            <p class="step-description">{item.description}</p>
+          <div class="step-heading">
+            <div class="step-icon">
+              <Image src={item.icon} alt={item.title} width={80} height={80} />
+            </div>
+            <div class="step-text">
+              <span class="step-number">
+                {stepLabel} {item.step}
+              </span>
+              <h3 class="step-title">{item.title}</h3>
+              <p class="step-description">{item.description}</p>
+            </div>
           </div>
         </div>
         <div class="timeline-dot" />

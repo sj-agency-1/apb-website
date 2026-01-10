@@ -81,3 +81,10 @@
 Additional requested features:
 
 - [x] Add share buttons on posts (advanatages, blog)
+
+Additional fixes:
+- [ ] Fix reviews cards on home page:
+  - [ ] Height 10 rows
+  - [ ] If more, then add "View more/view less" button (like on reviews page)
+  - [ ] If less, then leave empty space
+- [x] Fix Launch Steps list on home page (desktop), row layout for heading and icon

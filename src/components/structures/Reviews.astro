@@ -12,9 +12,11 @@ interface Props {
   subtitle?: string;
   moreText?: string;
   moreHref?: string;
+  showMoreText?: string;
+  showLessText?: string;
 }
 
-const { reviews, title, subtitle } = Astro.props;
+const { reviews, title, subtitle, showMoreText = 'Show more', showLessText = 'Show less' } = Astro.props;
 ---
 
 <div class="reviews-container">
@@ -23,7 +25,7 @@ const { reviews, title, subtitle } = Astro.props;
       {title && <Heading as="h2" size="4xl" text={title} />}
       {subtitle && <Paragraph text={subtitle} muted />}
     </div>
-    <div class="flex gap-2 shrink-0">
+    <div class="hidden lg:flex gap-2 shrink-0">
       <Button variant="outline" class="prev-review px-3" aria-label="Previous review">
         <div class="flex items-center justify-center">
           <Icon name="arrow-left" />
@@ -40,16 +42,16 @@ const { reviews, title, subtitle } = Astro.props;
   <div class="reviews-carousel cursor-grab active:cursor-grabbing">
     <div class="reviews-track">
       {
-        reviews.map((review) => (
-          <div class="review-card select-none">
-            <div class="review-avatar">
+        reviews.map((review, index) => (
+          <div class="review-card select-none flex flex-col">
+            <div class="review-avatar shrink-0 mb-4">
               {review.avatar ? (
                 <Image src={review.avatar} alt={review.name} width={100} height={100} />
               ) : (
                 <div class={`avatar-placeholder ${review.sex}`} />
               )}
             </div>
-            <div class="review-meta">
+            <div class="review-meta mb-3">
               <h4 class="review-name">
                 {review.name}, {review.age} лет
               </h4>
@@ -58,11 +60,37 @@ const { reviews, title, subtitle } = Astro.props;
                 {review.translated && ' *Перевод с оригинала'}
               </p>
             </div>
-            <p class="review-text">{review.text}</p>
+            <div class="review-content grow flex flex-col">
+              <p class="review-text line-clamp-10 min-h-[15em]" id={`home-review-text-${index}`}>
+                {review.text}
+              </p>
+              <button
+                class="text-primary text-sm font-medium mt-2 hover:underline focus:outline-none toggle-review-btn hidden self-start items-center gap-1"
+                data-target={`home-review-text-${index}`}
+                data-text-more={showMoreText}
+                data-text-less={showLessText}
+              >
+                {showMoreText}
+                <Icon name="chevron-down" class="w-4 h-4 inline align-middle ml-1" />
+              </button>
+            </div>
           </div>
         ))
       }
     </div>
+  </div>
+
+  <div class="lg:hidden flex gap-2 shrink-0">
+    <Button variant="outline" class="prev-review-bottom px-3" aria-label="Previous review">
+      <div class="flex items-center justify-center">
+        <Icon name="arrow-left" />
+      </div>
+    </Button>
+    <Button variant="outline" class="next-review-bottom px-3" aria-label="Next review">
+      <div class="flex items-center justify-center">
+        <Icon name="arrow-right" />
+      </div>
+    </Button>
   </div>
 </div>
 
@@ -80,6 +108,8 @@ const { reviews, title, subtitle } = Astro.props;
 
       const prevBtn = container.querySelector('.prev-review');
       const nextBtn = container.querySelector('.next-review');
+      const prevBtnBottom = container.querySelector('.prev-review-bottom');
+      const nextBtnBottom = container.querySelector('.next-review-bottom');
 
       if (prevBtn && nextBtn) {
         prevBtn.addEventListener('click', () => {
@@ -91,12 +121,66 @@ const { reviews, title, subtitle } = Astro.props;
         });
       }
 
+      if (prevBtnBottom && nextBtnBottom) {
+        prevBtnBottom.addEventListener('click', () => {
+          carousel.scrollBy({ left: -400, behavior: 'smooth' });
+        });
+
+        nextBtnBottom.addEventListener('click', () => {
+          carousel.scrollBy({ left: 400, behavior: 'smooth' });
+        });
+      }
+
       // Drag to scroll
       let isDown = false;
       let startX: number;
       let scrollLeft: number;
 
       const c = carousel as HTMLElement;
+
+      // View More/Less logic
+      const toggleBtns = container.querySelectorAll<HTMLElement>('.toggle-review-btn');
+      toggleBtns.forEach((btn) => {
+        const targetId = btn.dataset.target;
+        if (!targetId) return;
+        const textEl = document.getElementById(targetId);
+        if (!textEl) return;
+
+        // Check overflow
+        const checkOverflow = () => {
+          if (textEl.scrollHeight > textEl.clientHeight) {
+            btn.classList.remove('hidden');
+            btn.classList.add('flex');
+          }
+        };
+
+        // Run check
+        checkOverflow();
+        // Also run on window resize just in case
+        window.addEventListener('resize', checkOverflow);
+
+        btn.addEventListener('click', () => {
+          // If check for line-clamp-[10] or line-clamp-10. Tailwind usually compiles to a specific class.
+          // Since I used line-clamp-[10] in HTML, I should check that.
+          // Or just check if it contains the class.
+          // Note: line-clamp-[10] might be compiled to something else if using arbitrary values?
+          // Usually it stays as a class name if using JIT.
+          const isExpanded = !textEl.classList.contains('line-clamp-[10]');
+
+          if (isExpanded) {
+            textEl.classList.add('line-clamp-[10]');
+            // Collapse
+            const textMore = btn.dataset.textMore || 'Show more';
+            // Use SVG directly
+            btn.innerHTML = `${textMore} <svg class="w-4 h-4 inline align-middle ml-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>`;
+          } else {
+            textEl.classList.remove('line-clamp-[10]');
+            // Expand
+            const textLess = btn.dataset.textLess || 'Show less';
+            btn.innerHTML = `${textLess} <svg class="w-4 h-4 inline align-middle ml-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>`;
+          }
+        });
+      });
 
       c.addEventListener('mousedown', (e) => {
         isDown = true;

@@ -1,7 +1,7 @@
 ---
-import type { LaunchStepsProps } from '../schemas/launch-steps';
-import Image from '../ui/Image.astro';
-import Button from '../ui/Button.astro';
+import type { LaunchStepsProps } from "../schemas/launch-steps";
+import Image from "../ui/Image.astro";
+import Button from "../ui/Button.astro";
 
 interface CtaStep {
   title: string;
@@ -15,7 +15,7 @@ interface Props extends LaunchStepsProps {
   stepLabel?: string;
 }
 
-const { items, ctaStep, stepLabel = 'Этап' } = Astro.props;
+const { items, ctaStep, stepLabel = "Этап" } = Astro.props;
 const totalSteps = items.length;
 ---
 
@@ -23,7 +23,7 @@ const totalSteps = items.length;
   <div class="timeline-line"></div>
   {
     items.map((item, index) => (
-      <div class={`launch-step ${index % 2 === 0 ? 'left' : 'right'}`}>
+      <div class={`launch-step ${index % 2 === 0 ? "left" : "right"}`}>
         <div class="step-content">
           <div class="step-heading">
             <div class="step-icon">
@@ -44,11 +44,15 @@ const totalSteps = items.length;
   }
   {
     ctaStep && (
-      <div class={`launch-step cta-step ${totalSteps % 2 === 0 ? 'left' : 'right'}`}>
+      <div
+        class={`launch-step cta-step ${totalSteps % 2 === 0 ? "left" : "right"}`}
+      >
         <div class="step-content-cta">
           <div class="step-text-cta">
             <h3 class="step-title-cta">{ctaStep.title}</h3>
-            {ctaStep.subtitle && <p class="step-description-cta">{ctaStep.subtitle}</p>}
+            {ctaStep.subtitle && (
+              <p class="step-description-cta">{ctaStep.subtitle}</p>
+            )}
           </div>
           <Button
             text={ctaStep.buttonText}

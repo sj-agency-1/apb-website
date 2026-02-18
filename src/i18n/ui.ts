@@ -58,6 +58,11 @@ export const ui = {
     'prefooter.cta': 'Начать',
     'prefooter.ctaSubtext1': 'Начать АУДИТ и Создать Бизнес',
     'prefooter.ctaSubtext2': '«Личный Бренд»',
+    'prefooter.rightHeading': 'Начать АУДИТ и Создать Бизнес',
+    'prefooter.rightDisclaimer':
+      'Отказ от ответственности за результаты: Любые заявления о потенциальном доходе или успехе бизнеса в статьях на данном сайте являются лишь примерами возможностей и не гарантируют фактический результат. Ваш успех зависит от ваших усилий, рыночной конъюнктуры и навыков. Настоящий сайт не является финансовым или инвестиционным советником. Используя материалы, вы соглашаетесь с условиями {{offerLink}} и {{disclaimerLink}}.',
+    'prefooter.rightDisclaimer.offerLabel': 'Договора Публичной Оферты',
+    'prefooter.rightDisclaimer.disclaimerLabel': 'Отказа от гарантий',
 
     // Breadcrumbs
     'breadcrumbs.home': 'Главная',
@@ -133,6 +138,11 @@ export const ui = {
     'prefooter.cta': 'Start',
     'prefooter.ctaSubtext1': 'Start AUDIT and Create Business',
     'prefooter.ctaSubtext2': '"Personal Brand"',
+    'prefooter.rightHeading': 'Start AUDIT and Create Business',
+    'prefooter.rightDisclaimer':
+      'Results Disclaimer: Any statements about potential income or business success in articles on this website are merely examples of possibilities and do not guarantee actual results. Your success depends on your efforts, market conditions, and skills. This website is not a financial or investment advisor. By using these materials, you agree to the terms of the {{offerLink}} and {{disclaimerLink}}.',
+    'prefooter.rightDisclaimer.offerLabel': 'Public Offer Agreement',
+    'prefooter.rightDisclaimer.disclaimerLabel': 'Disclaimer of Warranties',
 
     // Breadcrumbs
     'breadcrumbs.home': 'Home',

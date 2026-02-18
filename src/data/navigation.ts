@@ -52,6 +52,8 @@ export interface PreFooterData {
   ctaSubtext1: string;
   ctaSubtext2: string;
   backgroundImage: string;
+  rightHeading: string;
+  rightDisclaimer: string;
 }
 
 // =============================================================================
@@ -164,7 +166,13 @@ export function getFooterData(lang: SupportedLanguage, t: TranslationFunction): 
 /**
  * Build pre-footer data
  */
-export function getPreFooterData(t: TranslationFunction): PreFooterData {
+export function getPreFooterData(lang: SupportedLanguage, t: TranslationFunction): PreFooterData {
+  const offerLink = `<a href="/${lang}/offer" class="underline hover:text-white transition-colors">${t('prefooter.rightDisclaimer.offerLabel')}</a>`;
+  const disclaimerLink = `<a href="/${lang}/disclaimer" class="underline hover:text-white transition-colors">${t('prefooter.rightDisclaimer.disclaimerLabel')}</a>`;
+  const rightDisclaimer = t('prefooter.rightDisclaimer')
+    .replace('{{offerLink}}', offerLink)
+    .replace('{{disclaimerLink}}', disclaimerLink);
+
   return {
     title: t('prefooter.title'),
     subtitle: t('prefooter.subtitle'),
@@ -175,5 +183,7 @@ export function getPreFooterData(t: TranslationFunction): PreFooterData {
     ctaSubtext1: t('prefooter.ctaSubtext1'),
     ctaSubtext2: t('prefooter.ctaSubtext2'),
     backgroundImage: images.preFooterBackground,
+    rightHeading: t('prefooter.rightHeading'),
+    rightDisclaimer,
   };
 }

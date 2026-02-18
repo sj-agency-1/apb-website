@@ -14,9 +14,11 @@ interface Props extends HTMLAttributes<'section'> {
   ctaSubtext1?: string;
   ctaSubtext2?: string;
   backgroundImage?: string;
+  rightHeading?: string;
+  rightDisclaimer?: string;
 }
 
-const { title, subtitle, cta, ctaSubtext1, ctaSubtext2, backgroundImage, ...rest } = Astro.props;
+const { title, subtitle, cta, ctaSubtext1, ctaSubtext2, backgroundImage, rightHeading, rightDisclaimer, ...rest } = Astro.props;
 ---
 
 <section class="prefooter relative" {...rest}>
@@ -61,7 +63,10 @@ const { title, subtitle, cta, ctaSubtext1, ctaSubtext2, backgroundImage, ...rest
           }
         </div>
       </div>
-      <div class="prefooter-right w-full lg:w-1/2"></div>
+      <div class="prefooter-right w-full lg:w-1/2 flex flex-col justify-center items-center text-center lg:items-start lg:text-left">
+        {rightHeading && <Heading as="h2" size="lg" text={rightHeading} />}
+        {rightDisclaimer && <Paragraph text={rightDisclaimer} size="sm" muted class="mt-4" />}
+      </div>
     </div>
   </div>
 </section>

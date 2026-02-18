@@ -1098,13 +1098,7 @@ main {
    PREFOOTER COMPONENT
    ============================================ */
 .prefooter {
-  @apply relative overflow-hidden h-auto py-8;
-}
-
-@media (min-width: 1024px) {
-  .prefooter {
-    height: 380px;
-  }
+  @apply relative overflow-hidden h-auto py-8 lg:py-12;
 }
 
 .prefooter-background {
@@ -1116,7 +1110,7 @@ main {
 }
 
 .prefooter-content {
-  @apply relative z-10 flex h-full flex-col items-start justify-center gap-6;
+  @apply relative z-10 flex h-full flex-col lg:flex-row items-start justify-center gap-6;
 }
 
 .prefooter-text {

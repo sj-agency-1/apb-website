@@ -25,7 +25,7 @@ const t = useTranslations(lang);
 
 const headerData = getHeaderData(lang, t);
 const footerData = getFooterData(lang, t);
-const preFooterData = getPreFooterData(t);
+const preFooterData = getPreFooterData(lang, t);
 ---
 
 <Layout head={head} {...rest}>

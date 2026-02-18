@@ -180,6 +180,10 @@ export interface ReviewsPageContent {
   shareExperienceButton: string;
   showMore: string;
   showLess: string;
+  // Legal disclaimer
+  disclaimerIntro: string;
+  disclaimerPoints: Array<{ label: string; text: string }>;
+  disclaimerConclusion: string;
 }
 
 export const reviewsPageContent: LocalizedContent<ReviewsPageContent> = {
@@ -205,6 +209,28 @@ export const reviewsPageContent: LocalizedContent<ReviewsPageContent> = {
     shareExperienceButton: 'Оставить отзыв',
     showMore: 'Раскрыть',
     showLess: 'Скрыть',
+    disclaimerIntro:
+      'Все отзывы, представленные на данной странице, являются субъективным опытом конкретных пользователей и не являются гарантией или обещанием аналогичных результатов для вас.',
+    disclaimerPoints: [
+      {
+        label: 'Индивидуальный характер',
+        text: 'Достижения, описанные в отзывах, стали возможны благодаря сочетанию рекомендаций Сервиса и активных личных действий пользователей (внедрение стратегий, инвестиции в рекламу, личные продажи).',
+      },
+      {
+        label: 'Отсутствие гарантий',
+        text: 'Согласно документу «Отказ от гарантий и заявлений», Сервис не гарантирует получение прибыли или достижение конкретных бизнес-целей. Прошлые результаты других людей не предсказывают ваш будущий успех.',
+      },
+      {
+        label: 'Статус Business-User',
+        text: 'Используя отзывы как стимул для регистрации, вы подтверждаете свой статус Prosumer (бизнес-пользователь) и принимаете на себя все предпринимательские риски.',
+      },
+      {
+        label: 'Проверка',
+        text: 'Мы не изменяем содержание отзывов, но оставляем за собой право модерировать их на предмет соответствия этическим нормам.',
+      },
+    ],
+    disclaimerConclusion:
+      'Ваш результат на 100% зависит от качества вашего участия в процессе и рыночной конъюнктуры.',
   },
   en: {
     breadcrumb: 'Reviews',
@@ -228,6 +254,28 @@ export const reviewsPageContent: LocalizedContent<ReviewsPageContent> = {
     shareExperienceButton: 'Leave a review',
     showMore: 'Show more',
     showLess: 'Show less',
+    disclaimerIntro:
+      'All reviews presented on this page reflect the subjective experience of individual users and do not constitute a guarantee or promise of similar results for you.',
+    disclaimerPoints: [
+      {
+        label: 'Individual nature',
+        text: 'The achievements described in the reviews were made possible through a combination of the Service\'s recommendations and users\' active personal efforts (implementing strategies, investing in advertising, personal sales).',
+      },
+      {
+        label: 'No guarantees',
+        text: 'In accordance with the "Disclaimer of Warranties and Representations" document, the Service does not guarantee profit or the achievement of specific business goals. Past results of other people do not predict your future success.',
+      },
+      {
+        label: 'Business-User status',
+        text: 'By using reviews as motivation for registration, you confirm your Prosumer (business user) status and assume all entrepreneurial risks.',
+      },
+      {
+        label: 'Verification',
+        text: 'We do not alter the content of reviews, but reserve the right to moderate them for compliance with ethical standards.',
+      },
+    ],
+    disclaimerConclusion:
+      'Your results depend 100% on the quality of your participation in the process and market conditions.',
   },
 };
 

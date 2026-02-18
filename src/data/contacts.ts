@@ -10,12 +10,12 @@ export interface ContactInfo {
 }
 
 export const contacts: ContactInfo = {
-  telegram: '@Sledopit',
-  telegramUrl: 'https://t.me/Sledopit',
-  phone: '+7 991 123 12 12',
-  phoneUrl: 'tel:+79911231212',
-  whatsapp: '+7 991 123 12 12',
-  whatsappUrl: 'https://wa.me/79911231212',
-  email: 'Sledopit@gmail.com',
-  emailUrl: 'mailto:Sledopit@gmail.com',
+  telegram: '@BusinessPathfinder',
+  telegramUrl: 'https://t.me/BusinessPathfinder',
+  phone: '+44 7361 554019',
+  phoneUrl: 'tel:+447361554019',
+  whatsapp: '+44 7361 554019',
+  whatsappUrl: 'https://wa.me/447361554019',
+  email: 'business.pathfinder1976@gmail.com',
+  emailUrl: 'mailto:business.pathfinder1976@gmail.com',
 };

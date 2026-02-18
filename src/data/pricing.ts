@@ -183,7 +183,7 @@ const stepsPricing: StepPricing[] = [
           {
             question: 'Это точно принесет доход?',
             answer:
-              'Алгоритмы сервиса заточены на поиск прибыльных моделей. Сам доход зависит от вашей активности и следования дальнейшим этапам (Создание продукта, Продвижение). Сервис предоставляет расчетные модели, реализация которых зависит от рыночных факторов и действий Пользователя.',
+              'Алгоритмы сервиса направлены на поиск потенциально эффективных моделей монетизации. Сам доход зависит от вашей активности и следования дальнейшим этапам (Создание продукта, Продвижение).\nСервис предоставляет расчетные модели, реализация которых зависит от рыночных факторов и действий Пользователя.',
           },
           {
             question: 'Это только про онлайн-курсы или есть другие варианты?',
@@ -207,7 +207,7 @@ const stepsPricing: StepPricing[] = [
           {
             question: 'Will this definitely bring income?',
             answer:
-              'The service algorithms are attuned to finding profitable models. The income itself depends on your activity and following the further stages (Product Creation, Promotion). The service provides calculation models, the implementation of which depends on market factors and User actions.',
+              'The service algorithms are aimed at finding potentially effective monetization models. The income itself depends on your activity and following the further stages (Product Creation, Promotion).\nThe service provides calculation models, the implementation of which depends on market factors and User actions.',
           },
           {
             question: 'Is this only about online courses or are there other options?',
@@ -232,9 +232,9 @@ const stepsPricing: StepPricing[] = [
       ru: {
         title: 'РАЗРАБОТКА ПРОДУКТОВОЙ ЛИНЕЙКИ',
         description:
-          'Вы создаете свой первый цифровой продукт (или несколько продуктов), который будет приносить доход. Сервис структурирует и наполняет контентом интеллектуальные продукты (например, цифровые). Если это онлайн-курс, то он будет разделен на модули, уроки с описаниями и заданиями, с мини-экзаменами в конце. Если это консультация, сервис разработает четкий сценарий: тайминг, контент, вопросы и даже материалы для отправки клиенту после сессии. Это полностью авторский продукт, созданный под ваш уникальный Бренд.',
+          'Вы создаете свой первый цифровой продукт (или несколько продуктов), который будет приносить доход. Сервис структурирует и наполняет контентом интеллектуальные продукты (например, цифровые). Если это онлайн-курс, то он будет разделен на модули, уроки с описаниями и заданиями, с мини-экзаменами в конце. Если это консультация, сервис разработает четкий сценарий: тайминг, контент, вопросы и даже материалы для отправки клиенту после сессии. Это полностью авторский продукт, созданный под ваш уникальный Бренд.\nСтоимость зависит от того, какой именно продукт будете создавать. Например, создание гайда или чек-листа стоит $59, а создание онлайн консультации $118. Онлайн курс до 10 модулей по 3-4 урока в каждом (с полным описанием и заданиями) $589.',
         purpose:
-          'Продукт — это то, что вы продаете. Это материальное воплощение ценности вашего Личного Бренда. Сервис гарантирует, что продукт будет готов к немедленному запуску, профессионально структурирован и наполнен контентом, чтобы сразу начать приносить доход.',
+          'Продукт — это то, что вы продаете. Это материальное воплощение ценности вашего Личного Бренда. Сервис обеспечивает высокую степень готовности продукта к запуску, создавая фундамент для старта продаж.',
         faq: [
           {
             question: 'Я получу готовый курс или только набросок?',
@@ -256,9 +256,9 @@ const stepsPricing: StepPricing[] = [
       en: {
         title: 'PRODUCT LINE DEVELOPMENT',
         description:
-          "You create your first digital product (or several products) that will generate income. The service structures and fills intellectual products with content (for example, digital ones). If it is an online course, it will be divided into modules, lessons with descriptions and assignments, with mini-exams at the end. If it is a consultation, the service will develop a clear script: timing, content, questions, and even materials to send to the client after the session. This is a fully author's product created for your unique Brand.",
+          "You create your first digital product (or several products) that will generate income. The service structures and fills intellectual products with content (for example, digital ones). If it is an online course, it will be divided into modules, lessons with descriptions and assignments, with mini-exams at the end. If it is a consultation, the service will develop a clear script: timing, content, questions, and even materials to send to the client after the session. This is a fully author's product created for your unique Brand.\nThe cost depends on the specific product you create. For example, creating a guide or checklist costs $59, and creating an online consultation $118. An online course of up to 10 modules with 3-4 lessons each (with full descriptions and assignments) $589.",
         purpose:
-          'The product is what you sell. It is the material embodiment of the value of your Personal Brand. The service guarantees that the product will be ready for immediate launch, professionally structured, and filled with content to start generating income immediately.',
+          'The product is what you sell. It is the material embodiment of the value of your Personal Brand. The service ensures a high degree of product readiness for launch, creating a foundation for starting sales.',
         oldPrice: 'from $27',
         newPrice: 'from $21.6',
         faq: [
@@ -402,7 +402,7 @@ const stepsPricing: StepPricing[] = [
       ru: {
         title: 'БИЗНЕС-ПЛАН, ФИНАНСОВАЯ МОДЕЛЬ И ДОРОЖНАЯ КАРТА',
         description:
-          'Самый важный этап, когда вся проделанная работа формируется в один мощный документ. Сервис разрабатывает подробный бизнес-план с четкой, реальной финансовой моделью и дорожной картой (пошаговым планом реализации).',
+          'Самый важный этап, когда вся проделанная работа формируется в один мощный документ. Сервис разрабатывает подробный бизнес-план с просчитанной и обоснованной финансовой моделью и дорожной картой (пошаговым планом реализации), что обеспечивает прогнозируемый результат.',
         purpose:
           'Это ваш путеводитель и доказательство гипотезы о жизнеспособности бизнеса. Бизнес-план с финансовой моделью — это ваш внутренний компас. Он покажет, когда вы начнете получать прибыль, какие финансовые вливания Вам нужны и какие шаги необходимо предпринять в первую очередь. Это расчет, исключающий работу «на авось».',
         faq: [
@@ -419,14 +419,14 @@ const stepsPricing: StepPricing[] = [
           {
             question: 'Могу ли я доверять финансовой модели, созданной AI?',
             answer:
-              'Да, финансовая модель основана на профессиональной логике, заложенной Бизнес-Следопытом, и является реальным расчетом, а не догадкой.',
+              'Да, финансовая модель основана на математических алгоритмах и бизнес-логике. Это аналитический прогноз, построенный на введённых вами данных.',
           },
         ],
       },
       en: {
         title: 'BUSINESS PLAN, FINANCIAL MODEL, AND ROADMAP',
         description:
-          'The most important stage when all the work done is formed into one powerful document. The service develops a detailed business plan with a clear, real financial model and a roadmap (step-by-step implementation plan).',
+          'The most important stage when all the work done is formed into one powerful document. The service develops a detailed business plan with a calculated and justified financial model and a roadmap (step-by-step implementation plan), ensuring a predictable result.',
         purpose:
           'This is your guide and proof of the hypothesis about the viability of the business. A business plan with a financial model is your internal compass. It will show when you will start making a profit, what financial injections you need, and what steps need to be taken first. This is a calculation that excludes working "at random".',
         faq: [
@@ -443,7 +443,7 @@ const stepsPricing: StepPricing[] = [
           {
             question: 'Can I trust the financial model created by AI?',
             answer:
-              'Yes, the financial model is based on professional logic laid down by the Business Pathfinder and is a real calculation, not a guess.',
+              'Yes, the financial model is based on mathematical algorithms and business logic. It is an analytical forecast built on the data you have entered.',
           },
         ],
       },
@@ -516,7 +516,7 @@ const stepsPricing: StepPricing[] = [
         description:
           'Разработка стратегии продвижения и создание медиаплана. Это детальный календарный план активностей, который показывает, что и когда нужно делать для работы с аудиторией. Здесь рассчитывается рекламная воронка, устанавливаются ключевые KPI (ключевые показатели эффективности) и вторичные метрики, необходимые для мониторинга и своевременной корректировки действий.',
         purpose:
-          'Это ваша карта наступления. Он переводит стратегию в конкретные действия, сроки и измеримые результаты. Вы расчитаете показатели рекламной воронки, сколько трафика нужно привлечь и как этот трафик должен конвертироваться в реальные продажи, а также сможете контролировать успешность своих рекламных кампаний.',
+          'Это ваша карта наступления. Он переводит стратегию в конкретные действия, сроки и измеримые результаты. Вы рассчитаете показатели рекламной воронки, сколько трафика нужно привлечь и как этот трафик должен конвертироваться в реальные продажи, а также сможете контролировать успешность своих рекламных кампаний.',
         faq: [
           {
             question: 'Нужен ли большой бюджет, чтобы эта стратегия сработала?',
@@ -570,9 +570,9 @@ const stepsPricing: StepPricing[] = [
       ru: {
         title: 'ПРОИЗВОДСТВО ПЕРСОНАЛИЗИРОВАННОГО КОНТЕНТА',
         description:
-          'После подготовки к запуску вы переходите к созданию контента внутри сервиса. Вы можете генерировать любой нужный вам контент: пиар-статьи, посты для социальных сетей, сценарии для видеороликов и многое другое.',
+          'После подготовки к запуску вы переходите к созданию контента внутри сервиса. Вы можете генерировать любой нужный вам контент: пиар-статьи, посты для социальных сетей, сценарии для видеороликов и многое другое.\nСтоимость зависит от вида контента. Например, сценарий для короткого видео (шортс) для TikTok или YouTube стоит $2, а PR-статья на 5-6 тысяч знаков $4, пост (текст) для соцсетей $2, анонс статьи $0.49.',
         purpose:
-          'Это кульминация всего процесса. Сервис знает ваш Личный Бренд с самого «рождения»: с первого шага (Аудита). Весь сгенерированный контент будет максимально персонализирован, уникален и, что самое главное, всегда соответствовать вашему уникальному позиционированию, целям и бизнес-стратегии. Вы значительно сокращаете собственное время на написание постов и исключаете потребность в копирайтерах, так как сервис генерирует контент, уже интегрированный в вашу стратегию.',
+          'Это кульминация всего процесса. Сервис знает ваш Личный Бренд с самого «рождения»: с первого шага (Аудита). Весь сгенерированный контент будет максимально персонализирован, уникален и, что самое главное, всегда соответствовать вашему уникальному позиционированию, целям и бизнес-стратегии. Вы значительно сокращаете собственное время на написание постов и минимизируете расходы на копирайтеров, так как сервис генерирует контент, уже интегрированный в вашу стратегию.',
         faq: [
           {
             question: 'Чем контент лучше, чем у обычного копирайтера?',
@@ -594,9 +594,9 @@ const stepsPricing: StepPricing[] = [
       en: {
         title: 'PERSONALIZED CONTENT PRODUCTION',
         description:
-          'After preparing for launch, you move on to creating content inside the service. You can generate any content you need: PR articles, posts for social networks, scripts for videos, and much more.',
+          'After preparing for launch, you move on to creating content inside the service. You can generate any content you need: PR articles, posts for social networks, scripts for videos, and much more.\nThe cost depends on the type of content. For example, a script for a short video (shorts) for TikTok or YouTube costs $2, a PR article of 5-6 thousand characters $4, a post (text) for social networks $2, an article announcement $0.49.',
         purpose:
-          'This is the culmination of the entire process. The service knows your Personal Brand from its very "birth": from the first step (Audit). All generated content will be maximally personalized, unique, and, most importantly, always correspond to your unique positioning, goals, and business strategy. You significantly reduce your own time for writing posts and eliminate the need for copywriters, as the service generates content already integrated into your strategy.',
+          'This is the culmination of the entire process. The service knows your Personal Brand from its very "birth": from the first step (Audit). All generated content will be maximally personalized, unique, and, most importantly, always correspond to your unique positioning, goals, and business strategy. You significantly reduce your own time for writing posts and minimize expenses on copywriters, as the service generates content already integrated into your strategy.',
         oldPrice: 'from $0.49',
         newPrice: 'from $0.39',
         faq: [
@@ -716,3 +716,12 @@ export function getStepByNumber(stepNumber: number, lang: SupportedLanguage): Lo
 export function getStepsCount(): number {
   return stepsPricing.length;
 }
+
+// =============================================================================
+// DISCLAIMER
+// =============================================================================
+
+export const pricingDisclaimer: LocalizedContent<string> = {
+  ru: 'Для удобства планирования стоимость этапов на сайте указана в долларовом эквиваленте ($). Все расчеты внутри сервиса производятся во внутренних единицах доступа — APB Credits.\n\n1 APB Credit = $1.\n\nПополнение баланса и списание Credits происходит мгновенно согласно выбранному этапу. Подробнее о механике Credits и пакетных предложениях вы можете узнать в своем Личном Кабинете.\n\nВажно: Все расчеты, стратегии и модели, генерируемые сервисом, носят рекомендательный характер. Успех проекта зависит от действий Пользователя, рыночной конъюнктуры и качества внедрения полученных рекомендаций.',
+  en: 'For planning convenience, the cost of stages on the website is indicated in dollar equivalent ($). All calculations within the service are made in internal access units — APB Credits.\n\n1 APB Credit = $1.\n\nBalance top-up and Credits deduction occurs instantly according to the selected stage. You can learn more about Credits mechanics and package offers in your Personal Account.\n\nImportant: All calculations, strategies, and models generated by the service are advisory in nature. The success of the project depends on the User\'s actions, market conditions, and the quality of implementing the received recommendations.',
+};

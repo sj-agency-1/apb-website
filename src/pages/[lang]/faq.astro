@@ -1,20 +1,20 @@
 ---
-import PageLayout from '@layouts/PageLayout.astro';
-import Section from '@components/blocks/Section.astro';
-import Sidebar from '@components/blocks/Sidebar.astro';
-import Breadcrumbs from '@components/structures/Breadcrumbs.astro';
-import Accordion from '@components/ui/Accordion.astro';
-import Card from '@components/ui/Card.astro';
-import Button from '@components/ui/Button.astro';
-import { Image } from 'astro:assets';
-import { getFaqItems } from '@data/faq';
-import { getPageContent } from '@data/pages';
-import { getFaqContent } from '@data/page-content';
-import { getLatestBlogPosts } from '@utils/posts';
-import { contacts } from '@data/contacts';
-import { SUPPORTED_LANGUAGES, type SupportedLanguage } from '@/types/i18n';
+import PageLayout from "@layouts/PageLayout.astro";
+import Section from "@components/blocks/Section.astro";
+import Sidebar from "@components/blocks/Sidebar.astro";
+import Breadcrumbs from "@components/structures/Breadcrumbs.astro";
+import Accordion from "@components/ui/Accordion.astro";
+import Card from "@components/ui/Card.astro";
+import Button from "@components/ui/Button.astro";
+import { Image } from "astro:assets";
+import { getFaqItems, getFaqDisclaimer } from "@data/faq";
+import { getPageContent } from "@data/pages";
+import { getFaqContent } from "@data/page-content";
+import { getLatestBlogPosts } from "@utils/posts";
+import { contacts } from "@data/contacts";
+import { SUPPORTED_LANGUAGES, type SupportedLanguage } from "@/types/i18n";
 
-import helpIcon from '@assets/images/help.webp';
+import helpIcon from "@assets/images/help.webp";
 
 export function getStaticPaths() {
   return SUPPORTED_LANGUAGES.map((lang) => ({
@@ -23,9 +23,10 @@ export function getStaticPaths() {
 }
 
 const { lang } = Astro.params as { lang: SupportedLanguage };
-const page = getPageContent('faq', lang);
+const page = getPageContent("faq", lang);
 const content = getFaqContent(lang);
 const faqItems = getFaqItems(lang);
+const disclaimer = getFaqDisclaimer(lang);
 const blogPosts = await getLatestBlogPosts(lang, 2);
 ---
 
@@ -35,12 +36,18 @@ const blogPosts = await getLatestBlogPosts(lang, 2);
       <Breadcrumbs items={[{ text: content.breadcrumb }]} class="mb-6" />
 
       <div class="mb-8">
-        <h2 class="text-2xl lg:text-3xl font-bold text-heading mb-4">{content.heading}</h2>
+        <h2 class="text-2xl lg:text-3xl font-bold text-heading mb-4">
+          {content.heading}
+        </h2>
       </div>
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-8 lg:gap-12">
       <!-- Sidebar on the left -->
-      <Sidebar blogItems={blogPosts} blogStyle="cards" class="order-last lg:order-first">
+      <Sidebar
+        blogItems={blogPosts}
+        blogStyle="cards"
+        class="order-last lg:order-first"
+      >
         <!-- Help Card -->
         <Card variant="default" size="md" class="help-card">
           <div class="flex flex-col items-center text-center gap-4 p-4">
@@ -51,8 +58,12 @@ const blogPosts = await getLatestBlogPosts(lang, 2);
               height={100}
               class="w-25 h-25 object-contain"
             />
-            <h4 class="text-lg font-semibold text-heading">{content.helpCardTitle}</h4>
-            <p class="text-sm text-muted-foreground leading-relaxed">{content.helpCardDescription}</p>
+            <h4 class="text-lg font-semibold text-heading">
+              {content.helpCardTitle}
+            </h4>
+            <p class="text-sm text-muted-foreground leading-relaxed">
+              {content.helpCardDescription}
+            </p>
             <Button
               text={content.helpCardButton}
               href={contacts.telegramUrl}
@@ -67,8 +78,14 @@ const blogPosts = await getLatestBlogPosts(lang, 2);
       <!-- Main Content on the right -->
       <div class="faq-main">
         <div class="space-y-4">
-          <Accordion items={faqItems.map((item) => ({ question: item.question, answer: item.answer }))} />
+          <Accordion
+            items={faqItems.map((item) => ({
+              question: item.question,
+              answer: item.answer,
+            }))}
+          />
         </div>
+        <p class="mt-8 text-sm text-muted-foreground italic">{disclaimer}</p>
       </div>
     </div>
   </Section>

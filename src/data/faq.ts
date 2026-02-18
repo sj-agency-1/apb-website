@@ -21,112 +21,99 @@ export interface FaqPageItem {
 const faqPageItems: LocalizedContent<FaqPageItem[]> = {
   ru: [
     {
-      question:
-        'У меня нет никаких талантов. Я простой, обычный, «серый» человек без каких-либо увлечений и навыков. Я ничего не умею. Разве можно мне помочь?',
+      question: 'Что такое APB Credits и как происходит оплата этапов?',
       answer:
-        'Ваши данные 100% конфиденциальны. Они хранятся в защищенных хранилищах и используются для улучшения AI-алгоритмов исключительно в обезличенной (анонимной) форме (см. Политику Конфиденциальности). Вы общаетесь с безличным интеллектом, что позволяет вам быть максимально честным, поскольку нет страха оценки или осуждения.',
+        'Все расчеты внутри сервиса производятся во внутренних единицах — APB Credits. 1 Credit всегда равен $1. Для активации любого этапа вам необходимо пополнить баланс в Личном Кабинете. Списание происходит мгновенно в момент активации этапа. Это позволяет вам оплачивать только те шаги, которые вы проходите сейчас, не покупая весь курс целиком.',
     },
     {
-      question: 'А сколько это стоит?',
+      question: 'Могу ли я вернуть неиспользованные деньги (Credits) с баланса?',
       answer:
-        'Стоимость каждого этапа указана на странице «Как это работает». Первый этап «Аудит» стоит всего $16, а по промо-коду вы можете пройти его бесплатно.',
-    },
-    {
-      question: 'А кто будет изучать мои ответы на вопросы анкеты? Информация обо мне никуда не уйдет? Это безопасно?',
-      answer:
-        'Ваши ответы обрабатываются исключительно AI-алгоритмами. Никто из людей не имеет доступа к вашим персональным данным. Все данные зашифрованы и хранятся в защищенных дата-центрах.',
-    },
-    {
-      question: 'Сколько времени дается на прохождение каждого этапа?',
-      answer:
-        'Вы можете проходить этапы в своем собственном темпе. Нет никаких ограничений по времени. Вы можете делать перерывы и возвращаться к работе когда вам удобно.',
+        'Согласно п. 8.1. Договора Публичной Оферты, возврат неиспользованных APB Credits не предусмотрен. Пополнение баланса является приобретением прав доступа (лицензии) к функционалу Сервиса. Мы рекомендуем пополнять баланс ровно на ту сумму, которую вы планируете использовать для активации выбранных этапов.',
     },
     {
       question:
-        'Помогает ли сервис с продвижением готового продукта или хотя бы с рекомендациями - где и как продвигать?',
+        'Что произойдет, если я оплатил этап, но не успел его закончить или случайно закрыл вкладку?',
       answer:
-        'Да, на этапах «Маркетинговая стратегия» и «Стратегия продвижения» сервис разрабатывает детальный план продвижения вашего продукта с учетом вашей целевой аудитории и бюджета.',
+        'Не переживайте. Активация этапа закрепляется за вашим аккаунтом навсегда. Вы можете прерваться на любом вопросе анкеты и вернуться к заполнению даже через месяц — все ваши промежуточные ответы сохраняются в Личном Кабинете. Повторная оплата за этот же этап не потребуется.',
     },
     {
-      question: 'Можно ли пройти только один этап или нужно проходить все?',
+      question:
+        'Как мне стать партнером (амбассадором) AI-сервиса «Архитектор Личных Брендов»?',
       answer:
-        'Вы можете выбрать только те этапы, которые вам нужны. Однако мы рекомендуем начинать с Аудита, так как он является фундаментом для всех последующих этапов.',
+        'Возможность стать партнером открывается автоматически при регистрации. В разделе «Профиль» вашего Личного Кабинета находится уникальный Реферальный код. Просто делитесь им с коллегами или друзьями. Каждый, кто зарегистрируется по вашему коду, становится вашим рефералом, а вы начнете получать вознаграждение (APB Rewards) с каждой их оплаты.',
     },
     {
-      question: 'Что делать, если я не доволен результатом?',
+      question: 'Как мне вывести мою комиссию (партнерское вознаграждение)?',
       answer:
-        'Мы гарантируем качество наших услуг. Если вы не удовлетворены результатом, свяжитесь с нашей службой поддержки, и мы найдем решение.',
+        'Вознаграждение накапливается на вашем Affiliate Account в единицах APB Rewards. Вывод средств осуществляется по запросу в Личном Кабинете на ваши платежные реквизиты. Обратите внимание, что согласно «Условиям партнерской программы», существует период проверки транзакций (Holding Period до 14 дней) и минимальный порог для вывода, указанный в вашем профиле.',
     },
     {
-      question: 'Как долго хранятся мои данные в системе?',
+      question:
+        'Сколько времени у меня будет доступ к моим отчетам и стратегиям? Могу ли я их скачать?',
       answer:
-        'Ваши данные хранятся в системе в течение всего времени использования сервиса. Вы можете запросить удаление данных в любой момент.',
+        'Все созданные вами отчеты, ТЗ и стратегии бессрочно хранятся в вашем «Архиве» в Личном Кабинете, пока существует ваш аккаунт. Вы можете в любой момент просмотреть их или скопировать текст для работы. Сервис предоставляет вам право использовать результаты генерации для развития собственного бренда, но хранение данных на стороне пользователя (скачивание в PDF/Docx) является вашей ответственностью.',
     },
     {
-      question: 'Есть ли гарантия возврата денег?',
+      question: 'К какому юридическому статусу относится пользователь сервиса?',
       answer:
-        'Да, мы предоставляем гарантию возврата денег в течение 14 дней с момента покупки, если вы не начали использовать приобретенный этап.',
+        'Наш сервис предназначен для профессиональной деятельности. Согласно документу «Отказ от гарантий», каждый пользователь признается Business-User (Prosumer). Это означает, что вы используете инструменты для построения бизнеса. В связи с этим к нашим отношениям не применяются нормы законодательства о защите прав потребителей (например, право на немотивированный возврат), так как услуга носит коммерческий характер.',
     },
     {
-      question: 'Как связаться с поддержкой?',
+      question: 'Гарантирует ли сервис окупаемость моих вложений и доход?',
       answer:
-        'Вы можете связаться с нами через Telegram, email или по телефону. Контактная информация указана на странице «Контакты».',
+        'Сервис предоставляет расчетные модели и стратегии, основанные на бизнес-логике и анализе данных. Однако, согласно «Отказу от гарантий», конечный успех проекта зависит от ваших действий, рыночной конъюнктуры и качества внедрения рекомендаций. Мы даем вам высококлассный инструмент и «карту», но идти по ней и принимать бизнес-решения должны вы сами.',
     },
   ],
   en: [
     {
-      question:
-        "I have no talents. I'm a simple, ordinary, 'gray' person without any hobbies and skills. I can't do anything. Can you help me?",
+      question: 'What are APB Credits and how is stage payment processed?',
       answer:
-        'Your data is 100% confidential. It is stored in secure storage and used to improve AI algorithms exclusively in anonymized form (see Privacy Policy). You communicate with an impersonal intelligence, which allows you to be as honest as possible, since there is no fear of evaluation or judgment.',
+        'All payments within the service are made in internal units — APB Credits. 1 Credit always equals $1. To activate any stage, you need to top up your balance in your Personal Account. The charge is instant at the moment of stage activation. This allows you to pay only for the steps you are taking now, without purchasing the entire course at once.',
     },
     {
-      question: 'How much does it cost?',
+      question: 'Can I get a refund for unused Credits from my balance?',
       answer:
-        'The cost of each stage is indicated on the "How It Works" page. The first stage "Audit" costs only $16, and with a promo code you can complete it for free.',
-    },
-    {
-      question: 'Who will study my answers to the questionnaire? Will information about me go anywhere? Is it safe?',
-      answer:
-        'Your answers are processed exclusively by AI algorithms. No humans have access to your personal data. All data is encrypted and stored in secure data centers.',
-    },
-    {
-      question: 'How much time is given to complete each stage?',
-      answer:
-        'You can go through the stages at your own pace. There are no time limits. You can take breaks and return to work when it suits you.',
+        'According to clause 8.1 of the Public Offer Agreement, refunds of unused APB Credits are not provided. Topping up your balance constitutes the acquisition of access rights (license) to the Service\'s functionality. We recommend topping up your balance for exactly the amount you plan to use for activating selected stages.',
     },
     {
       question:
-        'Does the service help with promoting the finished product or at least with recommendations - where and how to promote?',
+        'What happens if I paid for a stage but didn\'t finish it or accidentally closed the tab?',
       answer:
-        'Yes, at the "Marketing Strategy" and "Promotion Strategy" stages, the service develops a detailed plan for promoting your product taking into account your target audience and budget.',
+        'Don\'t worry. Stage activation is permanently linked to your account. You can pause at any question in the questionnaire and return to it even a month later — all your intermediate answers are saved in your Personal Account. No repeat payment for the same stage is required.',
     },
     {
-      question: 'Can I complete only one stage or do I need to complete all of them?',
+      question:
+        'How can I become a partner (ambassador) of the AI service "Architect of Personal Brands"?',
       answer:
-        'You can choose only the stages you need. However, we recommend starting with the Audit, as it is the foundation for all subsequent stages.',
+        'The option to become a partner is enabled automatically upon registration. In the "Profile" section of your Personal Account, you will find a unique Referral Code. Simply share it with colleagues or friends. Anyone who registers using your code becomes your referral, and you will start receiving rewards (APB Rewards) from each of their payments.',
     },
     {
-      question: 'What if I am not satisfied with the result?',
+      question: 'How do I withdraw my commission (partner rewards)?',
       answer:
-        'We guarantee the quality of our services. If you are not satisfied with the result, contact our support team and we will find a solution.',
+        'Rewards accumulate in your Affiliate Account in APB Rewards units. Withdrawal is processed upon request in your Personal Account to your payment details. Please note that according to the "Affiliate Program Terms", there is a transaction verification period (Holding Period of up to 14 days) and a minimum withdrawal threshold specified in your profile.',
     },
     {
-      question: 'How long is my data stored in the system?',
+      question:
+        'How long will I have access to my reports and strategies? Can I download them?',
       answer:
-        'Your data is stored in the system throughout your use of the service. You can request data deletion at any time.',
+        'All reports, briefs, and strategies you create are stored indefinitely in your "Archive" in your Personal Account as long as your account exists. You can view them or copy text for work at any time. The Service grants you the right to use the generated results for developing your own brand, but storing data on the user\'s side (downloading as PDF/Docx) is your responsibility.',
     },
     {
-      question: 'Is there a money-back guarantee?',
+      question: 'What legal status does a service user have?',
       answer:
-        'Yes, we provide a money-back guarantee within 14 days of purchase if you have not started using the purchased stage.',
+        'Our service is designed for professional activities. According to the "Disclaimer of Warranties" document, each user is recognized as a Business-User (Prosumer). This means you use the tools for building a business. Therefore, consumer protection laws (e.g., the right to an unmotivated refund) do not apply to our relationship, as the service is of a commercial nature.',
     },
     {
-      question: 'How to contact support?',
+      question: 'Does the service guarantee a return on my investment and income?',
       answer:
-        'You can contact us via Telegram, email or phone. Contact information is available on the "Contacts" page.',
+        'The service provides calculation models and strategies based on business logic and data analysis. However, according to the "Disclaimer of Warranties", the ultimate success of the project depends on your actions, market conditions, and the quality of implementation of the recommendations. We give you a top-class tool and a "map", but you must walk it yourself and make your own business decisions.',
     },
   ],
+};
+
+const faqDisclaimer: LocalizedContent<string> = {
+  ru: 'Дисклеймер: Маркетинговые формулировки носят ознакомительный характер. Сервис предоставляет методологический инструмент (SaaS), а не готовую бизнес-модель. Результаты генерации ИИ носят вероятностный характер и требуют проверки экспертом.',
+  en: 'Disclaimer: Marketing statements are for informational purposes only. The service provides a methodological tool (SaaS), not a ready-made business model. AI-generated results are probabilistic in nature and require expert review.',
 };
 
 // =============================================================================
@@ -138,6 +125,13 @@ const faqPageItems: LocalizedContent<FaqPageItem[]> = {
  */
 export function getFaqItems(lang: SupportedLanguage): FaqPageItem[] {
   return faqPageItems[lang];
+}
+
+/**
+ * Get FAQ disclaimer for a specific language
+ */
+export function getFaqDisclaimer(lang: SupportedLanguage): string {
+  return faqDisclaimer[lang];
 }
 
 // Legacy exports for backward compatibility
